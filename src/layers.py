@@ -27,6 +27,8 @@ class Layer:
         self.output_dim = output_dim
         self.input_bitwidth = input_bitwidth
         self.output_bitwidth = output_bitwidth
+        self.min_acc_val = -(2 ** (output_bitwidth - 1))
+        self.max_acc_val =  (2 ** (output_bitwidth - 1)) - 1
 
         #Initialize the LUTs
         self.luts = [[LUT(input_bitwidth, output_bitwidth) for _ in range(self.output_dim)] for _ in range(self.input_dim)]
@@ -40,9 +42,13 @@ class Layer:
         y = np.zeros(self.output_dim, dtype=np.int64)
 
         for out_index in range(self.output_dim):
-            
+
             # For each output feature there is an accumulator
             acc = sum(self.luts[i][out_index].read(x[i]) for i in range(self.input_dim))
+
+            #Clamp the accumulator
+            acc = max(self.min_acc_val, min(acc, self.max_acc_val))
+
             y[out_index] = acc
 
         return y
