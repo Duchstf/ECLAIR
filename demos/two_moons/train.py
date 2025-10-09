@@ -27,8 +27,7 @@ model = Eclair(config)
 #Stream single data points into the model
 for i in range(len(X)):
 
-    #Update the model with the current data point
-    model(X[i])
+    print(model(X[i]))
 
     #Plot the decision boundary
     

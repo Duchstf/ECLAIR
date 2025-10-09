@@ -27,7 +27,6 @@ class Layer:
         self.output_dim = output_dim
         self.input_bitwidth = input_bitwidth
         self.output_bitwidth = output_bitwidth
-        self.lut_size = 1 << self.input_bitwidth
 
         #Initialize the LUTs
         self.luts = [[LUT(input_bitwidth, output_bitwidth) for _ in range(self.output_dim)] for _ in range(self.input_dim)]
@@ -38,12 +37,12 @@ class Layer:
         The output is the list of accumulators output.
         """
 
-        y = [0] * self.output_dim
+        y = np.zeros(self.output_dim, dtype=np.int64)
 
         for out_index in range(self.output_dim):
+            
             # For each output feature there is an accumulator
-            acc = 0
-            acc = sum(self.luts[i][out_index][x[i]] for i in range(self.input_dim))
+            acc = sum(self.luts[i][out_index].read(x[i]) for i in range(self.input_dim))
             y[out_index] = acc
 
         return y

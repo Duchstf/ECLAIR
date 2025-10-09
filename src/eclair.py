@@ -20,16 +20,14 @@ class Eclair:
         self.input_layer = InputLayer(self.layer_bitwidths[0], self.input_range)
         self.layers = []
 
-        # for i in range(1, len(self.layer_sizes)):
-        #     input_dim = self.layer_sizes[i-1]
-        #     output_dim = self.layer_sizes[i]
-        #     bitwidth = self.layer_bitwidths[i]
+        for i in range(1, len(self.layer_sizes)):
+            input_dim = self.layer_sizes[i-1]
+            output_dim = self.layer_sizes[i]
+            input_bitwidth = self.layer_bitwidths[i-1]
+            output_bitwidth = self.layer_bitwidths[i]
 
-        #     self.layers.append(Layer(input_dim, output_dim, bitwidth))
+            self.layers.append(Layer(input_dim, output_dim, input_bitwidth, output_bitwidth))
         
-        #Print out the model summary
-
-    
     def update(self, x, y=None):
         if y is not None:
             print("Updating with y")
