@@ -39,7 +39,7 @@ class Layer:
         The output is the list of accumulators output.
         """
 
-        y = np.zeros(self.output_dim, dtype=np.int64)
+        y = np.zeros(self.output_dim, dtype=np.int32)
 
         for out_index in range(self.output_dim):
 
@@ -53,8 +53,46 @@ class Layer:
 
         return y
 
-    def backward(self, x):
-        pass
+    def backward(self, x, grad_y, learning_rate):
+        """
+        Performs one step of backpropagation for this layer.
+        1. Updates the layer's internal LUTs.
+        2. Computes and returns the gradient for the previous layer.
+        """
+
+        #The gradient of the loss w.r.t this layer's input (grad_x).
+        grad_x = np.zeros(self.input_dim, dtype=np.int64)
+
+        for i in range(self.input_dim):
+            addr = x[i]
+            weighted_grad_sum = 0
+            for j in range(self.output_dim):
+
+                #If there is no gradient do not do anything
+                grad_out_j = grad_y[j]
+                if grad_out_j == 0: continue
+                
+                delta = -learning_rate * np.sign(grad_out_j)
+                lut = self.luts[i][j]
+                mem = lut._mem
+
+                # --- Update the main address ---
+                mem[addr] = np.clip(mem[addr] + delta, self.min_acc_val, self.max_acc_val)
+
+                # --- Smoothness: update neighbors slightly less ---
+                if addr > 0:
+                    mem[addr - 1] = np.clip(round(mem[addr - 1] + 0.5 * delta), self.min_acc_val, self.max_acc_val)
+                if addr < len(mem) - 1:
+                    mem[addr + 1] = np.clip(round(mem[addr + 1] + 0.5 * delta), self.min_acc_val, self.max_acc_val)
+
+                # Calculate contribution to the backpropagated gradient.
+                # The "weight" of the connection is approximated by the LUT value.
+                lut_value = self.luts[i][j].read(addr) 
+                weighted_grad_sum += grad_y[j] * lut_value
+            
+            grad_x[i] = weighted_grad_sum
+        
+        return grad_x
     
     def __call__(self, x):
         return self.forward(x)

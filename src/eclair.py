@@ -5,6 +5,7 @@ Copyright (c) 2025 Duc Hoang
 
 MIT License
 """
+import numpy as np
 from LUT import LUT
 from layers import InputLayer, Layer
 from loss import HingeLoss
@@ -37,23 +38,34 @@ class Eclair:
         """
 
         # --- Forward Pass ---
+        # Store the input to each layer for use in the backward pass
+        self.last_inputs.clear()
+
         # First quantize the training input
         x_quantized = self.input_layer(x)
 
         # Run them through the layers
         x_current = x_quantized
         for layer in self.layers:
-            x_current = layer(x_current)
             self.last_inputs.append(x_current)
+            x_current = layer(x_current)
 
-
+        print(self.last_inputs)
         # --- Backward (Update) Step ---
-        gradient = self.loss_fn.backward(x_current, y)
+        gradient_scalar = self.loss_fn.backward(x_current, y)
+        current_grad = np.array([gradient_scalar], dtype=np.int64)
 
-        #Update the layers using the gradient
+        # Propagate the gradient backwards through the layers in reverse order
+        for i in reversed(range(len(self.layers))):
+            layer = self.layers[i]
 
-        
-
+            # The input to this layer is the i-th entry in last_inputs
+            layer_input = self.last_inputs[i]
+            
+            # The backprop method updates the layer's LUTs and returns the 
+            # gradient for the previous layer.
+            grad_to_propagate = layer.backward(layer_input, current_grad, self.learning_rate)
+            current_grad = grad_to_propagate
 
 
     def forward(self, x):

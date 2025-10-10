@@ -11,7 +11,7 @@ from eclair import Eclair
 config = {
     'layer_sizes': [2, 2, 1],
     'layer_bitwidths': [6, 6, 6],
-    'learning_rate': 0.1,
+    'learning_rate': 1,
     'input_range': [-2.5, 2.5],
     'loss': 'HingeLoss'
 }
@@ -19,7 +19,8 @@ config = {
 model = Eclair(config)
 
 # Generate the two moons dataset 
-X, y = make_moons(n_samples=1, noise=0.2, random_state=42)
+X, y = make_moons(n_samples=10, noise=0.2, random_state=42)
+y = 2 * y - 1 # Convert 0→-1 and 1→1
 X_min, X_max = X.min(axis=0) - 0.5, X.max(axis=0) + 0.5
 
 #------------------------------- FIGURE ----------------------------------
