@@ -13,13 +13,13 @@ config = {
     'layer_bitwidths': [6, 6, 6],
     'learning_rate': 0.1,
     'input_range': [-2.5, 2.5],
-    'loss': 'BCELoss'
+    'loss': 'HingeLoss'
 }
 
 model = Eclair(config)
 
 # Generate the two moons dataset 
-X, y = make_moons(n_samples=10, noise=0.2, random_state=42)
+X, y = make_moons(n_samples=1, noise=0.2, random_state=42)
 X_min, X_max = X.min(axis=0) - 0.5, X.max(axis=0) + 0.5
 
 #------------------------------- FIGURE ----------------------------------
@@ -52,7 +52,7 @@ def sigmoid(a):  # logits -> prob
 
 def field_probs():
     # Eclair returns logits per point; loop over grid
-    logits = np.array([float(model(pt)) for pt in grid]).reshape(gx.shape)
+    logits = np.array([model(pt)[0] for pt in grid]).reshape(gx.shape)
     return sigmoid(logits)
 
 Z0 = field_probs()
@@ -76,7 +76,7 @@ def init():
 
 def update(i):
     # stream one sample through the model (updates internal state/weights if online)
-    _ = model(X[i])
+    model.update(X[i], y[i])
 
     # update decision field
     im.set_data(field_probs())
