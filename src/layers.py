@@ -31,7 +31,7 @@ class Layer:
         self.max_acc_val =  (2 ** (output_bitwidth - 1)) - 1
 
         #Initialize the LUTs
-        self.luts = [[LUT(input_bitwidth, output_bitwidth) for _ in range(self.output_dim)] for _ in range(self.input_dim)]
+        self.luts = [[LUT(input_bitwidth, output_bitwidth) for i in range(self.output_dim)] for j in range(self.input_dim)]
 
     def forward(self, x):
         """
@@ -68,27 +68,33 @@ class Layer:
             weighted_grad_sum = 0
             for j in range(self.output_dim):
 
+                #Get the LUT info
+                lut = self.luts[i][j]
+                mem = lut._mem
+
                 #If there is no gradient do not do anything
                 grad_out_j = grad_y[j]
                 if grad_out_j == 0: continue
                 
                 delta = -learning_rate * np.sign(grad_out_j)
-                lut = self.luts[i][j]
-                mem = lut._mem
 
                 # --- Update the main address ---
                 mem[addr] = np.clip(mem[addr] + delta, self.min_acc_val, self.max_acc_val)
 
                 # --- Smoothness: update neighbors slightly less ---
                 if addr > 0:
-                    mem[addr - 1] = np.clip(round(mem[addr - 1] + 0.5 * delta), self.min_acc_val, self.max_acc_val)
+                    mem[addr - 1] = np.clip(mem[addr - 1] + 0.5 * delta, self.min_acc_val, self.max_acc_val)
                 if addr < len(mem) - 1:
-                    mem[addr + 1] = np.clip(round(mem[addr + 1] + 0.5 * delta), self.min_acc_val, self.max_acc_val)
-
-                # Calculate contribution to the backpropagated gradient.
-                # The "weight" of the connection is approximated by the LUT value.
-                lut_value = self.luts[i][j].read(addr) 
-                weighted_grad_sum += grad_y[j] * lut_value
+                    mem[addr + 1] = np.clip(mem[addr + 1] + 0.5 * delta, self.min_acc_val, self.max_acc_val)
+                
+                
+                #Calculate gradient locally for backprop
+                val_prev = mem[addr - 1] if addr > 0 else mem[addr]
+                val_next = mem[addr + 1] if addr < len(mem) - 1 else mem[addr]
+                local_slope = val_next - val_prev 
+                
+                # Use the local slope to propagate the gradient
+                weighted_grad_sum += grad_y[j] * local_slope
             
             grad_x[i] = weighted_grad_sum
         

@@ -50,13 +50,13 @@ class Eclair:
             self.last_inputs.append(x_current)
             x_current = layer(x_current)
 
-        print(self.last_inputs)
         # --- Backward (Update) Step ---
         gradient_scalar = self.loss_fn.backward(x_current, y)
         current_grad = np.array([gradient_scalar], dtype=np.int64)
 
         # Propagate the gradient backwards through the layers in reverse order
         for i in reversed(range(len(self.layers))):
+            print("Updating layer ", i)
             layer = self.layers[i]
 
             # The input to this layer is the i-th entry in last_inputs
@@ -67,6 +67,11 @@ class Eclair:
             grad_to_propagate = layer.backward(layer_input, current_grad, self.learning_rate)
             current_grad = grad_to_propagate
 
+        print("Label: ", y)
+        print("Gradient: ", gradient_scalar)
+        print("Input: ", self.last_inputs)
+        print("Output: ",  self.forward(x_quantized))
+        print("=================")
 
     def forward(self, x):
         x = self.input_layer(x)
