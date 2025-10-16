@@ -27,6 +27,7 @@ class Layer:
         self.output_dim = output_dim
         self.input_bitwidth = input_bitwidth
         self.output_bitwidth = output_bitwidth
+        self.L = 3
         self.min_acc_val = -(2 ** (output_bitwidth - 1))
         self.max_acc_val =  (2 ** (output_bitwidth - 1)) - 1
 
@@ -54,46 +55,55 @@ class Layer:
         return y
 
     def backward(self, x, grad_y, learning_rate):
-        """
-        Performs one step of backpropagation for this layer.
-        1. Updates the layer's internal LUTs.
-        2. Computes and returns the gradient for the previous layer.
-        """
-
-        #The gradient of the loss w.r.t this layer's input (grad_x).
         grad_x = np.zeros(self.input_dim, dtype=np.int64)
 
         for i in range(self.input_dim):
             addr = x[i]
             weighted_grad_sum = 0
             for j in range(self.output_dim):
-
-                #Get the LUT info
                 lut = self.luts[i][j]
                 mem = lut._mem
-
-                #If there is no gradient do not do anything
                 grad_out_j = grad_y[j]
-                if grad_out_j == 0: continue
-                
+
+                if grad_out_j == 0:
+                    continue
+
                 delta = -learning_rate * np.sign(grad_out_j)
-
-                # --- Update the main address ---
-                mem[addr] = np.clip(mem[addr] + delta, self.min_acc_val, self.max_acc_val)
-
-                # --- Smoothness: update neighbors slightly less ---
+                
+                # --- Enforce Lipschitz Constraint ---
+                current_val = mem[addr]
+                
+                # Constraint with previous neighbor
                 if addr > 0:
-                    mem[addr - 1] = np.clip(mem[addr - 1] + 0.5 * delta, self.min_acc_val, self.max_acc_val)
+                    prev_val = mem[addr - 1]
+                    # The new value must be in [prev_val - L, prev_val + L]
+                    # This translates to a constraint on delta
+                    delta_min = prev_val - current_val - self.L
+                    delta_max = prev_val - current_val + self.L
+                    delta = np.clip(delta, delta_min, delta_max)
+
+                # Constraint with next neighbor
                 if addr < len(mem) - 1:
-                    mem[addr + 1] = np.clip(mem[addr + 1] + 0.5 * delta, self.min_acc_val, self.max_acc_val)
+                    next_val = mem[addr + 1]
+                    # The new value must be in [next_val - L, next_val + L]
+                    delta_min = next_val - current_val - self.L
+                    delta_max = next_val - current_val + self.L
+                    delta = np.clip(delta, delta_min, delta_max)
+                # ------------------------------------
+
+                # Update the main address with the constrained delta
+                mem[addr] = np.clip(mem[addr] + delta, self.min_acc_val, self.max_acc_val)
                 
-                
-                #Calculate gradient locally for backprop
+                # The smoothness update can be kept or removed depending on desired behavior
+                # if addr > 0:
+                #     mem[addr - 1] = np.clip(mem[addr - 1] + 0.5 * delta, self.min_acc_val, self.max_acc_val)
+                # if addr < len(mem) - 1:
+                #     mem[addr + 1] = np.clip(mem[addr + 1] + 0.5 * delta, self.min_acc_val, self.max_acc_val)
+
+                # ... (rest of the backprop calculation)
                 val_prev = mem[addr - 1] if addr > 0 else mem[addr]
                 val_next = mem[addr + 1] if addr < len(mem) - 1 else mem[addr]
                 local_slope = val_next - val_prev 
-                
-                # Use the local slope to propagate the gradient
                 weighted_grad_sum += grad_y[j] * local_slope
             
             grad_x[i] = weighted_grad_sum

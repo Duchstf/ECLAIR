@@ -11,9 +11,9 @@ from eclair import Eclair
 
 #------------------------------- MODEL & DATA -----------------------------
 config = {
-    'layer_sizes': [2, 8, 1],
+    'layer_sizes': [2, 2, 1],
     'layer_bitwidths': [8, 8, 8],
-    'learning_rate': 64,
+    'learning_rate': 16,
     'input_range': [-2.5, 2.5],
     'loss': 'HingeLoss'
 }
@@ -21,7 +21,7 @@ config = {
 model = Eclair(config)
 
 # Generate the two moons dataset 
-X, y = make_moons(n_samples=500, noise=0.2, random_state=42)
+X, y = make_moons(n_samples=2000, noise=0.2, random_state=42)
 y = 2 * y - 1 # Convert 0→-1 and 1→1
 X_min, X_max = config['input_range']
 
@@ -101,7 +101,7 @@ ani = FuncAnimation(
 )
 
 # --- Save animation (mp4 preferred, gif fallback) ---
-ani.save("graphics/two_moons_eclair.gif", writer=PillowWriter(fps=3))
+ani.save("graphics/two_moons_eclair.gif", writer=PillowWriter(fps=10))
 
 plt.close(fig)
     
