@@ -5,79 +5,90 @@ Copyright (c) 2025 Duc Hoang
 
 MIT License
 """
-import numpy as np
-from LUT import LUT
-from layers import InputLayer, Layer
-from loss import HingeLoss
+import os
 
-class Eclair:
+class EclairKAN:
     def __init__(self, config):
         self.config = config
+
+        # HLS
+        self.model_dir = config['model_name']
+
+        # Network architecture
         self.layer_sizes = config['layer_sizes']
-        self.layer_bitwidths = config['layer_bitwidths']
-        self.learning_rate = config['learning_rate']
-        self.input_range = config['input_range']
-        self.loss_fn = eval(config['loss'])()
+        self.model_quantization = config['model_quantization']
+
+        # Grid
+        self.grid_range = config['grid_range']
+        self.grid_size = config['grid_size']
+
+        #Spline
+        self.spline_order = config['spline_order']
+
+        #Others
+        self.lut_resolution = config['lut_resolution']
+
         self.last_inputs = [] # Stores inputs to layers for the update pass
 
-        # Build the input layer
-        self.input_layer = InputLayer(self.layer_bitwidths[0], self.input_range)
-        self.layers = []
+        #Create the model using HLS backend and compile it to a CPU-loadable shared library
+        print("Setting up ECLAIR framework ...")
+        self._create_model()
 
-        for i in range(1, len(self.layer_sizes)):
-            input_dim = self.layer_sizes[i-1]
-            output_dim = self.layer_sizes[i]
-            input_bitwidth = self.layer_bitwidths[i-1]
-            output_bitwidth = self.layer_bitwidths[i]
+    def _create_model(self):
 
-            self.layers.append(Layer(input_dim, output_dim, input_bitwidth, output_bitwidth))
-        
-    def update(self, x, y):
-        """
-        Performs a forward pass, calculates gradient, and updates the model.
-        """
+        #Create the model directories
+        os.makedirs(self.model_dir, exist_ok=True)
+        os.makedirs(f"{self.model_dir}/firmware", exist_ok=True)
 
-        # --- Forward Pass ---
-        # Store the input to each layer for use in the backward pass
-        self.last_inputs.clear()
+        #Start from the templates
+        self._write_define_h()
 
-        # First quantize the training input
-        x_quantized = self.input_layer(x)
 
-        # Run them through the layers
-        x_current = x_quantized
-        for layer in self.layers:
-            self.last_inputs.append(x_current)
-            x_current = layer(x_current)
+        pass
 
-        # --- Backward (Update) Step ---
-        gradient_scalar = self.loss_fn.backward(x_current, y)
-        current_grad = np.array([gradient_scalar], dtype=np.int64)
+    def _write_define_h(self):
 
-        # Propagate the gradient backwards through the layers in reverse order
-        for i in reversed(range(len(self.layers))):
-            print("Updating layer ", i)
-            layer = self.layers[i]
+        # Path to template
+        template_path = os.path.join(os.path.dirname(__file__), "templates/defines.h")
+        output_path = f"{self.model_dir}/firmware/defines.h"
 
-            # The input to this layer is the i-th entry in last_inputs
-            layer_input = self.last_inputs[i]
-            
-            # The backprop method updates the layer's LUTs and returns the 
-            # gradient for the previous layer.
-            grad_to_propagate = layer.backward(layer_input, current_grad, self.learning_rate)
-            current_grad = grad_to_propagate
+        # Read the template content
+        with open(template_path, "r") as f: lines = f.readlines()
 
-        print("Label: ", y)
-        print("Gradient: ", gradient_scalar)
-        print("Input: ", self.last_inputs)
-        print("Output: ",  self.forward(x_quantized))
-        print("=================")
+        # Model architecture
+        arch = []
+        arch.append(f"#define INPUT_DIM {self.layer_sizes[0]}\n")
+        for i, v in enumerate(self.layer_sizes[1:-1], 1):
+            arch.append(f"#define H{i} {v}\n")
+        arch.append(f"#define OUTPUT_DIM {self.layer_sizes[-1]}\n")
+        model_arch = "".join(arch)
 
-    def forward(self, x):
-        x = self.input_layer(x)
-        for layer in self.layers: x = layer(x)
-        return x
-    
-    def __call__(self, x):
-        return self.forward(x)
+        lut_res = f"#define LUT_RESOLUTION {self.lut_resolution}\n"
+        quant = f"typedef {self.model_quantization} weight_t;\n"
+        h_step = (self.grid_range[1] - self.grid_range[0]) / self.grid_size
+        grid = (
+            f"static const weight_t GRID_MIN = weight_t({self.grid_range[0]});\n"
+            f"static const weight_t GRID_MAX = weight_t({self.grid_range[1]});\n"
+            f"static const weight_t H = weight_t({h_step});\n"
+        )
+
+        #Insertion map
+        insertions = {
+            "// MODEL ARCHITECTURE": model_arch,
+            "// LUT RESOLUTION": lut_res,
+            "// QUANTIZATION": quant,
+            "// GRID": grid,
+        }
+
+        # Insert generated content below comments
+        new_lines = []
+        for line in lines:
+            new_lines.append(line)
+            for key, content in insertions.items():
+                if key in line:
+                    new_lines.append(content)
+
+        # Write final header file
+        with open(output_path, "w") as f:
+            f.writelines(new_lines)
 
