@@ -89,47 +89,89 @@ class EclairKAN:
         #write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
 
+    def _format_cpp_array(self, arr):
+        """Helper to format a 1D numpy array into a C++ initializer list."""
+        if arr.ndim != 1:
+            raise ValueError(f"Array must be 1D for formatting, but got {arr.ndim} dims")
+        # Format as "{ weight_t(val1), weight_t(val2), ... }"
+        # Using scientific notation (e.g., .8e) ensures precision is kept
+        vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
+        return f"{{ {vals} }}"
+
     def _write_parameters_h(self):
 
         # Path to template
         template_path = os.path.join(os.path.dirname(__file__), "templates/parameters.h")
         outfile_path = f"{self.model_dir}/firmware/parameters.h"
 
-        # 1. Generate the BasisLUT struct based on spline_order.
-        # B-splines of order k have k+1 basis functions (B_0, ..., B_k).
+        # --- 1. Generate the BasisLUT struct definition ---
+        # (This defines the *type*)
         basis_lut_members = []
         for i in range(self.spline_order + 1):
             basis_lut_members.append(f"    weight_t B{i}[LUT_RESOLUTION];")
             basis_lut_members.append(f"    weight_t dB{i}[LUT_RESOLUTION];")
+        
+        basis_lut_struct = "struct BasisLUT {\n" + "\n".join(basis_lut_members) + "\n};\n"
 
-        basis_luts = "struct BasisLUT {\n" + "\n".join(basis_lut_members) + "\n};\n"
+        # --- 2. Generate the numerical values for the global LUT instance ---
+        # (This defines the actual *data*)
+        
+        # Call the function from tools.py to get the numerical data
+        basis_lut, derivative_lut = tools.generate_spline_luts(
+            self.spline_order,
+            self.lut_resolution,
+            self.grid_range,
+            self.grid_size
+        )
+        # The returned arrays have shape (lut_resolution, spline_order + 1)
+        
+        lut_initializers = []
+        for i in range(self.spline_order + 1):
+            # Get the i-th basis function array (column)
+            b_vals = self._format_cpp_array(basis_lut[:, i])
+            lut_initializers.append(f"    {b_vals},")
 
-        # 2. Generate the final KANParams struct based on the network layers.
-        # Create a list of C++ define names for dimensions for easier lookup,
-        # e.g., ['INPUT_DIM', 'H1', 'H2', 'OUTPUT_DIM'].
+            # Get the i-th derivative array (column)
+            db_vals = self._format_cpp_array(derivative_lut[:, i])
+            # Add a comma unless it's the very last element
+            if i < self.spline_order:
+                lut_initializers.append(f"    {db_vals},")
+            else:
+                lut_initializers.append(f"    {db_vals}")
+
+        # Create the C++ string for the global constant instance
+        # This instance will live in the header file as read-only data
+        lut_instance_str = "static const BasisLUT GLOBAL_LUT = {\n"
+        lut_instance_str += "\n".join(lut_initializers)
+        lut_instance_str += "\n};\n"
+
+        # Combine the struct *definition* and the *instance*
+        basis_luts_all = basis_lut_struct + "\n" + lut_instance_str
+
+        # --- 3. Generate the KANParams struct ---
+        # This struct should hold *trainable parameters* (coefficients), 
+        # not the read-only LUTs.
         dim_defines = ['INPUT_DIM']
         dim_defines.extend([f'H{i}' for i in range(1, len(self.layer_sizes) - 1)])
         dim_defines.append('OUTPUT_DIM')
 
-        # Generate each layer instance string.
         model_layers = []
         for i in range(len(self.layer_sizes) - 1):
             in_dim = dim_defines[i]
             out_dim = dim_defines[i+1]
             model_layers.append(f"    LayerKAN<{in_dim}, {out_dim}> L{i};")
 
-        # Add the LUT instance to the parameters.
-        model_layers.append("    BasisLUT LUT;")
-
+        # NOTE: We no longer add "BasisLUT LUT;" here.
+        # Your LayerKAN C++ implementation should be written to 
+        # use the 'GLOBAL_LUT' instance directly.
+        
         model_params = "struct KANParams {\n" + "\n".join(model_layers) + "\n};"
 
-        # 3. Create the insertion map and write to the file.
+        # --- 4. Create the insertion map and write to the file. ---
         insertions = {
-            "// BASIS LUTS": basis_luts,
+            "// BASIS LUTS": basis_luts_all, # Insert both struct and instance
             "// MODEL": model_params
             }
 
-        #write to file
+        # write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
-
-

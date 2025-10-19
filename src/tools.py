@@ -37,7 +37,6 @@ def generate_spline_luts(spline_order, lut_resolution, grid_range, grid_size):
     bases = (u[:, np.newaxis] >= knots[:-1]) & (u[:, np.newaxis] < knots[1:])
     bases = bases.astype(np.float32)
 
-
     # --- Recursive Calculation ---
     # Iteratively build up the spline order from 1 to k.
     for i in range(1, k + 1):
