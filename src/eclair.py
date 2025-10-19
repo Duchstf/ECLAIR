@@ -104,7 +104,6 @@ class EclairKAN:
 
         basis_luts = "struct BasisLUT {\n" + "\n".join(basis_lut_members) + "\n};\n"
 
-
         # 2. Generate the final KANParams struct based on the network layers.
         # Create a list of C++ define names for dimensions for easier lookup,
         # e.g., ['INPUT_DIM', 'H1', 'H2', 'OUTPUT_DIM'].
