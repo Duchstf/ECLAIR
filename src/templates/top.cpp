@@ -1,3 +1,7 @@
 #include "defines.h"
+#include "paramters.h"
+#include "components.h"
 
-static 
+void train_eclair(const input){
+
+}

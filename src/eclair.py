@@ -17,7 +17,9 @@ class EclairKAN:
 
         # Network architecture
         self.layer_sizes = config['layer_sizes']
-        self.model_quantization = config['model_quantization']
+        self.model_precision = config['model_precision']
+        self.input_precision = config['input_precision']
+        self.output_precision = config['output_precision']
 
         # Grid
         self.grid_range = config['grid_range']
@@ -68,7 +70,9 @@ class EclairKAN:
         lut_res = f"#define LUT_RESOLUTION {self.lut_resolution}\n"
 
         #Quantization Parameters
-        quant = f"typedef {self.model_quantization} weight_t;\n"
+        quant = [f"typedef {self.model_precision} weight_t;\n"]
+        quant.append(f"typedef {self.input_precision} input_t;\n")
+        quant.append(f"typedef {self.output_quantization} output_t;\n")
 
         #Grid
         h_step = (self.grid_range[1] - self.grid_range[0]) / self.grid_size
@@ -141,9 +145,10 @@ class EclairKAN:
 
         # Create the C++ string for the global constant instance
         # This instance will live in the header file as read-only data
-        lut_instance_str = "static const BasisLUT GLOBAL_LUT = {\n"
+        lut_instance_str = "static const BasisLUT LUT = {\n"
         lut_instance_str += "\n".join(lut_initializers)
         lut_instance_str += "\n};\n"
+        lut_instance_str += "#pragma HLS ARRAY_PARTITION variable=LUT complete dim=0\n"
 
         # Combine the struct *definition* and the *instance*
         basis_luts_all = basis_lut_struct + "\n" + lut_instance_str
