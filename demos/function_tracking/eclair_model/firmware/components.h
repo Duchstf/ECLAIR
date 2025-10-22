@@ -48,7 +48,7 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM]){
             const int ui = u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5);
 
             //spline-accumulation
-
+            o_sum += layer.Ws[o][i][k] * b0 + layer.Ws[o][i][k + 1] * b1 + layer.Ws[o][i][k + 2] * b2 + layer.Ws[o][i][k + 3] * b3;
         }
 
         y[o] = o_sum;

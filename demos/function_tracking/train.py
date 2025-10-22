@@ -12,7 +12,9 @@ from eclair import EclairKAN
 config = {
     #Model architecture
     'layer_sizes': [1, 1],
-    'model_quantization': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     
     #Grid
     'grid_range': [-1,1],
@@ -23,7 +25,7 @@ config = {
     
     #Others
     'lut_resolution': 256, #How many entries for storing bases values in LUTs
-    'model_name': 'my_kan_model'
+    'model_name': 'eclair_model'
 }
 
 model = EclairKAN(config)

@@ -4,8 +4,7 @@
 #include "ap_fixed.h"
 
 // MODEL ARCHITECTURE
-#define INPUT_DIM 2
-#define H1 2
+#define INPUT_DIM 1
 #define OUTPUT_DIM 1
 #define SPLINE_ORDER 3
 #define GRID_SIZE 5
@@ -16,6 +15,8 @@
 
 // QUANTIZATION
 typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> weight_t;
+typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> input_t;
+typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> output_t;
 
 // GRID
 static const weight_t GRID_MIN = weight_t(-1);

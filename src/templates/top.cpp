@@ -2,6 +2,8 @@
 #include "paramters.h"
 #include "components.h"
 
-void train_eclair(const input){
+void train_eclair(const input,
+    output
+                ){
 
 }

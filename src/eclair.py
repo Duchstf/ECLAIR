@@ -37,6 +37,17 @@ class EclairKAN:
         print("Setting up ECLAIR framework ...")
         self._create_model()
 
+    #----------------------------HELPERS---------------------------------
+    def _format_cpp_array(self, arr):
+        """Helper to format a 1D numpy array into a C++ initializer list."""
+        if arr.ndim != 1:
+            raise ValueError(f"Array must be 1D for formatting, but got {arr.ndim} dims")
+        # Format as "{ weight_t(val1), weight_t(val2), ... }"
+        # Using scientific notation (e.g., .8e) ensures precision is kept
+        vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
+        return f"{{ {vals} }}"
+    
+    #----------------------------WRITERS---------------------------------
     def _create_model(self):
 
         #Create the model directories
@@ -46,6 +57,7 @@ class EclairKAN:
         #Start from the templates
         self._write_defines_h()
         self._write_parameters_h()
+        self._write_components_h()
 
         pass
 
@@ -72,7 +84,8 @@ class EclairKAN:
         #Quantization Parameters
         quant = [f"typedef {self.model_precision} weight_t;\n"]
         quant.append(f"typedef {self.input_precision} input_t;\n")
-        quant.append(f"typedef {self.output_quantization} output_t;\n")
+        quant.append(f"typedef {self.output_precision} output_t;\n")
+        quant = "".join(quant)
 
         #Grid
         h_step = (self.grid_range[1] - self.grid_range[0]) / self.grid_size
@@ -92,15 +105,6 @@ class EclairKAN:
 
         #write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
-
-    def _format_cpp_array(self, arr):
-        """Helper to format a 1D numpy array into a C++ initializer list."""
-        if arr.ndim != 1:
-            raise ValueError(f"Array must be 1D for formatting, but got {arr.ndim} dims")
-        # Format as "{ weight_t(val1), weight_t(val2), ... }"
-        # Using scientific notation (e.g., .8e) ensures precision is kept
-        vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
-        return f"{{ {vals} }}"
 
     def _write_parameters_h(self):
 
@@ -180,3 +184,23 @@ class EclairKAN:
 
         # write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
+
+    def _write_components_h(self):
+
+        # Path to template
+        template_path = os.path.join(os.path.dirname(__file__), "templates/components.h")
+        outfile_path = f"{self.model_dir}/firmware/components.h"
+
+        accumulation = ["            o_sum += layer.Ws[o][i][k] * b0"]
+        for spline_i in range(1, self.spline_order + 1):
+            accumulation.append(f" + layer.Ws[o][i][k + {spline_i}] * b{spline_i}")
+        accumulation = "".join(accumulation) + ";"
+
+        insertions = {
+            "//spline-accumulation":accumulation
+        }
+
+        # write to file
+        tools.insert_to_file(template_path, outfile_path, insertions)
+
+        pass
