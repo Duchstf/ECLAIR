@@ -26,7 +26,7 @@ static inline void cell_index_and_local_u(weight_t x, int &k, weight_t &u){
 }
 
 template<int IN_DIM, int OUT_DIM>
-inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM]){
+inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const LayerKAN<IN_DIM, OUT_DIM> &L){
 
     // Compute for each output node
     ACCUM_O:

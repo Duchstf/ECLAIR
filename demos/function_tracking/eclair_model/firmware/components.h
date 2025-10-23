@@ -26,7 +26,7 @@ static inline void cell_index_and_local_u(weight_t x, int &k, weight_t &u){
 }
 
 template<int IN_DIM, int OUT_DIM>
-inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM]){
+inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const LayerKAN<IN_DIM, OUT_DIM> &L){
 
     // Compute for each output node
     ACCUM_O:
@@ -48,7 +48,7 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM]){
             const int ui = u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5);
 
             //spline-accumulation
-            o_sum += layer.Ws[o][i][k] * b0 + layer.Ws[o][i][k + 1] * b1 + layer.Ws[o][i][k + 2] * b2 + layer.Ws[o][i][k + 3] * b3;
+            o_sum += L.Ws[o][i][k] * b0 + L.Ws[o][i][k + 1] * b1 + L.Ws[o][i][k + 2] * b2 + L.Ws[o][i][k + 3] * b3;
         }
 
         y[o] = o_sum;

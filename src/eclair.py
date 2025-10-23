@@ -30,6 +30,14 @@ class EclairKAN:
 
         #Others
         self.lut_resolution = config['lut_resolution']
+        self.dim_defines = ['INPUT_DIM']
+        self.dim_defines.extend([f'H{i}' for i in range(1, len(self.layer_sizes) - 1)])
+        self.dim_defines.append('OUTPUT_DIM')
+
+        #Keep track of the inputs and outputs of the layers
+        self.layer_vars = ['input']
+        self.layer_vars.extend([f'layer{i}_out' for i in range(1,  len(self.layer_sizes) - 1)])
+        self.layer_vars.append('output')
 
         self.last_inputs = [] # Stores inputs to layers for the update pass
 
@@ -58,6 +66,7 @@ class EclairKAN:
         self._write_defines_h()
         self._write_parameters_h()
         self._write_components_h()
+        self._write_top_cpp()
 
         pass
 
@@ -160,19 +169,11 @@ class EclairKAN:
         # --- 3. Generate the KANParams struct ---
         # This struct should hold *trainable parameters* (coefficients), 
         # not the read-only LUTs.
-        dim_defines = ['INPUT_DIM']
-        dim_defines.extend([f'H{i}' for i in range(1, len(self.layer_sizes) - 1)])
-        dim_defines.append('OUTPUT_DIM')
-
         model_layers = []
         for i in range(len(self.layer_sizes) - 1):
-            in_dim = dim_defines[i]
-            out_dim = dim_defines[i+1]
+            in_dim = self.dim_defines[i]
+            out_dim = self.dim_defines[i+1]
             model_layers.append(f"    LayerKAN<{in_dim}, {out_dim}> L{i};")
-
-        # NOTE: We no longer add "BasisLUT LUT;" here.
-        # Your LayerKAN C++ implementation should be written to 
-        # use the 'GLOBAL_LUT' instance directly.
         
         model_params = "struct KANParams {\n" + "\n".join(model_layers) + "\n};"
 
@@ -191,9 +192,9 @@ class EclairKAN:
         template_path = os.path.join(os.path.dirname(__file__), "templates/components.h")
         outfile_path = f"{self.model_dir}/firmware/components.h"
 
-        accumulation = ["            o_sum += layer.Ws[o][i][k] * b0"]
+        accumulation = ["            o_sum += L.Ws[o][i][k] * b0"]
         for spline_i in range(1, self.spline_order + 1):
-            accumulation.append(f" + layer.Ws[o][i][k + {spline_i}] * b{spline_i}")
+            accumulation.append(f" + L.Ws[o][i][k + {spline_i}] * b{spline_i}")
         accumulation = "".join(accumulation) + ";"
 
         insertions = {
@@ -203,4 +204,28 @@ class EclairKAN:
         # write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
 
-        pass
+    def _write_top_cpp(self):
+
+        # Path to template
+        template_path = os.path.join(os.path.dirname(__file__), "templates/top.cpp")
+        outfile_path = f"{self.model_dir}/firmware/top.cpp"
+
+        forward_pass = []
+        num_layers = len(self.layer_sizes)
+        for layer_i in range(num_layers - 1):
+            in_dim = self.dim_defines[layer_i]
+            out_dim = self.dim_defines[layer_i+1]
+
+            input_var = self.layer_vars[layer_i]
+            output_var = self.layer_vars[layer_i + 1]
+
+            forward_pass.append(f"    forward<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i})\n")
+
+        forward_pass = "".join(forward_pass)
+
+        insertions = {
+            "//forward-pass": forward_pass
+        }
+
+        # write to file
+        tools.insert_to_file(template_path, outfile_path, insertions)

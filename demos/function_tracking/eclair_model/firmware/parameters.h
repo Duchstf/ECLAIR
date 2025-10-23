@@ -35,7 +35,8 @@ struct LayerKAN {
 
 // MODEL
 struct KANParams {
-    LayerKAN<INPUT_DIM, OUTPUT_DIM> L0;
+    LayerKAN<INPUT_DIM, H1> L0;
+    LayerKAN<H1, OUTPUT_DIM> L1;
 };
 
 

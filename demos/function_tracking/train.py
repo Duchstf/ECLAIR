@@ -11,7 +11,7 @@ from eclair import EclairKAN
 #------------------------------- MODEL & DATA -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [1, 1],
+    'layer_sizes': [2, 2, 1],
     'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
