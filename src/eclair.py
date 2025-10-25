@@ -210,7 +210,9 @@ class EclairKAN:
         template_path = os.path.join(os.path.dirname(__file__), "templates/top.cpp")
         outfile_path = f"{self.model_dir}/firmware/top.cpp"
 
+        #Define forward pass
         forward_pass = []
+        variable_definitions = []
         num_layers = len(self.layer_sizes)
         for layer_i in range(num_layers - 1):
             in_dim = self.dim_defines[layer_i]
@@ -219,11 +221,14 @@ class EclairKAN:
             input_var = self.layer_vars[layer_i]
             output_var = self.layer_vars[layer_i + 1]
 
-            forward_pass.append(f"    forward<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i})\n")
+            if output_var != 'output': variable_definitions.append(f"    weight_t {output_var}[{out_dim}];\n") 
+            forward_pass.append(f"    forward<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i});\n")
 
+        variable_definitions = "".join(variable_definitions)
         forward_pass = "".join(forward_pass)
 
         insertions = {
+            "//variable-definitions": variable_definitions,
             "//forward-pass": forward_pass
         }
 
