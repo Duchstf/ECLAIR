@@ -83,6 +83,7 @@ class EclairKAN:
             arch.append(f"#define H{i} {v}\n")
         arch.append(f"#define OUTPUT_DIM {self.layer_sizes[-1]}\n")
         arch.append(f"#define SPLINE_ORDER {self.spline_order}\n")
+        arch.append(f"#define NUM_BASIS {self.spline_order + 1}\n")
         arch.append(f"#define GRID_SIZE {self.grid_size}\n")
         arch.append(f"#define COEFF {self.grid_size + self.spline_order}\n")
         model_arch = "".join(arch)
@@ -102,6 +103,7 @@ class EclairKAN:
             f"static const weight_t GRID_MIN = weight_t({self.grid_range[0]});\n"
             f"static const weight_t GRID_MAX = weight_t({self.grid_range[1]});\n"
             f"static const weight_t H = weight_t({h_step});\n"
+            f"static const weight_t INV_H = weight_t({1/h_step})"
         )
 
         #Insertion map
@@ -121,7 +123,7 @@ class EclairKAN:
         template_path = os.path.join(os.path.dirname(__file__), "templates/parameters.h")
         outfile_path = f"{self.model_dir}/firmware/parameters.h"
 
-        # --- 1. Generate the BasisLUT struct definition ---
+        # --- Generate the BasisLUT struct definition ---
         # (This defines the *type*)
         basis_lut_members = []
         for i in range(self.spline_order + 1):
@@ -130,7 +132,7 @@ class EclairKAN:
         
         basis_lut_struct = "struct BasisLUT {\n" + "\n".join(basis_lut_members) + "\n};\n"
 
-        # --- 2. Generate the numerical values for the global LUT instance ---
+        # --- Generate the numerical values for the global LUT instance ---
         # (This defines the actual *data*)
         
         # Call the function from tools.py to get the numerical data
@@ -166,21 +168,21 @@ class EclairKAN:
         # Combine the struct *definition* and the *instance*
         basis_luts_all = basis_lut_struct + "\n" + lut_instance_str
 
-        # --- 3. Generate the KANParams struct ---
+        # --- Generate the KANParams struct ---
         # This struct should hold *trainable parameters* (coefficients), 
         # not the read-only LUTs.
         model_layers = []
         for i in range(len(self.layer_sizes) - 1):
             in_dim = self.dim_defines[i]
             out_dim = self.dim_defines[i+1]
-            model_layers.append(f"    LayerKAN<{in_dim}, {out_dim}> L{i};")
+            model_layers.append(f"    LayerParams<{in_dim}, {out_dim}> L{i};")
         
         model_params = "struct KANParams {\n" + "\n".join(model_layers) + "\n};"
 
         # --- 4. Create the insertion map and write to the file. ---
         insertions = {
-            "// BASIS LUTS": basis_luts_all, # Insert both struct and instance
-            "// MODEL": model_params
+            "//BASIS-LUTS": basis_luts_all, # Insert both struct and instance
+            "//MODEL": model_params
             }
 
         # write to file
@@ -192,13 +194,36 @@ class EclairKAN:
         template_path = os.path.join(os.path.dirname(__file__), "templates/components.h")
         outfile_path = f"{self.model_dir}/firmware/components.h"
 
-        accumulation = ["            o_sum += L.Ws[o][i][k] * b0"]
-        for spline_i in range(1, self.spline_order + 1):
-            accumulation.append(f" + L.Ws[o][i][k + {spline_i}] * b{spline_i}")
+        # Write out the look up and addition explicitly
+        basis_lookup = []
+        accumulation = ["            o_sum +="]
+
+        weight_update_input_output = []
+       
+        for spline_i in range(0, self.spline_order + 1):
+
+            #Forward
+            basis_lookup.append(f"            weight_t b{spline_i} = LUT.B{spline_i}[ui];\n")
+
+            if spline_i != 0: accumulation.append(f" + L.Ws[o][i][k + {spline_i}] * b{spline_i}") 
+            else: accumulation.append(f" L.Ws[o][i][k] * b{spline_i}") 
+
+            #Backprop
+            weight_update_input_output.append(f"            L.Ws[o][i][k] -= delta * LUT.B{spline_i}[u_index];\n")
+
+        #Join them all into strings
+        basis_lookup = "".join(basis_lookup)
         accumulation = "".join(accumulation) + ";"
+        weight_update_input_output = "".join(weight_update_input_output)
 
         insertions = {
-            "//spline-accumulation":accumulation
+            
+            #Forward
+            "//spline-lookup": basis_lookup,
+            "//spline-accumulation":accumulation,
+
+            #Backprop
+            "//weight-update-input-output": weight_update_input_output
         }
 
         # write to file

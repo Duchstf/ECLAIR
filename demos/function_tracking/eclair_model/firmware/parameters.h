@@ -3,7 +3,7 @@
 
 #include "defines.h"
 
-// BASIS LUTS
+//BASIS-LUTS
 struct BasisLUT {
     weight_t B0[LUT_RESOLUTION];
     weight_t dB0[LUT_RESOLUTION];
@@ -27,16 +27,23 @@ static const BasisLUT LUT = {
 };
 #pragma HLS ARRAY_PARTITION variable=LUT complete dim=0
 
-// LAYER 
+//FORWARD-CONTEXT
 template<int IN_DIM, int OUT_DIM>
-struct LayerKAN {
+struct LayerContext {
+    int k[OUT_DIM][IN_DIM];
+    int u_index[OUT_DIM][IN_DIM];
+};
+
+//LAYER 
+template<int IN_DIM, int OUT_DIM>
+struct LayerParams {
     weight_t Ws[OUT_DIM][IN_DIM][COEFF];
 };
 
-// MODEL
+//MODEL
 struct KANParams {
-    LayerKAN<INPUT_DIM, H1> L0;
-    LayerKAN<H1, OUTPUT_DIM> L1;
+    LayerParams<INPUT_DIM, H1> L0;
+    LayerParams<H1, OUTPUT_DIM> L1;
 };
 
 

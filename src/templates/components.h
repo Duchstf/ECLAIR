@@ -26,7 +26,7 @@ static inline void cell_index_and_local_u(weight_t x, int &k, weight_t &u){
 }
 
 template<int IN_DIM, int OUT_DIM>
-inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const LayerKAN<IN_DIM, OUT_DIM> &L){
+inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const LayerParams<IN_DIM, OUT_DIM> &L){
 
     // Compute for each output node
     ACCUM_O:
@@ -47,6 +47,8 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const L
             //Get the index for the activation function look up
             const int ui = u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5);
 
+            //spline-lookup
+            
             //spline-accumulation
 
         }
@@ -56,4 +58,56 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const L
 
 }
 
+template<int IN_DIM, int OUT_DIM>
+inline void backward_input_output( //Whhen the layer is connected to both the input and output of the model
+    LayerParams<IN_DIM, OUT_DIM> &L,
+    const LayerContext &C, // Forward-pass context for this layer's input
+    const output_t dL_dy[OUT_DIM], // Upstream gradie
+    const weight_t lr // Learning rate
+){
+    for (int o = 0; o < OUT_DIM; o++) {
+        #pragma HLS UNROLL
+        weight_t dL_dy_o = dL_dy[o]; // Get upstream grad for this output
+
+        for (int i = 0; i < IN_DIM; i++){
+            #pragma HLS UNROLL
+
+            // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
+            int k = C.k[o][i];
+            int u_index = C.u_index[o][i]
+            weight_t delta = lr * dL_dy_o;
+
+            //weight-update-input-output
+        }
+    }
+
+}
+
+// template<int IN_DIM, int OUT_DIM>
+// inline void backward_layer(
+//     LayerParams<IN_DIM, OUT_DIM> &L, // Layer Parameters to update
+//     weight_t dL_dx[IN_DIM], // Downstream gradient
+//     const LayerContext &C, // Forward-pass context for this layer's input
+//     const weight_t dL_dy[OUT_DIM], // Upstream gradient
+//     const weight_t lr // Learning rate
+// ){
+
+//     // Initialize downstream gradient
+//     for (int i = 0; i < IN_DIM; i++) {
+//         #pragma HLS UNROLL
+//         dL_dx[i] = 0;
+//     }
+
+//     for (int o = 0; o < OUT_DIM; o++) {
+//         #pragma HLS UNROLL
+//         weight_t dL_dy_o = dL_dy[o]; // Get upstream grad for this output
+
+//         for (int i = 0; i < IN_DIM; i++){
+//             #pragma HLS UNROLL
+
+//             //weight-update
+//         }
+//     }
+
+// }
 #endif
