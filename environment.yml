@@ -10,3 +10,8 @@ dependencies:
       - matplotlib
       - notebook
       - scikit-learn
+      # Add the index URL as its own list item
+      - --index-url https://download.pytorch.org/whl/cpu
+      # List each package on its own line
+      - torch
+      - torchvision

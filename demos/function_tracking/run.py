@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
 import argparse
 from pathlib import Path
+import torch
+import torch.nn as nn
+import torch.optim as optim
 
 #----------------Helpers---------------
 def f_t(x, t):
@@ -126,37 +129,135 @@ def animate_stacked_plot(t_data, x_data, y_data, out_gif,
     plt.close(fig)
     return out_gif
 
+#----------------NEW MODEL CLASS---------------
+class StreamingMLP(nn.Module):
+    """
+    A simple MLP for online learning, predicting y from (x, t).
+    """
+    def __init__(self, input_size=2, hidden_size=64, output_size=1, lr=0.001):
+        super().__init__()
+        self.network = nn.Sequential(
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, output_size)
+        )
+        self.optimizer = optim.Adam(self.parameters(), lr=lr)
+        self.loss_fn = nn.MSELoss()
+
+    def _to_tensor(self, val):
+        """Converts a scalar or 1D array to a 2D tensor [1, N]."""
+        return torch.tensor(val, dtype=torch.float32).reshape(1, -1)
+
+    def predict(self, x, t):
+        """Predicts y from a single (x, t) pair."""
+        self.eval() # Set to evaluation mode
+        with torch.no_grad():
+            inputs = self._to_tensor([x, t])
+            y_pred = self.network(inputs)
+        return y_pred.item() # Return scalar
+
+    def update(self, x, t, y_true):
+        """Performs one online update step."""
+        self.train() # Set to training mode
+        
+        inputs = self._to_tensor([x, t])
+        target = self._to_tensor([y_true])
+        
+        # Standard training loop
+        self.optimizer.zero_grad()
+        y_pred = self.network(inputs)
+        loss = self.loss_fn(y_pred, target)
+        loss.backward()
+        self.optimizer.step()
+        
+        return loss.item() # Return scalar loss
+
+#----------------UPDATED MAIN---------------
 def main():
 
-    ap = argparse.ArgumentParser(description="Generate time series (t,x_t,y_t) and animations.")
+    ap = argparse.ArgumentParser(description="Generate and model time series (t,x_t,y_t) with online learning.")
     ap.add_argument("--n", type=int, default=500, help="number of time steps / data points")
     ap.add_argument("--interval_ms", type=int, default=20, help="animation frame interval in ms")
-    ap.add_argument("--gif_stacked", type=Path, default=Path("plots/stacked_time_series.gif"))
-    ap.add_argument("--gif_y_vs_x", type=Path, default=Path("plots/y_vs_x.gif"))
+    # Removed old args, added new ones for prediction and loss plots
+    ap.add_argument("--gif_pred", type=Path, default=Path("plots/predictions_vs_time.gif"))
+    ap.add_argument("--gif_loss", type=Path, default=Path("plots/loss_vs_time.gif"))
     
     args = ap.parse_args()
 
     # Ensure output directories exist
-    args.gif_stacked.parent.mkdir(parents=True, exist_ok=True)
-    args.gif_y_vs_x.parent.mkdir(parents=True, exist_ok=True) 
+    args.gif_pred.parent.mkdir(parents=True, exist_ok=True)
+    args.gif_loss.parent.mkdir(parents=True, exist_ok=True) 
 
-    #Create dataset
-    t_series,x_series,y_series = build_time_series(n=args.n)
+    # Create dataset
+    t_series, x_series, y_series = build_time_series(n=args.n)
 
-    #Streaming the data point one by one
+    # --- Start of Pseudo-code Implementation ---
+
+    # 1. Initialize Model
+    model = StreamingMLP()
+
+    # 2. Stream data, predict, and update
     pred_stream = []
+    loss_stream = []
+    
+    print(f"Starting online learning for {args.n} steps...")
     for i in range(len(t_series)):
-        t, x, y= t_series[i], x_series[i], y_series[i]
+        t, x, y = t_series[i], x_series[i], y_series[i]
         
-        #Pseudo code, improve this
-        pred = model.predict(x,t)
+        # Get prediction
+        pred = model.predict(x, t)
         pred_stream.append(pred)
 
-        #Measure feedback (MSE)
+        # Measure feedback (MSE) and update the model
+        loss = model.update(x, t, y)
+        loss_stream.append(loss)
+        
+        if (i + 1) % 100 == 0:
+            print(f"  Step {i+1}/{args.n}, Current Loss: {loss:.6f}")
 
-        #Update the model based on feed back
+    print("Online learning complete.")
+
+    # Convert results to numpy arrays for plotting
+    y_pred_series = np.array(pred_stream)
+    mse_loss_series = np.array(loss_stream)
+
+    # --- End of Pseudo-code Implementation ---
+
+    # 3. Create animation for predictions and loss
+    # We re-use the existing `animate_plot` function for simplicity.
     
-    #Create animation for streaming x, y, the predictions, and the mse loss to check
+    print(f"Generating prediction animation: {args.gif_pred}")
+    # This plot animates Predicted Y vs. Time
+    animate_plot(
+        x_data=t_series, 
+        y_data=y_pred_series, 
+        t_data=t_series, 
+        xlabel="Time t", 
+        ylabel="Predicted y_pred(t)", 
+        title="Online Model Prediction",
+        out_gif=args.gif_pred,
+        interval_ms=args.interval_ms
+    )
+
+    print(f"Generating loss animation: {args.gif_loss}")
+    # This plot animates MSE Loss vs. Time
+    animate_plot(
+        x_data=t_series,
+        y_data=mse_loss_series,
+        t_data=t_series,
+        xlabel="Time t",
+        ylabel="MSE Loss",
+        title="Online Learning Loss",
+        out_gif=args.gif_loss,
+        interval_ms=args.interval_ms
+    )
+    
+    print(f"Done. Animations saved to:\n- {args.gif_pred}\n- {args.gif_loss}")
+
 
 if __name__ == "__main__":
     main()
