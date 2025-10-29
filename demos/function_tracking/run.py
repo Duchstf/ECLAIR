@@ -5,6 +5,7 @@ from matplotlib.animation import FuncAnimation, PillowWriter
 import argparse
 from pathlib import Path
 
+#----------------Helpers---------------
 def f_t(x, t):
     """Defines the relationship y = f(x, t)"""
     return np.sin(x) + 0.3 * x**2 + 0.2 * np.sin(0.01 * t)
@@ -124,49 +125,38 @@ def animate_stacked_plot(t_data, x_data, y_data, out_gif,
     ani.save(out_gif, writer=PillowWriter(fps=max(1, int(1000/interval_ms))))
     plt.close(fig)
     return out_gif
-# --- END NEW FUNCTION ---
-
 
 def main():
+
     ap = argparse.ArgumentParser(description="Generate time series (t,x_t,y_t) and animations.")
-    ap.add_argument("--n", type=int, required=True, help="number of time steps / data points")
-    ap.add_argument("--seed", type=int, default=0, help="random seed")
+    ap.add_argument("--n", type=int, default=500, help="number of time steps / data points")
     ap.add_argument("--interval_ms", type=int, default=20, help="animation frame interval in ms")
-    ap.add_argument("--out_csv", type=Path, default=Path("data/series.csv"))
-    
-    # --- MODIFIED ARGUMENTS ---
     ap.add_argument("--gif_stacked", type=Path, default=Path("plots/stacked_time_series.gif"))
     ap.add_argument("--gif_y_vs_x", type=Path, default=Path("plots/y_vs_x.gif"))
-    # (Removed --gif_x and --gif_y)
-    # --- END MODIFIED ARGUMENTS ---
     
     args = ap.parse_args()
 
     # Ensure output directories exist
-    args.out_csv.parent.mkdir(parents=True, exist_ok=True)
-    args.gif_stacked.parent.mkdir(parents=True, exist_ok=True) # Use new arg
-    args.gif_y_vs_x.parent.mkdir(parents=True, exist_ok=True) # Keep this one
+    args.gif_stacked.parent.mkdir(parents=True, exist_ok=True)
+    args.gif_y_vs_x.parent.mkdir(parents=True, exist_ok=True) 
 
-    # Generate and save data
-    t, x, y = build_time_series(args.n, seed=args.seed)
-    save_csv(t, x, y, args.out_csv)
-    print(f"Saved CSV with columns (t,x,y): {args.out_csv}")
+    #Create dataset
+    t_series,x_series,y_series = build_time_series(n=args.n)
 
-    # --- MODIFIED ANIMATION CALLS ---
-    # Call the new stacked plot function
-    animate_stacked_plot(t, x, y,
-                         out_gif=str(args.gif_stacked),
-                         interval_ms=args.interval_ms,
-                         figsize=(20, 8)) # Taller figure
-    print(f"Saved stacked time series animation: {args.gif_stacked}")
+    #Streaming the data point one by one
+    pred_stream = []
+    for i in range(len(t_series)):
+        t, x, y= t_series[i], x_series[i], y_series[i]
+        
+        #Pseudo code, improve this
+        pred = model.predict(x,t)
+        pred_stream.append(pred)
 
-    # This call remains unchanged, using the original animate_plot function
-    animate_plot(x, y, t,
-                 xlabel="x", ylabel="y", title="y versus x",
-                 out_gif=str(args.gif_y_vs_x), interval_ms=args.interval_ms,
-                 figsize=(8, 6))
-    print(f"Saved y-vs-x animation: {args.gif_y_vs_x}")
-    # --- END MODIFIED ANIMATION CALLS ---
+        #Measure feedback (MSE)
+
+        #Update the model based on feed back
+    
+    #Create animation for streaming x, y, the predictions, and the mse loss to check
 
 if __name__ == "__main__":
     main()
