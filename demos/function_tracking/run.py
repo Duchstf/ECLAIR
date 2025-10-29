@@ -17,11 +17,6 @@ def build_time_series(n, seed=0, low=-2.0, high=2.0):
     y = f_t(x, t)
     return t, x, y
 
-def save_csv(t, x, y, out_csv):
-    """Saves the time series data to a CSV file."""
-    data = np.column_stack([t, x, y])
-    np.savetxt(out_csv, data, delimiter=",", header="t,x,y", comments="")
-    return out_csv
 
 def animate_plot(x_data, y_data, t_data, xlabel, ylabel, title, out_gif, 
                  interval_ms=20, figsize=(20, 4)):
