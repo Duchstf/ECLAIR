@@ -11,17 +11,38 @@ import torch.optim as optim
 #----------------Helpers---------------
 def f_t(x, t):
     """Defines the relationship y = f(x, t)"""
-    return np.sin(x) + 0.3 * x**2 + 0.2 * np.sin(0.01 * t)
+    return np.sin(x) + 0.3 * x**2 + 0.2 * np.sin(0.01 * t) 
 
 def build_time_series(n, seed=0, low=-2.0, high=2.0):
-    """Generates time, x, and y data."""
+    """
+    Generates time, x, and y data.
+    Returns t_scaled, x, and y, where t_scaled is in the [low, high] range.
+    """
     rng = np.random.default_rng(seed)
-    t = np.arange(n, dtype=float)
-    x = rng.uniform(low, high, size=n)     # x_t ~ U[-2,2] each time step
-    y = f_t(x, t)
-    return t, x, y
+    
+    # 1. Generate original t in [0, n-1]
+    t_orig = np.arange(n, dtype=float) 
+    
+    # 2. Generate x in [low, high]
+    x = rng.uniform(low, high, size=n)
+    
+    # 3. Generate y using the *original* t values
+    y = f_t(x, t_orig)
+    
+    # 4. Scale t to be in the [low, high] range (same as x)
+    t_min = 0.0
+    t_max = float(n - 1)
+    
+    # Handle n=1 case to avoid division by zero
+    if n == 1:
+        t_scaled = np.array([low + (high - low) / 2.0]) # Place it in the middle
+    else:
+        # Standard Min-Max scaling from [t_min, t_max] to [low, high]
+        t_scaled = low + (high - low) * (t_orig - t_min) / (t_max - t_min)
+    
+    return t_scaled, x, y
 
-# --- NEW 4-PLOT ANIMATION FUNCTION ---
+# --- 4-PLOT ANIMATION FUNCTION (Unchanged) ---
 def animate_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_gif, 
                          interval_ms=20, figsize=(10, 10)):
     """
@@ -134,7 +155,69 @@ def animate_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_gif,
     plt.close(fig)
     return out_gif
 
-#----------------NEW MODEL CLASS (Unchanged)---------------
+# --- NEW STATIC 4-PLOT FUNCTION ---
+def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_file, 
+                         figsize=(10, 10)):
+    """
+    Saves a 4-plot stacked static image of the final state:
+    1. x vs t
+    2. y vs t
+    3. y_pred vs t (and y vs t)
+    4. loss vs t
+    """
+    # Create 4 subplots, stacked vertically, sharing the x-axis
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=figsize, sharex=True)
+    
+    # --- Plot 1: x vs t ---
+    ax1.plot(t_data, x_data, lw=2, label="x(t)", color="C0")
+    ax1.plot([t_data[-1]], [x_data[-1]], "o", ms=4, color="C0") # Final dot
+    xpad = 0.05 * (x_data.max() - x_data.min() + 1e-9)
+    ax1.set_ylim(x_data.min() - xpad, x_data.max() + xpad)
+    ax1.set_ylabel("x(t)")
+    ax1.legend(loc="upper left")
+    title_text = ax1.set_title(f"Final State (t = {int(t_data[-1])})") # Title on the top plot
+
+    # --- Plot 2: y vs t ---
+    ax2.plot(t_data, y_data, lw=2, label="y(t) (True)", color="C1")
+    ax2.plot([t_data[-1]], [y_data[-1]], "o", ms=4, color="C1") # Final dot
+    ypad = 0.05 * (y_data.max() - y_data.min() + 1e-9)
+    ax2.set_ylim(y_data.min() - ypad, y_data.max() + ypad)
+    ax2.set_ylabel("y(t) True")
+    ax2.legend(loc="upper left")
+
+    # --- Plot 3: y_pred vs t (and y vs t) ---
+    all_y_comp = np.concatenate([y_data, y_pred_data])
+    y_comp_pad = 0.05 * (all_y_comp.max() - all_y_comp.min() + 1e-9)
+    ax3.set_ylim(y_data.min() - ypad, y_data.max() + ypad)
+    
+    ax3.plot(t_data, y_data, lw=2, label="y(t) (True)", color="C1", linestyle="--", alpha=0.7)
+    ax3.plot([t_data[-1]], [y_data[-1]], "o", ms=4, color="C1", alpha=0.7) # Final dot
+    ax3.plot(t_data, y_pred_data, lw=2, label="y(t) (Pred)", color="C2")
+    ax3.plot([t_data[-1]], [y_pred_data[-1]], "o", ms=4, color="C2") # Final dot
+    ax3.set_ylabel("Prediction")
+    ax3.legend(loc="upper left")
+
+    # --- Plot 4: loss vs t ---
+    ax4.plot(t_data, loss_data, lw=2, label="MSE Loss", color="C3")
+    ax4.plot([t_data[-1]], [loss_data[-1]], "o", ms=4, color="C3") # Final dot
+    lpad = 0.05 * (loss_data.max() - loss_data.min() + 1e-9)
+    # Set bottom y-limit to 0 or just below min
+    ax4.set_ylim(min(0, loss_data.min()) - lpad, loss_data.max() + lpad)
+    ax4.set_ylabel("MSE Loss")
+    ax4.legend(loc="upper left")
+
+    # --- Common settings ---
+    ax4.set_xlabel("time t") # Label only on the bottom plot
+    ax1.set_xlim(t_data.min(), t_data.max()) # Set common x-limits
+    
+    plt.tight_layout() # Adjust layout
+
+    # Save the figure
+    plt.savefig(out_file)
+    plt.close(fig)
+    return out_file
+
+#----------------MODEL CLASS (Unchanged)---------------
 class StreamingMLP(nn.Module):
     """
     A simple MLP for online learning, predicting y from (x, t).
@@ -189,13 +272,23 @@ def main():
     ap.add_argument("--interval_ms", type=int, default=20, help="animation frame interval in ms")
     
     # --- MODIFIED ARGS ---
-    ap.add_argument("--gif_all", type=Path, default=Path("plots/all_plots_stacked.gif"),
-                    help="Output GIF file for all 4 stacked plots")
+    ap.add_argument("--output", type=Path, default=Path("plots/output.gif"),
+                    help="Output file path. Extension determines type (e.g., .gif, .png)")
+    ap.add_argument("--static", type=bool, default=False,
+                    help="Generate a static plot of the final state instead of an animation.")
     
     args = ap.parse_args()
 
     # Ensure output directory exists
-    args.gif_all.parent.mkdir(parents=True, exist_ok=True) 
+    args.output.parent.mkdir(parents=True, exist_ok=True) 
+
+    # --- Auto-adjust output extension based on --static flag ---
+    if args.static and args.output.suffix != ".png":
+        print(f"Info: --static flag set, saving output as .png")
+        args.output = args.output.with_suffix(".png")
+    elif not args.static and args.output.suffix != ".gif":
+        print(f"Info: --static flag NOT set, saving output as .gif")
+        args.output = args.output.with_suffix(".gif")
 
     # Create dataset
     t_series, x_series, y_series = build_time_series(n=args.n)
@@ -232,23 +325,33 @@ def main():
 
     # --- End of Pseudo-code Implementation ---
 
-    # 3. Create a single animation with all 4 plots
+    # 3. Create animation or static plot based on --static flag
     
-    print(f"Generating stacked animation: {args.gif_all}")
-    
-    # --- REPLACED PLOTTING CALLS ---
-    animate_four_plots(
-        t_data=t_series,
-        x_data=x_series,
-        y_data=y_series,
-        y_pred_data=y_pred_series,
-        loss_data=mse_loss_series,
-        out_gif=args.gif_all,
-        interval_ms=args.interval_ms,
-        figsize=(10, 10) # Make figure taller for 4 plots
-    )
-    
-    print(f"Done. Animation saved to: {args.gif_all}")
+    if args.static:
+        print(f"Generating static plot: {args.output}")
+        save_static_four_plots(
+            t_data=t_series,
+            x_data=x_series,
+            y_data=y_series,
+            y_pred_data=y_pred_series,
+            loss_data=mse_loss_series,
+            out_file=args.output,
+            figsize=(10, 10) # Make figure taller for 4 plots
+        )
+        print(f"Done. Plot saved to: {args.output}")
+    else:
+        print(f"Generating stacked animation: {args.output}")
+        animate_four_plots(
+            t_data=t_series,
+            x_data=x_series,
+            y_data=y_series,
+            y_pred_data=y_pred_series,
+            loss_data=mse_loss_series,
+            out_gif=args.output,
+            interval_ms=args.interval_ms,
+            figsize=(10, 10) # Make figure taller for 4 plots
+        )
+        print(f"Done. Animation saved to: {args.output}")
 
 
 if __name__ == "__main__":
