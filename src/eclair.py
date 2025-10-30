@@ -284,3 +284,25 @@ class EclairKAN:
 
         # write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
+
+    #----------------------------HLS API---------------------------------
+    def compile(self, vitis_hls_path=None):
+        """Compiles the generated HLS C++ files into a 
+           shared library for CPU-based testing.
+        """
+
+        print("Compiling C++ into shared library...")
+        if vitis_hls_path is None: raise ValueError("Vitis HLSpath is required for compilation")
+
+        compile_cmd = (
+            f"g++ -shared -o {self.model_dir}/firmware/model.so -fPIC "
+            f"{self.model_dir}/firmware/top.cpp -I. "
+            f"-I{vitis_hls_path}/include -std=c++11"
+        )
+
+        print(f"Running: {compile_cmd}")
+        status = os.system(compile_cmd)
+        if status != 0:
+            raise RuntimeError("C++ compilation failed!")
+
+        print("Compilation successful.")
