@@ -17,6 +17,7 @@ class EclairKAN:
 
         # Network architecture
         self.layer_sizes = config['layer_sizes']
+        self.num_layers = len(self.layer_sizes) - 1
         self.model_precision = config['model_precision']
         self.input_precision = config['input_precision']
         self.output_precision = config['output_precision']
@@ -33,6 +34,8 @@ class EclairKAN:
         self.dim_defines = ['INPUT_DIM']
         self.dim_defines.extend([f'H{i}' for i in range(1, len(self.layer_sizes) - 1)])
         self.dim_defines.append('OUTPUT_DIM')
+
+        self.learning_rate = config['learning_rate']
 
         #Keep track of the inputs and outputs of the layers
         self.layer_vars = ['input']
@@ -103,15 +106,19 @@ class EclairKAN:
             f"static const weight_t GRID_MIN = weight_t({self.grid_range[0]});\n"
             f"static const weight_t GRID_MAX = weight_t({self.grid_range[1]});\n"
             f"static const weight_t H = weight_t({h_step});\n"
-            f"static const weight_t INV_H = weight_t({1/h_step})"
+            f"static const weight_t INV_H = weight_t({1/h_step});\n"
         )
+
+        #Learning Rate
+        learning_rate = f"static const weight_t LR = weight_t({self.learning_rate});\n"
 
         #Insertion map
         insertions = {
             "// MODEL ARCHITECTURE": model_arch,
             "// LUT RESOLUTION": lut_res,
             "// QUANTIZATION": quant,
-            "// GRID": grid
+            "// GRID": grid,
+            "// LEARNING RATE": learning_rate
             }
 
         #write to file
@@ -171,18 +178,23 @@ class EclairKAN:
         # --- Generate the KANParams struct ---
         # This struct should hold *trainable parameters* (coefficients), 
         # not the read-only LUTs.
-        model_layers = []
-        for i in range(len(self.layer_sizes) - 1):
+        layer_params = []
+        layer_context = []
+        for i in range(self.num_layers):
             in_dim = self.dim_defines[i]
             out_dim = self.dim_defines[i+1]
-            model_layers.append(f"    LayerParams<{in_dim}, {out_dim}> L{i};")
+            layer_params.append(f"    LayerParams<{in_dim}, {out_dim}> L{i};")
+            layer_context.append(f"    LayerContext<{in_dim}, {out_dim}> C{i};")
         
-        model_params = "struct KANParams {\n" + "\n".join(model_layers) + "\n};"
+        model_params = "struct Params {\n" + "\n".join(layer_params) + "\n};\n"
+        model_context = "struct Context {\n" + "\n".join(layer_context) + "\n};\n"
 
-        # --- 4. Create the insertion map and write to the file. ---
+
+        # ---Create the insertion map and write to the file---
         insertions = {
             "//BASIS-LUTS": basis_luts_all, # Insert both struct and instance
-            "//MODEL": model_params
+            "//MODEL": model_params,
+            "//CONTEXT": model_context
             }
 
         # write to file
@@ -238,8 +250,8 @@ class EclairKAN:
         #Define forward pass
         forward_pass = []
         variable_definitions = []
-        num_layers = len(self.layer_sizes)
-        for layer_i in range(num_layers - 1):
+        
+        for layer_i in range(self.num_layers):
             in_dim = self.dim_defines[layer_i]
             out_dim = self.dim_defines[layer_i+1]
 
@@ -252,9 +264,22 @@ class EclairKAN:
         variable_definitions = "".join(variable_definitions)
         forward_pass = "".join(forward_pass)
 
+        #Writing the backward pass
+        backward_pass = []
+        if self.num_layers == 1: #There is only one layer that is connected to both the inputs and outputs
+            in_dim = self.dim_defines[0]
+            out_dim = self.dim_defines[1]
+
+            backward_pass.append(f"    backward_input_output<{in_dim}, {out_dim}>(P.L0, C.C0, feedback);\n")
+        else:
+            raise ValueError("Only one layer is supported for now")
+
+        backward_pass = "".join(backward_pass)
+
         insertions = {
             "//variable-definitions": variable_definitions,
-            "//forward-pass": forward_pass
+            "//forward-pass": forward_pass,
+            "//backward-pass": backward_pass
         }
 
         # write to file

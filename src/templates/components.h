@@ -75,7 +75,7 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
             // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
             int k = C.k[o][i];
             int u_index = C.u_index[o][i]
-            weight_t delta = lr * dL_dy_o;
+            weight_t delta = LR * dL_dy_o;
 
             //weight-update-input-output
         }

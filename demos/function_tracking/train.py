@@ -11,7 +11,7 @@ from eclair import EclairKAN
 #------------------------------- MODEL & DATA -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [2, 2, 1],
+    'layer_sizes': [2, 1],
     'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
@@ -25,7 +25,9 @@ config = {
     
     #Others
     'lut_resolution': 256, #How many entries for storing bases values in LUTs
-    'model_name': 'eclair_model'
+    'model_name': 'eclair_model',
+    'learning_rate': 0.01
+
 }
 
 model = EclairKAN(config)
