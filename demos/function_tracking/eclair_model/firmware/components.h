@@ -33,22 +33,6 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
-
-    std::cout << "Running forward pass: " << std::endl;
-    std::cout << "Current parameters: " << std::endl;
-    for (int o = 0; o < OUT_DIM; o++) {
-        for (int i = 0; i < IN_DIM; i++) {
-            std::cout << "W[" << o << "][" << i << "] = " << L.Ws[o][i][0] << std::endl;
-        }
-    }
-    std::cout << std::endl;
-
-    std::cout << "Current HLS input: " << std::endl;
-    for (int i = 0; i < IN_DIM; i++) {
-        std::cout << "x[" << i << "] = " << x[i] << std::endl;
-    }
-    std::cout << std::endl;
-
     // Compute for each output node
     ACCUM_O:
     for (int o=0; o<OUT_DIM; o++){
@@ -64,9 +48,6 @@ inline void forward_layer(
             int k;        // 0..GRID_SIZE-1
             weight_t u;   // [0,1]
             cell_index_and_local_u(xi, k, u);
-
-            std::cout << "Current input: " << xi << std::endl;
-            std::cout << "Cell index: " << k << ", Local u: " << u << std::endl;
 
             //Get the index for the activation function look up
             const int ui = u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5);
@@ -96,29 +77,6 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
     const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context for this layer's input
     const output_t dL_dy[OUT_DIM] // Upstream gradie
 ){
-    std::cout << "Running backward pass: " << std::endl;
-    std::cout << "Current parameters: " << std::endl;
-    for (int o = 0; o < OUT_DIM; o++) {
-        for (int i = 0; i < IN_DIM; i++) {
-            std::cout << "W[" << o << "][" << i << "] = " << L.Ws[o][i][0] << std::endl;
-        }
-    }
-    std::cout << std::endl;
-
-    std::cout << "Current context: " << std::endl;
-    for (int o = 0; o < OUT_DIM; o++) {
-        for (int i = 0; i < IN_DIM; i++) {
-            std::cout << "k[" << o << "][" << i << "] = " << C.k[o][i] << std::endl;
-        }
-    }
-    std::cout << std::endl;
-
-    std::cout << "Current upstream gradient: " << std::endl;
-    for (int o = 0; o < OUT_DIM; o++) {
-        std::cout << "dL_dy[" << o << "] = " << dL_dy[o] << std::endl;
-    }
-    std::cout << std::endl;
-
     for (int o = 0; o < OUT_DIM; o++) {
         #pragma HLS UNROLL
         weight_t dL_dy_o = dL_dy[o]; // Get upstream grad for this output
@@ -132,10 +90,10 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
             weight_t delta = LR * dL_dy_o;
 
             //weight-update-input-output
-            L.Ws[o][i][k] -= delta * LUT.B0[u_index];
-            L.Ws[o][i][k] -= delta * LUT.B1[u_index];
-            L.Ws[o][i][k] -= delta * LUT.B2[u_index];
-            L.Ws[o][i][k] -= delta * LUT.B3[u_index];
+            L.Ws[o][i][k + 0] -= delta * LUT.B0[u_index];
+            L.Ws[o][i][k + 1] -= delta * LUT.B1[u_index];
+            L.Ws[o][i][k + 2] -= delta * LUT.B2[u_index];
+            L.Ws[o][i][k + 3] -= delta * LUT.B3[u_index];
         }
     }
 

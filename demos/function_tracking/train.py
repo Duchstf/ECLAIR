@@ -8,7 +8,7 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 sys.path.append('../../src')
 from eclair import EclairKAN
 
-NUM_SAMPLES = 100
+NUM_SAMPLES = 500
 
 #------------------------------- DATA GENERATION -----------------------------
 def f_t(x, t):
@@ -112,9 +112,9 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 config = {
     #Model architecture
     'layer_sizes': [2, 1],
-    'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'model_precision': 'ap_fixed<8, 3, AP_RND_CONV, AP_SAT>',
+    'input_precision': 'ap_fixed<8, 3, AP_RND_CONV, AP_SAT>',
+    'output_precision': 'ap_fixed<8, 3, AP_RND_CONV, AP_SAT>',
     
     #Grid
     'grid_range': [-1,1],
@@ -141,18 +141,14 @@ mse_loss_series = []
 
 for i in range(len(t_series)):
 
-    print("Iteration ", i)
-
     t, x, y = t_series[i], x_series[i], y_series[i]
-    print("Current Python input: ", [x, t])
     pred = model.update([x, t], feedback_stream[-1])
     y_pred_series.append(pred)
-    print("--------------------------------")
 
     mse_loss = np.mean((y - pred)**2)
     mse_loss_series.append(mse_loss)
 
-    feedback = y - pred
+    feedback = pred - y
     feedback_stream.append(feedback)
 
     if (i + 1) % 10 == 0:

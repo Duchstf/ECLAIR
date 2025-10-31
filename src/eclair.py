@@ -227,7 +227,7 @@ class EclairKAN:
             else: accumulation.append(f" L.Ws[o][i][k] * b{spline_i}") 
 
             #Backprop
-            weight_update_input_output.append(f"            L.Ws[o][i][k] -= delta * LUT.B{spline_i}[u_index];\n")
+            weight_update_input_output.append(f"            L.Ws[o][i][k + {spline_i}] -= delta * LUT.B{spline_i}[u_index];\n")
 
         #Join them all into strings
         basis_lookup = "".join(basis_lookup)

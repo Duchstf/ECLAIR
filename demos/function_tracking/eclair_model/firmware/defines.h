@@ -15,9 +15,9 @@
 #define LUT_RESOLUTION 256
 
 // QUANTIZATION
-typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> weight_t;
-typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> input_t;
-typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> output_t;
+typedef ap_fixed<8, 3, AP_RND_CONV, AP_SAT> weight_t;
+typedef ap_fixed<8, 3, AP_RND_CONV, AP_SAT> input_t;
+typedef ap_fixed<8, 3, AP_RND_CONV, AP_SAT> output_t;
 
 // GRID
 static const weight_t GRID_MIN = weight_t(-1);
