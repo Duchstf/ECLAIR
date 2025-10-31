@@ -265,7 +265,7 @@ class EclairKAN:
             output_var = self.layer_vars[layer_i + 1]
 
             if output_var != 'output': variable_definitions.append(f"    weight_t {output_var}[{out_dim}];\n") 
-            forward_pass.append(f"    forward_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i});\n")
+            forward_pass.append(f"    forward_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i}, C.C{layer_i});\n")
 
         variable_definitions = "".join(variable_definitions)
         forward_pass = "".join(forward_pass)

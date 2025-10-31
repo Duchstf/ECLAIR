@@ -14,6 +14,6 @@ void eclair(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const o
     //variable-definitions
 
     //forward-pass
-    forward_layer<INPUT_DIM, OUTPUT_DIM>(input, output, P.L0);
+    forward_layer<INPUT_DIM, OUTPUT_DIM>(input, output, P.L0, C.C0);
 
 }

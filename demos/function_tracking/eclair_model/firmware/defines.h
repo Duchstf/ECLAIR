@@ -26,6 +26,6 @@ static const weight_t H = weight_t(0.4);
 static const weight_t INV_H = weight_t(2.5);
 
 // LEARNING RATE
-static const weight_t LR = weight_t(0.01);
+static const weight_t LR = weight_t(0.1);
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef COMPONENTS_H_
 #define COMPONENTS_H_
 
+#include <iostream>
 #include "parameters.h"
 #include "defines.h"
 
@@ -26,7 +27,27 @@ static inline void cell_index_and_local_u(weight_t x, int &k, weight_t &u){
 }
 
 template<int IN_DIM, int OUT_DIM>
-inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const LayerParams<IN_DIM, OUT_DIM> &L){
+inline void forward_layer(
+    const weight_t x[IN_DIM], 
+    weight_t y[OUT_DIM], 
+    const LayerParams<IN_DIM, OUT_DIM> &L,
+    LayerContext<IN_DIM, OUT_DIM> &C
+){
+
+    std::cout << "Running forward pass: " << std::endl;
+    std::cout << "Current parameters: " << std::endl;
+    for (int o = 0; o < OUT_DIM; o++) {
+        for (int i = 0; i < IN_DIM; i++) {
+            std::cout << "W[" << o << "][" << i << "] = " << L.Ws[o][i][0] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    std::cout << "Current HLS input: " << std::endl;
+    for (int i = 0; i < IN_DIM; i++) {
+        std::cout << "x[" << i << "] = " << x[i] << std::endl;
+    }
+    std::cout << std::endl;
 
     // Compute for each output node
     ACCUM_O:
@@ -44,8 +65,15 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const L
             weight_t u;   // [0,1]
             cell_index_and_local_u(xi, k, u);
 
+            std::cout << "Current input: " << xi << std::endl;
+            std::cout << "Cell index: " << k << ", Local u: " << u << std::endl;
+
             //Get the index for the activation function look up
             const int ui = u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5);
+            
+            //store the context
+            C.k[o][i] = k;
+            C.u_index[o][i] = ui;
 
             //spline-lookup
             
@@ -64,6 +92,29 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
     const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context for this layer's input
     const output_t dL_dy[OUT_DIM] // Upstream gradie
 ){
+    std::cout << "Running backward pass: " << std::endl;
+    std::cout << "Current parameters: " << std::endl;
+    for (int o = 0; o < OUT_DIM; o++) {
+        for (int i = 0; i < IN_DIM; i++) {
+            std::cout << "W[" << o << "][" << i << "] = " << L.Ws[o][i][0] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    std::cout << "Current context: " << std::endl;
+    for (int o = 0; o < OUT_DIM; o++) {
+        for (int i = 0; i < IN_DIM; i++) {
+            std::cout << "k[" << o << "][" << i << "] = " << C.k[o][i] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    std::cout << "Current upstream gradient: " << std::endl;
+    for (int o = 0; o < OUT_DIM; o++) {
+        std::cout << "dL_dy[" << o << "] = " << dL_dy[o] << std::endl;
+    }
+    std::cout << std::endl;
+
     for (int o = 0; o < OUT_DIM; o++) {
         #pragma HLS UNROLL
         weight_t dL_dy_o = dL_dy[o]; // Get upstream grad for this output

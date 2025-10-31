@@ -126,7 +126,7 @@ config = {
     #Others
     'lut_resolution': 256, #How many entries for storing bases values in LUTs
     'model_name': 'eclair_model',
-    'learning_rate': 0.01
+    'learning_rate': 0.1
 
 }
 
@@ -141,10 +141,13 @@ mse_loss_series = []
 
 for i in range(len(t_series)):
 
-    t, x, y = t_series[i], x_series[i], y_series[i]
+    print("Iteration ", i)
 
+    t, x, y = t_series[i], x_series[i], y_series[i]
+    print("Current Python input: ", [x, t])
     pred = model.update([x, t], feedback_stream[-1])
     y_pred_series.append(pred)
+    print("--------------------------------")
 
     mse_loss = np.mean((y - pred)**2)
     mse_loss_series.append(mse_loss)

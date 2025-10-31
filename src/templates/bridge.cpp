@@ -5,6 +5,7 @@
 * It internally casts to the HLS types and calls the 'top' function.
 */
 
+#include <iostream>
 #include "defines.h"
 #include "parameters.h"
 #include "eclair.h"        
@@ -38,8 +39,6 @@ extern "C" {
         }
 
         // --- Call the HLS function ---
-        // This runs the forward/backward pass.
-        // It writes its result into 'hls_output'.
         eclair(hls_input, hls_output, hls_feedback);
         
         // --- Cast and copy output data back ---
