@@ -8,6 +8,7 @@ MIT License
 import os, shutil
 import ctypes
 import tools
+import numpy as np
 
 class EclairKAN:
     def __init__(self, config):
@@ -327,18 +328,45 @@ class EclairKAN:
             print(f"Error loading shared library: {e}")
             raise
 
-        
+        try:
+            self.c_update_func = self.lib.eclair_update
+        except AttributeError:
+            print("Error: Could not find function 'eclair_update' in shared library.")
+            raise
 
-        print("Compilation successful.")
+        #Set the types
+        input_ptr_type = ctypes.POINTER(ctypes.c_float)
+        output_ptr_type = ctypes.POINTER(ctypes.c_float)
+        feedback_ptr_type = ctypes.POINTER(ctypes.c_float)
 
-    def update(self, x, t, feedback):
+        self.c_update_func.argtypes = [input_ptr_type, output_ptr_type, feedback_ptr_type]
+        self.c_update_func.restype = None
+
+        print("Compilation successful. Interface is ready.")
+
+    def update(self, input_data, feedback):
         """Updates the model with a new input and feedback."""
 
-        if self.c_update_func is None:
-            raise RuntimeError("Model is not compiled. Call .compile() first.")
+        if self.c_update_func is None: raise RuntimeError("Model is not compiled. Call .compile() first.")
+        if not isinstance(input_data, np.ndarray): input_data = np.array(input_data)
+        if not isinstance(feedback, np.ndarray): feedback = np.array(feedback)
+        input_data_flat = input_data.flatten()
+        feedback_flat = feedback.flatten()
 
-        # Create a numpy array to hold the C++ output
+        if input_data_flat.size != self.input_dim or feedback_flat.size != self.output_dim:
+            raise ValueError(f"Input data size ({input_data_flat.size}) does not match model input dim ({self.input_dim}) or feedback size ({feedback_flat.size}) does not match model output dim ({self.output_dim})")
+
+
+        x_data = input_data_flat.astype(np.float32, copy=False)
+        feedback_data = feedback_flat.astype(np.float32, copy=False)
+
+        x_ptr = x_data.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
+        feedback_ptr = feedback_data.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
+
         pred_data = np.zeros(self.output_dim, dtype=np.float32)
+        pred_ptr = pred_data.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
+
+        self.c_update_func(x_ptr, pred_ptr, feedback_ptr)
 
         if self.output_dim == 1: return pred_data[0]
         return pred_data
