@@ -73,6 +73,7 @@ model = EclairKAN(config)
 model.compile()
 
 #------------------------------- FEEDBACK LOOP -----------------------------
+"""
 feedback_stream = [0] #Initial feedback is 0
 pred_stream = []
 
@@ -88,3 +89,4 @@ for i in range(len(t_series)):
 
     if (i + 1) % 10 == 0:
         print(f"Step {i+1}/{NUM_SAMPLES}, Current Feedback: {feedback:.6f}")
+"""

@@ -5,7 +5,7 @@ Copyright (c) 2025 Duc Hoang
 
 MIT License
 """
-import os
+import os, shutil
 import tools
 
 class EclairKAN:
@@ -42,7 +42,11 @@ class EclairKAN:
         self.layer_vars.extend([f'layer{i}_out' for i in range(1,  len(self.layer_sizes) - 1)])
         self.layer_vars.append('output')
 
-        self.last_inputs = [] # Stores inputs to layers for the update pass
+        #HLS API
+        self.lib = None
+        self.c_update_func = None
+        self.input_dim = self.layer_sizes[0]
+        self.output_dim = self.layer_sizes[-1]
 
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
         print("Setting up ECLAIR framework ...")
@@ -69,7 +73,7 @@ class EclairKAN:
         self._write_defines_h()
         self._write_parameters_h()
         self._write_components_h()
-        self._write_top_cpp()
+        self._write_eclair_cpp()
 
         pass
 
@@ -241,11 +245,11 @@ class EclairKAN:
         # write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
 
-    def _write_top_cpp(self):
+    def _write_eclair_cpp(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/top.cpp")
-        outfile_path = f"{self.model_dir}/firmware/top.cpp"
+        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair.cpp")
+        outfile_path = f"{self.model_dir}/firmware/eclair.cpp"
 
         #Define forward pass
         forward_pass = []
@@ -285,6 +289,9 @@ class EclairKAN:
         # write to file
         tools.insert_to_file(template_path, outfile_path, insertions)
 
+        #Also copy the bridge
+        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/bridge.cpp"), f"{self.model_dir}/firmware/bridge.cpp")
+
     #----------------------------HLS API---------------------------------
     def compile(self):
         """Compiles the generated HLS C++ files into a 
@@ -297,7 +304,7 @@ class EclairKAN:
         
         compile_cmd = (
             f"g++ -shared -o {self.model_dir}/firmware/model.so -fPIC "
-            f"{self.model_dir}/firmware/top.cpp -I. "
+            f"{self.model_dir}/firmware/eclair.cpp -I. "
             f"-I {os.path.join(src_dir, '../submodule/HLS_arbitrary_Precision_Types/include')} -std=c++11"
         )
 
@@ -307,3 +314,15 @@ class EclairKAN:
             raise RuntimeError("C++ compilation failed!")
 
         print("Compilation successful.")
+
+    def update(self, x, t, feedback):
+        """Updates the model with a new input and feedback."""
+
+        if self.c_update_func is None:
+            raise RuntimeError("Model is not compiled. Call .compile() first.")
+
+        # Create a numpy array to hold the C++ output
+        pred_data = np.zeros(self.output_dim, dtype=np.float32)
+
+        if self.output_dim == 1: return pred_data[0]
+        return pred_data
