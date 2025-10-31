@@ -5,9 +5,9 @@
 * It internally casts to the HLS types and calls the 'top' function.
 */
 
-#include "firmware/defines.h"
-#include "firmware/parameters.h"
-#include "firmware/eclair.h"        
+#include "defines.h"
+#include "parameters.h"
+#include "eclair.h"        
 
 // --- Define the global model state ---
 Params P;
@@ -17,22 +17,25 @@ Context C;
 // These hold the data in the HLS-specific types
 static input_t hls_input[INPUT_DIM];
 static output_t hls_output[OUTPUT_DIM];
+static output_t hls_feedback[OUTPUT_DIM];
 
 // ---  C-style wrapper for Python ctypes ---
 extern "C" {
     void eclair_update(
-        float* input_py,     
-        float* output_py,    
-        float feedback_py
+        const float* in,     
+        float* out,    
+        const float* feedback
     ) {
         
         // --- Cast and copy input data ---
         for (int i = 0; i < INPUT_DIM; ++i) {
-            hls_input[i] = (input_t)input_py[i];
+            hls_input[i] = (input_t)in[i];
         }
 
         // --- Cast feedback ---
-        weight_t hls_feedback = (weight_t)feedback_py;
+        for (int o = 0; o < OUTPUT_DIM; ++o){
+            hls_feedback[o] = output_t(feedback ? feedback[o] : 0.0f);
+        }
 
         // --- Call the HLS function ---
         // This runs the forward/backward pass.
@@ -41,7 +44,7 @@ extern "C" {
         
         // --- Cast and copy output data back ---
         for (int i = 0; i < OUTPUT_DIM; ++i) {
-            output_py[i] = (float)hls_output[i];
+            out[i] = (float)hls_output[i];
         }
     }
 }

@@ -6,6 +6,7 @@ Copyright (c) 2025 Duc Hoang
 MIT License
 """
 import os, shutil
+import ctypes
 import tools
 
 class EclairKAN:
@@ -291,6 +292,7 @@ class EclairKAN:
 
         #Also copy the bridge
         shutil.copy(os.path.join(os.path.dirname(__file__), "templates/bridge.cpp"), f"{self.model_dir}/firmware/bridge.cpp")
+        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/eclair.h"), f"{self.model_dir}/firmware/eclair.h")
 
     #----------------------------HLS API---------------------------------
     def compile(self):
@@ -301,17 +303,31 @@ class EclairKAN:
         print("Compiling C++ into shared library...")
 
         src_dir = os.path.abspath(os.path.dirname(__file__))
+        lib_path = os.path.abspath(f"{self.model_dir}/firmware/model.so")
+        hls_include_path = os.path.join(src_dir, '../submodule/HLS_arbitrary_Precision_Types/include')
         
+        # --- COMPILED COMMAND ---
         compile_cmd = (
-            f"g++ -shared -o {self.model_dir}/firmware/model.so -fPIC "
-            f"{self.model_dir}/firmware/eclair.cpp -I. "
-            f"-I {os.path.join(src_dir, '../submodule/HLS_arbitrary_Precision_Types/include')} -std=c++11"
+            f"g++ -shared -o {lib_path} -fPIC "
+            f"{self.model_dir}/firmware/eclair.cpp "           # <-- The HLS logic
+            f"{self.model_dir}/firmware/bridge.cpp "  # <-- The Python wrapper
+            f"-I. -I {hls_include_path} -std=c++11"
         )
+        # ------------------------
 
         print(f"Running: {compile_cmd}")
         status = os.system(compile_cmd)
         if status != 0:
             raise RuntimeError("C++ compilation failed!")
+
+        print("Loading compiled library and setting up ctypes interface...")
+        try:
+            self.lib = ctypes.CDLL(f"{self.model_dir}/firmware/model.so")
+        except OSError as e:
+            print(f"Error loading shared library: {e}")
+            raise
+
+        
 
         print("Compilation successful.")
 
