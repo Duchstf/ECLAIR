@@ -259,7 +259,7 @@ class EclairKAN:
             output_var = self.layer_vars[layer_i + 1]
 
             if output_var != 'output': variable_definitions.append(f"    weight_t {output_var}[{out_dim}];\n") 
-            forward_pass.append(f"    forward<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i});\n")
+            forward_pass.append(f"    forward_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i});\n")
 
         variable_definitions = "".join(variable_definitions)
         forward_pass = "".join(forward_pass)
@@ -286,18 +286,19 @@ class EclairKAN:
         tools.insert_to_file(template_path, outfile_path, insertions)
 
     #----------------------------HLS API---------------------------------
-    def compile(self, vitis_hls_path=None):
+    def compile(self):
         """Compiles the generated HLS C++ files into a 
            shared library for CPU-based testing.
         """
 
         print("Compiling C++ into shared library...")
-        if vitis_hls_path is None: raise ValueError("Vitis HLSpath is required for compilation")
 
+        src_dir = os.path.abspath(os.path.dirname(__file__))
+        
         compile_cmd = (
             f"g++ -shared -o {self.model_dir}/firmware/model.so -fPIC "
             f"{self.model_dir}/firmware/top.cpp -I. "
-            f"-I{vitis_hls_path}/include -std=c++11"
+            f"-I {os.path.join(src_dir, '../submodule/HLS_arbitrary_Precision_Types/include')} -std=c++11"
         )
 
         print(f"Running: {compile_cmd}")

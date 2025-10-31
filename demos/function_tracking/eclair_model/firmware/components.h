@@ -30,7 +30,7 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const L
 
     // Compute for each output node
     ACCUM_O:
-    for (int o=0, o<OUT_DIM, o++){
+    for (int o=0; o<OUT_DIM; o++){
         #pragma HLS UNROLL
         weight_t o_sum = 0; 
         
@@ -65,9 +65,8 @@ inline void forward_layer(const weight_t x[IN_DIM], weight_t y[OUT_DIM], const L
 template<int IN_DIM, int OUT_DIM>
 inline void backward_input_output( //Whhen the layer is connected to both the input and output of the model
     LayerParams<IN_DIM, OUT_DIM> &L,
-    const LayerContext &C, // Forward-pass context for this layer's input
-    const output_t dL_dy[OUT_DIM], // Upstream gradie
-    const weight_t lr // Learning rate
+    const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context for this layer's input
+    const output_t dL_dy[OUT_DIM] // Upstream gradie
 ){
     for (int o = 0; o < OUT_DIM; o++) {
         #pragma HLS UNROLL
@@ -78,7 +77,7 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
 
             // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
             int k = C.k[o][i];
-            int u_index = C.u_index[o][i]
+            int u_index = C.u_index[o][i];
             weight_t delta = LR * dL_dy_o;
 
             //weight-update-input-output

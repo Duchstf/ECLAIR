@@ -3,6 +3,8 @@ channels:
   - conda-forge
 dependencies:
   - python>=3.10
+  - pytorch
+  - torchvision
   - pip
   - pip:
       - numpy
@@ -10,8 +12,3 @@ dependencies:
       - matplotlib
       - notebook
       - scikit-learn
-      # Add the index URL as its own list item
-      - --index-url https://download.pytorch.org/whl/cpu
-      # List each package on its own line
-      - torch
-      - torchvision

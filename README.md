@@ -20,5 +20,4 @@ If you update the environment file:
 
 ```
 conda env update -f environment.yml --prune
-
 ```
