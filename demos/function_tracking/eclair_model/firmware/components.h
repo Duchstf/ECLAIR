@@ -107,15 +107,21 @@ inline void backward( //When the layer is connected to only the output
     const LayerContext<IN_DIM, OUT_DIM> &C,
     weight_t dL_dx[IN_DIM], // Downstream gradient
     const up_grad_t dL_dy[OUT_DIM] //Upstream gradient
-){
-    for (int o = 0; o < OUT_DIM; o++) {
+){  
+    
+    INIT_DX: for (int i = 0; i < IN_DIM; i++) {
+        #pragma HLS UNROLL
+        dL_dx[i] = 0;
+    }
+
+    BWD_O: for (int o = 0; o < OUT_DIM; o++) {
         #pragma HLS UNROLL
 
         // Get upstream grad for this output
         weight_t dL_dy_o = dL_dy[o];
         weight_t delta = LR * dL_dy_o;
 
-        for (int i = 0; i < IN_DIM; i++){
+        BWD_I: for (int i = 0; i < IN_DIM; i++){
             #pragma HLS UNROLL
 
             // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
@@ -129,7 +135,7 @@ inline void backward( //When the layer is connected to only the output
             gx += L.Ws[o][i][k + 2] * LUT.dB2[u_index];
             gx += L.Ws[o][i][k + 3] * LUT.dB3[u_index];
 
-            dL_dx[i] = dL_dy_o * gx * INV_H;
+            dL_dx[i] += dL_dy_o * gx * INV_H;
             
             //weight-update
             L.Ws[o][i][k + 0] -= delta * LUT.B0[u_index];

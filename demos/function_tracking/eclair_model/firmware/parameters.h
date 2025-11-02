@@ -43,15 +43,13 @@ struct LayerParams {
 //MODEL
 struct Params {
     LayerParams<INPUT_DIM, H1> L0;
-    LayerParams<H1, H2> L1;
-    LayerParams<H2, OUTPUT_DIM> L2;
+    LayerParams<H1, OUTPUT_DIM> L1;
 };
 
 //CONTEXT
 struct Context {
     LayerContext<INPUT_DIM, H1> C0;
-    LayerContext<H1, H2> C1;
-    LayerContext<H2, OUTPUT_DIM> C2;
+    LayerContext<H1, OUTPUT_DIM> C1;
 };
 
 #endif
