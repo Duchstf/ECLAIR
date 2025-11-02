@@ -40,9 +40,9 @@ class EclairKAN:
         self.learning_rate = config['learning_rate']
 
         #Keep track of the inputs and outputs of the layers
-        self.layer_vars = ['input']
-        self.layer_vars.extend([f'layer{i}_out' for i in range(1,  len(self.layer_sizes) - 1)])
-        self.layer_vars.append('output')
+        self.layer_vars_forward = ['input']
+        self.layer_vars_forward.extend([f'layer{i}_out' for i in range(1,  len(self.layer_sizes) - 1)])
+        self.layer_vars_forward.append('output')
 
         #HLS API
         self.lib = None
@@ -216,7 +216,8 @@ class EclairKAN:
         basis_lookup = []
         accumulation = ["            o_sum +="]
 
-        weight_update_input_output = []
+        weight_update_input = []
+        downstream_grad = []
        
         for spline_i in range(0, self.spline_order + 1):
 
@@ -227,12 +228,14 @@ class EclairKAN:
             else: accumulation.append(f" L.Ws[o][i][k] * b{spline_i}") 
 
             #Backprop
-            weight_update_input_output.append(f"            L.Ws[o][i][k + {spline_i}] -= delta * LUT.B{spline_i}[u_index];\n")
+            weight_update_input.append(f"            L.Ws[o][i][k + {spline_i}] -= delta * LUT.B{spline_i}[u_index];\n")
+            downstream_grad.append(f"            gx += L.Ws[o][i][k + {spline_i}] * LUT.dB{spline_i}[u_index];\n")
 
         #Join them all into strings
         basis_lookup = "".join(basis_lookup)
         accumulation = "".join(accumulation) + ";"
-        weight_update_input_output = "".join(weight_update_input_output)
+        weight_update_input = "".join(weight_update_input)
+        downstream_grad = "".join(downstream_grad)
 
         insertions = {
             
@@ -241,7 +244,8 @@ class EclairKAN:
             "//spline-accumulation":accumulation,
 
             #Backprop
-            "//weight-update-input-output": weight_update_input_output
+            "//weight-update": weight_update_input,
+            "//calculate-downstream-grad": downstream_grad,
         }
 
         # write to file
@@ -261,13 +265,12 @@ class EclairKAN:
             in_dim = self.dim_defines[layer_i]
             out_dim = self.dim_defines[layer_i+1]
 
-            input_var = self.layer_vars[layer_i]
-            output_var = self.layer_vars[layer_i + 1]
+            input_var = self.layer_vars_forward[layer_i]
+            output_var = self.layer_vars_forward[layer_i + 1]
 
             if output_var != 'output': variable_definitions.append(f"    weight_t {output_var}[{out_dim}];\n") 
             forward_pass.append(f"    forward_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i}, C.C{layer_i});\n")
 
-        variable_definitions = "".join(variable_definitions)
         forward_pass = "".join(forward_pass)
 
         #Writing the backward pass
@@ -275,11 +278,26 @@ class EclairKAN:
         if self.num_layers == 1: #There is only one layer that is connected to both the inputs and outputs
             in_dim = self.dim_defines[0]
             out_dim = self.dim_defines[1]
+            backward_pass.append(f"    backward_input<{in_dim}, {out_dim}, output_t>(P.L0, C.C0, feedback);\n")
 
-            backward_pass.append(f"    backward_input_output<{in_dim}, {out_dim}>(P.L0, C.C0, feedback);\n")
-        else:
-            raise ValueError("Only one layer is supported for now")
+        elif self.num_layers > 1:
+            for layer_i in reversed(range(self.num_layers)): #Looping from the output
+                in_dim =  self.dim_defines[layer_i]
+                out_dim = self.dim_defines[layer_i + 1]
 
+                #Define the downstream gradient to propagate
+                if layer_i > 0:
+                    variable_definitions.append(f"    weight_t dL_dx_{layer_i-1}[{in_dim}];\n")
+
+                #Define the backward function calls
+                if (layer_i != 0) & ((layer_i == self.num_layers-1)) : #Ouput layer
+                    backward_pass.append(f"    backward<{in_dim}, {out_dim}, output_t>(P.L{layer_i}, C.C{layer_i}, dL_dx_{self.num_layers-2}, feedback);\n")
+                elif layer_i == 0: #Input layer
+                    backward_pass.append(f"    backward_input<{in_dim}, {out_dim}, weight_t>(P.L{layer_i}, C.C{layer_i},  dL_dx_0);\n")
+                else: #Hideen layer
+                    backward_pass.append(f"    backward<{in_dim}, {out_dim}, weight_t>(P.L{layer_i}, C.C{layer_i},  dL_dx_{layer_i-1}, dL_dx_{layer_i});\n")
+
+        variable_definitions = "".join(variable_definitions)
         backward_pass = "".join(backward_pass)
 
         insertions = {

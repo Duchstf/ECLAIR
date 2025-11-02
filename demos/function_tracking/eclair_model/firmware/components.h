@@ -71,15 +71,18 @@ inline void forward_layer(
 
 }
 
-template<int IN_DIM, int OUT_DIM>
-inline void backward_input_output( //Whhen the layer is connected to both the input and output of the model
+template<int IN_DIM, int OUT_DIM, typename up_grad_t>
+inline void backward_input( //When the layer is connected to the input
     LayerParams<IN_DIM, OUT_DIM> &L,
     const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context for this layer's input
-    const output_t dL_dy[OUT_DIM] // Upstream gradie
+    const up_grad_t dL_dy[OUT_DIM] // Upstream gradie
 ){
     for (int o = 0; o < OUT_DIM; o++) {
         #pragma HLS UNROLL
-        weight_t dL_dy_o = dL_dy[o]; // Get upstream grad for this output
+
+        // Get upstream grad for this output
+        weight_t dL_dy_o = dL_dy[o]; 
+        weight_t delta = LR * dL_dy_o;
 
         for (int i = 0; i < IN_DIM; i++){
             #pragma HLS UNROLL
@@ -87,9 +90,8 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
             // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
             int k = C.k[o][i];
             int u_index = C.u_index[o][i];
-            weight_t delta = LR * dL_dy_o;
-
-            //weight-update-input-output
+            
+            //weight-update
             L.Ws[o][i][k + 0] -= delta * LUT.B0[u_index];
             L.Ws[o][i][k + 1] -= delta * LUT.B1[u_index];
             L.Ws[o][i][k + 2] -= delta * LUT.B2[u_index];
@@ -99,31 +101,42 @@ inline void backward_input_output( //Whhen the layer is connected to both the in
 
 }
 
-// template<int IN_DIM, int OUT_DIM>
-// inline void backward_layer(
-//     LayerParams<IN_DIM, OUT_DIM> &L, // Layer Parameters to update
-//     weight_t dL_dx[IN_DIM], // Downstream gradient
-//     const LayerContext &C, // Forward-pass context for this layer's input
-//     const weight_t dL_dy[OUT_DIM], // Upstream gradient
-//     const weight_t lr // Learning rate
-// ){
+template<int IN_DIM, int OUT_DIM, typename up_grad_t>
+inline void backward( //When the layer is connected to only the output
+    LayerParams<IN_DIM, OUT_DIM> &L,
+    const LayerContext<IN_DIM, OUT_DIM> &C,
+    weight_t dL_dx[IN_DIM], // Downstream gradient
+    const up_grad_t dL_dy[OUT_DIM] //Upstream gradient
+){
+    for (int o = 0; o < OUT_DIM; o++) {
+        #pragma HLS UNROLL
 
-//     // Initialize downstream gradient
-//     for (int i = 0; i < IN_DIM; i++) {
-//         #pragma HLS UNROLL
-//         dL_dx[i] = 0;
-//     }
+        // Get upstream grad for this output
+        weight_t dL_dy_o = dL_dy[o];
+        weight_t delta = LR * dL_dy_o;
 
-//     for (int o = 0; o < OUT_DIM; o++) {
-//         #pragma HLS UNROLL
-//         weight_t dL_dy_o = dL_dy[o]; // Get upstream grad for this output
+        for (int i = 0; i < IN_DIM; i++){
+            #pragma HLS UNROLL
 
-//         for (int i = 0; i < IN_DIM; i++){
-//             #pragma HLS UNROLL
+            // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
+            int k = C.k[o][i];
+            int u_index = C.u_index[o][i];
+            weight_t gx = 0; //for downstream calculcation
 
-//             //weight-update
-//         }
-//     }
+            //calculate-downstream-grad
+            gx += L.Ws[o][i][k + 0] * LUT.dB0[u_index];
+            gx += L.Ws[o][i][k + 1] * LUT.dB1[u_index];
+            gx += L.Ws[o][i][k + 2] * LUT.dB2[u_index];
+            gx += L.Ws[o][i][k + 3] * LUT.dB3[u_index];
 
-// }
+            dL_dx[i] = dL_dy_o * gx * INV_H;
+            
+            //weight-update
+            L.Ws[o][i][k + 0] -= delta * LUT.B0[u_index];
+            L.Ws[o][i][k + 1] -= delta * LUT.B1[u_index];
+            L.Ws[o][i][k + 2] -= delta * LUT.B2[u_index];
+            L.Ws[o][i][k + 3] -= delta * LUT.B3[u_index];
+        }
+    }
+}
 #endif

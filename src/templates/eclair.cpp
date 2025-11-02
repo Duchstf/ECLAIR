@@ -8,9 +8,9 @@ void eclair(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const o
     static Params P;
     static Context C;
 
-    //backward-pass
-
     //variable-definitions
+
+    //backward-pass
 
     //forward-pass
 
