@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
 sys.path.append('../../src')
-from eclair import EclairKAN
+from eclair import Eclair
 
 NUM_SAMPLES = 500
 
@@ -126,11 +126,15 @@ config = {
     #Others
     'lut_resolution': 256, #How many entries for storing bases values in LUTs
     'model_name': 'eclair_model',
-    'learning_rate': 0.1
+    'learning_rate': 0.1,
+
+    #Hardware specification
+    'fpga_part': 'xcvu13p-flga2577-2-e',
+    'clock_period': '5' #in nanoseconds
 
 }
 
-model = EclairKAN(config)
+model = Eclair(config)
 model.compile()
 
 #------------------------------- FEEDBACK LOOP -----------------------------

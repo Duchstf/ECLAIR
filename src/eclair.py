@@ -10,7 +10,7 @@ import ctypes
 import tools
 import numpy as np
 
-class EclairKAN:
+class Eclair:
     def __init__(self, config):
         self.config = config
 
@@ -50,6 +50,10 @@ class EclairKAN:
         self.input_dim = self.layer_sizes[0]
         self.output_dim = self.layer_sizes[-1]
 
+        #Hardware
+        self.fpga_part = config['fpga_part']
+        self.clock_period = config['clock_period']
+
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
         print("Setting up ECLAIR framework ...")
         self._create_model()
@@ -76,8 +80,7 @@ class EclairKAN:
         self._write_parameters_h()
         self._write_components_h()
         self._write_eclair_cpp()
-
-        pass
+        self._write_build_tcl()
 
     def _write_defines_h(self):
 
@@ -388,3 +391,19 @@ class EclairKAN:
 
         if self.output_dim == 1: return pred_data[0]
         return pred_data
+
+    #----------------------------HARDWARE---------------------------------
+    def _write_build_tcl(self):
+
+        # Path to template
+        template_path = os.path.join(os.path.dirname(__file__), "templates/build.tcl")
+        outfile_path = f"{self.model_dir}/firmware/build.tcl"
+
+        #Replace the variables with user defined
+        with open(template_path, 'r') as file:
+            template = file.read()
+        template = template.replace("{{TARGET_PART}}", self.fpga_part)
+        template = template.replace("{{CLOCK_PERIOD}}", self.clock_period)
+
+        with open(outfile_path, 'w') as file:
+            file.write(template)
