@@ -5,7 +5,6 @@
 
 // MODEL ARCHITECTURE
 #define INPUT_DIM 2
-#define H1 6
 #define OUTPUT_DIM 1
 #define SPLINE_ORDER 3
 #define NUM_BASIS 4
@@ -21,10 +20,10 @@ typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> input_t;
 typedef ap_fixed<16, 6, AP_RND_CONV, AP_SAT> output_t;
 
 // GRID
-static const weight_t GRID_MIN = weight_t(-1);
-static const weight_t GRID_MAX = weight_t(1);
-static const weight_t H = weight_t(0.4);
-static const weight_t INV_H = weight_t(2.5);
+static const weight_t GRID_MIN = weight_t(-2);
+static const weight_t GRID_MAX = weight_t(2);
+static const weight_t H = weight_t(0.8);
+static const weight_t INV_H = weight_t(1.25);
 
 // LEARNING RATE
 static const weight_t LR = weight_t(0.1);

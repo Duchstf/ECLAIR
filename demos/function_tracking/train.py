@@ -8,7 +8,7 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 sys.path.append('../../src')
 from eclair import EclairKAN
 
-NUM_SAMPLES = 1000
+NUM_SAMPLES = 500
 
 #------------------------------- DATA GENERATION -----------------------------
 def f_t(x, t):
@@ -111,13 +111,13 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 #------------------------------- MODEL -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [2, 6, 1],
+    'layer_sizes': [2, 1],
     'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     
     #Grid
-    'grid_range': [-1,1],
+    'grid_range': [-2, 2],
     'grid_size': 5,
 
     #Spline
