@@ -137,6 +137,7 @@ config = {
 model = Eclair(config)
 model.compile()
 
+"""
 #------------------------------- FEEDBACK LOOP -----------------------------
 feedback_stream = [0] #Initial feedback is 0
 
@@ -170,3 +171,4 @@ save_static_four_plots(
     out_file="plots/ECLAIR.png",
     figsize=(10, 10) # Make figure taller for 4 plots
 )
+"""

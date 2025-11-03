@@ -2,13 +2,13 @@
 #   vitis_hls build.tcl
 
 #If Eclair directory exists remove it
-if {[file exists "Eclair"]} {
-    file delete -force "Eclair"
+if {[file exists "eclair"]} {
+    file delete -force "eclair"
 }
 
-open_project -reset Eclair
+open_project -reset eclair
 
-set_top Eclair
+set_top eclair
 add_files eclair.cpp
 
 #Reset solution

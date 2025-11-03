@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "eclair",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "eclair"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware/build.tcl",
+    "sourceLine": 24,
+    "success": true
+  }
+]

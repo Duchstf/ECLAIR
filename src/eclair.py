@@ -178,8 +178,7 @@ class Eclair:
         # This instance will live in the header file as read-only data
         lut_instance_str = "static const BasisLUT LUT = {\n"
         lut_instance_str += "\n".join(lut_initializers)
-        lut_instance_str += "\n};\n"
-        lut_instance_str += "#pragma HLS ARRAY_PARTITION variable=LUT complete dim=0\n"
+        lut_instance_str += "\n};"
 
         # Combine the struct *definition* and the *instance*
         basis_luts_all = basis_lut_struct + "\n" + lut_instance_str
@@ -407,3 +406,15 @@ class Eclair:
 
         with open(outfile_path, 'w') as file:
             file.write(template)
+
+    def build(self):
+        """Builds the model for the FPGA."""
+
+        print("Building the model for the FPGA...")
+
+        build_cmd = f"vitis_hls -f {self.model_dir}/firmware/build.tcl"
+        status = os.system(build_cmd)
+        if status != 0:
+            raise RuntimeError("FPGA build failed!")
+
+        print("FPGA build successful.")

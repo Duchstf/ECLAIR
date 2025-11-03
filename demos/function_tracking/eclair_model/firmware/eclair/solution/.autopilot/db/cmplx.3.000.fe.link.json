@@ -1,0 +1,102 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "5 4",
+    "file": "eclair.cpp",
+    "fileloc": 5,
+    "instructions": 7,
+    "name": "eclair",
+    "total_instructions": 9757
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "defines.h",
+    "fileloc": 26,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.3",
+    "total_instructions": 729
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "defines.h",
+    "fileloc": 29,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.4",
+    "total_instructions": 729
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "parameters.h",
+    "fileloc": 18,
+    "instructions": 2049,
+    "name": "__cxx_global_var_init.5",
+    "total_instructions": 1490945
+  },
+  "4": {
+    "basicblocks": 13,
+    "calls": "6",
+    "file": "components.h",
+    "fileloc": 30,
+    "instructions": 198,
+    "loads": {
+      "G": 4,
+      "L": 7
+    },
+    "name": "forward_layer<2, 1>",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 6390
+  },
+  "5": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 75,
+    "instructions": 138,
+    "loads": {
+      "L": 3
+    },
+    "name": "backward_input<2, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 3360
+  },
+  "6": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 8,
+    "instructions": 87,
+    "loads": {
+      "L": 4
+    },
+    "name": "cell_index_and_local_u",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 2789
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "defines.h",
+    "fileloc": 23,
+    "instructions": 2,
+    "name": "__cxx_global_var_init",
+    "total_instructions": 305
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "7 1 2 3",
+    "file": "eclair.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 5,
+    "name": "",
+    "total_instructions": 1492713
+  }
+}

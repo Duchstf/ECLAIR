@@ -1,0 +1,147 @@
+
+
+================================================================
+== Vitis HLS Report for 'eclair'
+================================================================
+* Date:           Mon Nov  3 04:37:56 2025
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        eclair
+* Solution:       solution (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-flga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  3.535 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       45|       45|  0.225 us|  0.225 us|   46|   46|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.42>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback"   --->   Operation 5 'read' 'feedback_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [2/2] (3.42ns)   --->   "%call_ln20 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:20]   --->   Operation 6 'call' 'call_ln20' <Predicate = true> <Delay = 3.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 7 [1/2] (0.00ns)   --->   "%call_ln20 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:20]   --->   Operation 7 'call' 'call_ln20' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 3.53>
+ST_3 : Operation 8 [1/1] (0.00ns)   --->   "%input_0_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_0"   --->   Operation 8 'read' 'input_0_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%input_1_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_1"   --->   Operation 9 'read' 'input_1_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 10 [2/2] (3.53ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:23]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 3.04>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [eclair.cpp:5]   --->   Operation 11 'spectopmodule' 'spectopmodule_ln5' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_0"   --->   Operation 12 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_1"   --->   Operation 14 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r"   --->   Operation 16 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 20 [1/2] (3.04ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:23]   --->   Operation 20 'call' 'call_ret' <Predicate = true> <Delay = 3.04> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%write_ln23 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret" [eclair.cpp:23]   --->   Operation 21 'write' 'write_ln23' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%ret_ln25 = ret" [eclair.cpp:25]   --->   Operation 22 'ret' 'ret_ln25' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5.000ns, clock uncertainty: 1.350ns.
+
+ <State 1>: 3.420ns
+The critical path consists of the following:
+	wire read operation ('feedback_read') on port 'feedback' [19]  (0.000 ns)
+	'call' operation 0 bit ('call_ln20', eclair.cpp:20) to 'backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >' [20]  (3.420 ns)
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 3.535ns
+The critical path consists of the following:
+	wire read operation ('input_0_read') on port 'input_0' [21]  (0.000 ns)
+	'call' operation 16 bit ('call_ret', eclair.cpp:23) to 'forward_layer<2, 1>' [23]  (3.535 ns)
+
+ <State 4>: 3.045ns
+The critical path consists of the following:
+	'call' operation 16 bit ('call_ret', eclair.cpp:23) to 'forward_layer<2, 1>' [23]  (3.045 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

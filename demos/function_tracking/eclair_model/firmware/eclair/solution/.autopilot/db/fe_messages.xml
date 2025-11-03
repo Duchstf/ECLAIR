@@ -1,0 +1,115 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cell_index_and_local_u" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:39:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:44:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:81:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:88:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:113:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:118:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:125:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware/build.tcl:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=eclair" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:8:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=input complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=output complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:10:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=feedback complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:12:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./components.h:50:13" msg_body="Inlining function 'cell_index_and_local_u(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;, int&amp;, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;&amp;)' into 'void forward_layer&lt;2, 1&gt;(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, LayerParams&lt;2, 1&gt; const&amp;, LayerContext&lt;2, 1&gt;&amp;)'">
+        <args Callee="cell_index_and_local_u(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;, int&amp;, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;&amp;)" Callee-DebugLoc="File ./components.h Line 8 Column 0" Caller="void forward_layer&lt;2, 1&gt;(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, LayerParams&lt;2, 1&gt; const&amp;, LayerContext&lt;2, 1&gt;&amp;)" Caller-DebugLoc="File ./components.h Line 35 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:35:0" msg_body="Unrolling loop 'ACCUM_O' (./components.h:38:5) in function 'forward_layer&lt;2, 1&gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="./components.h:38:5" LoopName="ACCUM_O"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:35:0" msg_body="Unrolling loop 'ACCUM_I' (./components.h:43:9) in function 'forward_layer&lt;2, 1&gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="./components.h:43:9" LoopName="ACCUM_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:79:0" msg_body="Unrolling loop 'BWD_O' (./components.h:80:12) in function 'backward_input&lt;2, 1, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="./components.h:80:12" LoopName="BWD_O"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:79:0" msg_body="Unrolling loop 'BWD_I' (./components.h:87:16) in function 'backward_input&lt;2, 1, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="./components.h:87:16" LoopName="BWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="./parameters.h:18:0" msg_body="Applying array_partition to '_ZL3LUT.B3': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL3LUT.B3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="./parameters.h:18:0" msg_body="Applying array_partition to '_ZL3LUT.B2': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL3LUT.B2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="./parameters.h:18:0" msg_body="Applying array_partition to '_ZL3LUT.B1': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL3LUT.B1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="./parameters.h:18:0" msg_body="Applying array_partition to '_ZL3LUT.B0': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL3LUT.B0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-358" msg_severity="WARNING" msg_loc="./components.h:53:28" msg_body="Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations."/>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:5:0" msg_body="Applying array_partition to 'input': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="input"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:5:0" msg_body="Applying array_partition to 'output': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="output"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:5:0" msg_body="Applying array_partition to 'feedback': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="feedback"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Automatically partitioning small array '_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k' completely based on array size.">
+        <args Value="_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Automatically partitioning small array '_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index' completely based on array size.">
+        <args Value="_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k 1 eclair eclair.cpp:15:0 eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)">
+        <args PragmaFunction="eclair" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k" PragmaType="array_partition" VarName="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)" varLoc="eclair.cpp:15:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="array_partition dim=2 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k 1 eclair eclair.cpp:15:0 eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)">
+        <args PragmaFunction="eclair" PragmaIsAuto="1" PragmaOptions="dim=2 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k" PragmaType="array_partition" VarName="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)" varLoc="eclair.cpp:15:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Inferring pragma 'array_partition type=complete dim=2' for array 'eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)' due to pipeline pragma">
+        <args Dim="2" Mode="complete" Name="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.k)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index 1 eclair eclair.cpp:15:0 eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)">
+        <args PragmaFunction="eclair" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index" PragmaType="array_partition" VarName="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)" varLoc="eclair.cpp:15:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="array_partition dim=2 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index 1 eclair eclair.cpp:15:0 eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)">
+        <args PragmaFunction="eclair" PragmaIsAuto="1" PragmaOptions="dim=2 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index" PragmaType="array_partition" VarName="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)" varLoc="eclair.cpp:15:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Inferring pragma 'array_partition type=complete dim=2' for array 'eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)' due to pipeline pragma">
+        <args Dim="2" Mode="complete" Name="eclair(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)::C (.u_index)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Applying array_partition to '_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index': Complete partitioning on dimension 1. Complete partitioning on dimension 2.">
+        <args Dim="islist 1 2" Mode="islist Complete Complete" UOName="_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:15:0" msg_body="Applying array_partition to '_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k': Complete partitioning on dimension 1. Complete partitioning on dimension 2.">
+        <args Dim="islist 1 2" Mode="islist Complete Complete" UOName="_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+
