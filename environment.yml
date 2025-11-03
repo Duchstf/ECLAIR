@@ -12,3 +12,4 @@ dependencies:
       - matplotlib
       - notebook
       - scikit-learn
+      - gymnasium
