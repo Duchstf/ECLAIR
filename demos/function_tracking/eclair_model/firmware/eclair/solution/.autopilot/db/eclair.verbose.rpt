@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'eclair'
 ================================================================
-* Date:           Mon Nov  3 04:37:57 2025
+* Date:           Mon Nov  3 05:32:14 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -20,17 +20,17 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  3.535 ns|     1.35 ns|
+    |ap_clk  |  5.00 ns|  3.562 ns|     1.35 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+---------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-    |   min   |   max   |    min   |    max   | min | max |   Type  |
-    +---------+---------+----------+----------+-----+-----+---------+
-    |       45|       45|  0.225 us|  0.225 us|   46|   46|       no|
-    +---------+---------+----------+----------+-----+-----+---------+
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       15|       15|  75.000 ns|  75.000 ns|   16|   16|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
@@ -38,8 +38,8 @@
         |                                                    |                                          |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
         |                      Instance                      |                  Module                  |   min   |   max   |    min    |    max    | min | max |   Type  |
         +----------------------------------------------------+------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |       33|       33|   0.165 us|   0.165 us|   33|   33|       no|
-        |grp_forward_layer_2_1_s_fu_83                       |forward_layer_2_1_s                       |        9|        9|  45.000 ns|  45.000 ns|    9|    9|       no|
+        |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        6|        6|  30.000 ns|  30.000 ns|    4|    4|      yes|
+        |grp_forward_layer_2_1_s_fu_143                      |forward_layer_2_1_s                       |        8|        8|  40.000 ns|  40.000 ns|    1|    1|      yes|
         +----------------------------------------------------+------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
@@ -57,16 +57,16 @@
 |DSP                  |        -|      -|        -|        -|     -|
 |Expression           |        -|      -|        -|        -|     -|
 |FIFO                 |        -|      -|        -|        -|     -|
-|Instance             |        -|     17|      351|    24191|     -|
-|Memory               |        0|      -|       16|       17|     0|
-|Multiplexer          |        -|      -|        0|       72|     -|
-|Register             |        -|      -|       30|        -|     -|
+|Instance             |        -|     17|     2859|    32817|     -|
+|Memory               |        -|      -|        -|        -|     -|
+|Multiplexer          |        -|      -|        0|       81|     -|
+|Register             |        -|      -|      301|        -|     -|
 +---------------------+---------+-------+---------+---------+------+
-|Total                |        0|     17|      397|    24280|     0|
+|Total                |        0|     17|     3160|    32898|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available SLR        |     1344|   3072|   864000|   432000|   320|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization SLR (%)  |        0|     ~0|       ~0|        5|     0|
+|Utilization SLR (%)  |        0|     ~0|       ~0|        7|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available            |     5376|  12288|  3456000|  1728000|  1280|
 +---------------------+---------+-------+---------+---------+------+
@@ -75,26 +75,20 @@
 
 + Detail: 
     * Instance: 
-    +----------------------------------------------------+------------------------------------------+---------+----+-----+-------+-----+
-    |                      Instance                      |                  Module                  | BRAM_18K| DSP|  FF |  LUT  | URAM|
-    +----------------------------------------------------+------------------------------------------+---------+----+-----+-------+-----+
-    |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        0|   9|  172|  11864|    0|
-    |grp_forward_layer_2_1_s_fu_83                       |forward_layer_2_1_s                       |        0|   8|  179|  12327|    0|
-    +----------------------------------------------------+------------------------------------------+---------+----+-----+-------+-----+
-    |Total                                               |                                          |        0|  17|  351|  24191|    0|
-    +----------------------------------------------------+------------------------------------------+---------+----+-----+-------+-----+
+    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
+    |                      Instance                      |                  Module                  | BRAM_18K| DSP|  FF  |  LUT  | URAM|
+    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
+    |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        0|   9|  2452|  20423|    0|
+    |grp_forward_layer_2_1_s_fu_143                      |forward_layer_2_1_s                       |        0|   8|   407|  12394|    0|
+    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
+    |Total                                               |                                          |        0|  17|  2859|  32817|    0|
+    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
 
     * DSP: 
     N/A
 
     * Memory: 
-    +-------+-------------------+---------+----+----+-----+------+-----+------+-------------+
-    | Memory|       Module      | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
-    +-------+-------------------+---------+----+----+-----+------+-----+------+-------------+
-    |P_0_U  |P_0_RAM_AUTO_1R1W  |        0|  16|  17|    0|    16|   16|     1|          256|
-    +-------+-------------------+---------+----+----+-----+------+-----+------+-------------+
-    |Total  |                   |        0|  16|  17|    0|    16|   16|     1|          256|
-    +-------+-------------------+---------+----+----+-----+------+-----+------+-------------+
+    N/A
 
     * FIFO: 
     N/A
@@ -103,32 +97,43 @@
     N/A
 
     * Multiplexer: 
-    +--------------+----+-----------+-----+-----------+
-    |     Name     | LUT| Input Size| Bits| Total Bits|
-    +--------------+----+-----------+-----+-----------+
-    |P_0_address0  |  14|          3|    4|         12|
-    |P_0_ce0       |  14|          3|    1|          3|
-    |P_0_ce1       |   9|          2|    1|          2|
-    |P_0_we0       |   9|          2|    1|          2|
-    |ap_NS_fsm     |  26|          5|    1|          5|
-    +--------------+----+-----------+-----+-----------+
-    |Total         |  72|         15|    8|         24|
-    +--------------+----+-----------+-----+-----------+
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |  81|         17|    1|         17|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  81|         17|    1|         17|
+    +-----------+----+-----------+-----+-----------+
 
     * Register: 
-    +----------------------------------------------------------------------+---+----+-----+-----------+
-    |                                 Name                                 | FF| LUT| Bits| Const Bits|
-    +----------------------------------------------------------------------+---+----+-----+-----------+
-    |ap_CS_fsm                                                             |  4|   0|    4|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0        |  4|   0|    4|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1        |  4|   0|    4|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0  |  8|   0|    8|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1  |  8|   0|    8|          0|
-    |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg       |  1|   0|    1|          0|
-    |grp_forward_layer_2_1_s_fu_83_ap_start_reg                            |  1|   0|    1|          0|
-    +----------------------------------------------------------------------+---+----+-----+-----------+
-    |Total                                                                 | 30|   0|   30|          0|
-    +----------------------------------------------------------------------+---+----+-----+-----------+
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                      Name                                     | FF | LUT| Bits| Const Bits|
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                                      |  16|   0|   16|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0                 |   6|   0|    6|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1                 |   6|   0|    6|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0           |   8|   0|    8|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1           |   8|   0|    8|          0|
+    |grp_forward_layer_2_1_s_fu_143_ap_start_reg                                    |   1|   0|    1|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6  |  16|   0|   16|          0|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7  |  16|   0|   16|          0|
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                          | 301|   0|  301|          0|
+    +-------------------------------------------------------------------------------+----+----+-----+-----------+
 
 
 
@@ -178,7 +183,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 4
+* Number of FSM states : 16
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -186,35 +191,83 @@ IsGatedGlobalClock: 0
 1 --> 2 
 2 --> 3 
 3 --> 4 
-4 --> 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 3.42>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback"   --->   Operation 5 'read' 'feedback_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [2/2] (3.42ns)   --->   "%call_ln20 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:20]   --->   Operation 6 'call' 'call_ln20' <Predicate = true> <Delay = 3.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback"   --->   Operation 17 'read' 'feedback_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [7/7] (3.42ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 18 'call' 'call_ln23' <Predicate = true> <Delay = 3.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 2 <SV = 1> <Delay = 0.00>
-ST_2 : Operation 7 [1/2] (0.00ns)   --->   "%call_ln20 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:20]   --->   Operation 7 'call' 'call_ln20' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 3.51>
+ST_2 : Operation 19 [6/7] (3.51ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 19 'call' 'call_ln23' <Predicate = true> <Delay = 3.51> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 3 <SV = 2> <Delay = 3.53>
-ST_3 : Operation 8 [1/1] (0.00ns)   --->   "%input_0_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_0"   --->   Operation 8 'read' 'input_0_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%input_1_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_1"   --->   Operation 9 'read' 'input_1_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 10 [2/2] (3.53ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:23]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 3 <SV = 2> <Delay = 3.51>
+ST_3 : Operation 20 [5/7] (3.51ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 20 'call' 'call_ln23' <Predicate = true> <Delay = 3.51> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 4 <SV = 3> <Delay = 3.04>
-ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [eclair.cpp:5]   --->   Operation 11 'spectopmodule' 'spectopmodule_ln5' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_0"   --->   Operation 12 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_1"   --->   Operation 14 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r"   --->   Operation 16 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 20 [1/2] (3.04ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" [eclair.cpp:23]   --->   Operation 20 'call' 'call_ret' <Predicate = true> <Delay = 3.04> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%write_ln23 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret" [eclair.cpp:23]   --->   Operation 21 'write' 'write_ln23' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%ret_ln25 = ret" [eclair.cpp:25]   --->   Operation 22 'ret' 'ret_ln25' <Predicate = true> <Delay = 0.00>
+State 4 <SV = 3> <Delay = 3.51>
+ST_4 : Operation 21 [4/7] (3.51ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 21 'call' 'call_ln23' <Predicate = true> <Delay = 3.51> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 3.51>
+ST_5 : Operation 22 [3/7] (3.51ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 22 'call' 'call_ln23' <Predicate = true> <Delay = 3.51> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 3.51>
+ST_6 : Operation 23 [2/7] (3.51ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 23 'call' 'call_ln23' <Predicate = true> <Delay = 3.51> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 24 [1/7] (0.00ns)   --->   "%call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:23]   --->   Operation 24 'call' 'call_ln23' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 3.53>
+ST_8 : Operation 25 [1/1] (0.00ns)   --->   "%input_0_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_0"   --->   Operation 25 'read' 'input_0_read' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 26 [1/1] (0.00ns)   --->   "%input_1_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_1"   --->   Operation 26 'read' 'input_1_read' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 27 [9/9] (3.53ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 27 'call' 'call_ret' <Predicate = true> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 3.56>
+ST_9 : Operation 28 [8/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 28 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 3.56>
+ST_10 : Operation 29 [7/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 29 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 10> <Delay = 3.56>
+ST_11 : Operation 30 [6/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 30 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 11> <Delay = 3.56>
+ST_12 : Operation 31 [5/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 31 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 12> <Delay = 3.56>
+ST_13 : Operation 32 [4/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 32 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 14 <SV = 13> <Delay = 3.56>
+ST_14 : Operation 33 [3/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 33 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 14> <Delay = 3.56>
+ST_15 : Operation 34 [2/9] (3.56ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 34 'call' 'call_ret' <Predicate = true> <Delay = 3.56> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 16 <SV = 15> <Delay = 0.24>
+ST_16 : Operation 35 [1/1] (0.00ns)   --->   "%spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_0" [eclair.cpp:5]   --->   Operation 35 'spectopmodule' 'spectopmodule_ln5' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 36 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_0"   --->   Operation 36 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_0, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 38 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_1"   --->   Operation 38 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_1, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 40 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r"   --->   Operation 40 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 41 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0"   --->   Operation 41 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 42 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback"   --->   Operation 42 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 43 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0"   --->   Operation 43 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 44 [1/9] (0.24ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" [eclair.cpp:26]   --->   Operation 44 'call' 'call_ret' <Predicate = true> <Delay = 0.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_16 : Operation 45 [1/1] (0.00ns)   --->   "%write_ln26 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret" [eclair.cpp:26]   --->   Operation 45 'write' 'write_ln26' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 46 [1/1] (0.00ns)   --->   "%ret_ln28 = ret" [eclair.cpp:28]   --->   Operation 46 'ret' 'ret_ln28' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -234,31 +287,46 @@ Port [ output_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; e
 Port [ feedback]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
 Port [ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
-Port [ P_0]:  wired=0; compound=1; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=1; pingpong=0; private_global=1; MemPort=[21]; IO mode=ap_memory:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
 Port [ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
 Port [ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
+Port [ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; IO mode=ap_ovld:ce=0
 ---------------- STG Properties END ------------------
 
 ---------------- Datapath Model BEGIN ----------------
 
 <LifeTime>
 <method=bitvector/>
-feedback_read     (read         ) [ 00100]
-call_ln20         (call         ) [ 00000]
-input_0_read      (read         ) [ 00001]
-input_1_read      (read         ) [ 00001]
-spectopmodule_ln5 (spectopmodule) [ 00000]
-specbitsmap_ln0   (specbitsmap  ) [ 00000]
-specinterface_ln0 (specinterface) [ 00000]
-specbitsmap_ln0   (specbitsmap  ) [ 00000]
-specinterface_ln0 (specinterface) [ 00000]
-specbitsmap_ln0   (specbitsmap  ) [ 00000]
-specinterface_ln0 (specinterface) [ 00000]
-specbitsmap_ln0   (specbitsmap  ) [ 00000]
-specinterface_ln0 (specinterface) [ 00000]
-call_ret          (call         ) [ 00000]
-write_ln23        (write        ) [ 00000]
-ret_ln25          (ret          ) [ 00000]
+feedback_read     (read         ) [ 00000000000000000]
+call_ln23         (call         ) [ 00000000000000000]
+input_0_read      (read         ) [ 00000000000000000]
+input_1_read      (read         ) [ 00000000000000000]
+spectopmodule_ln5 (spectopmodule) [ 00000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 00000000000000000]
+specinterface_ln0 (specinterface) [ 00000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 00000000000000000]
+specinterface_ln0 (specinterface) [ 00000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 00000000000000000]
+specinterface_ln0 (specinterface) [ 00000000000000000]
+specbitsmap_ln0   (specbitsmap  ) [ 00000000000000000]
+specinterface_ln0 (specinterface) [ 00000000000000000]
+call_ret          (call         ) [ 00000000000000000]
+write_ln26        (write        ) [ 00000000000000000]
+ret_ln28          (ret          ) [ 00000000000000000]
 </LifeTime>
 
 <model>
@@ -318,147 +386,281 @@ ret_ln25          (ret          ) [ 00000]
 </bind>
 </comp>
 
-<comp id="12" class="1000" name="P_0">
+<comp id="12" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0">
 <pin_list>
 <pin id="13" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="P_0"/><MemPortTyVec>2 1 </MemPortTyVec>
-</StgValue>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0"/></StgValue>
 </bind>
 </comp>
 
-<comp id="14" class="1000" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1">
+<comp id="14" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1">
 <pin_list>
 <pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1000" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1"/></StgValue>
 </bind>
 </comp>
 
-<comp id="16" class="1000" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1">
+<comp id="30" class="1000" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1">
 <pin_list>
-<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1"/></StgValue>
 </bind>
 </comp>
 
-<comp id="18" class="1001" name="const_18">
+<comp id="32" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0">
 <pin_list>
-<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1000" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="_ssdm_op_Read.ap_auto.i16P0A"/></StgValue>
 </bind>
 </comp>
 
-<comp id="20" class="1001" name="const_20">
+<comp id="50" class="1001" name="const_50">
 <pin_list>
-<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+<pin id="51" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >"/></StgValue>
 </bind>
 </comp>
 
-<comp id="22" class="1001" name="const_22">
+<comp id="52" class="1001" name="const_52">
 <pin_list>
-<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+<pin id="53" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="forward_layer<2, 1>"/></StgValue>
 </bind>
 </comp>
 
-<comp id="24" class="1001" name="const_24">
+<comp id="54" class="1001" name="const_54">
 <pin_list>
-<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
 </bind>
 </comp>
 
-<comp id="26" class="1001" name="const_26">
+<comp id="56" class="1001" name="const_56">
 <pin_list>
-<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
-</pin_list>
-<bind>
-<StgValue><ssdm name="empty_1"/></StgValue>
-</bind>
-</comp>
-
-<comp id="28" class="1001" name="const_28">
-<pin_list>
-<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
-</pin_list>
-<bind>
-<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
-</bind>
-</comp>
-
-<comp id="30" class="1001" name="const_30">
-<pin_list>
-<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
-</pin_list>
-<bind>
-<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
-</bind>
-</comp>
-
-<comp id="32" class="1001" name="const_32">
-<pin_list>
-<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
-</pin_list>
-<bind>
-<StgValue><ssdm name="empty"/></StgValue>
-</bind>
-</comp>
-
-<comp id="34" class="1001" name="const_34">
-<pin_list>
-<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
-</pin_list>
-<bind>
-<StgValue><ssdm name=""/></StgValue>
-</bind>
-</comp>
-
-<comp id="36" class="1001" name="const_36">
-<pin_list>
-<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="empty_0"/></StgValue>
 </bind>
 </comp>
 
-<comp id="38" class="1001" name="const_38">
+<comp id="58" class="1001" name="const_58">
 <pin_list>
-<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="59" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
-<comp id="40" class="1001" name="const_40">
+<comp id="66" class="1001" name="const_66">
 <pin_list>
-<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty"/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name="_ssdm_op_Write.ap_auto.i16P0A"/></StgValue>
 </bind>
 </comp>
 
-<comp id="42" class="1004" name="feedback_read_read_fu_42">
+<comp id="72" class="1004" name="feedback_read_read_fu_72">
 <pin_list>
-<pin id="43" dir="0" index="0" bw="16" slack="0"/>
-<pin id="44" dir="0" index="1" bw="16" slack="0"/>
-<pin id="45" dir="1" index="2" bw="16" slack="0"/>
+<pin id="73" dir="0" index="0" bw="16" slack="0"/>
+<pin id="74" dir="0" index="1" bw="16" slack="0"/>
+<pin id="75" dir="1" index="2" bw="16" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -466,170 +668,218 @@ ret_ln25          (ret          ) [ 00000]
 </bind>
 </comp>
 
-<comp id="48" class="1004" name="input_0_read_read_fu_48">
+<comp id="78" class="1004" name="input_0_read_read_fu_78">
 <pin_list>
-<pin id="49" dir="0" index="0" bw="16" slack="0"/>
-<pin id="50" dir="0" index="1" bw="16" slack="0"/>
-<pin id="51" dir="1" index="2" bw="16" slack="0"/>
+<pin id="79" dir="0" index="0" bw="16" slack="0"/>
+<pin id="80" dir="0" index="1" bw="16" slack="0"/>
+<pin id="81" dir="1" index="2" bw="16" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="input_0_read/3 "/>
+<opset="input_0_read/8 "/>
 </bind>
 </comp>
 
-<comp id="54" class="1004" name="input_1_read_read_fu_54">
+<comp id="84" class="1004" name="input_1_read_read_fu_84">
 <pin_list>
-<pin id="55" dir="0" index="0" bw="16" slack="0"/>
-<pin id="56" dir="0" index="1" bw="16" slack="0"/>
-<pin id="57" dir="1" index="2" bw="16" slack="0"/>
+<pin id="85" dir="0" index="0" bw="16" slack="0"/>
+<pin id="86" dir="0" index="1" bw="16" slack="0"/>
+<pin id="87" dir="1" index="2" bw="16" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="input_1_read/3 "/>
+<opset="input_1_read/8 "/>
 </bind>
 </comp>
 
-<comp id="60" class="1004" name="write_ln23_write_fu_60">
+<comp id="90" class="1004" name="write_ln26_write_fu_90">
 <pin_list>
-<pin id="61" dir="0" index="0" bw="0" slack="0"/>
-<pin id="62" dir="0" index="1" bw="16" slack="0"/>
-<pin id="63" dir="0" index="2" bw="16" slack="0"/>
-<pin id="64" dir="1" index="3" bw="0" slack="2147483647"/>
+<pin id="91" dir="0" index="0" bw="0" slack="0"/>
+<pin id="92" dir="0" index="1" bw="16" slack="0"/>
+<pin id="93" dir="0" index="2" bw="16" slack="0"/>
+<pin id="94" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
-<opset="write_ln23/4 "/>
+<opset="write_ln26/16 "/>
 </bind>
 </comp>
 
-<comp id="67" class="1004" name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67">
+<comp id="97" class="1004" name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97">
 <pin_list>
-<pin id="68" dir="0" index="0" bw="0" slack="0"/>
-<pin id="69" dir="0" index="1" bw="16" slack="0"/>
-<pin id="70" dir="0" index="2" bw="4" slack="0"/>
-<pin id="71" dir="0" index="3" bw="8" slack="0"/>
-<pin id="72" dir="0" index="4" bw="16" slack="0"/>
-<pin id="73" dir="0" index="5" bw="4" slack="0"/>
-<pin id="74" dir="0" index="6" bw="8" slack="0"/>
-<pin id="75" dir="1" index="7" bw="0" slack="2147483647"/>
+<pin id="98" dir="0" index="0" bw="0" slack="0"/>
+<pin id="99" dir="0" index="1" bw="16" slack="0"/>
+<pin id="100" dir="0" index="2" bw="6" slack="0"/>
+<pin id="101" dir="0" index="3" bw="8" slack="0"/>
+<pin id="102" dir="0" index="4" bw="16" slack="0"/>
+<pin id="103" dir="0" index="5" bw="16" slack="0"/>
+<pin id="104" dir="0" index="6" bw="16" slack="0"/>
+<pin id="105" dir="0" index="7" bw="16" slack="0"/>
+<pin id="106" dir="0" index="8" bw="16" slack="0"/>
+<pin id="107" dir="0" index="9" bw="16" slack="0"/>
+<pin id="108" dir="0" index="10" bw="16" slack="0"/>
+<pin id="109" dir="0" index="11" bw="16" slack="0"/>
+<pin id="110" dir="0" index="12" bw="6" slack="0"/>
+<pin id="111" dir="0" index="13" bw="8" slack="0"/>
+<pin id="112" dir="0" index="14" bw="16" slack="0"/>
+<pin id="113" dir="0" index="15" bw="16" slack="0"/>
+<pin id="114" dir="0" index="16" bw="16" slack="0"/>
+<pin id="115" dir="0" index="17" bw="16" slack="0"/>
+<pin id="116" dir="0" index="18" bw="16" slack="0"/>
+<pin id="117" dir="0" index="19" bw="16" slack="0"/>
+<pin id="118" dir="0" index="20" bw="16" slack="0"/>
+<pin id="119" dir="0" index="21" bw="16" slack="0"/>
+<pin id="120" dir="1" index="22" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="call_ln20/1 "/>
+<opset="call_ln23/1 "/>
 </bind>
 </comp>
 
-<comp id="83" class="1004" name="grp_forward_layer_2_1_s_fu_83">
+<comp id="143" class="1004" name="grp_forward_layer_2_1_s_fu_143">
 <pin_list>
-<pin id="84" dir="0" index="0" bw="16" slack="0"/>
-<pin id="85" dir="0" index="1" bw="16" slack="0"/>
-<pin id="86" dir="0" index="2" bw="16" slack="0"/>
-<pin id="87" dir="0" index="3" bw="4" slack="0"/>
-<pin id="88" dir="0" index="4" bw="8" slack="0"/>
-<pin id="89" dir="0" index="5" bw="16" slack="0"/>
-<pin id="90" dir="0" index="6" bw="4" slack="0"/>
-<pin id="91" dir="0" index="7" bw="8" slack="0"/>
-<pin id="92" dir="1" index="8" bw="16" slack="0"/>
+<pin id="144" dir="0" index="0" bw="16" slack="0"/>
+<pin id="145" dir="0" index="1" bw="16" slack="0"/>
+<pin id="146" dir="0" index="2" bw="16" slack="0"/>
+<pin id="147" dir="0" index="3" bw="6" slack="0"/>
+<pin id="148" dir="0" index="4" bw="8" slack="0"/>
+<pin id="149" dir="0" index="5" bw="16" slack="0"/>
+<pin id="150" dir="0" index="6" bw="16" slack="0"/>
+<pin id="151" dir="0" index="7" bw="16" slack="0"/>
+<pin id="152" dir="0" index="8" bw="16" slack="0"/>
+<pin id="153" dir="0" index="9" bw="16" slack="0"/>
+<pin id="154" dir="0" index="10" bw="16" slack="0"/>
+<pin id="155" dir="0" index="11" bw="16" slack="0"/>
+<pin id="156" dir="0" index="12" bw="16" slack="0"/>
+<pin id="157" dir="0" index="13" bw="6" slack="0"/>
+<pin id="158" dir="0" index="14" bw="8" slack="0"/>
+<pin id="159" dir="0" index="15" bw="16" slack="0"/>
+<pin id="160" dir="0" index="16" bw="16" slack="0"/>
+<pin id="161" dir="0" index="17" bw="16" slack="0"/>
+<pin id="162" dir="0" index="18" bw="16" slack="0"/>
+<pin id="163" dir="0" index="19" bw="16" slack="0"/>
+<pin id="164" dir="0" index="20" bw="16" slack="0"/>
+<pin id="165" dir="0" index="21" bw="16" slack="0"/>
+<pin id="166" dir="0" index="22" bw="16" slack="0"/>
+<pin id="167" dir="1" index="23" bw="16" slack="0"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="call_ret/3 "/>
-</bind>
-</comp>
-
-<comp id="102" class="1005" name="feedback_read_reg_102">
-<pin_list>
-<pin id="103" dir="0" index="0" bw="16" slack="1"/>
-<pin id="104" dir="1" index="1" bw="16" slack="1"/>
-</pin_list>
-<bind>
-<opset="feedback_read "/>
-</bind>
-</comp>
-
-<comp id="107" class="1005" name="input_0_read_reg_107">
-<pin_list>
-<pin id="108" dir="0" index="0" bw="16" slack="1"/>
-<pin id="109" dir="1" index="1" bw="16" slack="1"/>
-</pin_list>
-<bind>
-<opset="input_0_read "/>
-</bind>
-</comp>
-
-<comp id="112" class="1005" name="input_1_read_reg_112">
-<pin_list>
-<pin id="113" dir="0" index="0" bw="16" slack="1"/>
-<pin id="114" dir="1" index="1" bw="16" slack="1"/>
-</pin_list>
-<bind>
-<opset="input_1_read "/>
+<opset="call_ret/8 "/>
 </bind>
 </comp>
 
 </comp_list>
 
 <net_list>
-<net id="46"><net_src comp="18" pin="0"/><net_sink comp="42" pin=0"/></net>
+<net id="76"><net_src comp="48" pin="0"/><net_sink comp="72" pin=0"/></net>
 
-<net id="47"><net_src comp="6" pin="0"/><net_sink comp="42" pin=1"/></net>
+<net id="77"><net_src comp="6" pin="0"/><net_sink comp="72" pin=1"/></net>
 
-<net id="52"><net_src comp="18" pin="0"/><net_sink comp="48" pin=0"/></net>
+<net id="82"><net_src comp="48" pin="0"/><net_sink comp="78" pin=0"/></net>
 
-<net id="53"><net_src comp="0" pin="0"/><net_sink comp="48" pin=1"/></net>
+<net id="83"><net_src comp="0" pin="0"/><net_sink comp="78" pin=1"/></net>
 
-<net id="58"><net_src comp="18" pin="0"/><net_sink comp="54" pin=0"/></net>
+<net id="88"><net_src comp="48" pin="0"/><net_sink comp="84" pin=0"/></net>
 
-<net id="59"><net_src comp="2" pin="0"/><net_sink comp="54" pin=1"/></net>
+<net id="89"><net_src comp="2" pin="0"/><net_sink comp="84" pin=1"/></net>
 
-<net id="65"><net_src comp="40" pin="0"/><net_sink comp="60" pin=0"/></net>
+<net id="95"><net_src comp="70" pin="0"/><net_sink comp="90" pin=0"/></net>
 
-<net id="66"><net_src comp="4" pin="0"/><net_sink comp="60" pin=1"/></net>
+<net id="96"><net_src comp="4" pin="0"/><net_sink comp="90" pin=1"/></net>
 
-<net id="76"><net_src comp="20" pin="0"/><net_sink comp="67" pin=0"/></net>
+<net id="121"><net_src comp="50" pin="0"/><net_sink comp="97" pin=0"/></net>
 
-<net id="77"><net_src comp="42" pin="2"/><net_sink comp="67" pin=1"/></net>
+<net id="122"><net_src comp="72" pin="2"/><net_sink comp="97" pin=1"/></net>
 
-<net id="78"><net_src comp="8" pin="0"/><net_sink comp="67" pin=2"/></net>
+<net id="123"><net_src comp="8" pin="0"/><net_sink comp="97" pin=2"/></net>
 
-<net id="79"><net_src comp="10" pin="0"/><net_sink comp="67" pin=3"/></net>
+<net id="124"><net_src comp="10" pin="0"/><net_sink comp="97" pin=3"/></net>
 
-<net id="80"><net_src comp="12" pin="0"/><net_sink comp="67" pin=4"/></net>
+<net id="125"><net_src comp="12" pin="0"/><net_sink comp="97" pin=4"/></net>
 
-<net id="81"><net_src comp="14" pin="0"/><net_sink comp="67" pin=5"/></net>
+<net id="126"><net_src comp="14" pin="0"/><net_sink comp="97" pin=5"/></net>
 
-<net id="82"><net_src comp="16" pin="0"/><net_sink comp="67" pin=6"/></net>
+<net id="127"><net_src comp="16" pin="0"/><net_sink comp="97" pin=6"/></net>
 
-<net id="93"><net_src comp="83" pin="8"/><net_sink comp="60" pin=2"/></net>
+<net id="128"><net_src comp="18" pin="0"/><net_sink comp="97" pin=7"/></net>
 
-<net id="94"><net_src comp="22" pin="0"/><net_sink comp="83" pin=0"/></net>
+<net id="129"><net_src comp="20" pin="0"/><net_sink comp="97" pin=8"/></net>
 
-<net id="95"><net_src comp="48" pin="2"/><net_sink comp="83" pin=1"/></net>
+<net id="130"><net_src comp="22" pin="0"/><net_sink comp="97" pin=9"/></net>
 
-<net id="96"><net_src comp="54" pin="2"/><net_sink comp="83" pin=2"/></net>
+<net id="131"><net_src comp="24" pin="0"/><net_sink comp="97" pin=10"/></net>
 
-<net id="97"><net_src comp="8" pin="0"/><net_sink comp="83" pin=3"/></net>
+<net id="132"><net_src comp="26" pin="0"/><net_sink comp="97" pin=11"/></net>
 
-<net id="98"><net_src comp="10" pin="0"/><net_sink comp="83" pin=4"/></net>
+<net id="133"><net_src comp="28" pin="0"/><net_sink comp="97" pin=12"/></net>
 
-<net id="99"><net_src comp="12" pin="0"/><net_sink comp="83" pin=5"/></net>
+<net id="134"><net_src comp="30" pin="0"/><net_sink comp="97" pin=13"/></net>
 
-<net id="100"><net_src comp="14" pin="0"/><net_sink comp="83" pin=6"/></net>
+<net id="135"><net_src comp="32" pin="0"/><net_sink comp="97" pin=14"/></net>
 
-<net id="101"><net_src comp="16" pin="0"/><net_sink comp="83" pin=7"/></net>
+<net id="136"><net_src comp="34" pin="0"/><net_sink comp="97" pin=15"/></net>
 
-<net id="105"><net_src comp="42" pin="2"/><net_sink comp="102" pin=0"/></net>
+<net id="137"><net_src comp="36" pin="0"/><net_sink comp="97" pin=16"/></net>
 
-<net id="106"><net_src comp="102" pin="1"/><net_sink comp="67" pin=1"/></net>
+<net id="138"><net_src comp="38" pin="0"/><net_sink comp="97" pin=17"/></net>
 
-<net id="110"><net_src comp="48" pin="2"/><net_sink comp="107" pin=0"/></net>
+<net id="139"><net_src comp="40" pin="0"/><net_sink comp="97" pin=18"/></net>
 
-<net id="111"><net_src comp="107" pin="1"/><net_sink comp="83" pin=1"/></net>
+<net id="140"><net_src comp="42" pin="0"/><net_sink comp="97" pin=19"/></net>
 
-<net id="115"><net_src comp="54" pin="2"/><net_sink comp="112" pin=0"/></net>
+<net id="141"><net_src comp="44" pin="0"/><net_sink comp="97" pin=20"/></net>
 
-<net id="116"><net_src comp="112" pin="1"/><net_sink comp="83" pin=2"/></net>
+<net id="142"><net_src comp="46" pin="0"/><net_sink comp="97" pin=21"/></net>
+
+<net id="168"><net_src comp="143" pin="23"/><net_sink comp="90" pin=2"/></net>
+
+<net id="169"><net_src comp="52" pin="0"/><net_sink comp="143" pin=0"/></net>
+
+<net id="170"><net_src comp="78" pin="2"/><net_sink comp="143" pin=1"/></net>
+
+<net id="171"><net_src comp="84" pin="2"/><net_sink comp="143" pin=2"/></net>
+
+<net id="172"><net_src comp="8" pin="0"/><net_sink comp="143" pin=3"/></net>
+
+<net id="173"><net_src comp="10" pin="0"/><net_sink comp="143" pin=4"/></net>
+
+<net id="174"><net_src comp="12" pin="0"/><net_sink comp="143" pin=5"/></net>
+
+<net id="175"><net_src comp="14" pin="0"/><net_sink comp="143" pin=6"/></net>
+
+<net id="176"><net_src comp="16" pin="0"/><net_sink comp="143" pin=7"/></net>
+
+<net id="177"><net_src comp="18" pin="0"/><net_sink comp="143" pin=8"/></net>
+
+<net id="178"><net_src comp="20" pin="0"/><net_sink comp="143" pin=9"/></net>
+
+<net id="179"><net_src comp="22" pin="0"/><net_sink comp="143" pin=10"/></net>
+
+<net id="180"><net_src comp="24" pin="0"/><net_sink comp="143" pin=11"/></net>
+
+<net id="181"><net_src comp="26" pin="0"/><net_sink comp="143" pin=12"/></net>
+
+<net id="182"><net_src comp="28" pin="0"/><net_sink comp="143" pin=13"/></net>
+
+<net id="183"><net_src comp="30" pin="0"/><net_sink comp="143" pin=14"/></net>
+
+<net id="184"><net_src comp="32" pin="0"/><net_sink comp="143" pin=15"/></net>
+
+<net id="185"><net_src comp="34" pin="0"/><net_sink comp="143" pin=16"/></net>
+
+<net id="186"><net_src comp="36" pin="0"/><net_sink comp="143" pin=17"/></net>
+
+<net id="187"><net_src comp="38" pin="0"/><net_sink comp="143" pin=18"/></net>
+
+<net id="188"><net_src comp="40" pin="0"/><net_sink comp="143" pin=19"/></net>
+
+<net id="189"><net_src comp="42" pin="0"/><net_sink comp="143" pin=20"/></net>
+
+<net id="190"><net_src comp="44" pin="0"/><net_sink comp="143" pin=21"/></net>
+
+<net id="191"><net_src comp="46" pin="0"/><net_sink comp="143" pin=22"/></net>
 
 </net_list>
 
@@ -638,27 +888,69 @@ ret_ln25          (ret          ) [ 00000]
 
 * FSMD analyzer results:
   - Output states:
-	Port: output_r | {4 }
-	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 | {3 4 }
-	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 | {3 4 }
-	Port: P_0 | {1 2 }
-	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 | {3 4 }
-	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 | {3 4 }
+	Port: output_r | {16 }
+	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 | {9 }
+	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 | {10 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 | {5 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 | {6 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 | {6 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 | {7 }
+	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 | {9 }
+	Port: eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 | {10 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 | {5 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 | {6 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 | {6 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 | {7 }
+	Port: p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 | {7 }
  - Input state : 
-	Port: eclair : input_0 | {3 }
-	Port: eclair : input_1 | {3 }
+	Port: eclair : input_0 | {8 }
+	Port: eclair : input_1 | {8 }
 	Port: eclair : feedback | {1 }
-	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 | {1 2 }
-	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 | {1 2 }
-	Port: eclair : P_0 | {1 2 3 4 }
-	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 | {1 2 }
-	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 | {1 2 }
+	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 | {3 }
+	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 | {2 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 | {3 10 }
+	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 | {3 }
+	Port: eclair : eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 | {2 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 | {3 10 }
+	Port: eclair : p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 | {3 10 }
   - Chain level:
 	State 1
 	State 2
 	State 3
 	State 4
-		write_ln23 : 1
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+		write_ln26 : 1
 
 
 ============================================================
@@ -669,59 +961,41 @@ ret_ln25          (ret          ) [ 00000]
 |----------|----------------------------------------------------|---------|---------|---------|---------|
 | Operation|                   Functional Unit                  |   DSP   |  Delay  |    FF   |   LUT   |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
-|   call   | grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67 |    9    | 4.85619 |   554   |  11799  |
-|          |            grp_forward_layer_2_1_s_fu_83           |    8    | 6.00943 |   641   |  12412  |
+|   call   | grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97 |    9    |  13.158 |   4605  |  12392  |
+|          |           grp_forward_layer_2_1_s_fu_143           |    8    | 4.84114 |   774   |  12510  |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
-|          |              feedback_read_read_fu_42              |    0    |    0    |    0    |    0    |
-|   read   |               input_0_read_read_fu_48              |    0    |    0    |    0    |    0    |
-|          |               input_1_read_read_fu_54              |    0    |    0    |    0    |    0    |
+|          |              feedback_read_read_fu_72              |    0    |    0    |    0    |    0    |
+|   read   |               input_0_read_read_fu_78              |    0    |    0    |    0    |    0    |
+|          |               input_1_read_read_fu_84              |    0    |    0    |    0    |    0    |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
-|   write  |               write_ln23_write_fu_60               |    0    |    0    |    0    |    0    |
+|   write  |               write_ln26_write_fu_90               |    0    |    0    |    0    |    0    |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
-|   Total  |                                                    |    17   | 10.8656 |   1195  |  24211  |
+|   Total  |                                                    |    17   | 17.9991 |   5379  |  24902  |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
 
 Memories:
-+----+--------+--------+--------+--------+
-|    |  BRAM  |   FF   |   LUT  |  URAM  |
-+----+--------+--------+--------+--------+
-| P_0|    0   |   16   |   17   |    0   |
-+----+--------+--------+--------+--------+
-|Total|    0   |   16   |   17   |    0   |
-+----+--------+--------+--------+--------+
+N/A
 
 * Register list:
-+---------------------+--------+
-|                     |   FF   |
-+---------------------+--------+
-|feedback_read_reg_102|   16   |
-| input_0_read_reg_107|   16   |
-| input_1_read_reg_112|   16   |
-+---------------------+--------+
-|        Total        |   48   |
-+---------------------+--------+
+N/A
 
 * Multiplexer (MUX) list: 
-|----------------------------------------------------|------|------|------|--------||---------||---------||---------|
-|                        Comp                        |  Pin | Size |  BW  | S x BW ||  Delay  ||    FF   ||   LUT   |
-|----------------------------------------------------|------|------|------|--------||---------||---------||---------|
-| grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67 |  p1  |   2  |  16  |   32   ||    0    ||    9    |
-|            grp_forward_layer_2_1_s_fu_83           |  p1  |   2  |  16  |   32   ||    0    ||    9    |
-|            grp_forward_layer_2_1_s_fu_83           |  p2  |   2  |  16  |   32   ||    0    ||    9    |
-|----------------------------------------------------|------|------|------|--------||---------||---------||---------|
-|                        Total                       |      |      |      |   96   ||  1.161  ||    0    ||    27   |
-|----------------------------------------------------|------|------|------|--------||---------||---------||---------|
+|--------|------|------|------|--------|
+|  Comp  |  Pin | Size |  BW  | S x BW |
+|--------|------|------|------|--------|
+|  Total |      |      |      |    0   |
+|--------|------|------|------|--------|
 
 
 
 * Summary:
-+-----------+--------+--------+--------+--------+--------+--------+
-|           |  BRAM  |   DSP  |  Delay |   FF   |   LUT  |  URAM  |
-+-----------+--------+--------+--------+--------+--------+--------+
-|  Function |    -   |   17   |   10   |  1195  |  24211 |    -   |
-|   Memory  |    0   |    -   |    -   |   16   |   17   |    0   |
-|Multiplexer|    -   |    -   |    1   |    0   |   27   |    -   |
-|  Register |    -   |    -   |    -   |   48   |    -   |    -   |
-+-----------+--------+--------+--------+--------+--------+--------+
-|   Total   |    0   |   17   |   12   |  1259  |  24255 |    0   |
-+-----------+--------+--------+--------+--------+--------+--------+
++-----------+--------+--------+--------+--------+
+|           |   DSP  |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |   17   |   17   |  5379  |  24902 |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    -   |    -   |    -   |
+|  Register |    -   |    -   |    -   |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |   17   |   17   |  5379  |  24902 |
++-----------+--------+--------+--------+--------+

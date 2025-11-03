@@ -9,37 +9,37 @@
       "T": 3
     },
     "name": "eclair",
-    "total_instructions": 986
+    "total_instructions": 1579
   },
   "1": {
-    "basicblocks": 83,
+    "basicblocks": 299,
     "calls": "",
     "file": "components.h",
-    "fileloc": 75,
-    "instructions": 561,
+    "fileloc": 86,
+    "instructions": 1129,
     "loads": {
-      "G": 12
+      "G": 20
     },
     "name": "backward_input<2, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
     "stores": {
-      "G": 32
+      "G": 208
     },
-    "total_instructions": 561
+    "total_instructions": 1129
   },
   "2": {
     "basicblocks": 25,
     "calls": "",
     "file": "components.h",
     "fileloc": 30,
-    "instructions": 419,
+    "instructions": 444,
     "loads": {
-      "G": 8
+      "G": 16
     },
     "name": "forward_layer<2, 1>",
     "stores": {
       "G": 4,
       "L": 1
     },
-    "total_instructions": 419
+    "total_instructions": 444
   }
 }

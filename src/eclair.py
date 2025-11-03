@@ -216,7 +216,7 @@ class Eclair:
 
         # Write out the look up and addition explicitly
         basis_lookup = []
-        accumulation = ["            o_sum +="]
+        accumulation = ["            partial_sums[i] ="]
 
         weight_update_input = []
         downstream_grad = []

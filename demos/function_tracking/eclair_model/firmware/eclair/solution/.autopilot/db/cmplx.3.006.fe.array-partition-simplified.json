@@ -1,37 +1,21 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "1 2",
+    "calls": "2 1",
     "file": "eclair.cpp",
     "fileloc": 5,
     "instructions": 3,
     "name": "eclair",
-    "total_instructions": 986
+    "total_instructions": 1653
   },
   "1": {
-    "basicblocks": 83,
-    "calls": "",
-    "file": "components.h",
-    "fileloc": 75,
-    "instructions": 562,
-    "loads": {
-      "G": 12,
-      "L": 1
-    },
-    "name": "backward_input<2, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
-    "stores": {
-      "G": 32
-    },
-    "total_instructions": 562
-  },
-  "2": {
     "basicblocks": 25,
     "calls": "",
     "file": "components.h",
     "fileloc": 30,
-    "instructions": 421,
+    "instructions": 446,
     "loads": {
-      "G": 8,
+      "G": 16,
       "L": 2
     },
     "name": "forward_layer<2, 1>",
@@ -39,6 +23,22 @@
       "G": 4,
       "L": 1
     },
-    "total_instructions": 421
+    "total_instructions": 446
+  },
+  "2": {
+    "basicblocks": 329,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 86,
+    "instructions": 1204,
+    "loads": {
+      "G": 20,
+      "L": 1
+    },
+    "name": "backward_input<2, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "G": 238
+    },
+    "total_instructions": 1204
   }
 }

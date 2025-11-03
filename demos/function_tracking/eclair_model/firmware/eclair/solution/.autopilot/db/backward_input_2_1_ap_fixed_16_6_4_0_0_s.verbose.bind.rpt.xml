@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'backward_input_2_1_ap_fixed_16_6_4_0_0_s'" level="0">
-<item name = "Date">Mon Nov  3 04:37:56 2025
+<item name = "Date">Mon Nov  3 05:32:13 2025
 </item>
 <item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
 <item name = "Project">eclair</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 3.420 ns, 1.35 ns</column>
+<column name="ap_clk">5.00 ns, 3.517 ns, 1.35 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">33, 33, 0.165 us, 0.165 us, 33, 33, no</column>
+<column name="">6, 6, 30.000 ns, 30.000 ns, 4, 4, yes</column>
 </table>
 </item>
 <item name = "Detail">

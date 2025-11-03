@@ -33,11 +33,16 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
+    #pragma HLS PIPELINE
+
     // Compute for each output node
     ACCUM_O:
     for (int o=0; o<OUT_DIM; o++){
         #pragma HLS UNROLL
-        weight_t o_sum = 0; 
+
+        //Partial sums for each input dimension
+        weight_t partial_sums[IN_DIM];
+        #pragma HLS ARRAY_PARTITION variable=partial_sums complete dim=0
         
         ACCUM_I:
         for (int i=0; i<IN_DIM; i++){
@@ -62,6 +67,12 @@ inline void forward_layer(
 
         }
 
+        weight_t o_sum = 0; 
+        REDUCTION_LOOP: for(int i=0; i < IN_DIM; i++){
+            #pragma HLS UNROLL
+            o_sum += partial_sums[i];
+        }
+
         y[o] = o_sum;
     }
 
@@ -73,6 +84,8 @@ inline void backward_input( //When the layer is connected to the input
     const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context for this layer's input
     const up_grad_t dL_dy[OUT_DIM] // Upstream gradie
 ){
+    #pragma HLS PIPELINE
+
     BWD_O: for (int o = 0; o < OUT_DIM; o++) {
         #pragma HLS UNROLL
 
@@ -100,7 +113,9 @@ inline void backward( //When the layer is connected to only the output
     weight_t dL_dx[IN_DIM], // Downstream gradient
     const up_grad_t dL_dy[OUT_DIM] //Upstream gradient
 ){  
-    
+
+    #pragma HLS PIPELINE
+
     INIT_DX: for (int i = 0; i < IN_DIM; i++) {
         #pragma HLS UNROLL
         dL_dx[i] = 0;

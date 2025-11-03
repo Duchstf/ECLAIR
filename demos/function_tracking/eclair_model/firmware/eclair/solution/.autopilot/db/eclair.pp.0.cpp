@@ -34207,13 +34207,18 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
+#pragma HLS PIPELINE
 
-    ACCUM_O:
+
+ ACCUM_O:
     for (int o=0; o<OUT_DIM; o++){
 #pragma HLS UNROLL
- weight_t o_sum = 0;
 
-        ACCUM_I:
+
+ weight_t partial_sums[IN_DIM];
+#pragma HLS ARRAY_PARTITION variable=partial_sums complete dim=0
+
+ ACCUM_I:
         for (int i=0; i<IN_DIM; i++){
 #pragma HLS UNROLL
 
@@ -34237,7 +34242,13 @@ inline void forward_layer(
             weight_t b3 = LUT.B3[ui];
 
 
-            o_sum += L.Ws[o][i][k] * b0 + L.Ws[o][i][k + 1] * b1 + L.Ws[o][i][k + 2] * b2 + L.Ws[o][i][k + 3] * b3;
+            partial_sums[i] = L.Ws[o][i][k] * b0 + L.Ws[o][i][k + 1] * b1 + L.Ws[o][i][k + 2] * b2 + L.Ws[o][i][k + 3] * b3;
+        }
+
+        weight_t o_sum = 0;
+        REDUCTION_LOOP: for(int i=0; i < IN_DIM; i++){
+#pragma HLS UNROLL
+ o_sum += partial_sums[i];
         }
 
         y[o] = o_sum;
@@ -34251,7 +34262,9 @@ inline void backward_input(
     const LayerContext<IN_DIM, OUT_DIM> &C,
     const up_grad_t dL_dy[OUT_DIM]
 ){
-    BWD_O: for (int o = 0; o < OUT_DIM; o++) {
+#pragma HLS PIPELINE
+
+ BWD_O: for (int o = 0; o < OUT_DIM; o++) {
 #pragma HLS UNROLL
 
 
@@ -34283,7 +34296,9 @@ inline void backward(
     const up_grad_t dL_dy[OUT_DIM]
 ){
 
-    INIT_DX: for (int i = 0; i < IN_DIM; i++) {
+#pragma HLS PIPELINE
+
+ INIT_DX: for (int i = 0; i < IN_DIM; i++) {
 #pragma HLS UNROLL
  dL_dx[i] = 0;
     }
@@ -34328,19 +34343,22 @@ __attribute__((sdx_kernel("eclair", 0))) void eclair(const input_t input[2], out
 
 
 
+    static Params P;
+    static Context C;
+
+
 #pragma HLS ARRAY_PARTITION variable=input complete dim=0
 #pragma HLS ARRAY_PARTITION variable=output complete dim=0
 #pragma HLS ARRAY_PARTITION variable=feedback complete dim=0
 
 #pragma HLS ARRAY_PARTITION variable=LUT complete dim=0
-
- static Params P;
-    static Context C;
-
+#pragma HLS ARRAY_PARTITION variable=P complete dim=0
+#pragma HLS ARRAY_PARTITION variable=C complete dim=0
 
 
 
-    backward_input<2, 1, output_t>(P.L0, C.C0, feedback);
+
+ backward_input<2, 1, output_t>(P.L0, C.C0, feedback);
 
 
     forward_layer<2, 1>(input, output, P.L0, C.C0);

@@ -3,19 +3,91 @@
 
 <trans_list>
 
-<trans id="23" from="1" to="2">
+<trans id="47" from="1" to="2">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="24" from="2" to="3">
+<trans id="48" from="2" to="3">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="25" from="3" to="4">
+<trans id="49" from="3" to="4">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="50" from="4" to="5">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="51" from="5" to="6">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="52" from="6" to="7">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="53" from="7" to="8">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="54" from="8" to="9">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="55" from="9" to="10">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="56" from="10" to="11">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="57" from="11" to="12">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="58" from="12" to="13">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="59" from="13" to="14">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="60" from="14" to="15">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="61" from="15" to="16">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
@@ -28,14 +100,14 @@
 
 <state id="1" st_id="1">
 
-<operation id="5" st_id="1" stage="1" lat="1">
+<operation id="17" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="16" op_0_bw="16" op_1_bw="16">
+<Node id="34" bw="16" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 entry:9 %feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback
 
@@ -43,50 +115,140 @@ entry:9 %feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback
 <StgValue><ssdm name="feedback_read"/></StgValue>
 </operation>
 
-<operation id="6" st_id="1" stage="2" lat="2">
+<operation id="18" st_id="1" stage="7" lat="7">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="4" op_3_bw="8" op_4_bw="16" op_5_bw="4" op_6_bw="8">
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
 <![CDATA[
-entry:10 %call_ln20 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
 
 ]]></Node>
-<StgValue><ssdm name="call_ln20"/></StgValue>
+<StgValue><ssdm name="call_ln23"/></StgValue>
 </operation>
 </state>
 
 <state id="2" st_id="2">
 
-<operation id="7" st_id="2" stage="1" lat="2">
+<operation id="19" st_id="2" stage="6" lat="7">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="4" op_3_bw="8" op_4_bw="16" op_5_bw="4" op_6_bw="8">
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
 <![CDATA[
-entry:10 %call_ln20 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
 
 ]]></Node>
-<StgValue><ssdm name="call_ln20"/></StgValue>
+<StgValue><ssdm name="call_ln23"/></StgValue>
 </operation>
 </state>
 
 <state id="3" st_id="3">
 
-<operation id="8" st_id="3" stage="1" lat="1">
+<operation id="20" st_id="3" stage="5" lat="7">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
+<![CDATA[
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ln23"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="21" st_id="4" stage="4" lat="7">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
+<![CDATA[
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ln23"/></StgValue>
+</operation>
+</state>
+
+<state id="5" st_id="5">
+
+<operation id="22" st_id="5" stage="3" lat="7">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
+<![CDATA[
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ln23"/></StgValue>
+</operation>
+</state>
+
+<state id="6" st_id="6">
+
+<operation id="23" st_id="6" stage="2" lat="7">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
+<![CDATA[
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ln23"/></StgValue>
+</operation>
+</state>
+
+<state id="7" st_id="7">
+
+<operation id="24" st_id="7" stage="1" lat="7">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="35" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="6" op_3_bw="8" op_4_bw="16" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="6" op_13_bw="8" op_14_bw="16" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16">
+<![CDATA[
+entry:10 %call_ln23 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ln23"/></StgValue>
+</operation>
+</state>
+
+<state id="8" st_id="8">
+
+<operation id="25" st_id="8" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="16" op_0_bw="16" op_1_bw="16">
+<Node id="36" bw="16" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 entry:11 %input_0_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_0
 
@@ -94,14 +256,14 @@ entry:11 %input_0_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_0
 <StgValue><ssdm name="input_0_read"/></StgValue>
 </operation>
 
-<operation id="9" st_id="3" stage="1" lat="1">
+<operation id="26" st_id="8" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="22" bw="16" op_0_bw="16" op_1_bw="16">
+<Node id="37" bw="16" op_0_bw="16" op_1_bw="16">
 <![CDATA[
 entry:12 %input_1_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_1
 
@@ -109,47 +271,173 @@ entry:12 %input_1_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_1
 <StgValue><ssdm name="input_1_read"/></StgValue>
 </operation>
 
-<operation id="10" st_id="3" stage="2" lat="2">
+<operation id="27" st_id="8" stage="9" lat="9">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="23" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="4" op_4_bw="8" op_5_bw="16" op_6_bw="4" op_7_bw="8" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
 <![CDATA[
-entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
 
 ]]></Node>
 <StgValue><ssdm name="call_ret"/></StgValue>
 </operation>
 </state>
 
-<state id="4" st_id="4">
+<state id="9" st_id="9">
 
-<operation id="11" st_id="4" stage="1" lat="1">
+<operation id="28" st_id="9" stage="8" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="10" st_id="10">
+
+<operation id="29" st_id="10" stage="7" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="11" st_id="11">
+
+<operation id="30" st_id="11" stage="6" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="12" st_id="12">
+
+<operation id="31" st_id="12" stage="5" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="13" st_id="13">
+
+<operation id="32" st_id="13" stage="4" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="14" st_id="14">
+
+<operation id="33" st_id="14" stage="3" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="15" st_id="15">
+
+<operation id="34" st_id="15" stage="2" lat="9">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
+<![CDATA[
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
+
+]]></Node>
+<StgValue><ssdm name="call_ret"/></StgValue>
+</operation>
+</state>
+
+<state id="16" st_id="16">
+
+<operation id="35" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="10" bw="0" op_0_bw="0" op_1_bw="0">
+<Node id="25" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-entry:0 %spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1
+entry:0 %spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_0
 
 ]]></Node>
 <StgValue><ssdm name="spectopmodule_ln5"/></StgValue>
 </operation>
 
-<operation id="12" st_id="4" stage="1" lat="1">
+<operation id="36" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="26" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
 entry:1 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_0
 
@@ -157,29 +445,29 @@ entry:1 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_0
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="13" st_id="4" stage="1" lat="1">
+<operation id="37" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
+<Node id="27" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
 <![CDATA[
-entry:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0
+entry:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_0, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="14" st_id="4" stage="1" lat="1">
+<operation id="38" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="28" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
 entry:3 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_1
 
@@ -187,29 +475,29 @@ entry:3 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_1
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="15" st_id="4" stage="1" lat="1">
+<operation id="39" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
+<Node id="29" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
 <![CDATA[
-entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0
+entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_1, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="16" st_id="4" stage="1" lat="1">
+<operation id="40" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="15" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="30" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
 entry:5 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r
 
@@ -217,29 +505,29 @@ entry:5 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="17" st_id="4" stage="1" lat="1">
+<operation id="41" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="16" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
+<Node id="31" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
 <![CDATA[
-entry:6 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0
+entry:6 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="18" st_id="4" stage="1" lat="1">
+<operation id="42" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="17" bw="0" op_0_bw="0" op_1_bw="16">
+<Node id="32" bw="0" op_0_bw="0" op_1_bw="16">
 <![CDATA[
 entry:7 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback
 
@@ -247,359 +535,1065 @@ entry:7 %specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback
 <StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
 </operation>
 
-<operation id="19" st_id="4" stage="1" lat="1">
+<operation id="43" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="18" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
+<Node id="33" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32" op_19_bw="32">
 <![CDATA[
-entry:8 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0
+entry:8 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty_1, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty, i32 4294967295, i32 0, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
-<operation id="20" st_id="4" stage="1" lat="2">
+<operation id="44" st_id="16" stage="1" lat="9">
 <core></core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="23" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="4" op_4_bw="8" op_5_bw="16" op_6_bw="4" op_7_bw="8" op_8_bw="0" op_9_bw="0" op_10_bw="0">
+<Node id="38" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="6" op_4_bw="8" op_5_bw="16" op_6_bw="16" op_7_bw="16" op_8_bw="16" op_9_bw="16" op_10_bw="16" op_11_bw="16" op_12_bw="16" op_13_bw="6" op_14_bw="8" op_15_bw="16" op_16_bw="16" op_17_bw="16" op_18_bw="16" op_19_bw="16" op_20_bw="16" op_21_bw="16" op_22_bw="16" op_23_bw="0" op_24_bw="0">
 <![CDATA[
-entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %P_0, i4 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1
+entry:13 %call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7, i6 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7
 
 ]]></Node>
 <StgValue><ssdm name="call_ret"/></StgValue>
 </operation>
 
-<operation id="21" st_id="4" stage="1" lat="1">
+<operation id="45" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16">
+<Node id="39" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16">
 <![CDATA[
-entry:14 %write_ln23 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret
+entry:14 %write_ln26 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret
 
 ]]></Node>
-<StgValue><ssdm name="write_ln23"/></StgValue>
+<StgValue><ssdm name="write_ln26"/></StgValue>
 </operation>
 
-<operation id="22" st_id="4" stage="1" lat="1">
+<operation id="46" st_id="16" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="0">
+<Node id="40" bw="0">
 <![CDATA[
-entry:15 %ret_ln25 = ret
+entry:15 %ret_ln28 = ret
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln25"/></StgValue>
+<StgValue><ssdm name="ret_ln28"/></StgValue>
 </operation>
 </state>
 </state_list>
 
 
 <ports>
-<port id="26" name="input_0" dir="0" iftype="0">
+<port id="62" name="input_0" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="input_0"/></StgValue>
 </port>
-<port id="27" name="input_1" dir="0" iftype="0">
+<port id="63" name="input_1" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="input_1"/></StgValue>
 </port>
-<port id="28" name="output_r" dir="1" iftype="0">
+<port id="64" name="output_r" dir="1" iftype="0">
 <core>NULL</core><StgValue><ssdm name="output_r"/></StgValue>
 </port>
-<port id="29" name="feedback" dir="0" iftype="0">
+<port id="65" name="feedback" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="feedback"/></StgValue>
 </port>
-<port id="30" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" dir="2" iftype="0">
+<port id="66" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0"/></StgValue>
 </port>
-<port id="31" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" dir="2" iftype="0">
+<port id="67" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0"/></StgValue>
 </port>
-<port id="32" name="P_0" dir="2" iftype="1">
-<core>RAM</core><StgValue><ssdm name="P_0"/><MemPortTyVec>2 1 </MemPortTyVec>
-</StgValue>
+<port id="68" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0"/></StgValue>
 </port>
-<port id="33" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" dir="2" iftype="0">
+<port id="69" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1"/></StgValue>
+</port>
+<port id="70" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2"/></StgValue>
+</port>
+<port id="71" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3"/></StgValue>
+</port>
+<port id="72" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4"/></StgValue>
+</port>
+<port id="73" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5"/></StgValue>
+</port>
+<port id="74" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6"/></StgValue>
+</port>
+<port id="75" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7"/></StgValue>
+</port>
+<port id="76" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1"/></StgValue>
 </port>
-<port id="34" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" dir="2" iftype="0">
+<port id="77" name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1"/></StgValue>
+</port>
+<port id="78" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0"/></StgValue>
+</port>
+<port id="79" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1"/></StgValue>
+</port>
+<port id="80" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2"/></StgValue>
+</port>
+<port id="81" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3"/></StgValue>
+</port>
+<port id="82" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4"/></StgValue>
+</port>
+<port id="83" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5"/></StgValue>
+</port>
+<port id="84" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6"/></StgValue>
+</port>
+<port id="85" name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" dir="2" iftype="0">
+<core>NULL</core><StgValue><ssdm name="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7"/></StgValue>
 </port>
 </ports>
 
 
 <dataflows>
-<dataflow id="36" from="_ssdm_op_Read.ap_auto.i16P0A" to="feedback_read" fromId="35" toId="5">
+<dataflow id="87" from="_ssdm_op_Read.ap_auto.i16P0A" to="feedback_read" fromId="86" toId="17">
 </dataflow>
-<dataflow id="37" from="feedback" to="feedback_read" fromId="29" toId="5">
+<dataflow id="88" from="feedback" to="feedback_read" fromId="65" toId="17">
 </dataflow>
-<dataflow id="39" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln20" fromId="38" toId="6">
+<dataflow id="90" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="18">
 </dataflow>
-<dataflow id="40" from="feedback_read" to="call_ln20" fromId="5" toId="6">
+<dataflow id="91" from="feedback_read" to="call_ln23" fromId="17" toId="18">
 </dataflow>
-<dataflow id="41" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln20" fromId="30" toId="6">
+<dataflow id="92" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="18">
 </dataflow>
-<dataflow id="42" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln20" fromId="31" toId="6">
+<dataflow id="93" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="18">
 </dataflow>
-<dataflow id="43" from="P_0" to="call_ln20" fromId="32" toId="6">
+<dataflow id="94" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="18">
 </dataflow>
-<dataflow id="44" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln20" fromId="33" toId="6">
+<dataflow id="95" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="18">
 </dataflow>
-<dataflow id="45" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln20" fromId="34" toId="6">
+<dataflow id="96" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="18">
 </dataflow>
-<dataflow id="46" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln20" fromId="38" toId="7">
+<dataflow id="97" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="18">
 </dataflow>
-<dataflow id="47" from="feedback_read" to="call_ln20" fromId="5" toId="7">
+<dataflow id="98" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="18">
 </dataflow>
-<dataflow id="48" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln20" fromId="30" toId="7">
+<dataflow id="99" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="18">
 </dataflow>
-<dataflow id="49" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln20" fromId="31" toId="7">
+<dataflow id="100" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="18">
 </dataflow>
-<dataflow id="50" from="P_0" to="call_ln20" fromId="32" toId="7">
+<dataflow id="101" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="18">
 </dataflow>
-<dataflow id="51" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln20" fromId="33" toId="7">
+<dataflow id="102" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="18">
 </dataflow>
-<dataflow id="52" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln20" fromId="34" toId="7">
+<dataflow id="103" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="18">
 </dataflow>
-<dataflow id="53" from="_ssdm_op_Read.ap_auto.i16P0A" to="input_0_read" fromId="35" toId="8">
+<dataflow id="104" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="18">
 </dataflow>
-<dataflow id="54" from="input_0" to="input_0_read" fromId="26" toId="8">
+<dataflow id="105" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="18">
 </dataflow>
-<dataflow id="55" from="_ssdm_op_Read.ap_auto.i16P0A" to="input_1_read" fromId="35" toId="9">
+<dataflow id="106" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="18">
 </dataflow>
-<dataflow id="56" from="input_1" to="input_1_read" fromId="27" toId="9">
+<dataflow id="107" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="18">
 </dataflow>
-<dataflow id="58" from="forward_layer<2, 1>" to="call_ret" fromId="57" toId="10">
+<dataflow id="108" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="18">
 </dataflow>
-<dataflow id="59" from="input_0_read" to="call_ret" fromId="8" toId="10">
+<dataflow id="109" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="18">
 </dataflow>
-<dataflow id="60" from="input_1_read" to="call_ret" fromId="9" toId="10">
+<dataflow id="110" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="18">
 </dataflow>
-<dataflow id="61" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="30" toId="10">
+<dataflow id="111" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="18">
 </dataflow>
-<dataflow id="62" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="31" toId="10">
+<dataflow id="112" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="19">
 </dataflow>
-<dataflow id="63" from="P_0" to="call_ret" fromId="32" toId="10">
+<dataflow id="113" from="feedback_read" to="call_ln23" fromId="17" toId="19">
 </dataflow>
-<dataflow id="64" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="33" toId="10">
+<dataflow id="114" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="19">
 </dataflow>
-<dataflow id="65" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="34" toId="10">
+<dataflow id="115" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="19">
 </dataflow>
-<dataflow id="67" from="_ssdm_op_SpecTopModule" to="spectopmodule_ln5" fromId="66" toId="11">
+<dataflow id="116" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="19">
 </dataflow>
-<dataflow id="69" from="empty_1" to="spectopmodule_ln5" fromId="68" toId="11">
+<dataflow id="117" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="19">
 </dataflow>
-<dataflow id="71" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="70" toId="12">
+<dataflow id="118" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="19">
 </dataflow>
-<dataflow id="72" from="input_0" to="specbitsmap_ln0" fromId="26" toId="12">
+<dataflow id="119" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="19">
 </dataflow>
-<dataflow id="74" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="73" toId="13">
+<dataflow id="120" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="19">
 </dataflow>
-<dataflow id="75" from="input_0" to="specinterface_ln0" fromId="26" toId="13">
+<dataflow id="121" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="19">
 </dataflow>
-<dataflow id="77" from="empty" to="specinterface_ln0" fromId="76" toId="13">
+<dataflow id="122" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="19">
 </dataflow>
-<dataflow id="79" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="123" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="19">
 </dataflow>
-<dataflow id="80" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="124" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="19">
 </dataflow>
-<dataflow id="82" from="empty_0" to="specinterface_ln0" fromId="81" toId="13">
+<dataflow id="125" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="19">
 </dataflow>
-<dataflow id="83" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="126" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="19">
 </dataflow>
-<dataflow id="84" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="127" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="19">
 </dataflow>
-<dataflow id="85" from="empty_0" to="specinterface_ln0" fromId="81" toId="13">
+<dataflow id="128" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="19">
 </dataflow>
-<dataflow id="86" from="empty_0" to="specinterface_ln0" fromId="81" toId="13">
+<dataflow id="129" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="19">
 </dataflow>
-<dataflow id="87" from="empty_0" to="specinterface_ln0" fromId="81" toId="13">
+<dataflow id="130" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="19">
 </dataflow>
-<dataflow id="88" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="131" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="19">
 </dataflow>
-<dataflow id="89" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="132" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="19">
 </dataflow>
-<dataflow id="90" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="133" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="19">
 </dataflow>
-<dataflow id="91" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="134" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="20">
 </dataflow>
-<dataflow id="92" from="empty_0" to="specinterface_ln0" fromId="81" toId="13">
+<dataflow id="135" from="feedback_read" to="call_ln23" fromId="17" toId="20">
 </dataflow>
-<dataflow id="93" from="empty_0" to="specinterface_ln0" fromId="81" toId="13">
+<dataflow id="136" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="20">
 </dataflow>
-<dataflow id="95" from="StgValue_94" to="specinterface_ln0" fromId="94" toId="13">
+<dataflow id="137" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="20">
 </dataflow>
-<dataflow id="96" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="138" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="20">
 </dataflow>
-<dataflow id="97" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="13">
+<dataflow id="139" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="20">
 </dataflow>
-<dataflow id="98" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="70" toId="14">
+<dataflow id="140" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="20">
 </dataflow>
-<dataflow id="99" from="input_1" to="specbitsmap_ln0" fromId="27" toId="14">
+<dataflow id="141" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="20">
 </dataflow>
-<dataflow id="100" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="73" toId="15">
+<dataflow id="142" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="20">
 </dataflow>
-<dataflow id="101" from="input_1" to="specinterface_ln0" fromId="27" toId="15">
+<dataflow id="143" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="20">
 </dataflow>
-<dataflow id="102" from="empty" to="specinterface_ln0" fromId="76" toId="15">
+<dataflow id="144" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="20">
 </dataflow>
-<dataflow id="103" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="145" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="20">
 </dataflow>
-<dataflow id="104" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="146" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="20">
 </dataflow>
-<dataflow id="105" from="empty_0" to="specinterface_ln0" fromId="81" toId="15">
+<dataflow id="147" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="20">
 </dataflow>
-<dataflow id="106" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="148" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="20">
 </dataflow>
-<dataflow id="107" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="149" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="20">
 </dataflow>
-<dataflow id="108" from="empty_0" to="specinterface_ln0" fromId="81" toId="15">
+<dataflow id="150" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="20">
 </dataflow>
-<dataflow id="109" from="empty_0" to="specinterface_ln0" fromId="81" toId="15">
+<dataflow id="151" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="20">
 </dataflow>
-<dataflow id="110" from="empty_0" to="specinterface_ln0" fromId="81" toId="15">
+<dataflow id="152" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="20">
 </dataflow>
-<dataflow id="111" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="153" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="20">
 </dataflow>
-<dataflow id="112" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="154" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="20">
 </dataflow>
-<dataflow id="113" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="155" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="20">
 </dataflow>
-<dataflow id="114" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="156" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="21">
 </dataflow>
-<dataflow id="115" from="empty_0" to="specinterface_ln0" fromId="81" toId="15">
+<dataflow id="157" from="feedback_read" to="call_ln23" fromId="17" toId="21">
 </dataflow>
-<dataflow id="116" from="empty_0" to="specinterface_ln0" fromId="81" toId="15">
+<dataflow id="158" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="21">
 </dataflow>
-<dataflow id="117" from="StgValue_94" to="specinterface_ln0" fromId="94" toId="15">
+<dataflow id="159" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="21">
 </dataflow>
-<dataflow id="118" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="160" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="21">
 </dataflow>
-<dataflow id="119" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="15">
+<dataflow id="161" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="21">
 </dataflow>
-<dataflow id="120" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="70" toId="16">
+<dataflow id="162" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="21">
 </dataflow>
-<dataflow id="121" from="output_r" to="specbitsmap_ln0" fromId="28" toId="16">
+<dataflow id="163" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="21">
 </dataflow>
-<dataflow id="122" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="73" toId="17">
+<dataflow id="164" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="21">
 </dataflow>
-<dataflow id="123" from="output_r" to="specinterface_ln0" fromId="28" toId="17">
+<dataflow id="165" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="21">
 </dataflow>
-<dataflow id="124" from="empty" to="specinterface_ln0" fromId="76" toId="17">
+<dataflow id="166" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="21">
 </dataflow>
-<dataflow id="125" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="167" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="21">
 </dataflow>
-<dataflow id="126" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="168" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="21">
 </dataflow>
-<dataflow id="127" from="empty_0" to="specinterface_ln0" fromId="81" toId="17">
+<dataflow id="169" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="21">
 </dataflow>
-<dataflow id="128" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="170" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="21">
 </dataflow>
-<dataflow id="129" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="171" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="21">
 </dataflow>
-<dataflow id="130" from="empty_0" to="specinterface_ln0" fromId="81" toId="17">
+<dataflow id="172" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="21">
 </dataflow>
-<dataflow id="131" from="empty_0" to="specinterface_ln0" fromId="81" toId="17">
+<dataflow id="173" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="21">
 </dataflow>
-<dataflow id="132" from="empty_0" to="specinterface_ln0" fromId="81" toId="17">
+<dataflow id="174" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="21">
 </dataflow>
-<dataflow id="133" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="175" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="21">
 </dataflow>
-<dataflow id="134" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="176" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="21">
 </dataflow>
-<dataflow id="135" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="177" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="21">
 </dataflow>
-<dataflow id="136" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="178" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="22">
 </dataflow>
-<dataflow id="137" from="empty_0" to="specinterface_ln0" fromId="81" toId="17">
+<dataflow id="179" from="feedback_read" to="call_ln23" fromId="17" toId="22">
 </dataflow>
-<dataflow id="138" from="empty_0" to="specinterface_ln0" fromId="81" toId="17">
+<dataflow id="180" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="22">
 </dataflow>
-<dataflow id="139" from="StgValue_94" to="specinterface_ln0" fromId="94" toId="17">
+<dataflow id="181" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="22">
 </dataflow>
-<dataflow id="140" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="182" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="22">
 </dataflow>
-<dataflow id="141" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="17">
+<dataflow id="183" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="22">
 </dataflow>
-<dataflow id="142" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="70" toId="18">
+<dataflow id="184" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="22">
 </dataflow>
-<dataflow id="143" from="feedback" to="specbitsmap_ln0" fromId="29" toId="18">
+<dataflow id="185" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="22">
 </dataflow>
-<dataflow id="144" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="73" toId="19">
+<dataflow id="186" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="22">
 </dataflow>
-<dataflow id="145" from="feedback" to="specinterface_ln0" fromId="29" toId="19">
+<dataflow id="187" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="22">
 </dataflow>
-<dataflow id="146" from="empty" to="specinterface_ln0" fromId="76" toId="19">
+<dataflow id="188" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="22">
 </dataflow>
-<dataflow id="147" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="189" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="22">
 </dataflow>
-<dataflow id="148" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="190" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="22">
 </dataflow>
-<dataflow id="149" from="empty_0" to="specinterface_ln0" fromId="81" toId="19">
+<dataflow id="191" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="22">
 </dataflow>
-<dataflow id="150" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="192" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="22">
 </dataflow>
-<dataflow id="151" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="193" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="22">
 </dataflow>
-<dataflow id="152" from="empty_0" to="specinterface_ln0" fromId="81" toId="19">
+<dataflow id="194" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="22">
 </dataflow>
-<dataflow id="153" from="empty_0" to="specinterface_ln0" fromId="81" toId="19">
+<dataflow id="195" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="22">
 </dataflow>
-<dataflow id="154" from="empty_0" to="specinterface_ln0" fromId="81" toId="19">
+<dataflow id="196" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="22">
 </dataflow>
-<dataflow id="155" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="197" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="22">
 </dataflow>
-<dataflow id="156" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="198" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="22">
 </dataflow>
-<dataflow id="157" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="199" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="22">
 </dataflow>
-<dataflow id="158" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="200" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="23">
 </dataflow>
-<dataflow id="159" from="empty_0" to="specinterface_ln0" fromId="81" toId="19">
+<dataflow id="201" from="feedback_read" to="call_ln23" fromId="17" toId="23">
 </dataflow>
-<dataflow id="160" from="empty_0" to="specinterface_ln0" fromId="81" toId="19">
+<dataflow id="202" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="23">
 </dataflow>
-<dataflow id="161" from="StgValue_94" to="specinterface_ln0" fromId="94" toId="19">
+<dataflow id="203" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="23">
 </dataflow>
-<dataflow id="162" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="204" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="23">
 </dataflow>
-<dataflow id="163" from="StgValue_78" to="specinterface_ln0" fromId="78" toId="19">
+<dataflow id="205" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="23">
 </dataflow>
-<dataflow id="164" from="forward_layer<2, 1>" to="call_ret" fromId="57" toId="20">
+<dataflow id="206" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="23">
 </dataflow>
-<dataflow id="165" from="input_0_read" to="call_ret" fromId="8" toId="20">
+<dataflow id="207" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="23">
 </dataflow>
-<dataflow id="166" from="input_1_read" to="call_ret" fromId="9" toId="20">
+<dataflow id="208" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="23">
 </dataflow>
-<dataflow id="167" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="30" toId="20">
+<dataflow id="209" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="23">
 </dataflow>
-<dataflow id="168" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="31" toId="20">
+<dataflow id="210" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="23">
 </dataflow>
-<dataflow id="169" from="P_0" to="call_ret" fromId="32" toId="20">
+<dataflow id="211" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="23">
 </dataflow>
-<dataflow id="170" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="33" toId="20">
+<dataflow id="212" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="23">
 </dataflow>
-<dataflow id="171" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="34" toId="20">
+<dataflow id="213" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="23">
 </dataflow>
-<dataflow id="173" from="_ssdm_op_Write.ap_auto.i16P0A" to="write_ln23" fromId="172" toId="21">
+<dataflow id="214" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="23">
 </dataflow>
-<dataflow id="174" from="output_r" to="write_ln23" fromId="28" toId="21">
+<dataflow id="215" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="23">
 </dataflow>
-<dataflow id="175" from="call_ret" to="write_ln23" fromId="20" toId="21">
+<dataflow id="216" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="23">
+</dataflow>
+<dataflow id="217" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="23">
+</dataflow>
+<dataflow id="218" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="23">
+</dataflow>
+<dataflow id="219" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="23">
+</dataflow>
+<dataflow id="220" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="23">
+</dataflow>
+<dataflow id="221" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="23">
+</dataflow>
+<dataflow id="222" from="backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >" to="call_ln23" fromId="89" toId="24">
+</dataflow>
+<dataflow id="223" from="feedback_read" to="call_ln23" fromId="17" toId="24">
+</dataflow>
+<dataflow id="224" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ln23" fromId="66" toId="24">
+</dataflow>
+<dataflow id="225" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ln23" fromId="67" toId="24">
+</dataflow>
+<dataflow id="226" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ln23" fromId="68" toId="24">
+</dataflow>
+<dataflow id="227" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ln23" fromId="69" toId="24">
+</dataflow>
+<dataflow id="228" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ln23" fromId="70" toId="24">
+</dataflow>
+<dataflow id="229" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ln23" fromId="71" toId="24">
+</dataflow>
+<dataflow id="230" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ln23" fromId="72" toId="24">
+</dataflow>
+<dataflow id="231" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ln23" fromId="73" toId="24">
+</dataflow>
+<dataflow id="232" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ln23" fromId="74" toId="24">
+</dataflow>
+<dataflow id="233" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ln23" fromId="75" toId="24">
+</dataflow>
+<dataflow id="234" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ln23" fromId="76" toId="24">
+</dataflow>
+<dataflow id="235" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ln23" fromId="77" toId="24">
+</dataflow>
+<dataflow id="236" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ln23" fromId="78" toId="24">
+</dataflow>
+<dataflow id="237" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ln23" fromId="79" toId="24">
+</dataflow>
+<dataflow id="238" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ln23" fromId="80" toId="24">
+</dataflow>
+<dataflow id="239" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ln23" fromId="81" toId="24">
+</dataflow>
+<dataflow id="240" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ln23" fromId="82" toId="24">
+</dataflow>
+<dataflow id="241" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ln23" fromId="83" toId="24">
+</dataflow>
+<dataflow id="242" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ln23" fromId="84" toId="24">
+</dataflow>
+<dataflow id="243" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ln23" fromId="85" toId="24">
+</dataflow>
+<dataflow id="244" from="_ssdm_op_Read.ap_auto.i16P0A" to="input_0_read" fromId="86" toId="25">
+</dataflow>
+<dataflow id="245" from="input_0" to="input_0_read" fromId="62" toId="25">
+</dataflow>
+<dataflow id="246" from="_ssdm_op_Read.ap_auto.i16P0A" to="input_1_read" fromId="86" toId="26">
+</dataflow>
+<dataflow id="247" from="input_1" to="input_1_read" fromId="63" toId="26">
+</dataflow>
+<dataflow id="249" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="27">
+</dataflow>
+<dataflow id="250" from="input_0_read" to="call_ret" fromId="25" toId="27">
+</dataflow>
+<dataflow id="251" from="input_1_read" to="call_ret" fromId="26" toId="27">
+</dataflow>
+<dataflow id="252" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="27">
+</dataflow>
+<dataflow id="253" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="27">
+</dataflow>
+<dataflow id="254" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="27">
+</dataflow>
+<dataflow id="255" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="27">
+</dataflow>
+<dataflow id="256" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="27">
+</dataflow>
+<dataflow id="257" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="27">
+</dataflow>
+<dataflow id="258" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="27">
+</dataflow>
+<dataflow id="259" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="27">
+</dataflow>
+<dataflow id="260" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="27">
+</dataflow>
+<dataflow id="261" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="27">
+</dataflow>
+<dataflow id="262" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="27">
+</dataflow>
+<dataflow id="263" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="27">
+</dataflow>
+<dataflow id="264" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="27">
+</dataflow>
+<dataflow id="265" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="27">
+</dataflow>
+<dataflow id="266" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="27">
+</dataflow>
+<dataflow id="267" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="27">
+</dataflow>
+<dataflow id="268" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="27">
+</dataflow>
+<dataflow id="269" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="27">
+</dataflow>
+<dataflow id="270" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="27">
+</dataflow>
+<dataflow id="271" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="27">
+</dataflow>
+<dataflow id="272" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="28">
+</dataflow>
+<dataflow id="273" from="input_0_read" to="call_ret" fromId="25" toId="28">
+</dataflow>
+<dataflow id="274" from="input_1_read" to="call_ret" fromId="26" toId="28">
+</dataflow>
+<dataflow id="275" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="28">
+</dataflow>
+<dataflow id="276" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="28">
+</dataflow>
+<dataflow id="277" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="28">
+</dataflow>
+<dataflow id="278" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="28">
+</dataflow>
+<dataflow id="279" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="28">
+</dataflow>
+<dataflow id="280" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="28">
+</dataflow>
+<dataflow id="281" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="28">
+</dataflow>
+<dataflow id="282" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="28">
+</dataflow>
+<dataflow id="283" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="28">
+</dataflow>
+<dataflow id="284" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="28">
+</dataflow>
+<dataflow id="285" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="28">
+</dataflow>
+<dataflow id="286" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="28">
+</dataflow>
+<dataflow id="287" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="28">
+</dataflow>
+<dataflow id="288" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="28">
+</dataflow>
+<dataflow id="289" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="28">
+</dataflow>
+<dataflow id="290" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="28">
+</dataflow>
+<dataflow id="291" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="28">
+</dataflow>
+<dataflow id="292" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="28">
+</dataflow>
+<dataflow id="293" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="28">
+</dataflow>
+<dataflow id="294" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="28">
+</dataflow>
+<dataflow id="295" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="29">
+</dataflow>
+<dataflow id="296" from="input_0_read" to="call_ret" fromId="25" toId="29">
+</dataflow>
+<dataflow id="297" from="input_1_read" to="call_ret" fromId="26" toId="29">
+</dataflow>
+<dataflow id="298" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="29">
+</dataflow>
+<dataflow id="299" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="29">
+</dataflow>
+<dataflow id="300" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="29">
+</dataflow>
+<dataflow id="301" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="29">
+</dataflow>
+<dataflow id="302" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="29">
+</dataflow>
+<dataflow id="303" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="29">
+</dataflow>
+<dataflow id="304" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="29">
+</dataflow>
+<dataflow id="305" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="29">
+</dataflow>
+<dataflow id="306" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="29">
+</dataflow>
+<dataflow id="307" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="29">
+</dataflow>
+<dataflow id="308" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="29">
+</dataflow>
+<dataflow id="309" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="29">
+</dataflow>
+<dataflow id="310" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="29">
+</dataflow>
+<dataflow id="311" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="29">
+</dataflow>
+<dataflow id="312" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="29">
+</dataflow>
+<dataflow id="313" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="29">
+</dataflow>
+<dataflow id="314" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="29">
+</dataflow>
+<dataflow id="315" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="29">
+</dataflow>
+<dataflow id="316" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="29">
+</dataflow>
+<dataflow id="317" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="29">
+</dataflow>
+<dataflow id="318" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="30">
+</dataflow>
+<dataflow id="319" from="input_0_read" to="call_ret" fromId="25" toId="30">
+</dataflow>
+<dataflow id="320" from="input_1_read" to="call_ret" fromId="26" toId="30">
+</dataflow>
+<dataflow id="321" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="30">
+</dataflow>
+<dataflow id="322" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="30">
+</dataflow>
+<dataflow id="323" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="30">
+</dataflow>
+<dataflow id="324" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="30">
+</dataflow>
+<dataflow id="325" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="30">
+</dataflow>
+<dataflow id="326" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="30">
+</dataflow>
+<dataflow id="327" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="30">
+</dataflow>
+<dataflow id="328" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="30">
+</dataflow>
+<dataflow id="329" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="30">
+</dataflow>
+<dataflow id="330" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="30">
+</dataflow>
+<dataflow id="331" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="30">
+</dataflow>
+<dataflow id="332" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="30">
+</dataflow>
+<dataflow id="333" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="30">
+</dataflow>
+<dataflow id="334" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="30">
+</dataflow>
+<dataflow id="335" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="30">
+</dataflow>
+<dataflow id="336" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="30">
+</dataflow>
+<dataflow id="337" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="30">
+</dataflow>
+<dataflow id="338" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="30">
+</dataflow>
+<dataflow id="339" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="30">
+</dataflow>
+<dataflow id="340" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="30">
+</dataflow>
+<dataflow id="341" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="31">
+</dataflow>
+<dataflow id="342" from="input_0_read" to="call_ret" fromId="25" toId="31">
+</dataflow>
+<dataflow id="343" from="input_1_read" to="call_ret" fromId="26" toId="31">
+</dataflow>
+<dataflow id="344" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="31">
+</dataflow>
+<dataflow id="345" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="31">
+</dataflow>
+<dataflow id="346" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="31">
+</dataflow>
+<dataflow id="347" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="31">
+</dataflow>
+<dataflow id="348" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="31">
+</dataflow>
+<dataflow id="349" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="31">
+</dataflow>
+<dataflow id="350" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="31">
+</dataflow>
+<dataflow id="351" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="31">
+</dataflow>
+<dataflow id="352" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="31">
+</dataflow>
+<dataflow id="353" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="31">
+</dataflow>
+<dataflow id="354" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="31">
+</dataflow>
+<dataflow id="355" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="31">
+</dataflow>
+<dataflow id="356" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="31">
+</dataflow>
+<dataflow id="357" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="31">
+</dataflow>
+<dataflow id="358" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="31">
+</dataflow>
+<dataflow id="359" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="31">
+</dataflow>
+<dataflow id="360" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="31">
+</dataflow>
+<dataflow id="361" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="31">
+</dataflow>
+<dataflow id="362" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="31">
+</dataflow>
+<dataflow id="363" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="31">
+</dataflow>
+<dataflow id="364" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="32">
+</dataflow>
+<dataflow id="365" from="input_0_read" to="call_ret" fromId="25" toId="32">
+</dataflow>
+<dataflow id="366" from="input_1_read" to="call_ret" fromId="26" toId="32">
+</dataflow>
+<dataflow id="367" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="32">
+</dataflow>
+<dataflow id="368" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="32">
+</dataflow>
+<dataflow id="369" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="32">
+</dataflow>
+<dataflow id="370" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="32">
+</dataflow>
+<dataflow id="371" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="32">
+</dataflow>
+<dataflow id="372" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="32">
+</dataflow>
+<dataflow id="373" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="32">
+</dataflow>
+<dataflow id="374" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="32">
+</dataflow>
+<dataflow id="375" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="32">
+</dataflow>
+<dataflow id="376" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="32">
+</dataflow>
+<dataflow id="377" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="32">
+</dataflow>
+<dataflow id="378" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="32">
+</dataflow>
+<dataflow id="379" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="32">
+</dataflow>
+<dataflow id="380" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="32">
+</dataflow>
+<dataflow id="381" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="32">
+</dataflow>
+<dataflow id="382" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="32">
+</dataflow>
+<dataflow id="383" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="32">
+</dataflow>
+<dataflow id="384" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="32">
+</dataflow>
+<dataflow id="385" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="32">
+</dataflow>
+<dataflow id="386" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="32">
+</dataflow>
+<dataflow id="387" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="33">
+</dataflow>
+<dataflow id="388" from="input_0_read" to="call_ret" fromId="25" toId="33">
+</dataflow>
+<dataflow id="389" from="input_1_read" to="call_ret" fromId="26" toId="33">
+</dataflow>
+<dataflow id="390" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="33">
+</dataflow>
+<dataflow id="391" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="33">
+</dataflow>
+<dataflow id="392" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="33">
+</dataflow>
+<dataflow id="393" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="33">
+</dataflow>
+<dataflow id="394" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="33">
+</dataflow>
+<dataflow id="395" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="33">
+</dataflow>
+<dataflow id="396" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="33">
+</dataflow>
+<dataflow id="397" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="33">
+</dataflow>
+<dataflow id="398" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="33">
+</dataflow>
+<dataflow id="399" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="33">
+</dataflow>
+<dataflow id="400" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="33">
+</dataflow>
+<dataflow id="401" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="33">
+</dataflow>
+<dataflow id="402" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="33">
+</dataflow>
+<dataflow id="403" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="33">
+</dataflow>
+<dataflow id="404" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="33">
+</dataflow>
+<dataflow id="405" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="33">
+</dataflow>
+<dataflow id="406" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="33">
+</dataflow>
+<dataflow id="407" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="33">
+</dataflow>
+<dataflow id="408" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="33">
+</dataflow>
+<dataflow id="409" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="33">
+</dataflow>
+<dataflow id="410" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="34">
+</dataflow>
+<dataflow id="411" from="input_0_read" to="call_ret" fromId="25" toId="34">
+</dataflow>
+<dataflow id="412" from="input_1_read" to="call_ret" fromId="26" toId="34">
+</dataflow>
+<dataflow id="413" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="34">
+</dataflow>
+<dataflow id="414" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="34">
+</dataflow>
+<dataflow id="415" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="34">
+</dataflow>
+<dataflow id="416" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="34">
+</dataflow>
+<dataflow id="417" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="34">
+</dataflow>
+<dataflow id="418" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="34">
+</dataflow>
+<dataflow id="419" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="34">
+</dataflow>
+<dataflow id="420" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="34">
+</dataflow>
+<dataflow id="421" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="34">
+</dataflow>
+<dataflow id="422" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="34">
+</dataflow>
+<dataflow id="423" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="34">
+</dataflow>
+<dataflow id="424" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="34">
+</dataflow>
+<dataflow id="425" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="34">
+</dataflow>
+<dataflow id="426" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="34">
+</dataflow>
+<dataflow id="427" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="34">
+</dataflow>
+<dataflow id="428" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="34">
+</dataflow>
+<dataflow id="429" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="34">
+</dataflow>
+<dataflow id="430" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="34">
+</dataflow>
+<dataflow id="431" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="34">
+</dataflow>
+<dataflow id="432" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="34">
+</dataflow>
+<dataflow id="434" from="_ssdm_op_SpecTopModule" to="spectopmodule_ln5" fromId="433" toId="35">
+</dataflow>
+<dataflow id="436" from="empty_0" to="spectopmodule_ln5" fromId="435" toId="35">
+</dataflow>
+<dataflow id="438" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="437" toId="36">
+</dataflow>
+<dataflow id="439" from="input_0" to="specbitsmap_ln0" fromId="62" toId="36">
+</dataflow>
+<dataflow id="441" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="440" toId="37">
+</dataflow>
+<dataflow id="442" from="input_0" to="specinterface_ln0" fromId="62" toId="37">
+</dataflow>
+<dataflow id="444" from="empty_1" to="specinterface_ln0" fromId="443" toId="37">
+</dataflow>
+<dataflow id="446" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="447" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="449" from="empty" to="specinterface_ln0" fromId="448" toId="37">
+</dataflow>
+<dataflow id="450" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="451" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="452" from="empty" to="specinterface_ln0" fromId="448" toId="37">
+</dataflow>
+<dataflow id="453" from="empty" to="specinterface_ln0" fromId="448" toId="37">
+</dataflow>
+<dataflow id="454" from="empty" to="specinterface_ln0" fromId="448" toId="37">
+</dataflow>
+<dataflow id="455" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="456" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="457" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="458" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="459" from="empty" to="specinterface_ln0" fromId="448" toId="37">
+</dataflow>
+<dataflow id="460" from="empty" to="specinterface_ln0" fromId="448" toId="37">
+</dataflow>
+<dataflow id="462" from="StgValue_461" to="specinterface_ln0" fromId="461" toId="37">
+</dataflow>
+<dataflow id="463" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="464" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="37">
+</dataflow>
+<dataflow id="465" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="437" toId="38">
+</dataflow>
+<dataflow id="466" from="input_1" to="specbitsmap_ln0" fromId="63" toId="38">
+</dataflow>
+<dataflow id="467" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="440" toId="39">
+</dataflow>
+<dataflow id="468" from="input_1" to="specinterface_ln0" fromId="63" toId="39">
+</dataflow>
+<dataflow id="469" from="empty_1" to="specinterface_ln0" fromId="443" toId="39">
+</dataflow>
+<dataflow id="470" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="471" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="472" from="empty" to="specinterface_ln0" fromId="448" toId="39">
+</dataflow>
+<dataflow id="473" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="474" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="475" from="empty" to="specinterface_ln0" fromId="448" toId="39">
+</dataflow>
+<dataflow id="476" from="empty" to="specinterface_ln0" fromId="448" toId="39">
+</dataflow>
+<dataflow id="477" from="empty" to="specinterface_ln0" fromId="448" toId="39">
+</dataflow>
+<dataflow id="478" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="479" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="480" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="481" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="482" from="empty" to="specinterface_ln0" fromId="448" toId="39">
+</dataflow>
+<dataflow id="483" from="empty" to="specinterface_ln0" fromId="448" toId="39">
+</dataflow>
+<dataflow id="484" from="StgValue_461" to="specinterface_ln0" fromId="461" toId="39">
+</dataflow>
+<dataflow id="485" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="486" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="39">
+</dataflow>
+<dataflow id="487" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="437" toId="40">
+</dataflow>
+<dataflow id="488" from="output_r" to="specbitsmap_ln0" fromId="64" toId="40">
+</dataflow>
+<dataflow id="489" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="440" toId="41">
+</dataflow>
+<dataflow id="490" from="output_r" to="specinterface_ln0" fromId="64" toId="41">
+</dataflow>
+<dataflow id="491" from="empty_1" to="specinterface_ln0" fromId="443" toId="41">
+</dataflow>
+<dataflow id="492" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="493" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="494" from="empty" to="specinterface_ln0" fromId="448" toId="41">
+</dataflow>
+<dataflow id="495" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="496" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="497" from="empty" to="specinterface_ln0" fromId="448" toId="41">
+</dataflow>
+<dataflow id="498" from="empty" to="specinterface_ln0" fromId="448" toId="41">
+</dataflow>
+<dataflow id="499" from="empty" to="specinterface_ln0" fromId="448" toId="41">
+</dataflow>
+<dataflow id="500" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="501" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="502" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="503" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="504" from="empty" to="specinterface_ln0" fromId="448" toId="41">
+</dataflow>
+<dataflow id="505" from="empty" to="specinterface_ln0" fromId="448" toId="41">
+</dataflow>
+<dataflow id="506" from="StgValue_461" to="specinterface_ln0" fromId="461" toId="41">
+</dataflow>
+<dataflow id="507" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="508" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="41">
+</dataflow>
+<dataflow id="509" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="437" toId="42">
+</dataflow>
+<dataflow id="510" from="feedback" to="specbitsmap_ln0" fromId="65" toId="42">
+</dataflow>
+<dataflow id="511" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="440" toId="43">
+</dataflow>
+<dataflow id="512" from="feedback" to="specinterface_ln0" fromId="65" toId="43">
+</dataflow>
+<dataflow id="513" from="empty_1" to="specinterface_ln0" fromId="443" toId="43">
+</dataflow>
+<dataflow id="514" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="515" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="516" from="empty" to="specinterface_ln0" fromId="448" toId="43">
+</dataflow>
+<dataflow id="517" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="518" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="519" from="empty" to="specinterface_ln0" fromId="448" toId="43">
+</dataflow>
+<dataflow id="520" from="empty" to="specinterface_ln0" fromId="448" toId="43">
+</dataflow>
+<dataflow id="521" from="empty" to="specinterface_ln0" fromId="448" toId="43">
+</dataflow>
+<dataflow id="522" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="523" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="524" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="525" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="526" from="empty" to="specinterface_ln0" fromId="448" toId="43">
+</dataflow>
+<dataflow id="527" from="empty" to="specinterface_ln0" fromId="448" toId="43">
+</dataflow>
+<dataflow id="528" from="StgValue_461" to="specinterface_ln0" fromId="461" toId="43">
+</dataflow>
+<dataflow id="529" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="530" from="StgValue_445" to="specinterface_ln0" fromId="445" toId="43">
+</dataflow>
+<dataflow id="531" from="forward_layer<2, 1>" to="call_ret" fromId="248" toId="44">
+</dataflow>
+<dataflow id="532" from="input_0_read" to="call_ret" fromId="25" toId="44">
+</dataflow>
+<dataflow id="533" from="input_1_read" to="call_ret" fromId="26" toId="44">
+</dataflow>
+<dataflow id="534" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0" to="call_ret" fromId="66" toId="44">
+</dataflow>
+<dataflow id="535" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0" to="call_ret" fromId="67" toId="44">
+</dataflow>
+<dataflow id="536" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0" to="call_ret" fromId="68" toId="44">
+</dataflow>
+<dataflow id="537" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1" to="call_ret" fromId="69" toId="44">
+</dataflow>
+<dataflow id="538" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2" to="call_ret" fromId="70" toId="44">
+</dataflow>
+<dataflow id="539" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3" to="call_ret" fromId="71" toId="44">
+</dataflow>
+<dataflow id="540" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4" to="call_ret" fromId="72" toId="44">
+</dataflow>
+<dataflow id="541" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5" to="call_ret" fromId="73" toId="44">
+</dataflow>
+<dataflow id="542" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6" to="call_ret" fromId="74" toId="44">
+</dataflow>
+<dataflow id="543" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7" to="call_ret" fromId="75" toId="44">
+</dataflow>
+<dataflow id="544" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1" to="call_ret" fromId="76" toId="44">
+</dataflow>
+<dataflow id="545" from="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1" to="call_ret" fromId="77" toId="44">
+</dataflow>
+<dataflow id="546" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0" to="call_ret" fromId="78" toId="44">
+</dataflow>
+<dataflow id="547" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1" to="call_ret" fromId="79" toId="44">
+</dataflow>
+<dataflow id="548" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2" to="call_ret" fromId="80" toId="44">
+</dataflow>
+<dataflow id="549" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" to="call_ret" fromId="81" toId="44">
+</dataflow>
+<dataflow id="550" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4" to="call_ret" fromId="82" toId="44">
+</dataflow>
+<dataflow id="551" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5" to="call_ret" fromId="83" toId="44">
+</dataflow>
+<dataflow id="552" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6" to="call_ret" fromId="84" toId="44">
+</dataflow>
+<dataflow id="553" from="p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7" to="call_ret" fromId="85" toId="44">
+</dataflow>
+<dataflow id="555" from="_ssdm_op_Write.ap_auto.i16P0A" to="write_ln26" fromId="554" toId="45">
+</dataflow>
+<dataflow id="556" from="output_r" to="write_ln26" fromId="64" toId="45">
+</dataflow>
+<dataflow id="557" from="call_ret" to="write_ln26" fromId="44" toId="45">
 </dataflow>
 </dataflows>
 

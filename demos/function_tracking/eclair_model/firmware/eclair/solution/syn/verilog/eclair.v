@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="eclair_eclair,hls_ip_2024_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.535312,HLS_SYN_LAT=45,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=397,HLS_SYN_LUT=24280,HLS_VERSION=2024_1}" *)
+(* CORE_GENERATION_INFO="eclair_eclair,hls_ip_2024_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.561857,HLS_SYN_LAT=15,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=3160,HLS_SYN_LUT=32898,HLS_VERSION=2024_1}" *)
 
 module eclair (
         ap_clk,
@@ -22,10 +22,22 @@ module eclair (
         feedback
 );
 
-parameter    ap_ST_fsm_state1 = 4'd1;
-parameter    ap_ST_fsm_state2 = 4'd2;
-parameter    ap_ST_fsm_state3 = 4'd4;
-parameter    ap_ST_fsm_state4 = 4'd8;
+parameter    ap_ST_fsm_state1 = 16'd1;
+parameter    ap_ST_fsm_state2 = 16'd2;
+parameter    ap_ST_fsm_state3 = 16'd4;
+parameter    ap_ST_fsm_state4 = 16'd8;
+parameter    ap_ST_fsm_state5 = 16'd16;
+parameter    ap_ST_fsm_state6 = 16'd32;
+parameter    ap_ST_fsm_state7 = 16'd64;
+parameter    ap_ST_fsm_state8 = 16'd128;
+parameter    ap_ST_fsm_state9 = 16'd256;
+parameter    ap_ST_fsm_state10 = 16'd512;
+parameter    ap_ST_fsm_state11 = 16'd1024;
+parameter    ap_ST_fsm_state12 = 16'd2048;
+parameter    ap_ST_fsm_state13 = 16'd4096;
+parameter    ap_ST_fsm_state14 = 16'd8192;
+parameter    ap_ST_fsm_state15 = 16'd16384;
+parameter    ap_ST_fsm_state16 = 16'd32768;
 
 input   ap_clk;
 input   ap_rst;
@@ -44,126 +56,229 @@ reg ap_idle;
 reg ap_ready;
 reg output_r_ap_vld;
 
-(* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [15:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [3:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0;
+reg   [5:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0;
 reg   [7:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0;
-reg   [3:0] P_0_address0;
-reg    P_0_ce0;
-reg    P_0_we0;
-wire   [15:0] P_0_q0;
-reg    P_0_ce1;
-wire   [15:0] P_0_q1;
-reg   [3:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7;
+reg   [5:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1;
 reg   [7:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6;
+reg   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7;
+reg    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_start;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_done;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_idle;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_ready;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o_ap_vld;
+wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o_ap_vld;
+wire    grp_forward_layer_2_1_s_fu_143_ap_start;
+wire    grp_forward_layer_2_1_s_fu_143_ap_done;
+wire    grp_forward_layer_2_1_s_fu_143_ap_idle;
+wire    grp_forward_layer_2_1_s_fu_143_ap_ready;
+wire   [5:0] grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0;
+wire    grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld;
+wire   [7:0] grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0;
+wire    grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld;
+wire   [5:0] grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1;
+wire    grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld;
+wire   [7:0] grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1;
+wire    grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld;
+wire   [15:0] grp_forward_layer_2_1_s_fu_143_ap_return;
 wire    ap_CS_fsm_state3;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_done;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_idle;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_ready;
-wire   [3:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_address0;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_ce0;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_we0;
-wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_d0;
-wire    grp_forward_layer_2_1_s_fu_83_ap_start;
-wire    grp_forward_layer_2_1_s_fu_83_ap_done;
-wire    grp_forward_layer_2_1_s_fu_83_ap_idle;
-wire    grp_forward_layer_2_1_s_fu_83_ap_ready;
-wire   [3:0] grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0;
-wire    grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld;
-wire   [7:0] grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0;
-wire    grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld;
-wire   [3:0] grp_forward_layer_2_1_s_fu_83_P_0_address0;
-wire    grp_forward_layer_2_1_s_fu_83_P_0_ce0;
-wire   [3:0] grp_forward_layer_2_1_s_fu_83_P_0_address1;
-wire    grp_forward_layer_2_1_s_fu_83_P_0_ce1;
-wire   [3:0] grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1;
-wire    grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld;
-wire   [7:0] grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1;
-wire    grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld;
-wire   [15:0] grp_forward_layer_2_1_s_fu_83_ap_return;
-reg    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg;
 wire    ap_CS_fsm_state2;
-reg    grp_forward_layer_2_1_s_fu_83_ap_start_reg;
-wire    ap_CS_fsm_state4;
-reg   [3:0] ap_NS_fsm;
+wire    ap_CS_fsm_state5;
+wire    ap_CS_fsm_state6;
+wire    ap_CS_fsm_state7;
+reg    grp_forward_layer_2_1_s_fu_143_ap_start_reg;
+reg   [15:0] ap_NS_fsm;
+wire    ap_NS_fsm_state8;
+wire    ap_CS_fsm_state8;
+wire    ap_CS_fsm_state9;
+wire    ap_CS_fsm_state10;
+wire    ap_CS_fsm_state16;
 reg    ap_ST_fsm_state1_blk;
-reg    ap_ST_fsm_state2_blk;
+wire    ap_ST_fsm_state2_blk;
 wire    ap_ST_fsm_state3_blk;
-reg    ap_ST_fsm_state4_blk;
+wire    ap_ST_fsm_state4_blk;
+wire    ap_ST_fsm_state5_blk;
+wire    ap_ST_fsm_state6_blk;
+wire    ap_ST_fsm_state7_blk;
+wire    ap_ST_fsm_state8_blk;
+wire    ap_ST_fsm_state9_blk;
+wire    ap_ST_fsm_state10_blk;
+wire    ap_ST_fsm_state11_blk;
+wire    ap_ST_fsm_state12_blk;
+wire    ap_ST_fsm_state13_blk;
+wire    ap_ST_fsm_state14_blk;
+wire    ap_ST_fsm_state15_blk;
+wire    ap_ST_fsm_state16_blk;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 4'd1;
-#0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 = 4'd0;
+#0 ap_CS_fsm = 16'd1;
+#0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 = 6'd0;
 #0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 = 8'd0;
-#0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 = 4'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 = 16'd0;
+#0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 = 6'd0;
 #0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 = 8'd0;
-#0 grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg = 1'b0;
-#0 grp_forward_layer_2_1_s_fu_83_ap_start_reg = 1'b0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 = 16'd0;
+#0 p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 = 16'd0;
+#0 grp_forward_layer_2_1_s_fu_143_ap_start_reg = 1'b0;
 end
 
-eclair_P_0_RAM_AUTO_1R1W #(
-    .DataWidth( 16 ),
-    .AddressRange( 16 ),
-    .AddressWidth( 4 ))
-P_0_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(P_0_address0),
-    .ce0(P_0_ce0),
-    .we0(P_0_we0),
-    .d0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_d0),
-    .q0(P_0_q0),
-    .address1(grp_forward_layer_2_1_s_fu_83_P_0_address1),
-    .ce1(P_0_ce1),
-    .q1(P_0_q1)
-);
-
-eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67(
+eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start),
-    .ap_done(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_done),
-    .ap_idle(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_idle),
-    .ap_ready(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_ready),
+    .ap_start(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_start),
+    .ap_done(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_done),
+    .ap_idle(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_idle),
+    .ap_ready(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_ready),
     .dL_dy_val(feedback),
     .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0),
     .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0),
-    .P_0_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_address0),
-    .P_0_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_ce0),
-    .P_0_we0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_we0),
-    .P_0_d0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_d0),
-    .P_0_q0(P_0_q0),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o_ap_vld),
     .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1)
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_i(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o_ap_vld(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o_ap_vld)
 );
 
-eclair_forward_layer_2_1_s grp_forward_layer_2_1_s_fu_83(
+eclair_forward_layer_2_1_s grp_forward_layer_2_1_s_fu_143(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_forward_layer_2_1_s_fu_83_ap_start),
-    .ap_done(grp_forward_layer_2_1_s_fu_83_ap_done),
-    .ap_idle(grp_forward_layer_2_1_s_fu_83_ap_idle),
-    .ap_ready(grp_forward_layer_2_1_s_fu_83_ap_ready),
+    .ap_start(grp_forward_layer_2_1_s_fu_143_ap_start),
+    .ap_done(grp_forward_layer_2_1_s_fu_143_ap_done),
+    .ap_idle(grp_forward_layer_2_1_s_fu_143_ap_idle),
+    .ap_ready(grp_forward_layer_2_1_s_fu_143_ap_ready),
     .x_0_val(input_0),
     .x_1_val(input_1),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld),
-    .P_0_address0(grp_forward_layer_2_1_s_fu_83_P_0_address0),
-    .P_0_ce0(grp_forward_layer_2_1_s_fu_83_P_0_ce0),
-    .P_0_q0(P_0_q0),
-    .P_0_address1(grp_forward_layer_2_1_s_fu_83_P_0_address1),
-    .P_0_ce1(grp_forward_layer_2_1_s_fu_83_P_0_ce1),
-    .P_0_q1(P_0_q1),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld(grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld),
-    .ap_return(grp_forward_layer_2_1_s_fu_83_ap_return)
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld(grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6),
+    .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7),
+    .ap_return(grp_forward_layer_2_1_s_fu_143_ap_return)
 );
 
 always @ (posedge ap_clk) begin
@@ -176,87 +291,149 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg <= 1'b0;
+        grp_forward_layer_2_1_s_fu_143_ap_start_reg <= 1'b0;
     end else begin
-        if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-            grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg <= 1'b1;
-        end else if ((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_ready == 1'b1)) begin
-            grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg <= 1'b0;
+        if (((1'b1 == ap_NS_fsm_state8) & (1'b1 == ap_CS_fsm_state7))) begin
+            grp_forward_layer_2_1_s_fu_143_ap_start_reg <= 1'b1;
+        end else if ((grp_forward_layer_2_1_s_fu_143_ap_ready == 1'b1)) begin
+            grp_forward_layer_2_1_s_fu_143_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        grp_forward_layer_2_1_s_fu_83_ap_start_reg <= 1'b0;
-    end else begin
-        if ((1'b1 == ap_CS_fsm_state3)) begin
-            grp_forward_layer_2_1_s_fu_83_ap_start_reg <= 1'b1;
-        end else if ((grp_forward_layer_2_1_s_fu_83_ap_ready == 1'b1)) begin
-            grp_forward_layer_2_1_s_fu_83_ap_start_reg <= 1'b0;
-        end
+    if (((1'b1 == ap_CS_fsm_state9) & (grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld == 1'b1))) begin
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 <= grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 <= grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0;
+    if (((1'b1 == ap_CS_fsm_state9) & (grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld == 1'b1))) begin
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 <= grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 <= grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1;
+    if (((1'b1 == ap_CS_fsm_state10) & (grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld == 1'b1))) begin
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 <= grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 <= grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0;
+    if (((1'b1 == ap_CS_fsm_state10) & (grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld == 1'b1))) begin
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 <= grp_forward_layer_2_1_s_fu_143_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 <= grp_forward_layer_2_1_s_fu_83_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1;
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_o;
     end
 end
 
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        P_0_address0 = grp_forward_layer_2_1_s_fu_83_P_0_address0;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        P_0_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_address0;
-    end else begin
-        P_0_address0 = 'bx;
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state6))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_o;
     end
 end
 
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        P_0_ce0 = grp_forward_layer_2_1_s_fu_83_P_0_ce0;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        P_0_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_ce0;
-    end else begin
-        P_0_ce0 = 1'b0;
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state6))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_o;
     end
 end
 
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        P_0_ce1 = grp_forward_layer_2_1_s_fu_83_P_0_ce1;
-    end else begin
-        P_0_ce1 = 1'b0;
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_o;
     end
 end
 
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        P_0_we0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_P_0_we0;
-    end else begin
-        P_0_we0 = 1'b0;
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4_o;
     end
 end
+
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state5) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state6) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state6) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state7) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state7) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state7) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state7) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6_o;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state7) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o_ap_vld == 1'b1))) begin
+        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7_o;
+    end
+end
+
+assign ap_ST_fsm_state10_blk = 1'b0;
+
+assign ap_ST_fsm_state11_blk = 1'b0;
+
+assign ap_ST_fsm_state12_blk = 1'b0;
+
+assign ap_ST_fsm_state13_blk = 1'b0;
+
+assign ap_ST_fsm_state14_blk = 1'b0;
+
+assign ap_ST_fsm_state15_blk = 1'b0;
+
+assign ap_ST_fsm_state16_blk = 1'b0;
 
 always @ (*) begin
     if ((ap_start == 1'b0)) begin
@@ -266,26 +443,24 @@ always @ (*) begin
     end
 end
 
-always @ (*) begin
-    if ((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_done == 1'b0)) begin
-        ap_ST_fsm_state2_blk = 1'b1;
-    end else begin
-        ap_ST_fsm_state2_blk = 1'b0;
-    end
-end
+assign ap_ST_fsm_state2_blk = 1'b0;
 
 assign ap_ST_fsm_state3_blk = 1'b0;
 
-always @ (*) begin
-    if ((grp_forward_layer_2_1_s_fu_83_ap_done == 1'b0)) begin
-        ap_ST_fsm_state4_blk = 1'b1;
-    end else begin
-        ap_ST_fsm_state4_blk = 1'b0;
-    end
-end
+assign ap_ST_fsm_state4_blk = 1'b0;
+
+assign ap_ST_fsm_state5_blk = 1'b0;
+
+assign ap_ST_fsm_state6_blk = 1'b0;
+
+assign ap_ST_fsm_state7_blk = 1'b0;
+
+assign ap_ST_fsm_state8_blk = 1'b0;
+
+assign ap_ST_fsm_state9_blk = 1'b0;
 
 always @ (*) begin
-    if (((grp_forward_layer_2_1_s_fu_83_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_CS_fsm_state16)) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -301,7 +476,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((grp_forward_layer_2_1_s_fu_83_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_CS_fsm_state16)) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -309,7 +484,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((grp_forward_layer_2_1_s_fu_83_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_start = 1'b1;
+    end else begin
+        grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97_ap_start = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state16)) begin
         output_r_ap_vld = 1'b1;
     end else begin
         output_r_ap_vld = 1'b0;
@@ -326,21 +509,49 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end
+            ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state3 : begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            if (((grp_forward_layer_2_1_s_fu_83_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
-            end
+            ap_NS_fsm = ap_ST_fsm_state5;
+        end
+        ap_ST_fsm_state5 : begin
+            ap_NS_fsm = ap_ST_fsm_state6;
+        end
+        ap_ST_fsm_state6 : begin
+            ap_NS_fsm = ap_ST_fsm_state7;
+        end
+        ap_ST_fsm_state7 : begin
+            ap_NS_fsm = ap_ST_fsm_state8;
+        end
+        ap_ST_fsm_state8 : begin
+            ap_NS_fsm = ap_ST_fsm_state9;
+        end
+        ap_ST_fsm_state9 : begin
+            ap_NS_fsm = ap_ST_fsm_state10;
+        end
+        ap_ST_fsm_state10 : begin
+            ap_NS_fsm = ap_ST_fsm_state11;
+        end
+        ap_ST_fsm_state11 : begin
+            ap_NS_fsm = ap_ST_fsm_state12;
+        end
+        ap_ST_fsm_state12 : begin
+            ap_NS_fsm = ap_ST_fsm_state13;
+        end
+        ap_ST_fsm_state13 : begin
+            ap_NS_fsm = ap_ST_fsm_state14;
+        end
+        ap_ST_fsm_state14 : begin
+            ap_NS_fsm = ap_ST_fsm_state15;
+        end
+        ap_ST_fsm_state15 : begin
+            ap_NS_fsm = ap_ST_fsm_state16;
+        end
+        ap_ST_fsm_state16 : begin
+            ap_NS_fsm = ap_ST_fsm_state1;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -350,16 +561,28 @@ end
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
+assign ap_CS_fsm_state10 = ap_CS_fsm[32'd9];
+
+assign ap_CS_fsm_state16 = ap_CS_fsm[32'd15];
+
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
+assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_67_ap_start_reg;
+assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
-assign grp_forward_layer_2_1_s_fu_83_ap_start = grp_forward_layer_2_1_s_fu_83_ap_start_reg;
+assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 
-assign output_r = grp_forward_layer_2_1_s_fu_83_ap_return;
+assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
+
+assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
+
+assign ap_NS_fsm_state8 = ap_NS_fsm[32'd7];
+
+assign grp_forward_layer_2_1_s_fu_143_ap_start = grp_forward_layer_2_1_s_fu_143_ap_start_reg;
+
+assign output_r = grp_forward_layer_2_1_s_fu_143_ap_return;
 
 endmodule //eclair
