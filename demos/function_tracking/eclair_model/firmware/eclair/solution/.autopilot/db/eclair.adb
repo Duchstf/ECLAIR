@@ -556,61 +556,6 @@
             <Obj>
               <type>0</type>
               <id>266</id>
-              <name>LUT_B0</name>
-              <fileName>eclair.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>17</lineNumber>
-              <contextFuncName>eclair</contextFuncName>
-              <contextNormFuncName>eclair</contextNormFuncName>
-              <inlineStackInfo>
-                <count>1</count>
-                <item_version>0</item_version>
-                <item>
-                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
-                  <second>
-                    <count>1</count>
-                    <item_version>0</item_version>
-                    <item>
-                      <first>
-                        <first>eclair.cpp</first>
-                        <second>eclair</second>
-                      </first>
-                      <second>17</second>
-                    </item>
-                  </second>
-                </item>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName>LUT_B0_U</rtlName>
-              <control>pragma</control>
-              <opType>rom_1p</opType>
-              <implIndex>lutram</implIndex>
-              <coreName>ROM_1P_LUTRAM</coreName>
-              <isStorage>1</isStorage>
-              <storageDepth>256</storageDepth>
-              <coreId>102</coreId>
-              <rtlModuleName>eclair_LUT_B0_ROM_1P_LUTRAM_1R</rtlModuleName>
-            </Obj>
-            <bitwidth>0</bitwidth>
-          </Value>
-          <oprand_edges>
-            <count>0</count>
-            <item_version>0</item_version>
-          </oprand_edges>
-          <opcode>GlobalMem</opcode>
-          <m_Display>0</m_Display>
-          <m_isOnCriticalPath>0</m_isOnCriticalPath>
-          <m_isLCDNode>0</m_isLCDNode>
-          <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0</m_delay>
-          <m_topoIndex>-1</m_topoIndex>
-          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
-        </item>
-        <item class_id_reference="9" object_id="_13">
-          <Value>
-            <Obj>
-              <type>0</type>
-              <id>267</id>
               <name>p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0</name>
               <fileName>eclair.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
@@ -645,6 +590,61 @@
               <storageDepth>2</storageDepth>
               <coreId>92</coreId>
               <rtlModuleName>eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb</rtlModuleName>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>0</count>
+            <item_version>0</item_version>
+          </oprand_edges>
+          <opcode>GlobalMem</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0</m_delay>
+          <m_topoIndex>-1</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_13">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>267</id>
+              <name>LUT_B3</name>
+              <fileName>eclair.cpp</fileName>
+              <fileDirectory>../.</fileDirectory>
+              <lineNumber>23</lineNumber>
+              <contextFuncName>eclair</contextFuncName>
+              <contextNormFuncName>eclair</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>eclair.cpp</first>
+                        <second>eclair</second>
+                      </first>
+                      <second>23</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName>LUT_B3_U</rtlName>
+              <control>pragma</control>
+              <opType>rom_1p</opType>
+              <implIndex>lutram</implIndex>
+              <coreName>ROM_1P_LUTRAM</coreName>
+              <isStorage>1</isStorage>
+              <storageDepth>256</storageDepth>
+              <coreId>102</coreId>
+              <rtlModuleName>eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B3_ROM_1P_LUTRAM_1R</rtlModuleName>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
@@ -831,171 +831,6 @@
             <Obj>
               <type>0</type>
               <id>271</id>
-              <name>LUT_B1</name>
-              <fileName>eclair.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>19</lineNumber>
-              <contextFuncName>eclair</contextFuncName>
-              <contextNormFuncName>eclair</contextNormFuncName>
-              <inlineStackInfo>
-                <count>1</count>
-                <item_version>0</item_version>
-                <item>
-                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
-                  <second>
-                    <count>1</count>
-                    <item_version>0</item_version>
-                    <item>
-                      <first>
-                        <first>eclair.cpp</first>
-                        <second>eclair</second>
-                      </first>
-                      <second>19</second>
-                    </item>
-                  </second>
-                </item>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName>LUT_B1_U</rtlName>
-              <control>pragma</control>
-              <opType>rom_1p</opType>
-              <implIndex>lutram</implIndex>
-              <coreName>ROM_1P_LUTRAM</coreName>
-              <isStorage>1</isStorage>
-              <storageDepth>256</storageDepth>
-              <coreId>102</coreId>
-              <rtlModuleName>eclair_LUT_B1_ROM_1P_LUTRAM_1R</rtlModuleName>
-            </Obj>
-            <bitwidth>0</bitwidth>
-          </Value>
-          <oprand_edges>
-            <count>0</count>
-            <item_version>0</item_version>
-          </oprand_edges>
-          <opcode>GlobalMem</opcode>
-          <m_Display>0</m_Display>
-          <m_isOnCriticalPath>0</m_isOnCriticalPath>
-          <m_isLCDNode>0</m_isLCDNode>
-          <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0</m_delay>
-          <m_topoIndex>-1</m_topoIndex>
-          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
-        </item>
-        <item class_id_reference="9" object_id="_18">
-          <Value>
-            <Obj>
-              <type>0</type>
-              <id>272</id>
-              <name>LUT_B2</name>
-              <fileName>eclair.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>21</lineNumber>
-              <contextFuncName>eclair</contextFuncName>
-              <contextNormFuncName>eclair</contextNormFuncName>
-              <inlineStackInfo>
-                <count>1</count>
-                <item_version>0</item_version>
-                <item>
-                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
-                  <second>
-                    <count>1</count>
-                    <item_version>0</item_version>
-                    <item>
-                      <first>
-                        <first>eclair.cpp</first>
-                        <second>eclair</second>
-                      </first>
-                      <second>21</second>
-                    </item>
-                  </second>
-                </item>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName>LUT_B2_U</rtlName>
-              <control>pragma</control>
-              <opType>rom_1p</opType>
-              <implIndex>lutram</implIndex>
-              <coreName>ROM_1P_LUTRAM</coreName>
-              <isStorage>1</isStorage>
-              <storageDepth>256</storageDepth>
-              <coreId>102</coreId>
-              <rtlModuleName>eclair_LUT_B2_ROM_1P_LUTRAM_1R</rtlModuleName>
-            </Obj>
-            <bitwidth>0</bitwidth>
-          </Value>
-          <oprand_edges>
-            <count>0</count>
-            <item_version>0</item_version>
-          </oprand_edges>
-          <opcode>GlobalMem</opcode>
-          <m_Display>0</m_Display>
-          <m_isOnCriticalPath>0</m_isOnCriticalPath>
-          <m_isLCDNode>0</m_isLCDNode>
-          <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0</m_delay>
-          <m_topoIndex>-1</m_topoIndex>
-          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
-        </item>
-        <item class_id_reference="9" object_id="_19">
-          <Value>
-            <Obj>
-              <type>0</type>
-              <id>273</id>
-              <name>LUT_B3</name>
-              <fileName>eclair.cpp</fileName>
-              <fileDirectory>../.</fileDirectory>
-              <lineNumber>23</lineNumber>
-              <contextFuncName>eclair</contextFuncName>
-              <contextNormFuncName>eclair</contextNormFuncName>
-              <inlineStackInfo>
-                <count>1</count>
-                <item_version>0</item_version>
-                <item>
-                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
-                  <second>
-                    <count>1</count>
-                    <item_version>0</item_version>
-                    <item>
-                      <first>
-                        <first>eclair.cpp</first>
-                        <second>eclair</second>
-                      </first>
-                      <second>23</second>
-                    </item>
-                  </second>
-                </item>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName>LUT_B3_U</rtlName>
-              <control>pragma</control>
-              <opType>rom_1p</opType>
-              <implIndex>lutram</implIndex>
-              <coreName>ROM_1P_LUTRAM</coreName>
-              <isStorage>1</isStorage>
-              <storageDepth>256</storageDepth>
-              <coreId>102</coreId>
-              <rtlModuleName>eclair_LUT_B3_ROM_1P_LUTRAM_1R</rtlModuleName>
-            </Obj>
-            <bitwidth>0</bitwidth>
-          </Value>
-          <oprand_edges>
-            <count>0</count>
-            <item_version>0</item_version>
-          </oprand_edges>
-          <opcode>GlobalMem</opcode>
-          <m_Display>0</m_Display>
-          <m_isOnCriticalPath>0</m_isOnCriticalPath>
-          <m_isLCDNode>0</m_isLCDNode>
-          <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0</m_delay>
-          <m_topoIndex>-1</m_topoIndex>
-          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
-        </item>
-        <item class_id_reference="9" object_id="_20">
-          <Value>
-            <Obj>
-              <type>0</type>
-              <id>274</id>
               <name>p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0</name>
               <fileName>eclair.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
@@ -1046,11 +881,11 @@
           <m_topoIndex>-1</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_21">
+        <item class_id_reference="9" object_id="_18">
           <Value>
             <Obj>
               <type>0</type>
-              <id>275</id>
+              <id>272</id>
               <name>p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1</name>
               <fileName>eclair.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
@@ -1101,11 +936,11 @@
           <m_topoIndex>-1</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_22">
+        <item class_id_reference="9" object_id="_19">
           <Value>
             <Obj>
               <type>0</type>
-              <id>276</id>
+              <id>273</id>
               <name>p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2</name>
               <fileName>eclair.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
@@ -1156,11 +991,11 @@
           <m_topoIndex>-1</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_23">
+        <item class_id_reference="9" object_id="_20">
           <Value>
             <Obj>
               <type>0</type>
-              <id>277</id>
+              <id>274</id>
               <name>p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3</name>
               <fileName>eclair.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
@@ -1195,6 +1030,171 @@
               <storageDepth>2</storageDepth>
               <coreId>92</coreId>
               <rtlModuleName>eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb</rtlModuleName>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>0</count>
+            <item_version>0</item_version>
+          </oprand_edges>
+          <opcode>GlobalMem</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0</m_delay>
+          <m_topoIndex>-1</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_21">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>275</id>
+              <name>LUT_B2</name>
+              <fileName>eclair.cpp</fileName>
+              <fileDirectory>../.</fileDirectory>
+              <lineNumber>21</lineNumber>
+              <contextFuncName>eclair</contextFuncName>
+              <contextNormFuncName>eclair</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>eclair.cpp</first>
+                        <second>eclair</second>
+                      </first>
+                      <second>21</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName>LUT_B2_U</rtlName>
+              <control>pragma</control>
+              <opType>rom_1p</opType>
+              <implIndex>lutram</implIndex>
+              <coreName>ROM_1P_LUTRAM</coreName>
+              <isStorage>1</isStorage>
+              <storageDepth>256</storageDepth>
+              <coreId>102</coreId>
+              <rtlModuleName>eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B2_ROM_1P_LUTRAM_1R</rtlModuleName>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>0</count>
+            <item_version>0</item_version>
+          </oprand_edges>
+          <opcode>GlobalMem</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0</m_delay>
+          <m_topoIndex>-1</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_22">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>276</id>
+              <name>LUT_B1</name>
+              <fileName>eclair.cpp</fileName>
+              <fileDirectory>../.</fileDirectory>
+              <lineNumber>19</lineNumber>
+              <contextFuncName>eclair</contextFuncName>
+              <contextNormFuncName>eclair</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>eclair.cpp</first>
+                        <second>eclair</second>
+                      </first>
+                      <second>19</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName>LUT_B1_U</rtlName>
+              <control>pragma</control>
+              <opType>rom_1p</opType>
+              <implIndex>lutram</implIndex>
+              <coreName>ROM_1P_LUTRAM</coreName>
+              <isStorage>1</isStorage>
+              <storageDepth>256</storageDepth>
+              <coreId>102</coreId>
+              <rtlModuleName>eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B1_ROM_1P_LUTRAM_1R</rtlModuleName>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>0</count>
+            <item_version>0</item_version>
+          </oprand_edges>
+          <opcode>GlobalMem</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0</m_delay>
+          <m_topoIndex>-1</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_23">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>277</id>
+              <name>LUT_B0</name>
+              <fileName>eclair.cpp</fileName>
+              <fileDirectory>../.</fileDirectory>
+              <lineNumber>17</lineNumber>
+              <contextFuncName>eclair</contextFuncName>
+              <contextNormFuncName>eclair</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>eclair.cpp</first>
+                        <second>eclair</second>
+                      </first>
+                      <second>17</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName>LUT_B0_U</rtlName>
+              <control>pragma</control>
+              <opType>rom_1p</opType>
+              <implIndex>lutram</implIndex>
+              <coreName>ROM_1P_LUTRAM</coreName>
+              <isStorage>1</isStorage>
+              <storageDepth>256</storageDepth>
+              <coreId>102</coreId>
+              <rtlModuleName>eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B0_ROM_1P_LUTRAM_1R</rtlModuleName>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
@@ -1514,105 +1514,105 @@
         <item class_id_reference="20" object_id="_54">
           <id>85</id>
           <edge_type>1</edge_type>
-          <source_obj>6</source_obj>
+          <source_obj>7</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_55">
           <id>86</id>
           <edge_type>1</edge_type>
-          <source_obj>7</source_obj>
+          <source_obj>20</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_56">
           <id>87</id>
           <edge_type>1</edge_type>
-          <source_obj>12</source_obj>
+          <source_obj>19</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_57">
           <id>88</id>
           <edge_type>1</edge_type>
-          <source_obj>13</source_obj>
+          <source_obj>18</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_58">
           <id>89</id>
           <edge_type>1</edge_type>
-          <source_obj>14</source_obj>
+          <source_obj>10</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_59">
           <id>90</id>
           <edge_type>1</edge_type>
-          <source_obj>8</source_obj>
+          <source_obj>9</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_60">
           <id>91</id>
           <edge_type>1</edge_type>
-          <source_obj>9</source_obj>
+          <source_obj>11</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_61">
           <id>92</id>
           <edge_type>1</edge_type>
-          <source_obj>10</source_obj>
+          <source_obj>12</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_62">
           <id>93</id>
           <edge_type>1</edge_type>
-          <source_obj>11</source_obj>
+          <source_obj>13</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_63">
           <id>94</id>
           <edge_type>1</edge_type>
-          <source_obj>15</source_obj>
+          <source_obj>6</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_64">
           <id>95</id>
           <edge_type>1</edge_type>
-          <source_obj>16</source_obj>
+          <source_obj>8</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_65">
           <id>96</id>
           <edge_type>1</edge_type>
-          <source_obj>17</source_obj>
+          <source_obj>14</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_66">
           <id>97</id>
           <edge_type>1</edge_type>
-          <source_obj>18</source_obj>
+          <source_obj>15</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_67">
           <id>98</id>
           <edge_type>1</edge_type>
-          <source_obj>19</source_obj>
+          <source_obj>16</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_68">
           <id>99</id>
           <edge_type>1</edge_type>
-          <source_obj>20</source_obj>
+          <source_obj>17</source_obj>
           <sink_obj>46</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
@@ -1660,15 +1660,15 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>17</mMinLatency>
-        <mMaxLatency>17</mMaxLatency>
+        <mMinLatency>25</mMinLatency>
+        <mMaxLatency>25</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
       </item>
     </cdfg_regions>
     <fsm class_id="24" tracking_level="1" version="0" object_id="_73">
       <states class_id="25" tracking_level="0" version="0">
-        <count>8</count>
+        <count>4</count>
         <item_version>0</item_version>
         <item class_id="26" tracking_level="1" version="0" object_id="_74">
           <id>1</id>
@@ -1682,8 +1682,8 @@
             </item>
             <item class_id_reference="28" object_id="_76">
               <id>43</id>
-              <stage>6</stage>
-              <latency>6</latency>
+              <stage>2</stage>
+              <latency>2</latency>
             </item>
           </operations>
         </item>
@@ -1694,202 +1694,154 @@
             <item_version>0</item_version>
             <item class_id_reference="28" object_id="_78">
               <id>43</id>
-              <stage>5</stage>
-              <latency>6</latency>
+              <stage>1</stage>
+              <latency>2</latency>
             </item>
           </operations>
         </item>
         <item class_id_reference="26" object_id="_79">
           <id>3</id>
           <operations>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item class_id_reference="28" object_id="_80">
-              <id>43</id>
-              <stage>4</stage>
-              <latency>6</latency>
-            </item>
-          </operations>
-        </item>
-        <item class_id_reference="26" object_id="_81">
-          <id>4</id>
-          <operations>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item class_id_reference="28" object_id="_82">
-              <id>43</id>
-              <stage>3</stage>
-              <latency>6</latency>
-            </item>
-          </operations>
-        </item>
-        <item class_id_reference="26" object_id="_83">
-          <id>5</id>
-          <operations>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item class_id_reference="28" object_id="_84">
-              <id>43</id>
-              <stage>2</stage>
-              <latency>6</latency>
-            </item>
-          </operations>
-        </item>
-        <item class_id_reference="26" object_id="_85">
-          <id>6</id>
-          <operations>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item class_id_reference="28" object_id="_86">
-              <id>43</id>
-              <stage>1</stage>
-              <latency>6</latency>
-            </item>
-          </operations>
-        </item>
-        <item class_id_reference="26" object_id="_87">
-          <id>7</id>
-          <operations>
             <count>3</count>
             <item_version>0</item_version>
-            <item class_id_reference="28" object_id="_88">
+            <item class_id_reference="28" object_id="_80">
               <id>44</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_89">
+            <item class_id_reference="28" object_id="_81">
               <id>45</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_90">
+            <item class_id_reference="28" object_id="_82">
               <id>46</id>
               <stage>2</stage>
               <latency>2</latency>
             </item>
           </operations>
         </item>
-        <item class_id_reference="26" object_id="_91">
-          <id>8</id>
+        <item class_id_reference="26" object_id="_83">
+          <id>4</id>
           <operations>
             <count>24</count>
             <item_version>0</item_version>
-            <item class_id_reference="28" object_id="_92">
+            <item class_id_reference="28" object_id="_84">
               <id>21</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_93">
+            <item class_id_reference="28" object_id="_85">
               <id>22</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_94">
+            <item class_id_reference="28" object_id="_86">
               <id>23</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_95">
+            <item class_id_reference="28" object_id="_87">
               <id>24</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_96">
+            <item class_id_reference="28" object_id="_88">
               <id>25</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_97">
+            <item class_id_reference="28" object_id="_89">
               <id>26</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_98">
+            <item class_id_reference="28" object_id="_90">
               <id>27</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_99">
+            <item class_id_reference="28" object_id="_91">
               <id>28</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_100">
+            <item class_id_reference="28" object_id="_92">
               <id>29</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_101">
+            <item class_id_reference="28" object_id="_93">
               <id>30</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_102">
+            <item class_id_reference="28" object_id="_94">
               <id>31</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_103">
+            <item class_id_reference="28" object_id="_95">
               <id>32</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_104">
+            <item class_id_reference="28" object_id="_96">
               <id>33</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_105">
+            <item class_id_reference="28" object_id="_97">
               <id>34</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_106">
+            <item class_id_reference="28" object_id="_98">
               <id>35</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_107">
+            <item class_id_reference="28" object_id="_99">
               <id>36</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_108">
+            <item class_id_reference="28" object_id="_100">
               <id>37</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_109">
+            <item class_id_reference="28" object_id="_101">
               <id>38</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_110">
+            <item class_id_reference="28" object_id="_102">
               <id>39</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_111">
+            <item class_id_reference="28" object_id="_103">
               <id>40</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_112">
+            <item class_id_reference="28" object_id="_104">
               <id>41</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_113">
+            <item class_id_reference="28" object_id="_105">
               <id>46</id>
               <stage>1</stage>
               <latency>2</latency>
             </item>
-            <item class_id_reference="28" object_id="_114">
+            <item class_id_reference="28" object_id="_106">
               <id>47</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_115">
+            <item class_id_reference="28" object_id="_107">
               <id>48</id>
               <stage>1</stage>
               <latency>1</latency>
@@ -1898,9 +1850,9 @@
         </item>
       </states>
       <transitions class_id="29" tracking_level="0" version="0">
-        <count>7</count>
+        <count>3</count>
         <item_version>0</item_version>
-        <item class_id="30" tracking_level="1" version="0" object_id="_116">
+        <item class_id="30" tracking_level="1" version="0" object_id="_108">
           <inState>1</inState>
           <outState>2</outState>
           <condition class_id="31" tracking_level="0" version="0">
@@ -1915,7 +1867,7 @@
             </sop>
           </condition>
         </item>
-        <item class_id_reference="30" object_id="_117">
+        <item class_id_reference="30" object_id="_109">
           <inState>2</inState>
           <outState>3</outState>
           <condition>
@@ -1930,7 +1882,7 @@
             </sop>
           </condition>
         </item>
-        <item class_id_reference="30" object_id="_118">
+        <item class_id_reference="30" object_id="_110">
           <inState>3</inState>
           <outState>4</outState>
           <condition>
@@ -1945,69 +1897,9 @@
             </sop>
           </condition>
         </item>
-        <item class_id_reference="30" object_id="_119">
-          <inState>4</inState>
-          <outState>5</outState>
-          <condition>
-            <id>-1</id>
-            <sop>
-              <count>1</count>
-              <item_version>0</item_version>
-              <item>
-                <count>0</count>
-                <item_version>0</item_version>
-              </item>
-            </sop>
-          </condition>
-        </item>
-        <item class_id_reference="30" object_id="_120">
-          <inState>5</inState>
-          <outState>6</outState>
-          <condition>
-            <id>-1</id>
-            <sop>
-              <count>1</count>
-              <item_version>0</item_version>
-              <item>
-                <count>0</count>
-                <item_version>0</item_version>
-              </item>
-            </sop>
-          </condition>
-        </item>
-        <item class_id_reference="30" object_id="_121">
-          <inState>6</inState>
-          <outState>7</outState>
-          <condition>
-            <id>-1</id>
-            <sop>
-              <count>1</count>
-              <item_version>0</item_version>
-              <item>
-                <count>0</count>
-                <item_version>0</item_version>
-              </item>
-            </sop>
-          </condition>
-        </item>
-        <item class_id_reference="30" object_id="_122">
-          <inState>7</inState>
-          <outState>8</outState>
-          <condition>
-            <id>-1</id>
-            <sop>
-              <count>1</count>
-              <item_version>0</item_version>
-              <item>
-                <count>0</count>
-                <item_version>0</item_version>
-              </item>
-            </sop>
-          </condition>
-        </item>
       </transitions>
     </fsm>
-    <res class_id="34" tracking_level="1" version="0" object_id="_123">
+    <res class_id="34" tracking_level="1" version="0" object_id="_111">
       <dp_component_resource class_id="35" tracking_level="0" version="0">
         <count>2</count>
         <item_version>0</item_version>
@@ -2018,15 +1910,15 @@
             <item_version>0</item_version>
             <item class_id="38" tracking_level="0" version="0">
               <first>DSP</first>
-              <second>9</second>
+              <second>5</second>
             </item>
             <item>
               <first>FF</first>
-              <second>484</second>
+              <second>375</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>2257</second>
+              <second>1972</second>
             </item>
           </second>
         </item>
@@ -2435,35 +2327,8 @@
         </item>
       </dp_memory_resource>
       <dp_multiplexer_resource>
-        <count>49</count>
+        <count>45</count>
         <item_version>0</item_version>
-        <item>
-          <first>LUT_B0_address0</first>
-          <second>
-            <count>5</count>
-            <item_version>0</item_version>
-            <item>
-              <first>(0Size)</first>
-              <second>3</second>
-            </item>
-            <item>
-              <first>(1Bits)</first>
-              <second>8</second>
-            </item>
-            <item>
-              <first>(2Count)</first>
-              <second>24</second>
-            </item>
-            <item>
-              <first>FF</first>
-              <second>0</second>
-            </item>
-            <item>
-              <first>LUT</first>
-              <second>14</second>
-            </item>
-          </second>
-        </item>
         <item>
           <first>LUT_B0_ce0</first>
           <second>
@@ -2471,7 +2336,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Size)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -2479,7 +2344,7 @@
             </item>
             <item>
               <first>(2Count)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>FF</first>
@@ -2487,34 +2352,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>14</second>
-            </item>
-          </second>
-        </item>
-        <item>
-          <first>LUT_B1_address0</first>
-          <second>
-            <count>5</count>
-            <item_version>0</item_version>
-            <item>
-              <first>(0Size)</first>
-              <second>3</second>
-            </item>
-            <item>
-              <first>(1Bits)</first>
-              <second>8</second>
-            </item>
-            <item>
-              <first>(2Count)</first>
-              <second>24</second>
-            </item>
-            <item>
-              <first>FF</first>
-              <second>0</second>
-            </item>
-            <item>
-              <first>LUT</first>
-              <second>14</second>
+              <second>9</second>
             </item>
           </second>
         </item>
@@ -2525,7 +2363,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Size)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -2533,7 +2371,7 @@
             </item>
             <item>
               <first>(2Count)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>FF</first>
@@ -2541,34 +2379,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>14</second>
-            </item>
-          </second>
-        </item>
-        <item>
-          <first>LUT_B2_address0</first>
-          <second>
-            <count>5</count>
-            <item_version>0</item_version>
-            <item>
-              <first>(0Size)</first>
-              <second>3</second>
-            </item>
-            <item>
-              <first>(1Bits)</first>
-              <second>8</second>
-            </item>
-            <item>
-              <first>(2Count)</first>
-              <second>24</second>
-            </item>
-            <item>
-              <first>FF</first>
-              <second>0</second>
-            </item>
-            <item>
-              <first>LUT</first>
-              <second>14</second>
+              <second>9</second>
             </item>
           </second>
         </item>
@@ -2579,7 +2390,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Size)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -2587,7 +2398,7 @@
             </item>
             <item>
               <first>(2Count)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>FF</first>
@@ -2595,34 +2406,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>14</second>
-            </item>
-          </second>
-        </item>
-        <item>
-          <first>LUT_B3_address0</first>
-          <second>
-            <count>5</count>
-            <item_version>0</item_version>
-            <item>
-              <first>(0Size)</first>
-              <second>3</second>
-            </item>
-            <item>
-              <first>(1Bits)</first>
-              <second>8</second>
-            </item>
-            <item>
-              <first>(2Count)</first>
-              <second>24</second>
-            </item>
-            <item>
-              <first>FF</first>
-              <second>0</second>
-            </item>
-            <item>
-              <first>LUT</first>
-              <second>14</second>
+              <second>9</second>
             </item>
           </second>
         </item>
@@ -2633,7 +2417,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Size)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -2641,7 +2425,7 @@
             </item>
             <item>
               <first>(2Count)</first>
-              <second>3</second>
+              <second>2</second>
             </item>
             <item>
               <first>FF</first>
@@ -2649,7 +2433,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>14</second>
+              <second>9</second>
             </item>
           </second>
         </item>
@@ -2660,7 +2444,7 @@
             <item_version>0</item_version>
             <item>
               <first>(0Size)</first>
-              <second>9</second>
+              <second>5</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -2668,7 +2452,7 @@
             </item>
             <item>
               <first>(2Count)</first>
-              <second>9</second>
+              <second>5</second>
             </item>
             <item>
               <first>FF</first>
@@ -2676,7 +2460,7 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>49</second>
+              <second>26</second>
             </item>
           </second>
         </item>
@@ -3762,7 +3546,7 @@
         </item>
       </dp_multiplexer_resource>
       <dp_register_resource>
-        <count>6</count>
+        <count>7</count>
         <item_version>0</item_version>
         <item>
           <first>ap_CS_fsm</first>
@@ -3771,7 +3555,7 @@
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>8</second>
+              <second>4</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -3779,7 +3563,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>8</second>
+              <second>4</second>
             </item>
           </second>
         </item>
@@ -3860,6 +3644,25 @@
           </second>
         </item>
         <item>
+          <first>grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg</first>
+          <second>
+            <count>3</count>
+            <item_version>0</item_version>
+            <item>
+              <first>(Bits)</first>
+              <second>1</second>
+            </item>
+            <item>
+              <first>(Consts)</first>
+              <second>0</second>
+            </item>
+            <item>
+              <first>FF</first>
+              <second>1</second>
+            </item>
+          </second>
+        </item>
+        <item>
           <first>grp_forward_layer_2_1_s_fu_137_ap_start_reg</first>
           <second>
             <count>3</count>
@@ -3933,7 +3736,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>38</item>
+            <item>154</item>
           </second>
         </item>
         <item>
@@ -3941,7 +3744,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>94</item>
+            <item>147</item>
           </second>
         </item>
         <item>
@@ -3949,7 +3752,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>101</item>
+            <item>140</item>
           </second>
         </item>
         <item>
@@ -3957,7 +3760,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>108</item>
+            <item>49</item>
           </second>
         </item>
         <item>
@@ -3965,7 +3768,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>45</item>
+            <item>36</item>
           </second>
         </item>
         <item>
@@ -3973,7 +3776,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>57</item>
+            <item>55</item>
           </second>
         </item>
         <item>
@@ -3981,7 +3784,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>69</item>
+            <item>67</item>
           </second>
         </item>
         <item>
@@ -3989,7 +3792,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>81</item>
+            <item>79</item>
           </second>
         </item>
         <item>
@@ -3997,7 +3800,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>116</item>
+            <item>91</item>
           </second>
         </item>
         <item>
@@ -4005,7 +3808,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>128</item>
+            <item>103</item>
           </second>
         </item>
         <item>
@@ -4013,7 +3816,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>140</item>
+            <item>115</item>
           </second>
         </item>
         <item>
@@ -4021,7 +3824,7 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>152</item>
+            <item>127</item>
           </second>
         </item>
       </dp_memory_map>
@@ -4040,41 +3843,41 @@
         <first>43</first>
         <second>
           <first>0</first>
-          <second>5</second>
+          <second>1</second>
         </second>
       </item>
       <item>
         <first>44</first>
         <second>
-          <first>6</first>
+          <first>2</first>
           <second>0</second>
         </second>
       </item>
       <item>
         <first>45</first>
         <second>
-          <first>6</first>
+          <first>2</first>
           <second>0</second>
         </second>
       </item>
       <item>
         <first>46</first>
         <second>
-          <first>6</first>
+          <first>2</first>
           <second>1</second>
         </second>
       </item>
       <item>
         <first>47</first>
         <second>
-          <first>7</first>
+          <first>3</first>
           <second>0</second>
         </second>
       </item>
       <item>
         <first>48</first>
         <second>
-          <first>7</first>
+          <first>3</first>
           <second>0</second>
         </second>
       </item>
@@ -4170,7 +3973,7 @@
         <first>49</first>
         <second class_id="46" tracking_level="0" version="0">
           <first>0</first>
-          <second>7</second>
+          <second>3</second>
         </second>
       </item>
     </bblk_ent_exit>
@@ -4216,12 +4019,8 @@
       <item>
         <first>99</first>
         <second>
-          <count>6</count>
+          <count>2</count>
           <item_version>0</item_version>
-          <item>43</item>
-          <item>43</item>
-          <item>43</item>
-          <item>43</item>
           <item>43</item>
           <item>43</item>
         </second>
@@ -4246,12 +4045,8 @@
       <item class_id="52" tracking_level="0" version="0">
         <first>grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99</first>
         <second>
-          <count>6</count>
+          <count>2</count>
           <item_version>0</item_version>
-          <item>43</item>
-          <item>43</item>
-          <item>43</item>
-          <item>43</item>
           <item>43</item>
           <item>43</item>
         </second>
@@ -4455,10 +4250,18 @@
       </item>
     </dp_mem_port_nodes>
     <dp_reg_nodes>
-      <count>2</count>
+      <count>3</count>
       <item_version>0</item_version>
       <item>
         <first>178</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>42</item>
+        </second>
+      </item>
+      <item>
+        <first>183</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -4466,7 +4269,7 @@
         </second>
       </item>
       <item>
-        <first>183</first>
+        <first>188</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -4475,10 +4278,18 @@
       </item>
     </dp_reg_nodes>
     <dp_regname_nodes>
-      <count>2</count>
+      <count>3</count>
       <item_version>0</item_version>
       <item>
-        <first>input_0_read_reg_178</first>
+        <first>feedback_read_reg_178</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>42</item>
+        </second>
+      </item>
+      <item>
+        <first>input_0_read_reg_183</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -4486,7 +4297,7 @@
         </second>
       </item>
       <item>
-        <first>input_1_read_reg_183</first>
+        <first>input_1_read_reg_188</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

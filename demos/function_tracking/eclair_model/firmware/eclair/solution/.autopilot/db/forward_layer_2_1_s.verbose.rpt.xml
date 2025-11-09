@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'forward_layer_2_1_s'" level="0">
-<item name = "Date">Sun Nov  9 15:33:02 2025
+<item name = "Date">Sun Nov  9 16:02:12 2025
 </item>
 <item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
 <item name = "Project">eclair</item>
@@ -63,30 +63,30 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mul_16s_10ns_26_1_1_U50">mul_16s_10ns_26_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_10ns_26_1_1_U54">mul_16s_10ns_26_1_1, 0, 1, 0, 5, 0</column>
-<column name="sparsemux_7_2_3_1_1_U43">sparsemux_7_2_3_1_1, 0, 0, 0, 9, 0</column>
-<column name="sparsemux_7_2_3_1_1_U45">sparsemux_7_2_3_1_1, 0, 0, 0, 9, 0</column>
-<column name="sparsemux_9_2_16_1_1_U46">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U47">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U48">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U49">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U51">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U52">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U53">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U55">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_3_16_1_1_U42">sparsemux_9_3_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="sparsemux_9_3_16_1_1_U44">sparsemux_9_3_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mul_16s_10ns_26_1_1_U60">mul_16s_10ns_26_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_10ns_26_1_1_U64">mul_16s_10ns_26_1_1, 0, 1, 0, 5, 0</column>
+<column name="sparsemux_7_2_3_1_1_U53">sparsemux_7_2_3_1_1, 0, 0, 0, 9, 0</column>
+<column name="sparsemux_7_2_3_1_1_U55">sparsemux_7_2_3_1_1, 0, 0, 0, 9, 0</column>
+<column name="sparsemux_9_2_16_1_1_U56">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U57">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U58">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U59">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U61">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U62">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U63">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U65">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_3_16_1_1_U52">sparsemux_9_3_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="sparsemux_9_3_16_1_1_U54">sparsemux_9_3_16_1_1, 0, 0, 0, 14, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
 <keys size="3">Instance, Module, Expression</keys>
-<column name="mac_muladd_16s_10ns_26s_27_4_1_U57">mac_muladd_16s_10ns_26s_27_4_1, i0 + i1 * i2</column>
-<column name="mac_muladd_16s_10ns_26s_27_4_1_U60">mac_muladd_16s_10ns_26s_27_4_1, i0 + i1 * i2</column>
-<column name="mac_muladd_16s_8ns_26s_26_4_1_U56">mac_muladd_16s_8ns_26s_26_4_1, i0 + i1 * i2</column>
-<column name="mac_muladd_16s_8ns_26s_26_4_1_U58">mac_muladd_16s_8ns_26s_26_4_1, i0 + i1 * i2</column>
-<column name="mac_muladd_16s_8ns_27s_27_4_1_U59">mac_muladd_16s_8ns_27s_27_4_1, i0 + i1 * i2</column>
-<column name="mac_muladd_16s_8ns_27s_27_4_1_U61">mac_muladd_16s_8ns_27s_27_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16s_10ns_26s_27_4_1_U67">mac_muladd_16s_10ns_26s_27_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16s_10ns_26s_27_4_1_U70">mac_muladd_16s_10ns_26s_27_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16s_8ns_26s_26_4_1_U66">mac_muladd_16s_8ns_26s_26_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16s_8ns_26s_26_4_1_U68">mac_muladd_16s_8ns_26s_26_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16s_8ns_27s_27_4_1_U69">mac_muladd_16s_8ns_27s_27_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16s_8ns_27s_27_4_1_U71">mac_muladd_16s_8ns_27s_27_4_1, i0 + i1 * i2</column>
 </table>
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
@@ -152,7 +152,7 @@
 <column name="and_ln76_5_fu_2536_p2">and, 0, 0, 2, 1, 1</column>
 <column name="and_ln76_fu_2300_p2">and, 0, 0, 2, 1, 1</column>
 <column name="and_ln82_fu_2603_p2">and, 0, 0, 2, 1, 1</column>
-<column name="empty_14_fu_1466_p2">and, 0, 0, 2, 1, 1</column>
+<column name="empty_16_fu_1466_p2">and, 0, 0, 2, 1, 1</column>
 <column name="empty_fu_854_p2">and, 0, 0, 2, 1, 1</column>
 <column name="icmp_ln12_1_fu_752_p2">icmp, 0, 0, 9, 2, 2</column>
 <column name="icmp_ln12_2_fu_768_p2">icmp, 0, 0, 10, 3, 2</column>

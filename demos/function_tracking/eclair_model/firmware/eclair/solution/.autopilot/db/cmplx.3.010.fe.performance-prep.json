@@ -9,22 +9,22 @@
       "T": 3
     },
     "name": "eclair",
-    "total_instructions": 1479
+    "total_instructions": 1304
   },
   "1": {
-    "basicblocks": 243,
+    "basicblocks": 253,
     "calls": "",
     "file": "components.h",
     "fileloc": 91,
-    "instructions": 917,
+    "instructions": 742,
     "loads": {
-      "G": 44
+      "G": 38
     },
     "name": "backward_input<2, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
     "stores": {
       "G": 128
     },
-    "total_instructions": 917
+    "total_instructions": 742
   },
   "2": {
     "basicblocks": 25,

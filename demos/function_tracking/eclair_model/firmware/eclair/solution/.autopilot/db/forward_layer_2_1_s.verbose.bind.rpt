@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'forward_layer_2_1_s'
 ================================================================
-* Date:           Sun Nov  9 15:33:01 2025
+* Date:           Sun Nov  9 16:02:12 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -220,8 +220,8 @@ ST_3 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node ui)   --->  
 ST_3 : Operation 140 [1/1] (0.30ns) (out node of the LUT)   --->   "%ui = select i1 %tmp_16, i8 %select_ln49, i8 %tmp_14_cast1" [./components.h:49]   --->   Operation 140 'select' 'ui' <Predicate = true> <Delay = 0.30> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.30> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
 ST_3 : Operation 141 [1/1] (0.00ns) (grouped into LUT with out node or_ln12_5)   --->   "%and_ln12_10 = and i1 %and_ln12_8, i1 %icmp_ln12_6" [./components.h:12->./components.h:48]   --->   Operation 141 'and' 'and_ln12_10' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node or_ln12_5)   --->   "%xor_ln12_8 = xor i1 %and_ln12_10, i1 1" [./components.h:12->./components.h:48]   --->   Operation 142 'xor' 'xor_ln12_8' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 143 [1/1] (0.00ns) (grouped into LUT with out node or_ln12_5)   --->   "%empty_14 = and i1 %tmp_19, i1 %xor_ln12_8" [./components.h:12->./components.h:48]   --->   Operation 143 'and' 'empty_14' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 144 [1/1] (0.00ns) (grouped into LUT with out node or_ln12_5)   --->   "%and_ln12_13 = and i1 %empty_14, i1 %xor_ln12_11" [./components.h:12->./components.h:48]   --->   Operation 144 'and' 'and_ln12_13' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 143 [1/1] (0.00ns) (grouped into LUT with out node or_ln12_5)   --->   "%empty_16 = and i1 %tmp_19, i1 %xor_ln12_8" [./components.h:12->./components.h:48]   --->   Operation 143 'and' 'empty_16' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 144 [1/1] (0.00ns) (grouped into LUT with out node or_ln12_5)   --->   "%and_ln12_13 = and i1 %empty_16, i1 %xor_ln12_11" [./components.h:12->./components.h:48]   --->   Operation 144 'and' 'and_ln12_13' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 145 [1/1] (0.00ns) (grouped into LUT with out node t_5)   --->   "%select_ln12_6 = select i1 %and_ln12_11, i16 32767, i16 32768" [./components.h:12->./components.h:48]   --->   Operation 145 'select' 'select_ln12_6' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
 ST_3 : Operation 146 [1/1] (0.12ns) (out node of the LUT)   --->   "%or_ln12_5 = or i1 %and_ln12_11, i1 %and_ln12_13" [./components.h:12->./components.h:48]   --->   Operation 146 'or' 'or_ln12_5' <Predicate = true> <Delay = 0.12> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 147 [1/1] (0.24ns) (out node of the LUT)   --->   "%t_5 = select i1 %or_ln12_5, i16 %select_ln12_6, i16 %t_4" [./components.h:12->./components.h:48]   --->   Operation 147 'select' 't_5' <Predicate = true> <Delay = 0.24> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
@@ -737,7 +737,7 @@ select_ln49                                                                     
 ui                                                                                  (select        ) [ 000000000000]
 and_ln12_10                                                                         (and           ) [ 000000000000]
 xor_ln12_8                                                                          (xor           ) [ 000000000000]
-empty_14                                                                            (and           ) [ 000000000000]
+empty_16                                                                            (and           ) [ 000000000000]
 and_ln12_13                                                                         (and           ) [ 000000000000]
 select_ln12_6                                                                       (select        ) [ 000000000000]
 or_ln12_5                                                                           (or            ) [ 000000000000]
@@ -4144,7 +4144,7 @@ ret_ln88                                                                        
 </bind>
 </comp>
 
-<comp id="1466" class="1004" name="empty_14_fu_1466">
+<comp id="1466" class="1004" name="empty_16_fu_1466">
 <pin_list>
 <pin id="1467" dir="0" index="0" bw="1" slack="1"/>
 <pin id="1468" dir="0" index="1" bw="1" slack="0"/>
@@ -4152,7 +4152,7 @@ ret_ln88                                                                        
 </pin_list>
 <bind>
 <opcode="and(23) " fcode="and"/>
-<opset="empty_14/3 "/>
+<opset="empty_16/3 "/>
 </bind>
 </comp>
 
@@ -9900,7 +9900,7 @@ ret_ln88                                                                        
 |    and   |    and_ln12_11_fu_1317    |    0    |    0    |    2    |
 |          |    and_ln12_12_fu_1323    |    0    |    0    |    2    |
 |          |    and_ln12_10_fu_1456    |    0    |    0    |    2    |
-|          |      empty_14_fu_1466     |    0    |    0    |    2    |
+|          |      empty_16_fu_1466     |    0    |    0    |    2    |
 |          |    and_ln12_13_fu_1471    |    0    |    0    |    2    |
 |          |     and_ln25_1_fu_1619    |    0    |    0    |    2    |
 |          |     and_ln19_1_fu_1645    |    0    |    0    |    2    |

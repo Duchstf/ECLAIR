@@ -2050,10 +2050,10 @@ entry_ifconv:136 %xor_ln12_8 = xor i1 %and_ln12_10, i1 1
 
 <Node id="156" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:137 %empty_14 = and i1 %tmp_19, i1 %xor_ln12_8
+entry_ifconv:137 %empty_16 = and i1 %tmp_19, i1 %xor_ln12_8
 
 ]]></Node>
-<StgValue><ssdm name="empty_14"/></StgValue>
+<StgValue><ssdm name="empty_16"/></StgValue>
 </operation>
 
 <operation id="144" st_id="3" stage="1" lat="1">
@@ -2065,7 +2065,7 @@ entry_ifconv:137 %empty_14 = and i1 %tmp_19, i1 %xor_ln12_8
 
 <Node id="163" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:144 %and_ln12_13 = and i1 %empty_14, i1 %xor_ln12_11
+entry_ifconv:144 %and_ln12_13 = and i1 %empty_16, i1 %xor_ln12_11
 
 ]]></Node>
 <StgValue><ssdm name="and_ln12_13"/></StgValue>

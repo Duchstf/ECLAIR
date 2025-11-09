@@ -33,7 +33,6 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
-    #pragma HLS PIPELINE
 
     //Pre-compute k and u index
     int  k_arr[IN_DIM];
@@ -52,7 +51,7 @@ inline void forward_layer(
     // Compute for each output node
     ACCUM_O:
     for (int o=0; o<OUT_DIM; o++){
-        #pragma HLS UNROLL
+        #pragma HLS PIPELINE
 
         //Partial sums for each input dimension
         weight_t partial_sums[IN_DIM];

@@ -419,7 +419,7 @@ wire   [0:0] tmp_16_fu_1416_p3;
 wire   [7:0] select_ln49_fu_1440_p3;
 wire   [0:0] and_ln12_10_fu_1456_p2;
 wire   [0:0] xor_ln12_8_fu_1460_p2;
-wire   [0:0] empty_14_fu_1466_p2;
+wire   [0:0] empty_16_fu_1466_p2;
 wire   [0:0] and_ln12_13_fu_1471_p2;
 wire   [0:0] or_ln12_5_fu_1483_p2;
 wire   [15:0] select_ln12_6_fu_1476_p3;
@@ -644,7 +644,7 @@ end
     .def_WIDTH( 16 ),
     .sel_WIDTH( 3 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_3_16_1_1_U42(
+sparsemux_9_3_16_1_1_U52(
     .din0(16'd0),
     .din1(16'd1024),
     .din2(u_fu_1067_p6),
@@ -666,7 +666,7 @@ sparsemux_9_3_16_1_1_U42(
     .def_WIDTH( 3 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 3 ))
-sparsemux_7_2_3_1_1_U43(
+sparsemux_7_2_3_1_1_U53(
     .din0(3'd0),
     .din1(3'd4),
     .din2(trunc_ln25_reg_2725),
@@ -689,7 +689,7 @@ sparsemux_7_2_3_1_1_U43(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 3 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_3_16_1_1_U44(
+sparsemux_9_3_16_1_1_U54(
     .din0(16'd0),
     .din1(16'd1024),
     .din2(u_1_fu_1679_p6),
@@ -711,7 +711,7 @@ sparsemux_9_3_16_1_1_U44(
     .def_WIDTH( 3 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 3 ))
-sparsemux_7_2_3_1_1_U45(
+sparsemux_7_2_3_1_1_U55(
     .din0(3'd0),
     .din1(3'd4),
     .din2(trunc_ln25_2_reg_2792),
@@ -734,7 +734,7 @@ sparsemux_7_2_3_1_1_U45(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U46(
+sparsemux_9_2_16_1_1_U56(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0),
@@ -758,7 +758,7 @@ sparsemux_9_2_16_1_1_U46(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U47(
+sparsemux_9_2_16_1_1_U57(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q1),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q1),
@@ -782,7 +782,7 @@ sparsemux_9_2_16_1_1_U47(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U48(
+sparsemux_9_2_16_1_1_U58(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0),
@@ -806,7 +806,7 @@ sparsemux_9_2_16_1_1_U48(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U49(
+sparsemux_9_2_16_1_1_U59(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0),
@@ -822,7 +822,7 @@ eclair_mul_16s_10ns_26_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 10 ),
     .dout_WIDTH( 26 ))
-mul_16s_10ns_26_1_1_U50(
+mul_16s_10ns_26_1_1_U60(
     .din0(tmp_34_reg_2993),
     .din1(mul_ln76_1_fu_2103_p1),
     .dout(mul_ln76_1_fu_2103_p2)
@@ -842,7 +842,7 @@ mul_16s_10ns_26_1_1_U50(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U51(
+sparsemux_9_2_16_1_1_U61(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0),
@@ -866,7 +866,7 @@ sparsemux_9_2_16_1_1_U51(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U52(
+sparsemux_9_2_16_1_1_U62(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q1),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q1),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q1),
@@ -890,7 +890,7 @@ sparsemux_9_2_16_1_1_U52(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U53(
+sparsemux_9_2_16_1_1_U63(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0),
@@ -906,7 +906,7 @@ eclair_mul_16s_10ns_26_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 10 ),
     .dout_WIDTH( 26 ))
-mul_16s_10ns_26_1_1_U54(
+mul_16s_10ns_26_1_1_U64(
     .din0(tmp_44_reg_3108),
     .din1(mul_ln76_5_fu_2209_p1),
     .dout(mul_ln76_5_fu_2209_p2)
@@ -926,7 +926,7 @@ mul_16s_10ns_26_1_1_U54(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U55(
+sparsemux_9_2_16_1_1_U65(
     .din0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0),
     .din1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0),
     .din2(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0),
@@ -943,7 +943,7 @@ eclair_mac_muladd_16s_8ns_26s_26_4_1 #(
     .din1_WIDTH( 8 ),
     .din2_WIDTH( 26 ),
     .dout_WIDTH( 26 ))
-mac_muladd_16s_8ns_26s_26_4_1_U56(
+mac_muladd_16s_8ns_26s_26_4_1_U66(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_33_fu_1903_p11),
@@ -960,7 +960,7 @@ eclair_mac_muladd_16s_10ns_26s_27_4_1 #(
     .din1_WIDTH( 10 ),
     .din2_WIDTH( 26 ),
     .dout_WIDTH( 27 ))
-mac_muladd_16s_10ns_26s_27_4_1_U57(
+mac_muladd_16s_10ns_26s_27_4_1_U67(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_35_fu_1984_p11),
@@ -977,7 +977,7 @@ eclair_mac_muladd_16s_8ns_26s_26_4_1 #(
     .din1_WIDTH( 8 ),
     .din2_WIDTH( 26 ),
     .dout_WIDTH( 26 ))
-mac_muladd_16s_8ns_26s_26_4_1_U58(
+mac_muladd_16s_8ns_26s_26_4_1_U68(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_43_fu_2070_p11),
@@ -994,7 +994,7 @@ eclair_mac_muladd_16s_8ns_27s_27_4_1 #(
     .din1_WIDTH( 8 ),
     .din2_WIDTH( 27 ),
     .dout_WIDTH( 27 ))
-mac_muladd_16s_8ns_27s_27_4_1_U59(
+mac_muladd_16s_8ns_27s_27_4_1_U69(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_36_fu_2109_p11),
@@ -1011,7 +1011,7 @@ eclair_mac_muladd_16s_10ns_26s_27_4_1 #(
     .din1_WIDTH( 10 ),
     .din2_WIDTH( 26 ),
     .dout_WIDTH( 27 ))
-mac_muladd_16s_10ns_26s_27_4_1_U60(
+mac_muladd_16s_10ns_26s_27_4_1_U70(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_45_fu_2173_p11),
@@ -1028,7 +1028,7 @@ eclair_mac_muladd_16s_8ns_27s_27_4_1 #(
     .din1_WIDTH( 8 ),
     .din2_WIDTH( 27 ),
     .dout_WIDTH( 27 ))
-mac_muladd_16s_8ns_27s_27_4_1_U61(
+mac_muladd_16s_8ns_27s_27_4_1_U71(
     .clk(ap_clk),
     .reset(ap_rst),
     .din0(tmp_46_fu_2215_p11),
@@ -1613,7 +1613,7 @@ assign and_ln12_11_fu_1317_p2 = (xor_ln12_10_fu_1311_p2 & or_ln12_4_fu_1305_p2);
 
 assign and_ln12_12_fu_1323_p2 = (tmp_25_fu_1205_p3 & select_ln12_5_fu_1291_p3);
 
-assign and_ln12_13_fu_1471_p2 = (xor_ln12_11_reg_2767 & empty_14_fu_1466_p2);
+assign and_ln12_13_fu_1471_p2 = (xor_ln12_11_reg_2767 & empty_16_fu_1466_p2);
 
 assign and_ln12_1_fu_728_p2 = (xor_ln12_fu_722_p2 & tmp_4_fu_676_p3);
 
@@ -1693,7 +1693,7 @@ assign eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 = ui_fu_1448
 
 assign eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 = ui_1_fu_1836_p3;
 
-assign empty_14_fu_1466_p2 = (xor_ln12_8_fu_1460_p2 & tmp_19_reg_2741);
+assign empty_16_fu_1466_p2 = (xor_ln12_8_fu_1460_p2 & tmp_19_reg_2741);
 
 assign empty_fu_854_p2 = (xor_ln12_2_fu_848_p2 & tmp_2_reg_2689);
 

@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="eclair_eclair,hls_ip_2024_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.535312,HLS_SYN_LAT=17,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=910,HLS_SYN_LUT=5029,HLS_VERSION=2024_1}" *)
+(* CORE_GENERATION_INFO="eclair_eclair,hls_ip_2024_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.535312,HLS_SYN_LAT=25,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=798,HLS_SYN_LUT=4645,HLS_VERSION=2024_1}" *)
 
 module eclair (
         ap_clk,
@@ -22,14 +22,10 @@ module eclair (
         feedback
 );
 
-parameter    ap_ST_fsm_state1 = 8'd1;
-parameter    ap_ST_fsm_state2 = 8'd2;
-parameter    ap_ST_fsm_state3 = 8'd4;
-parameter    ap_ST_fsm_state4 = 8'd8;
-parameter    ap_ST_fsm_state5 = 8'd16;
-parameter    ap_ST_fsm_state6 = 8'd32;
-parameter    ap_ST_fsm_state7 = 8'd64;
-parameter    ap_ST_fsm_state8 = 8'd128;
+parameter    ap_ST_fsm_state1 = 4'd1;
+parameter    ap_ST_fsm_state2 = 4'd2;
+parameter    ap_ST_fsm_state3 = 4'd4;
+parameter    ap_ST_fsm_state4 = 4'd8;
 
 input   ap_clk;
 input   ap_rst;
@@ -48,13 +44,12 @@ reg ap_idle;
 reg ap_ready;
 reg output_r_ap_vld;
 
-(* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg   [2:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0;
+reg   [2:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1;
 reg   [7:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0;
-reg   [7:0] LUT_B0_address0;
-reg    LUT_B0_ce0;
-wire   [7:0] LUT_B0_q0;
+reg   [7:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1;
 reg   [0:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0;
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0;
 wire   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0;
@@ -62,6 +57,8 @@ reg   [0:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1;
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1;
 wire   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1;
+reg    LUT_B3_ce0;
+wire   [7:0] LUT_B3_q0;
 reg   [0:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0;
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0;
 wire   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0;
@@ -83,17 +80,6 @@ reg   [0:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1;
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1;
 wire   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1;
-reg   [7:0] LUT_B1_address0;
-reg    LUT_B1_ce0;
-wire   [9:0] LUT_B1_q0;
-reg   [7:0] LUT_B2_address0;
-reg    LUT_B2_ce0;
-wire   [9:0] LUT_B2_q0;
-reg   [7:0] LUT_B3_address0;
-reg    LUT_B3_ce0;
-wire   [7:0] LUT_B3_q0;
-reg   [2:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1;
-reg   [7:0] eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1;
 reg   [0:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0;
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0;
 wire   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0;
@@ -122,13 +108,17 @@ reg   [0:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1;
 reg    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1;
 wire   [15:0] p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1;
-wire    ap_CS_fsm_state7;
-reg    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start;
+reg    LUT_B2_ce0;
+wire   [9:0] LUT_B2_q0;
+reg    LUT_B1_ce0;
+wire   [9:0] LUT_B1_q0;
+reg    LUT_B0_ce0;
+wire   [7:0] LUT_B0_q0;
+wire    ap_CS_fsm_state3;
+wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start;
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done;
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_idle;
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_ready;
-wire   [7:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B0_address0;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B0_ce0;
 wire   [0:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0;
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0;
 wire   [0:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1;
@@ -153,12 +143,6 @@ wire   [0:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1;
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1;
 wire   [15:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1;
-wire   [7:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B1_address0;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B1_ce0;
-wire   [7:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B2_address0;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B2_ce0;
-wire   [7:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B3_address0;
-wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B3_ce0;
 wire   [0:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0;
 wire    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0;
 wire   [0:0] grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1;
@@ -236,45 +220,27 @@ wire    grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mo
 wire   [0:0] grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1;
 wire    grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1;
 wire   [15:0] grp_forward_layer_2_1_s_fu_137_ap_return;
+reg    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg;
 wire    ap_CS_fsm_state2;
-wire    ap_CS_fsm_state3;
-wire    ap_CS_fsm_state4;
-wire    ap_CS_fsm_state5;
-wire    ap_CS_fsm_state6;
 reg    grp_forward_layer_2_1_s_fu_137_ap_start_reg;
-wire    ap_CS_fsm_state8;
-reg   [7:0] ap_NS_fsm;
+wire    ap_CS_fsm_state4;
+reg   [3:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
-wire    ap_ST_fsm_state2_blk;
+reg    ap_ST_fsm_state2_blk;
 wire    ap_ST_fsm_state3_blk;
-wire    ap_ST_fsm_state4_blk;
-wire    ap_ST_fsm_state5_blk;
-wire    ap_ST_fsm_state6_blk;
-wire    ap_ST_fsm_state7_blk;
-reg    ap_ST_fsm_state8_blk;
+reg    ap_ST_fsm_state4_blk;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 8'd1;
+#0 ap_CS_fsm = 4'd1;
 #0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 = 3'd0;
-#0 eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 = 8'd0;
 #0 eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 = 3'd0;
+#0 eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 = 8'd0;
 #0 eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 = 8'd0;
+#0 grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg = 1'b0;
 #0 grp_forward_layer_2_1_s_fu_137_ap_start_reg = 1'b0;
 end
-
-eclair_LUT_B0_ROM_1P_LUTRAM_1R #(
-    .DataWidth( 8 ),
-    .AddressRange( 256 ),
-    .AddressWidth( 8 ))
-LUT_B0_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(LUT_B0_address0),
-    .ce0(LUT_B0_ce0),
-    .q0(LUT_B0_q0)
-);
 
 eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb #(
     .DataWidth( 16 ),
@@ -291,6 +257,18 @@ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_U(
     .we1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1),
     .d1(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_d1),
     .q1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1)
+);
+
+eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B3_ROM_1P_LUTRAM_1R #(
+    .DataWidth( 8 ),
+    .AddressRange( 256 ),
+    .AddressWidth( 8 ))
+LUT_B3_U(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .address0(grp_forward_layer_2_1_s_fu_137_LUT_B3_address0),
+    .ce0(LUT_B3_ce0),
+    .q0(LUT_B3_q0)
 );
 
 eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb #(
@@ -342,42 +320,6 @@ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_U(
     .we1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1),
     .d1(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1),
     .q1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1)
-);
-
-eclair_LUT_B1_ROM_1P_LUTRAM_1R #(
-    .DataWidth( 10 ),
-    .AddressRange( 256 ),
-    .AddressWidth( 8 ))
-LUT_B1_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(LUT_B1_address0),
-    .ce0(LUT_B1_ce0),
-    .q0(LUT_B1_q0)
-);
-
-eclair_LUT_B2_ROM_1P_LUTRAM_1R #(
-    .DataWidth( 10 ),
-    .AddressRange( 256 ),
-    .AddressWidth( 8 ))
-LUT_B2_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(LUT_B2_address0),
-    .ce0(LUT_B2_ce0),
-    .q0(LUT_B2_q0)
-);
-
-eclair_LUT_B3_ROM_1P_LUTRAM_1R #(
-    .DataWidth( 8 ),
-    .AddressRange( 256 ),
-    .AddressWidth( 8 ))
-LUT_B3_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(LUT_B3_address0),
-    .ce0(LUT_B3_ce0),
-    .q0(LUT_B3_q0)
 );
 
 eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb #(
@@ -448,6 +390,42 @@ p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_U(
     .q1(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1)
 );
 
+eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B2_ROM_1P_LUTRAM_1R #(
+    .DataWidth( 10 ),
+    .AddressRange( 256 ),
+    .AddressWidth( 8 ))
+LUT_B2_U(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .address0(grp_forward_layer_2_1_s_fu_137_LUT_B2_address0),
+    .ce0(LUT_B2_ce0),
+    .q0(LUT_B2_q0)
+);
+
+eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B1_ROM_1P_LUTRAM_1R #(
+    .DataWidth( 10 ),
+    .AddressRange( 256 ),
+    .AddressWidth( 8 ))
+LUT_B1_U(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .address0(grp_forward_layer_2_1_s_fu_137_LUT_B1_address0),
+    .ce0(LUT_B1_ce0),
+    .q0(LUT_B1_q0)
+);
+
+eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B0_ROM_1P_LUTRAM_1R #(
+    .DataWidth( 8 ),
+    .AddressRange( 256 ),
+    .AddressWidth( 8 ))
+LUT_B0_U(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .address0(grp_forward_layer_2_1_s_fu_137_LUT_B0_address0),
+    .ce0(LUT_B0_ce0),
+    .q0(LUT_B0_q0)
+);
+
 eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
@@ -457,10 +435,9 @@ eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s grp_backward_input_2_1_ap_fixed_
     .ap_ready(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_ready),
     .dL_dy_val(feedback),
     .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1),
     .eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0(eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0),
-    .LUT_B0_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B0_address0),
-    .LUT_B0_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B0_ce0),
-    .LUT_B0_q0(LUT_B0_q0),
+    .eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0),
@@ -489,17 +466,6 @@ eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s grp_backward_input_2_1_ap_fixed_
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1),
-    .LUT_B1_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B1_address0),
-    .LUT_B1_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B1_ce0),
-    .LUT_B1_q0(LUT_B1_q0),
-    .LUT_B2_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B2_address0),
-    .LUT_B2_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B2_ce0),
-    .LUT_B2_q0(LUT_B2_q0),
-    .LUT_B3_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B3_address0),
-    .LUT_B3_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B3_ce0),
-    .LUT_B3_q0(LUT_B3_q0),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1),
-    .eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1(eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0),
     .p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0(p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0),
@@ -620,9 +586,21 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
+        grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg <= 1'b0;
+    end else begin
+        if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+            grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg <= 1'b1;
+        end else if ((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_ready == 1'b1)) begin
+            grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg <= 1'b0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
         grp_forward_layer_2_1_s_fu_137_ap_start_reg <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state7)) begin
+        if ((1'b1 == ap_CS_fsm_state3)) begin
             grp_forward_layer_2_1_s_fu_137_ap_start_reg <= 1'b1;
         end else if ((grp_forward_layer_2_1_s_fu_137_ap_ready == 1'b1)) begin
             grp_forward_layer_2_1_s_fu_137_ap_start_reg <= 1'b0;
@@ -631,104 +609,56 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        LUT_B0_address0 = grp_forward_layer_2_1_s_fu_137_LUT_B0_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B0_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B0_address0;
-    end else begin
-        LUT_B0_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         LUT_B0_ce0 = grp_forward_layer_2_1_s_fu_137_LUT_B0_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B0_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B0_ce0;
     end else begin
         LUT_B0_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        LUT_B1_address0 = grp_forward_layer_2_1_s_fu_137_LUT_B1_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B1_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B1_address0;
-    end else begin
-        LUT_B1_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         LUT_B1_ce0 = grp_forward_layer_2_1_s_fu_137_LUT_B1_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B1_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B1_ce0;
     end else begin
         LUT_B1_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        LUT_B2_address0 = grp_forward_layer_2_1_s_fu_137_LUT_B2_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B2_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B2_address0;
-    end else begin
-        LUT_B2_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         LUT_B2_ce0 = grp_forward_layer_2_1_s_fu_137_LUT_B2_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B2_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B2_ce0;
     end else begin
         LUT_B2_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
-        LUT_B3_address0 = grp_forward_layer_2_1_s_fu_137_LUT_B3_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B3_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B3_address0;
-    end else begin
-        LUT_B3_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         LUT_B3_ce0 = grp_forward_layer_2_1_s_fu_137_LUT_B3_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2) | (1'b1 == ap_CS_fsm_state1))) begin
-        LUT_B3_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_LUT_B3_ce0;
     end else begin
         LUT_B3_ce0 = 1'b0;
     end
@@ -742,28 +672,26 @@ always @ (*) begin
     end
 end
 
-assign ap_ST_fsm_state2_blk = 1'b0;
+always @ (*) begin
+    if ((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done == 1'b0)) begin
+        ap_ST_fsm_state2_blk = 1'b1;
+    end else begin
+        ap_ST_fsm_state2_blk = 1'b0;
+    end
+end
 
 assign ap_ST_fsm_state3_blk = 1'b0;
 
-assign ap_ST_fsm_state4_blk = 1'b0;
-
-assign ap_ST_fsm_state5_blk = 1'b0;
-
-assign ap_ST_fsm_state6_blk = 1'b0;
-
-assign ap_ST_fsm_state7_blk = 1'b0;
-
 always @ (*) begin
     if ((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b0)) begin
-        ap_ST_fsm_state8_blk = 1'b1;
+        ap_ST_fsm_state4_blk = 1'b1;
     end else begin
-        ap_ST_fsm_state8_blk = 1'b0;
+        ap_ST_fsm_state4_blk = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -771,7 +699,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0))) begin
+    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -779,7 +707,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -787,15 +715,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start = 1'b1;
-    end else begin
-        grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+    if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         output_r_ap_vld = 1'b1;
     end else begin
         output_r_ap_vld = 1'b0;
@@ -803,9 +723,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 = 'bx;
@@ -813,9 +733,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 = 'bx;
@@ -823,9 +743,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 = 1'b0;
@@ -833,9 +753,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 = 1'b0;
@@ -843,7 +763,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 = 1'b0;
@@ -851,9 +771,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 = 'bx;
@@ -861,9 +781,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 = 'bx;
@@ -871,9 +791,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 = 1'b0;
@@ -881,9 +801,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 = 1'b0;
@@ -891,7 +811,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 = 1'b0;
@@ -899,9 +819,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 = 'bx;
@@ -909,9 +829,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 = 'bx;
@@ -919,9 +839,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 = 1'b0;
@@ -929,9 +849,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 = 1'b0;
@@ -939,7 +859,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 = 1'b0;
@@ -947,9 +867,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 = 'bx;
@@ -957,9 +877,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 = 'bx;
@@ -967,9 +887,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state3) | (1'b1 == ap_CS_fsm_state2))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 = 1'b0;
@@ -977,9 +897,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 = 1'b0;
@@ -987,7 +907,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 = 1'b0;
@@ -995,9 +915,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 = 'bx;
@@ -1005,9 +925,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 = 'bx;
@@ -1015,9 +935,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 = 1'b0;
@@ -1025,9 +945,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 = 1'b0;
@@ -1035,7 +955,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 = 1'b0;
@@ -1043,9 +963,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 = 'bx;
@@ -1053,9 +973,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 = 'bx;
@@ -1063,9 +983,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 = 1'b0;
@@ -1073,9 +993,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 = 1'b0;
@@ -1083,7 +1003,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 = 1'b0;
@@ -1091,9 +1011,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 = 'bx;
@@ -1101,9 +1021,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 = 'bx;
@@ -1111,9 +1031,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 = 1'b0;
@@ -1121,9 +1041,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 = 1'b0;
@@ -1131,7 +1051,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 = 1'b0;
@@ -1139,9 +1059,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 = 'bx;
@@ -1149,9 +1069,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 = 'bx;
@@ -1159,9 +1079,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 = 1'b0;
@@ -1169,9 +1089,9 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state8)) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 = grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1;
-    end else if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 = 1'b0;
@@ -1179,7 +1099,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4))) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1;
     end else begin
         p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 = 1'b0;
@@ -1189,35 +1109,27 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+            if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            ap_NS_fsm = ap_ST_fsm_state3;
+            if (((1'b1 == ap_CS_fsm_state2) & (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state3;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state2;
+            end
         end
         ap_ST_fsm_state3 : begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            ap_NS_fsm = ap_ST_fsm_state5;
-        end
-        ap_ST_fsm_state5 : begin
-            ap_NS_fsm = ap_ST_fsm_state6;
-        end
-        ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        ap_ST_fsm_state7 : begin
-            ap_NS_fsm = ap_ST_fsm_state8;
-        end
-        ap_ST_fsm_state8 : begin
-            if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state8))) begin
+            if (((grp_forward_layer_2_1_s_fu_137_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state8;
+                ap_NS_fsm = ap_ST_fsm_state4;
             end
         end
         default : begin
@@ -1234,13 +1146,7 @@ assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
-assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
-
-assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
-
-assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
-
-assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
+assign grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start = grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg;
 
 assign grp_forward_layer_2_1_s_fu_137_ap_start = grp_forward_layer_2_1_s_fu_137_ap_start_reg;
 

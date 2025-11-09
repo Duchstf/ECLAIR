@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'backward_input_2_1_ap_fixed_16_6_4_0_0_s'" level="0">
-<item name = "Date">Sun Nov  9 15:33:01 2025
+<item name = "Date">Sun Nov  9 16:02:12 2025
 </item>
 <item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
 <item name = "Project">eclair</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 3.480 ns, 1.35 ns</column>
+<column name="ap_clk">5.00 ns, 3.467 ns, 1.35 ns</column>
 </table>
 </item>
 </section>
@@ -24,13 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">5, 5, 25.000 ns, 25.000 ns, 4, 4, yes</column>
+<column name="">12, 12, 60.000 ns, 60.000 ns, 12, 12, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76">backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I, 10, 10, 50.000 ns, 50.000 ns, 9, 9, loop auto-rewind stp(delay=0 clock cycles(s))</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

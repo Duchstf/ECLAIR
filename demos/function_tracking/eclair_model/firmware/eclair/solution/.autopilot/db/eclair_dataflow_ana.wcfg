@@ -52,6 +52,22 @@
             <obj_property name="Render_Data">/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_activity.dataflowTxWaveData.Cycles</obj_property>
             <obj_property name="Value_Data">/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_activity.dataflowTxWaveData.OutStanding</obj_property>
             <obj_property name="Detail_Data">/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity">
+               <obj_property name="label">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
          </wvobject>
          <wvobject type="group" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_forward_layer_2_1_s_fu_137/grp_forward_layer_2_1_s_fu_137_activity">
             <obj_property name="label">grp_forward_layer_2_1_s_fu_137_activity</obj_property>
@@ -105,6 +121,10 @@
       <wvobject type="group" fp_name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_group">
          <obj_property name="label">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99</obj_property>
          <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity">
+            <obj_property name="ElementShortName">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity</obj_property>
+         </wvobject>
          <wvobject type="group" fp_name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
@@ -119,6 +139,26 @@
             <wvobject type="logic" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_group">
+            <obj_property name="label">grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_eclair_top/AESL_inst_eclair/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
             </wvobject>
          </wvobject>
       </wvobject>

@@ -13,6 +13,16 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
+				"grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_fu_76_activity": {
+					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
+					"ports": {
+						"AP_CLK": { "actual": "ap_clk"},
+						"AP_DONE": { "actual": "ap_done"},
+						"AP_READY": { "actual": "ap_ready"},
+						"AP_RESET": { "actual": "ap_rst"},
+						"AP_START": { "actual": "ap_start"}
+					}
+				},
 				"grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99/grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {

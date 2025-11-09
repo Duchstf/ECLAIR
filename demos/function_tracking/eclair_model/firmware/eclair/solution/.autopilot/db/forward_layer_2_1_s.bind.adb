@@ -8477,7 +8477,7 @@
 					<Obj>
 						<type>0</type>
 						<id>156</id>
-						<name>empty_14</name>
+						<name>empty_16</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
 						<lineNumber>12</lineNumber>
@@ -40541,7 +40541,7 @@
 			</second>
 		</item>
 		<item>
-			<first>empty_14_fu_1466</first>
+			<first>empty_16_fu_1466</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

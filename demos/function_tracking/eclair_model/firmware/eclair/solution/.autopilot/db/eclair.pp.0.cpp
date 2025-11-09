@@ -34267,17 +34267,16 @@ inline void backward_input(
     const LayerContext<IN_DIM, OUT_DIM> &C,
     const up_grad_t dL_dy[OUT_DIM]
 ){
-#pragma HLS PIPELINE
-
- BWD_O: for (int o = 0; o < OUT_DIM; o++) {
-#pragma HLS UNROLL
 
 
- weight_t dL_dy_o = dL_dy[o];
+    BWD_O: for (int o = 0; o < OUT_DIM; o++) {
+
+
+        weight_t dL_dy_o = dL_dy[o];
         weight_t delta = LR * dL_dy_o;
 
         BWD_I: for (int i = 0; i < IN_DIM; i++){
-#pragma HLS UNROLL
+#pragma HLS PIPELINE
 
 
  int k = C.k[o][i];
