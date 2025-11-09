@@ -130,7 +130,13 @@ config = {
 
     #Hardware specification
     'fpga_part': 'xcvu13p-flga2577-2-e',
-    'clock_period': '5' #in nanoseconds
+    'clock_period': '5', #in nanoseconds
+
+    #HLS Implementation
+    'params_type': 'ram_2p',
+    'params_impl': 'lutram',
+    'context_type': 'ram_1p',
+    'context_impl': 'lutram',
 
 }
 

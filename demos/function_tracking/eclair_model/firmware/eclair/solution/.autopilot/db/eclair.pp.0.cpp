@@ -34207,12 +34207,26 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
-#pragma HLS PIPELINE
 
 
- ACCUM_O:
-    for (int o=0; o<OUT_DIM; o++){
+
+    int k_arr[IN_DIM];
+    int ui_arr[IN_DIM];
+#pragma HLS ARRAY_PARTITION variable=k_arr complete
+#pragma HLS ARRAY_PARTITION variable=ui_arr complete
+
+ PRECOMP_I:
+    for (int i = 0; i < IN_DIM; i++) {
 #pragma HLS UNROLL
+ weight_t u;
+        cell_index_and_local_u(x[i], k_arr[i], u);
+        ui_arr[i] = (int)(u * (weight_t)(256 - 1) + weight_t(0.5));
+    }
+
+
+    ACCUM_O:
+    for (int o=0; o<OUT_DIM; o++){
+#pragma HLS PIPELINE
 
 
  weight_t partial_sums[IN_DIM];
@@ -34221,17 +34235,8 @@ inline void forward_layer(
  ACCUM_I:
         for (int i=0; i<IN_DIM; i++){
 #pragma HLS UNROLL
-
-
- const weight_t xi = x[i];
-            int k;
-            weight_t u;
-            cell_index_and_local_u(xi, k, u);
-
-
-            const int ui = u * (weight_t)(256 - 1) + weight_t(0.5);
-
-
+ const int k = k_arr[i];
+            const int ui = ui_arr[i];
             C.k[o][i] = k;
             C.u_index[o][i] = ui;
 
@@ -34351,9 +34356,25 @@ __attribute__((sdx_kernel("eclair", 0))) void eclair(const input_t input[2], out
 #pragma HLS ARRAY_PARTITION variable=output complete dim=0
 #pragma HLS ARRAY_PARTITION variable=feedback complete dim=0
 
-#pragma HLS ARRAY_PARTITION variable=LUT complete dim=0
-#pragma HLS ARRAY_PARTITION variable=P complete dim=0
-#pragma HLS ARRAY_PARTITION variable=C complete dim=0
+
+#pragma HLS BIND_STORAGE variable=LUT.B0 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.dB0 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.B1 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.dB1 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.B2 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.dB2 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.B3 type=rom_1p impl=lutram
+#pragma HLS BIND_STORAGE variable=LUT.dB3 type=rom_1p impl=lutram
+
+
+#pragma HLS BIND_STORAGE variable=P.L0.Ws type=ram_2p impl=lutram
+#pragma HLS ARRAY_PARTITION variable=P.L0.Ws complete dim=1
+#pragma HLS ARRAY_PARTITION variable=P.L0.Ws complete dim=2
+#pragma HLS ARRAY_PARTITION variable=P.L0.Ws cyclic factor=4 dim=3
+
+
+#pragma HLS ARRAY_PARTITION variable=C.C0.k complete
+#pragma HLS ARRAY_PARTITION variable=C.C0.u_index complete
 
 
 

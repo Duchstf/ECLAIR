@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'eclair'
 ================================================================
-* Date:           Mon Nov  3 05:32:14 2025
+* Date:           Sun Nov  9 15:33:02 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  3.562 ns|     1.35 ns|
+    |ap_clk  |  5.00 ns|  3.535 ns|     1.35 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
     |   min   |   max   |    min    |    max    | min | max |   Type  |
     +---------+---------+-----------+-----------+-----+-----+---------+
-    |       15|       15|  75.000 ns|  75.000 ns|   16|   16|       no|
+    |       17|       17|  85.000 ns|  85.000 ns|   18|   18|       no|
     +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
@@ -38,8 +38,8 @@
         |                                                    |                                          |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
         |                      Instance                      |                  Module                  |   min   |   max   |    min    |    max    | min | max |   Type  |
         +----------------------------------------------------+------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        6|        6|  30.000 ns|  30.000 ns|    4|    4|      yes|
-        |grp_forward_layer_2_1_s_fu_143                      |forward_layer_2_1_s                       |        8|        8|  40.000 ns|  40.000 ns|    1|    1|      yes|
+        |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        5|        5|  25.000 ns|  25.000 ns|    4|    4|      yes|
+        |grp_forward_layer_2_1_s_fu_137                      |forward_layer_2_1_s                       |       10|       10|  50.000 ns|  50.000 ns|   10|   10|       no|
         +----------------------------------------------------+------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
@@ -57,38 +57,55 @@
 |DSP                  |        -|      -|        -|        -|     -|
 |Expression           |        -|      -|        -|        -|     -|
 |FIFO                 |        -|      -|        -|        -|     -|
-|Instance             |        -|     17|     2859|    32817|     -|
-|Memory               |        -|      -|        -|        -|     -|
-|Multiplexer          |        -|      -|        0|       81|     -|
-|Register             |        -|      -|      301|        -|     -|
+|Instance             |        -|     17|      703|     4016|     -|
+|Memory               |        -|      -|      176|      332|     -|
+|Multiplexer          |        -|      -|        0|      681|     -|
+|Register             |        -|      -|       31|        -|     -|
 +---------------------+---------+-------+---------+---------+------+
-|Total                |        0|     17|     3160|    32898|     0|
+|Total                |        0|     17|      910|     5029|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available SLR        |     1344|   3072|   864000|   432000|   320|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization SLR (%)  |        0|     ~0|       ~0|        7|     0|
+|Utilization SLR (%)  |        0|     ~0|       ~0|        1|     0|
 +---------------------+---------+-------+---------+---------+------+
 |Available            |     5376|  12288|  3456000|  1728000|  1280|
 +---------------------+---------+-------+---------+---------+------+
-|Utilization (%)      |        0|     ~0|       ~0|        1|     0|
+|Utilization (%)      |        0|     ~0|       ~0|       ~0|     0|
 +---------------------+---------+-------+---------+---------+------+
 
 + Detail: 
     * Instance: 
-    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
-    |                      Instance                      |                  Module                  | BRAM_18K| DSP|  FF  |  LUT  | URAM|
-    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
-    |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        0|   9|  2452|  20423|    0|
-    |grp_forward_layer_2_1_s_fu_143                      |forward_layer_2_1_s                       |        0|   8|   407|  12394|    0|
-    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
-    |Total                                               |                                          |        0|  17|  2859|  32817|    0|
-    +----------------------------------------------------+------------------------------------------+---------+----+------+-------+-----+
+    +----------------------------------------------------+------------------------------------------+---------+----+-----+------+-----+
+    |                      Instance                      |                  Module                  | BRAM_18K| DSP|  FF |  LUT | URAM|
+    +----------------------------------------------------+------------------------------------------+---------+----+-----+------+-----+
+    |grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99  |backward_input_2_1_ap_fixed_16_6_4_0_0_s  |        0|   9|  484|  2257|    0|
+    |grp_forward_layer_2_1_s_fu_137                      |forward_layer_2_1_s                       |        0|   8|  219|  1759|    0|
+    +----------------------------------------------------+------------------------------------------+---------+----+-----+------+-----+
+    |Total                                               |                                          |        0|  17|  703|  4016|    0|
+    +----------------------------------------------------+------------------------------------------+---------+----+-----+------+-----+
 
     * DSP: 
     N/A
 
     * Memory: 
-    N/A
+    +---------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |                                      Memory                                     |                                      Module                                      | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +---------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |LUT_B0_U                                                                         |LUT_B0_ROM_1P_LUTRAM_1R                                                           |        0|   8|  33|    0|   256|    8|     1|         2048|
+    |LUT_B1_U                                                                         |LUT_B1_ROM_1P_LUTRAM_1R                                                           |        0|  16|  65|    0|   256|   10|     1|         2560|
+    |LUT_B2_U                                                                         |LUT_B2_ROM_1P_LUTRAM_1R                                                           |        0|  16|  65|    0|   256|   10|     1|         2560|
+    |LUT_B3_U                                                                         |LUT_B3_ROM_1P_LUTRAM_1R                                                           |        0|   8|  33|    0|   256|    8|     1|         2048|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_U  |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb  |        0|  16|  17|    0|     2|   16|     1|           32|
+    +---------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |Total                                                                            |                                                                                  |        0| 176| 332|    0|  1040|  164|    12|         9472|
+    +---------------------------------------------------------------------------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
 
     * FIFO: 
     N/A
@@ -97,43 +114,75 @@
     N/A
 
     * Multiplexer: 
-    +-----------+----+-----------+-----+-----------+
-    |    Name   | LUT| Input Size| Bits| Total Bits|
-    +-----------+----+-----------+-----+-----------+
-    |ap_NS_fsm  |  81|         17|    1|         17|
-    +-----------+----+-----------+-----+-----------+
-    |Total      |  81|         17|    1|         17|
-    +-----------+----+-----------+-----+-----------+
+    +----------------------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |                                          Name                                          | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |LUT_B0_address0                                                                         |  14|          3|    8|         24|
+    |LUT_B0_ce0                                                                              |  14|          3|    1|          3|
+    |LUT_B1_address0                                                                         |  14|          3|    8|         24|
+    |LUT_B1_ce0                                                                              |  14|          3|    1|          3|
+    |LUT_B2_address0                                                                         |  14|          3|    8|         24|
+    |LUT_B2_ce0                                                                              |  14|          3|    1|          3|
+    |LUT_B3_address0                                                                         |  14|          3|    8|         24|
+    |LUT_B3_ce0                                                                              |  14|          3|    1|          3|
+    |ap_NS_fsm                                                                               |  49|          9|    1|          9|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1       |   9|          2|    1|          2|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1  |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1       |  14|          3|    1|          3|
+    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1       |   9|          2|    1|          2|
+    +----------------------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                                                   | 681|        145|   77|        229|
+    +----------------------------------------------------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +-------------------------------------------------------------------------------+----+----+-----+-----------+
-    |                                      Name                                     | FF | LUT| Bits| Const Bits|
-    +-------------------------------------------------------------------------------+----+----+-----+-----------+
-    |ap_CS_fsm                                                                      |  16|   0|   16|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0                 |   6|   0|    6|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1                 |   6|   0|    6|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0           |   8|   0|    8|          0|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1           |   8|   0|    8|          0|
-    |grp_forward_layer_2_1_s_fu_143_ap_start_reg                                    |   1|   0|    1|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6  |  16|   0|   16|          0|
-    |p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7  |  16|   0|   16|          0|
-    +-------------------------------------------------------------------------------+----+----+-----+-----------+
-    |Total                                                                          | 301|   0|  301|          0|
-    +-------------------------------------------------------------------------------+----+----+-----+-----------+
+    +-------------------------------------------------------------------+---+----+-----+-----------+
+    |                                Name                               | FF| LUT| Bits| Const Bits|
+    +-------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                          |  8|   0|    8|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0  |  3|   0|    3|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1  |  3|   0|    3|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0       |  8|   0|    8|          0|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1       |  8|   0|    8|          0|
+    |grp_forward_layer_2_1_s_fu_137_ap_start_reg                        |  1|   0|    1|          0|
+    +-------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                              | 31|   0|   31|          0|
+    +-------------------------------------------------------------------+---+----+-----+-----------+
 
 
 

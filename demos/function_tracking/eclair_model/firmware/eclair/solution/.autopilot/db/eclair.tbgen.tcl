@@ -58,13 +58,13 @@ set NewPortList {[
  	{ "name": "feedback", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "feedback", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "27"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "31"],
 		"CDFG" : "eclair",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "15", "EstimateLatencyMax" : "15",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "17", "EstimateLatencyMax" : "17",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -77,93 +77,89 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "feedback", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "LUT_B0", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "LUT_B0", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "LUT_B1", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "LUT_B1", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "LUT_B2", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "LUT_B2", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "LUT_B3", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "LUT_B3", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Inst_start_state" : "7", "Inst_end_state" : "8"}]},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6", "Inst_start_state" : "8", "Inst_end_state" : "16"}]},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7", "Inst_start_state" : "1", "Inst_end_state" : "7"},
-					{"ID" : "27", "SubInstance" : "grp_forward_layer_2_1_s_fu_143", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7", "Inst_start_state" : "8", "Inst_end_state" : "16"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"],
+					{"ID" : "13", "SubInstance" : "grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Inst_start_state" : "1", "Inst_end_state" : "6"},
+					{"ID" : "31", "SubInstance" : "grp_forward_layer_2_1_s_fu_137", "Port" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Inst_start_state" : "7", "Inst_end_state" : "8"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B0_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_U", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_U", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B1_U", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B2_U", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B3_U", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_U", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_U", "Parent" : "0"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_U", "Parent" : "0"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_U", "Parent" : "0"},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99", "Parent" : "0", "Child" : ["14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"],
 		"CDFG" : "backward_input_2_1_ap_fixed_16_6_4_0_0_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "4",
-		"VariableLatency" : "0", "ExactLatency" : "6", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"VariableLatency" : "0", "ExactLatency" : "5", "EstimateLatencyMin" : "5", "EstimateLatencyMax" : "5",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -173,58 +169,46 @@ set RtlHierarchyInfo {[
 		"IsBlackBox" : "0",
 		"Port" : [
 			{"Name" : "dL_dy_val", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7", "Type" : "OVld", "Direction" : "IO"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_16s_8ns_24_1_1_U1", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_8_1_1_U2", "Parent" : "1"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_16s_8ns_24_1_1_U3", "Parent" : "1"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_10_1_1_U4", "Parent" : "1"},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_10ns_16s_26_1_1_U5", "Parent" : "1"},
-	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_8_1_1_U6", "Parent" : "1"},
-	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_8ns_16s_24_1_1_U7", "Parent" : "1"},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_17_3_16_1_1_U8", "Parent" : "1"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_10_1_1_U9", "Parent" : "1"},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_10ns_16s_26_1_1_U10", "Parent" : "1"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_17_3_16_1_1_U11", "Parent" : "1"},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_10_1_1_U12", "Parent" : "1"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_10ns_16s_26_1_1_U13", "Parent" : "1"},
-	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_10_1_1_U14", "Parent" : "1"},
-	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_10ns_16s_26_1_1_U15", "Parent" : "1"},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_15_3_16_1_1_U16", "Parent" : "1"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_8_1_1_U17", "Parent" : "1"},
-	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_8ns_16s_24_1_1_U18", "Parent" : "1"},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_15_3_16_1_1_U19", "Parent" : "1"},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_513_8_8_1_1_U20", "Parent" : "1"},
-	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.mul_8ns_16s_24_1_1_U21", "Parent" : "1"},
-	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_13_3_16_1_1_U22", "Parent" : "1"},
-	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_13_3_16_1_1_U23", "Parent" : "1"},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_11_3_16_1_1_U24", "Parent" : "1"},
-	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_97.sparsemux_11_3_16_1_1_U25", "Parent" : "1"},
-	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143", "Parent" : "0", "Child" : ["28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55"],
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0", "Type" : "None", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0", "Type" : "None", "Direction" : "I"},
+			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Type" : "Memory", "Direction" : "IO"}]},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_16s_8ns_24_1_1_U1", "Parent" : "13"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_16s_8ns_24_1_1_U2", "Parent" : "13"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_10ns_16s_26_1_1_U3", "Parent" : "13"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_10ns_16s_26_1_1_U4", "Parent" : "13"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_8ns_16s_24_1_1_U5", "Parent" : "13"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U6", "Parent" : "13"},
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U7", "Parent" : "13"},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U8", "Parent" : "13"},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U9", "Parent" : "13"},
+	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_8ns_16s_24_1_1_U10", "Parent" : "13"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_10ns_16s_26_1_1_U11", "Parent" : "13"},
+	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_10ns_16s_26_1_1_U12", "Parent" : "13"},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.mul_8ns_16s_24_1_1_U13", "Parent" : "13"},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U14", "Parent" : "13"},
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U15", "Parent" : "13"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U16", "Parent" : "13"},
+	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99.sparsemux_9_2_16_1_1_U17", "Parent" : "13"},
+	{"ID" : "31", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137", "Parent" : "0", "Child" : ["32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51"],
 		"CDFG" : "forward_layer_2_1_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "8", "EstimateLatencyMin" : "8", "EstimateLatencyMax" : "8",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "10", "EstimateLatencyMax" : "10",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -235,133 +219,109 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "x_0_val", "Type" : "None", "Direction" : "I"},
 			{"Name" : "x_1_val", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6", "Type" : "None", "Direction" : "I"},
-			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_9_3_16_1_1_U58", "Parent" : "27"},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_7_2_6_1_1_U59", "Parent" : "27"},
-	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_9_3_16_1_1_U60", "Parent" : "27"},
-	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_7_2_6_1_1_U61", "Parent" : "27"},
-	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_8_1_1_U62", "Parent" : "27"},
-	{"ID" : "33", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_13_3_16_1_1_U63", "Parent" : "27"},
-	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_13_3_16_1_1_U64", "Parent" : "27"},
-	{"ID" : "35", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_13_3_16_1_1_U65", "Parent" : "27"},
-	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_11_3_16_1_1_U66", "Parent" : "27"},
-	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_8_1_1_U67", "Parent" : "27"},
-	{"ID" : "38", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_13_3_16_1_1_U68", "Parent" : "27"},
-	{"ID" : "39", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_13_3_16_1_1_U69", "Parent" : "27"},
-	{"ID" : "40", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_13_3_16_1_1_U70", "Parent" : "27"},
-	{"ID" : "41", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_11_3_16_1_1_U71", "Parent" : "27"},
-	{"ID" : "42", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_10_1_1_U72", "Parent" : "27"},
-	{"ID" : "43", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_10_1_1_U73", "Parent" : "27"},
-	{"ID" : "44", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_10_1_1_U74", "Parent" : "27"},
-	{"ID" : "45", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_10_1_1_U75", "Parent" : "27"},
-	{"ID" : "46", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_8_1_1_U76", "Parent" : "27"},
-	{"ID" : "47", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mul_16s_10ns_26_1_1_U77", "Parent" : "27"},
-	{"ID" : "48", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.sparsemux_513_8_8_1_1_U78", "Parent" : "27"},
-	{"ID" : "49", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mul_16s_10ns_26_1_1_U79", "Parent" : "27"},
-	{"ID" : "50", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mac_muladd_16s_8ns_26s_26_4_1_U80", "Parent" : "27"},
-	{"ID" : "51", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mac_muladd_16s_8ns_26s_26_4_1_U81", "Parent" : "27"},
-	{"ID" : "52", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mac_muladd_16s_10ns_26s_27_4_1_U82", "Parent" : "27"},
-	{"ID" : "53", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mac_muladd_16s_10ns_26s_27_4_1_U83", "Parent" : "27"},
-	{"ID" : "54", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mac_muladd_16s_8ns_27s_27_4_1_U84", "Parent" : "27"},
-	{"ID" : "55", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_143.mac_muladd_16s_8ns_27s_27_4_1_U85", "Parent" : "27"}]}
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_3_16_1_1_U42", "Parent" : "31"},
+	{"ID" : "33", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_7_2_3_1_1_U43", "Parent" : "31"},
+	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_3_16_1_1_U44", "Parent" : "31"},
+	{"ID" : "35", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_7_2_3_1_1_U45", "Parent" : "31"},
+	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U46", "Parent" : "31"},
+	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U47", "Parent" : "31"},
+	{"ID" : "38", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U48", "Parent" : "31"},
+	{"ID" : "39", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U49", "Parent" : "31"},
+	{"ID" : "40", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mul_16s_10ns_26_1_1_U50", "Parent" : "31"},
+	{"ID" : "41", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U51", "Parent" : "31"},
+	{"ID" : "42", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U52", "Parent" : "31"},
+	{"ID" : "43", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U53", "Parent" : "31"},
+	{"ID" : "44", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mul_16s_10ns_26_1_1_U54", "Parent" : "31"},
+	{"ID" : "45", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.sparsemux_9_2_16_1_1_U55", "Parent" : "31"},
+	{"ID" : "46", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mac_muladd_16s_8ns_26s_26_4_1_U56", "Parent" : "31"},
+	{"ID" : "47", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mac_muladd_16s_10ns_26s_27_4_1_U57", "Parent" : "31"},
+	{"ID" : "48", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mac_muladd_16s_8ns_26s_26_4_1_U58", "Parent" : "31"},
+	{"ID" : "49", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mac_muladd_16s_8ns_27s_27_4_1_U59", "Parent" : "31"},
+	{"ID" : "50", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mac_muladd_16s_10ns_26s_27_4_1_U60", "Parent" : "31"},
+	{"ID" : "51", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_2_1_s_fu_137.mac_muladd_16s_8ns_27s_27_4_1_U61", "Parent" : "31"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	eclair {
-		input_0 {Type I LastRead 7 FirstWrite -1}
-		input_1 {Type I LastRead 7 FirstWrite -1}
-		output_r {Type O LastRead -1 FirstWrite 15}
+		input_0 {Type I LastRead 6 FirstWrite -1}
+		input_1 {Type I LastRead 6 FirstWrite -1}
+		output_r {Type O LastRead -1 FirstWrite 7}
 		feedback {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 {Type IO LastRead -1 FirstWrite -1}
+		LUT_B0 {Type I LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 {Type IO LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 {Type IO LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 {Type IO LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 {Type IO LastRead -1 FirstWrite -1}
+		LUT_B1 {Type I LastRead -1 FirstWrite -1}
+		LUT_B2 {Type I LastRead -1 FirstWrite -1}
+		LUT_B3 {Type I LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 {Type IO LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 {Type IO LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 {Type IO LastRead -1 FirstWrite -1}
 		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 {Type IO LastRead -1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 {Type IO LastRead -1 FirstWrite -1}}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 {Type IO LastRead -1 FirstWrite -1}}
 	backward_input_2_1_ap_fixed_16_6_4_0_0_s {
 		dL_dy_val {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 {Type I LastRead 2 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 {Type I LastRead 1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 {Type IO LastRead 2 FirstWrite 4}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 {Type IO LastRead 2 FirstWrite 5}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 {Type IO LastRead 2 FirstWrite 5}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 {Type IO LastRead 2 FirstWrite 6}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 {Type I LastRead 2 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 {Type I LastRead 1 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 {Type IO LastRead 2 FirstWrite 4}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 {Type IO LastRead 2 FirstWrite 5}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 {Type IO LastRead 2 FirstWrite 5}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 {Type IO LastRead 2 FirstWrite 6}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 {Type IO LastRead 2 FirstWrite 6}}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 {Type I LastRead 0 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 {Type I LastRead 0 FirstWrite -1}
+		LUT_B0 {Type I LastRead 1 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 {Type IO LastRead 2 FirstWrite 2}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 {Type IO LastRead 2 FirstWrite 2}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 {Type IO LastRead 2 FirstWrite 2}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 {Type IO LastRead 2 FirstWrite 2}
+		LUT_B1 {Type I LastRead 1 FirstWrite -1}
+		LUT_B2 {Type I LastRead 1 FirstWrite -1}
+		LUT_B3 {Type I LastRead 1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 {Type I LastRead 1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 {Type I LastRead 1 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 {Type IO LastRead 3 FirstWrite 3}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 {Type IO LastRead 3 FirstWrite 3}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 {Type IO LastRead 3 FirstWrite 3}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 {Type IO LastRead 3 FirstWrite 3}}
 	forward_layer_2_1_s {
 		x_0_val {Type I LastRead 0 FirstWrite -1}
-		x_1_val {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_0 {Type O LastRead -1 FirstWrite 1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_0 {Type O LastRead -1 FirstWrite 2}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_4 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_5 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_6 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_7 {Type I LastRead 2 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_1 {Type O LastRead -1 FirstWrite 1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_1 {Type O LastRead -1 FirstWrite 2}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_4 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_5 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_6 {Type I LastRead 2 FirstWrite -1}
-		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_7 {Type I LastRead 2 FirstWrite -1}}}
+		x_1_val {Type I LastRead 1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 {Type O LastRead -1 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 {Type O LastRead -1 FirstWrite 2}
+		LUT_B0 {Type I LastRead 3 FirstWrite -1}
+		LUT_B1 {Type I LastRead 3 FirstWrite -1}
+		LUT_B2 {Type I LastRead 3 FirstWrite -1}
+		LUT_B3 {Type I LastRead 3 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0 {Type I LastRead 5 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1 {Type I LastRead 5 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2 {Type I LastRead 5 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 {Type O LastRead -1 FirstWrite 3}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 {Type O LastRead -1 FirstWrite 3}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0 {Type I LastRead 6 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1 {Type I LastRead 6 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2 {Type I LastRead 6 FirstWrite -1}
+		p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3 {Type I LastRead 6 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "15", "Max" : "15"}
-	, {"Name" : "Interval", "Min" : "16", "Max" : "16"}
+	{"Name" : "Latency", "Min" : "17", "Max" : "17"}
+	, {"Name" : "Interval", "Min" : "18", "Max" : "18"}
 ]}
 
 set PipelineEnableSignalInfo {[

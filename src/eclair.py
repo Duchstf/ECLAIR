@@ -54,6 +54,12 @@ class Eclair:
         self.fpga_part = config['fpga_part']
         self.clock_period = config['clock_period']
 
+        #HLS Implementation
+        self.params_type = config['params_type']
+        self.context_type = config['context_type']
+        self.params_impl = config['params_impl']
+        self.context_impl = config['context_impl']
+
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
         print("Setting up ECLAIR framework ...")
         self._create_model()
@@ -259,6 +265,28 @@ class Eclair:
         template_path = os.path.join(os.path.dirname(__file__), "templates/eclair.cpp")
         outfile_path = f"{self.model_dir}/firmware/eclair.cpp"
 
+        #Define the pragmas
+        lut_pragmas = []
+        param_pragmas = []
+        context_pragmas = []
+
+        for spline_i in range(0, self.spline_order + 1):
+            lut_pragmas.append(f"    #pragma HLS BIND_STORAGE variable=LUT.B{spline_i} type=rom_1p impl=lutram\n")
+            lut_pragmas.append(f"    #pragma HLS BIND_STORAGE variable=LUT.dB{spline_i} type=rom_1p impl=lutram\n")
+
+        for layer_i in range(self.num_layers):
+            param_pragmas.append(f"    #pragma HLS BIND_STORAGE variable=P.L{layer_i}.Ws type={self.params_type} impl={self.params_impl}\n")
+            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.Ws complete dim=1\n")
+            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.Ws complete dim=2\n")
+            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.Ws cyclic factor={self.spline_order + 1} dim=3\n")
+
+            context_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=C.C{layer_i}.k complete\n")
+            context_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=C.C{layer_i}.u_index complete\n")
+
+        lut_pragmas = "".join(lut_pragmas)
+        param_pragmas = "".join(param_pragmas)
+        context_pragmas = "".join(context_pragmas)
+
         #Define forward pass
         forward_pass = []
         variable_definitions = []
@@ -305,7 +333,12 @@ class Eclair:
         insertions = {
             "//variable-definitions": variable_definitions,
             "//forward-pass": forward_pass,
-            "//backward-pass": backward_pass
+            "//backward-pass": backward_pass,
+
+            #Pragmas
+            "//lut-pragmas": lut_pragmas,
+            "//param-pragmas": param_pragmas,
+            "//context-pragmas": context_pragmas
         }
 
         # write to file

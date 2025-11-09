@@ -13,9 +13,11 @@ void eclair(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const o
     #pragma HLS ARRAY_PARTITION variable=output complete dim=0
     #pragma HLS ARRAY_PARTITION variable=feedback complete dim=0
 
-    #pragma HLS ARRAY_PARTITION variable=LUT complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=P complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=C complete dim=0
+    //lut-pragmas
+
+    //param-pragmas
+
+    //context-pragmas
     
     //variable-definitions
 

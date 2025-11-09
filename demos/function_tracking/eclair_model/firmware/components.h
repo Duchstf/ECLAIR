@@ -33,12 +33,26 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
-    #pragma HLS PIPELINE
+    
+
+    //Pre-compute k and u index
+    int  k_arr[IN_DIM];
+    int  ui_arr[IN_DIM];
+    #pragma HLS ARRAY_PARTITION variable=k_arr complete
+    #pragma HLS ARRAY_PARTITION variable=ui_arr complete
+
+    PRECOMP_I:
+    for (int i = 0; i < IN_DIM; i++) {
+        #pragma HLS UNROLL
+        weight_t u;
+        cell_index_and_local_u(x[i], k_arr[i], u);
+        ui_arr[i] = (int)(u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5));
+    }
 
     // Compute for each output node
     ACCUM_O:
     for (int o=0; o<OUT_DIM; o++){
-        #pragma HLS UNROLL
+        #pragma HLS PIPELINE
 
         //Partial sums for each input dimension
         weight_t partial_sums[IN_DIM];
@@ -47,18 +61,9 @@ inline void forward_layer(
         ACCUM_I:
         for (int i=0; i<IN_DIM; i++){
             #pragma HLS UNROLL
-
-            //Figure out which part of the grid x lies in
-            const weight_t xi = x[i];
-            int k;        // 0..GRID_SIZE-1
-            weight_t u;   // [0,1]
-            cell_index_and_local_u(xi, k, u);
-
-            //Get the index for the activation function look up
-            const int ui = u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5);
-            
-            //store the context
-            C.k[o][i] = k;
+            const int k  = k_arr[i];
+            const int ui = ui_arr[i];
+            C.k[o][i]       = k;
             C.u_index[o][i] = ui;
 
             //spline-lookup

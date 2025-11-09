@@ -4,42 +4,42 @@
     "calls": "1 2",
     "file": "eclair.cpp",
     "fileloc": 5,
-    "instructions": 6,
+    "instructions": 34,
     "loads": {
       "T": 3
     },
     "name": "eclair",
-    "total_instructions": 1579
+    "total_instructions": 1477
   },
   "1": {
-    "basicblocks": 299,
+    "basicblocks": 243,
     "calls": "",
     "file": "components.h",
-    "fileloc": 86,
-    "instructions": 1129,
+    "fileloc": 91,
+    "instructions": 917,
     "loads": {
-      "G": 20
+      "G": 44
     },
     "name": "backward_input<2, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
     "stores": {
-      "G": 208
+      "G": 128
     },
-    "total_instructions": 1129
+    "total_instructions": 917
   },
   "2": {
     "basicblocks": 25,
     "calls": "",
     "file": "components.h",
     "fileloc": 30,
-    "instructions": 444,
+    "instructions": 526,
     "loads": {
-      "G": 16
+      "G": 40
     },
     "name": "forward_layer<2, 1>",
     "stores": {
       "G": 4,
       "L": 1
     },
-    "total_instructions": 444
+    "total_instructions": 526
   }
 }

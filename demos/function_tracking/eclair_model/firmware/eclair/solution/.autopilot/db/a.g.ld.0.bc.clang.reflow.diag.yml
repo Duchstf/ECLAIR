@@ -1,7 +1,7 @@
 --- !Passed
 Pass:            inline
 Name:            AlwaysInline
-DebugLoc:        { File: ./components.h, Line: 55, Column: 13 }
+DebugLoc:        { File: ./components.h, Line: 48, Column: 9 }
 Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
 Args:            
   - String:          'Inlining function '''
@@ -13,19 +13,159 @@ Args:
   - String:          ''''
 ...
 --- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: ./components.h, Line: 40, Column: 5 }
+Pass:            reflow-reg2mem-ssa
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 34, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-reg2mem-ssa
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 33, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-reg2mem-ssa
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 30, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-reg2mem-ssa
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 29, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-reg2mem-ssa
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 28, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 34, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 33, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 30, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 29, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrReason
+DebugLoc:        { File: eclair.cpp, Line: 28, Column: 9 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Adding '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''' into disaggregation list because there''s '
+  - String:          array-partition pragma applied on the struct field
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: eclair.cpp, Line: 9, Column: 0 }
 Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
 Args:            
-  - String:          'Loop '''
-  - LoopName:        ACCUM_O
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+  - String:          'Disaggregating variable '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C'
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: eclair.cpp, Line: 9, Column: 0 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C'
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: eclair.cpp, Line: 8, Column: 0 }
+Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: eclair.cpp, Line: 8, Column: 0 }
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::P'
+  - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: ./components.h, Line: 48, Column: 9 }
+DebugLoc:        { File: ./components.h, Line: 62, Column: 9 }
 Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
 Args:            
   - String:          'Loop '''
@@ -35,7 +175,7 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: ./components.h, Line: 75, Column: 25 }
+DebugLoc:        { File: ./components.h, Line: 80, Column: 25 }
 Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
 Args:            
   - String:          'Loop '''
@@ -45,7 +185,7 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: ./components.h, Line: 93, Column: 9 }
+DebugLoc:        { File: ./components.h, Line: 98, Column: 9 }
 Function:        _Z14backward_inputILi2ELi1E8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEEvR11LayerParamsIXT_EXT0_EERK12LayerContextIXT_EXT0_EEPKT1_
 Args:            
   - String:          'Loop '''
@@ -55,7 +195,7 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: ./components.h, Line: 100, Column: 16 }
+DebugLoc:        { File: ./components.h, Line: 105, Column: 16 }
 Function:        _Z14backward_inputILi2ELi1E8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEEvR11LayerParamsIXT_EXT0_EERK12LayerContextIXT_EXT0_EEPKT1_
 Args:            
   - String:          'Loop '''
@@ -69,14 +209,14 @@ DebugLoc:        { File: ./components.h, Line: 35, Column: 0 }
 Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        ACCUM_O
+  - LoopName:        ACCUM_I
   - String:          ''' ('
-  - LoopLoc:         './components.h:40:5'
+  - LoopLoc:         './components.h:62:9'
   - String:          ') '
   - String:          'in function '''
   - String:          'forward_layer<2, 1>'
   - String:          ''' completely with a factor of '
-  - Factor:          '1'
+  - Factor:          '2'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
@@ -87,7 +227,7 @@ Args:
   - String:          'Unrolling loop '''
   - LoopName:        REDUCTION_LOOP
   - String:          ''' ('
-  - LoopLoc:         './components.h:75:25'
+  - LoopLoc:         './components.h:80:25'
   - String:          ') '
   - String:          'in function '''
   - String:          'forward_layer<2, 1>'
@@ -101,9 +241,9 @@ DebugLoc:        { File: ./components.h, Line: 35, Column: 0 }
 Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
 Args:            
   - String:          'Unrolling loop '''
-  - LoopName:        ACCUM_I
+  - LoopName:        PRECOMP_I
   - String:          ''' ('
-  - LoopLoc:         './components.h:48:9'
+  - LoopLoc:         './components.h:45:5'
   - String:          ') '
   - String:          'in function '''
   - String:          'forward_layer<2, 1>'
@@ -113,13 +253,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: ./components.h, Line: 90, Column: 0 }
+DebugLoc:        { File: ./components.h, Line: 95, Column: 0 }
 Function:        _Z14backward_inputILi2ELi1E8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEEvR11LayerParamsIXT_EXT0_EERK12LayerContextIXT_EXT0_EEPKT1_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        BWD_O
   - String:          ''' ('
-  - LoopLoc:         './components.h:93:9'
+  - LoopLoc:         './components.h:98:9'
   - String:          ') '
   - String:          'in function '''
   - String:          'backward_input<2, 1, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> >'
@@ -129,13 +269,13 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: ./components.h, Line: 90, Column: 0 }
+DebugLoc:        { File: ./components.h, Line: 95, Column: 0 }
 Function:        _Z14backward_inputILi2ELi1E8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEEvR11LayerParamsIXT_EXT0_EERK12LayerContextIXT_EXT0_EEPKT1_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        BWD_I
   - String:          ''' ('
-  - LoopLoc:         './components.h:100:16'
+  - LoopLoc:         './components.h:105:16'
   - String:          ') '
   - String:          'in function '''
   - String:          'backward_input<2, 1, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> >'
@@ -159,12 +299,6 @@ Args:
   - String:          ' on dimension '
   - Dim:             '1'
   - String:          .
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '2'
-  - String:          .
 ...
 --- !Passed
 Pass:            reflow-array-partition
@@ -182,12 +316,6 @@ Args:
   - String:          ' partitioning'
   - String:          ' on dimension '
   - Dim:             '1'
-  - String:          .
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '2'
   - String:          .
 ...
 --- !Passed
@@ -214,147 +342,13 @@ Args:
   - Dim:             '2'
   - String:          .
   - String:          ' '
-  - Mode:            Complete
+  - Mode:            Cyclic
   - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '4'
   - String:          ' on dimension '
   - Dim:             '3'
   - String:          .
-...
---- !Passed
-Pass:            reflow-array-partition
-Name:            ArrayXform
-DebugLoc:        { File: ./parameters.h, Line: 18, Column: 0 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          'Applying '
-  - String:          array_partition
-  - String:          ' to '''
-  - UOName:          _ZL3LUT.B3
-  - String:          ''':'
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '1'
-  - String:          .
-...
---- !Passed
-Pass:            reflow-array-partition
-Name:            ArrayXform
-DebugLoc:        { File: ./parameters.h, Line: 18, Column: 0 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          'Applying '
-  - String:          array_partition
-  - String:          ' to '''
-  - UOName:          _ZL3LUT.B2
-  - String:          ''':'
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '1'
-  - String:          .
-...
---- !Passed
-Pass:            reflow-array-partition
-Name:            ArrayXform
-DebugLoc:        { File: ./parameters.h, Line: 18, Column: 0 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          'Applying '
-  - String:          array_partition
-  - String:          ' to '''
-  - UOName:          _ZL3LUT.B1
-  - String:          ''':'
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '1'
-  - String:          .
-...
---- !Passed
-Pass:            reflow-array-partition
-Name:            ArrayXform
-DebugLoc:        { File: ./parameters.h, Line: 18, Column: 0 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          'Applying '
-  - String:          array_partition
-  - String:          ' to '''
-  - UOName:          _ZL3LUT.B0
-  - String:          ''':'
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '1'
-  - String:          .
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
-...
---- !Failure
-Pass:            reflow-array-partition
-Name:            WarnArrayXFORMOnIndexCast
-DebugLoc:        { File: ./components.h, Line: 58, Column: 28 }
-Function:        _Z13forward_layerILi2ELi1EEvPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS3_RK11LayerParamsIXT_EXT0_EER12LayerContextIXT_EXT0_EE
-Args:            
-  - String:          Array transformation on index using bit extension logic may lead to poor performance. Please use int or long for array index computation to benefit from optimizations.
 ...
 --- !Passed
 Pass:            reflow-array-partition
@@ -402,6 +396,162 @@ Args:
   - String:          array_partition
   - String:          ' to '''
   - UOName:          feedback
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k.61
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index.60
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k.61
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index.60
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k.61
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoSmallArrayPartition
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Automatically partitioning small array '''
+  - Value:           _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index.60
+  - String:          ''' completely based on array size.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k.61'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  eclair
+  - String:          ' '
+  - VarName:         'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C (.k.61)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C (.k.61)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index.60'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  eclair
+  - String:          ' '
+  - VarName:         'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C (.u_index.60)'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'eclair(ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0>*, ap_fixed<16, 6, (ap_q_mode)4, (ap_o_mode)0, 0> const*)::C (.u_index.60)'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.u_index.60
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+Function:        _Z6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1C.k.61
   - String:          ''':'
   - String:          ' '
   - Mode:            Complete

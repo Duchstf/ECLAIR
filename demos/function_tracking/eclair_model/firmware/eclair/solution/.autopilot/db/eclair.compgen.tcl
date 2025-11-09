@@ -1,5 +1,30 @@
 # This script segment is generated automatically by AutoPilot
 
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler eclair_LUT_B0_ROM_1P_LUTRAM_1R BINDTYPE {storage} TYPE {rom_1p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb BINDTYPE {storage} TYPE {ram_2p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler eclair_LUT_B1_ROM_1P_LUTRAM_1R BINDTYPE {storage} TYPE {rom_1p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler eclair_LUT_B2_ROM_1P_LUTRAM_1R BINDTYPE {storage} TYPE {rom_1p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler eclair_LUT_B3_ROM_1P_LUTRAM_1R BINDTYPE {storage} TYPE {rom_1p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
+}
+
+
 # clear list
 if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_begin
@@ -11,7 +36,7 @@ set axilite_register_dict [dict create]
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 114 \
+    id 91 \
     name input_0 \
     type other \
     dir I \
@@ -26,7 +51,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 115 \
+    id 92 \
     name input_1 \
     type other \
     dir I \
@@ -41,7 +66,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 116 \
+    id 93 \
     name output_r \
     type other \
     dir O \
@@ -56,7 +81,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 117 \
+    id 94 \
     name feedback \
     type other \
     dir I \
