@@ -19,10 +19,8 @@
 using namespace std;
 
 // wrapc file define:
-#define AUTOTB_TVIN_input_0 "../tv/cdatafile/c.eclair.autotvin_input_0.dat"
-#define AUTOTB_TVOUT_input_0 "../tv/cdatafile/c.eclair.autotvout_input_0.dat"
-#define AUTOTB_TVIN_input_1 "../tv/cdatafile/c.eclair.autotvin_input_1.dat"
-#define AUTOTB_TVOUT_input_1 "../tv/cdatafile/c.eclair.autotvout_input_1.dat"
+#define AUTOTB_TVIN_input_r "../tv/cdatafile/c.eclair.autotvin_input_r.dat"
+#define AUTOTB_TVOUT_input_r "../tv/cdatafile/c.eclair.autotvout_input_r.dat"
 #define AUTOTB_TVIN_output_r "../tv/cdatafile/c.eclair.autotvin_output_r.dat"
 #define AUTOTB_TVOUT_output_r "../tv/cdatafile/c.eclair.autotvout_output_r.dat"
 #define AUTOTB_TVIN_feedback "../tv/cdatafile/c.eclair.autotvin_feedback.dat"
@@ -1161,34 +1159,23 @@ namespace hls::sim
 
 
 extern "C"
-void eclair_hw_stub_wrapper(void*, void*, void*, void*);
+void eclair_hw_stub_wrapper(void*, void*, void*);
 
 extern "C"
-void apatb_eclair_hw(void* __xlx_apatb_param_input_0, void* __xlx_apatb_param_input_1, void* __xlx_apatb_param_output_r, void* __xlx_apatb_param_feedback)
+void apatb_eclair_hw(void* __xlx_apatb_param_input_r, void* __xlx_apatb_param_output_r, void* __xlx_apatb_param_feedback)
 {
   static hls::sim::Register port0 {
-    .name = "input_0",
+    .name = "input_r",
     .width = 16,
 #ifdef POST_CHECK
 #else
     .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_input_0),
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_input_r),
 #endif
   };
-  port0.param = __xlx_apatb_param_input_0;
+  port0.param = __xlx_apatb_param_input_r;
 
   static hls::sim::Register port1 {
-    .name = "input_1",
-    .width = 16,
-#ifdef POST_CHECK
-#else
-    .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_input_1),
-#endif
-  };
-  port1.param = __xlx_apatb_param_input_1;
-
-  static hls::sim::Register port2 {
     .name = "output_r",
     .width = 16,
 #ifdef POST_CHECK
@@ -1198,9 +1185,9 @@ void apatb_eclair_hw(void* __xlx_apatb_param_input_0, void* __xlx_apatb_param_in
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_output_r),
 #endif
   };
-  port2.param = __xlx_apatb_param_output_r;
+  port1.param = __xlx_apatb_param_output_r;
 
-  static hls::sim::Register port3 {
+  static hls::sim::Register port2 {
     .name = "feedback",
     .width = 16,
 #ifdef POST_CHECK
@@ -1209,27 +1196,25 @@ void apatb_eclair_hw(void* __xlx_apatb_param_input_0, void* __xlx_apatb_param_in
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_feedback),
 #endif
   };
-  port3.param = __xlx_apatb_param_feedback;
+  port2.param = __xlx_apatb_param_feedback;
 
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
-    check(port2);
+    check(port1);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     CodeState = DUMP_INPUTS;
     dump(port0, port0.iwriter, tcl.AESL_transaction);
     dump(port1, port1.iwriter, tcl.AESL_transaction);
     dump(port2, port2.iwriter, tcl.AESL_transaction);
-    dump(port3, port3.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
-    port3.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    eclair_hw_stub_wrapper(__xlx_apatb_param_input_0, __xlx_apatb_param_input_1, __xlx_apatb_param_output_r, __xlx_apatb_param_feedback);
+    eclair_hw_stub_wrapper(__xlx_apatb_param_input_r, __xlx_apatb_param_output_r, __xlx_apatb_param_feedback);
     CodeState = DUMP_OUTPUTS;
-    dump(port2, port2.owriter, tcl.AESL_transaction);
+    dump(port1, port1.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {

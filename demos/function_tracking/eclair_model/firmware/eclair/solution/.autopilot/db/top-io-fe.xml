@@ -1,11 +1,8 @@
 <root versionMajor = "1" versionMinor = "5">
   <kernel src_name="eclair" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
     <args>
-      <arg id="0" access_type="r" src_name="input" src_type="ap_fixed&lt;16, 6, AP_RND_CONV, AP_SAT, 0&gt; const *" src_isptr="1" src_bitwidth="16" src_size_or_depth="2">
-        <hw hw_usage="data" hw_interface="Register" hw_name="input_0" hw_bitwidth="16" hw_size_or_depth="1" hw_kernel_support="false">
-          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="Register" hw_name="input_1" hw_bitwidth="16" hw_size_or_depth="1" hw_kernel_support="false">
+      <arg id="0" access_type="r" src_name="input" src_type="ap_fixed&lt;16, 6, AP_RND_CONV, AP_SAT, 0&gt; const *" src_isptr="1" src_bitwidth="16" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="input_r" hw_bitwidth="16" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>

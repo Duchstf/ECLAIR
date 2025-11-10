@@ -243,9 +243,9 @@ class AESL_RUNTIME_BC {
     string mName;
 };
 using hls::sim::Byte;
-extern "C" void eclair(volatile void *, volatile void *, volatile void *, volatile void *);
-extern "C" void apatb_eclair_hw(volatile void * __xlx_apatb_param_input_0, volatile void * __xlx_apatb_param_input_1, volatile void * __xlx_apatb_param_output_r, volatile void * __xlx_apatb_param_feedback) {
+extern "C" void eclair(volatile void *, volatile void *, volatile void *);
+extern "C" void apatb_eclair_hw(volatile void * __xlx_apatb_param_input_r, volatile void * __xlx_apatb_param_output_r, volatile void * __xlx_apatb_param_feedback) {
 using hls::sim::createStream;
   // DUT call
-  eclair(__xlx_apatb_param_input_0, __xlx_apatb_param_input_1, __xlx_apatb_param_output_r, __xlx_apatb_param_feedback);
+  eclair(__xlx_apatb_param_input_r, __xlx_apatb_param_output_r, __xlx_apatb_param_feedback);
 }

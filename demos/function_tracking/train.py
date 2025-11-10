@@ -8,41 +8,53 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 sys.path.append('../../src')
 from eclair import Eclair
 
-NUM_SAMPLES = 500
+NUM_SAMPLES = 1000
 
 #------------------------------- DATA GENERATION -----------------------------
-def f_t(x, t):
-    """Defines the relationship y = f(x, t)"""
-    return np.sin(x) + 0.3 * x**2 + 0.2 * np.sin(0.01 * t) 
+def f1(x):
+    """
+    First regime: some smooth nonlinear function of x only.
+    """
+    return np.sin(x) + 0.3 * x**2
 
-def build_time_series(n, seed=0, low=-2.0, high=2.0):
+def f2(x):
+    """
+    Second regime: a completely different function of x only.
+    """
+    return -np.cos(2 * x) + 0.1 * x**3 + 1.0
+
+
+def build_time_series(n, seed=0, low=-2.0, high=2.0, t_switch=None):
     """
     Generates time, x, and y data.
-    Returns t_scaled, x, and y, where t_scaled is in the [low, high] range.
+    y is piecewise in *time index* but depends only on x:
+
+        if t < t_switch: y = f1(x)
+        else:            y = f2(x)
+
+    Returns t_orig, x, y, where t_orig is in [0, n-1].
     """
     rng = np.random.default_rng(seed)
     
     # 1. Generate original t in [0, n-1]
-    t_orig = np.arange(n, dtype=float) 
-    
+    t_orig = np.arange(n, dtype=float)
+
+    # If no switch specified, default to middle of the series
+    if t_switch is None:
+        t_switch = n // 2
+
     # 2. Generate x in [low, high]
     x = rng.uniform(low, high, size=n)
-    
-    # 3. Generate y using the *original* t values
-    y = f_t(x, t_orig)
-    
-    # 4. Scale t to be in the [low, high] range (same as x)
-    t_min = 0.0
-    t_max = float(n - 1)
-    
-    # Handle n=1 case to avoid division by zero
-    if n == 1:
-        t_scaled = np.array([low + (high - low) / 2.0]) # Place it in the middle
-    else:
-        # Standard Min-Max scaling from [t_min, t_max] to [low, high]
-        t_scaled = low + (high - low) * (t_orig - t_min) / (t_max - t_min)
-    
-    return t_scaled, x, y
+
+    # 3. Compute y using x only, with a regime change at t_switch
+    y1 = f1(x)
+    y2 = f2(x)
+
+    mask = t_orig < t_switch   # early vs late times
+    y = np.where(mask, y1, y2)
+
+    return t_orig, x, y
+
 
 def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_file, 
                          figsize=(10, 10)):
@@ -111,7 +123,7 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 #------------------------------- MODEL -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [2, 1],
+    'layer_sizes': [1, 1],
     'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
@@ -152,7 +164,7 @@ mse_loss_series = []
 for i in range(len(t_series)):
 
     t, x, y = t_series[i], x_series[i], y_series[i]
-    pred = model.update([x, t], feedback_stream[-1])
+    pred = model.update([x], feedback_stream[-1])
     y_pred_series.append(pred)
 
     mse_loss = np.mean((y - pred)**2)

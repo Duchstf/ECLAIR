@@ -33,7 +33,6 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
-    
 
     //Pre-compute k and u index
     int  k_arr[IN_DIM];

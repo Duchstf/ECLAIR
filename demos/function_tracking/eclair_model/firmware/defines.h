@@ -4,7 +4,7 @@
 #include "ap_fixed.h"
 
 // MODEL ARCHITECTURE
-#define INPUT_DIM 2
+#define INPUT_DIM 1
 #define OUTPUT_DIM 1
 #define SPLINE_ORDER 3
 #define NUM_BASIS 4

@@ -16,8 +16,7 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    input_0 : IN STD_LOGIC_VECTOR (15 downto 0);
-    input_1 : IN STD_LOGIC_VECTOR (15 downto 0);
+    input_r : IN STD_LOGIC_VECTOR (15 downto 0);
     output_r : OUT STD_LOGIC_VECTOR (15 downto 0);
     output_r_ap_vld : OUT STD_LOGIC;
     feedback : IN STD_LOGIC_VECTOR (15 downto 0) );
@@ -27,213 +26,165 @@ end;
 architecture behav of eclair is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "eclair_eclair,hls_ip_2024_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.535312,HLS_SYN_LAT=25,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=798,HLS_SYN_LUT=4645,HLS_VERSION=2024_1}";
+    "eclair_eclair,hls_ip_2024_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcvu13p-flga2577-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=3.535312,HLS_SYN_LAT=14,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=512,HLS_SYN_LUT=2679,HLS_VERSION=2024_1}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (3 downto 0) := "0001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (3 downto 0) := "0010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (3 downto 0) := "0100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (3 downto 0) := "1000";
+    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (6 downto 0) := "0000010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (6 downto 0) := "0000100";
+    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (6 downto 0) := "0001000";
+    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (6 downto 0) := "0010000";
+    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (6 downto 0) := "0100000";
+    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
-    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
+    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
+    constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
+    constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
+    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
 
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (3 downto 0) := "0001";
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 : STD_LOGIC_VECTOR (2 downto 0) := "000";
-    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 : STD_LOGIC_VECTOR (2 downto 0) := "000";
-    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal LUT_B3_ce0 : STD_LOGIC;
-    signal LUT_B3_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 : STD_LOGIC;
-    signal p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal LUT_B2_ce0 : STD_LOGIC;
-    signal LUT_B2_q0 : STD_LOGIC_VECTOR (9 downto 0);
-    signal LUT_B1_ce0 : STD_LOGIC;
-    signal LUT_B1_q0 : STD_LOGIC_VECTOR (9 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 : STD_LOGIC_VECTOR (2 downto 0) := "000";
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+    signal LUT_B0_address0 : STD_LOGIC_VECTOR (7 downto 0);
     signal LUT_B0_ce0 : STD_LOGIC;
     signal LUT_B0_q0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state3 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_idle : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_ready : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 : STD_LOGIC;
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_d1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_ap_start : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_ap_done : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_ap_idle : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_ap_ready : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B0_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B0_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B1_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B1_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B2_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B2_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B3_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_LUT_B3_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 : STD_LOGIC_VECTOR (2 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 : STD_LOGIC;
-    signal grp_forward_layer_2_1_s_fu_137_ap_return : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg : STD_LOGIC := '0';
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 : STD_LOGIC_VECTOR (15 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 : STD_LOGIC;
+    signal eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal LUT_B1_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal LUT_B1_ce0 : STD_LOGIC;
+    signal LUT_B1_q0 : STD_LOGIC_VECTOR (9 downto 0);
+    signal LUT_B2_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal LUT_B2_ce0 : STD_LOGIC;
+    signal LUT_B2_q0 : STD_LOGIC_VECTOR (9 downto 0);
+    signal LUT_B3_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal LUT_B3_ce0 : STD_LOGIC;
+    signal LUT_B3_q0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal ap_CS_fsm_state6 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_start : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_done : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_idle : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_ready : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_d1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_ce0 : STD_LOGIC;
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_ap_start : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_ap_done : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_ap_idle : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_ap_ready : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B0_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B0_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B1_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B1_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B2_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B2_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B3_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_LUT_B3_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 : STD_LOGIC;
+    signal grp_forward_layer_1_1_s_fu_105_ap_return : STD_LOGIC_VECTOR (15 downto 0);
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal grp_forward_layer_2_1_s_fu_137_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state3 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (3 downto 0);
+    signal ap_CS_fsm_state5 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
+    signal grp_forward_layer_1_1_s_fu_105_ap_start_reg : STD_LOGIC := '0';
+    signal ap_CS_fsm_state7 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
     signal ap_ST_fsm_state2_blk : STD_LOGIC;
     signal ap_ST_fsm_state3_blk : STD_LOGIC;
     signal ap_ST_fsm_state4_blk : STD_LOGIC;
+    signal ap_ST_fsm_state5_blk : STD_LOGIC;
+    signal ap_ST_fsm_state6_blk : STD_LOGIC;
+    signal ap_ST_fsm_state7_blk : STD_LOGIC;
     signal ap_ce_reg : STD_LOGIC;
 
-    component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s IS
+    component eclair_backward_input_1_1_ap_fixed_16_6_4_0_0_s IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -242,70 +193,52 @@ architecture behav of eclair is
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
         dL_dy_val : IN STD_LOGIC_VECTOR (15 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 : IN STD_LOGIC_VECTOR (2 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 : IN STD_LOGIC_VECTOR (2 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 : IN STD_LOGIC_VECTOR (7 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_d1 : OUT STD_LOGIC_VECTOR (15 downto 0) );
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 : IN STD_LOGIC_VECTOR (2 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 : IN STD_LOGIC_VECTOR (7 downto 0);
+        LUT_B0_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        LUT_B0_ce0 : OUT STD_LOGIC;
+        LUT_B0_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_d1 : OUT STD_LOGIC_VECTOR (15 downto 0);
+        LUT_B1_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        LUT_B1_ce0 : OUT STD_LOGIC;
+        LUT_B1_q0 : IN STD_LOGIC_VECTOR (9 downto 0);
+        LUT_B2_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        LUT_B2_ce0 : OUT STD_LOGIC;
+        LUT_B2_q0 : IN STD_LOGIC_VECTOR (9 downto 0);
+        LUT_B3_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        LUT_B3_ce0 : OUT STD_LOGIC;
+        LUT_B3_q0 : IN STD_LOGIC_VECTOR (7 downto 0) );
     end component;
 
 
-    component eclair_forward_layer_2_1_s IS
+    component eclair_forward_layer_1_1_s IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -313,12 +246,11 @@ architecture behav of eclair is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        x_0_val : IN STD_LOGIC_VECTOR (15 downto 0);
-        x_1_val : IN STD_LOGIC_VECTOR (15 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 : OUT STD_LOGIC_VECTOR (2 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld : OUT STD_LOGIC;
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld : OUT STD_LOGIC;
+        x_val : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld : OUT STD_LOGIC;
         LUT_B0_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
         LUT_B0_ce0 : OUT STD_LOGIC;
         LUT_B0_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
@@ -331,63 +263,49 @@ architecture behav of eclair is
         LUT_B3_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
         LUT_B3_ce0 : OUT STD_LOGIC;
         LUT_B3_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 : OUT STD_LOGIC_VECTOR (2 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld : OUT STD_LOGIC;
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 : OUT STD_LOGIC_VECTOR (7 downto 0);
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 : OUT STD_LOGIC;
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 : IN STD_LOGIC_VECTOR (15 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 : OUT STD_LOGIC_VECTOR (0 downto 0);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 : OUT STD_LOGIC;
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1 : IN STD_LOGIC_VECTOR (15 downto 0);
         ap_return : OUT STD_LOGIC_VECTOR (15 downto 0) );
     end component;
 
 
-    component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb IS
+    component eclair_LUT_B0_ROM_1P_LUTRAM_1R IS
+    generic (
+        DataWidth : INTEGER;
+        AddressRange : INTEGER;
+        AddressWidth : INTEGER );
+    port (
+        clk : IN STD_LOGIC;
+        reset : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        ce0 : IN STD_LOGIC;
+        q0 : OUT STD_LOGIC_VECTOR (7 downto 0) );
+    end component;
+
+
+    component eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -406,21 +324,7 @@ architecture behav of eclair is
     end component;
 
 
-    component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B3_ROM_1P_LUTRAM_1R IS
-    generic (
-        DataWidth : INTEGER;
-        AddressRange : INTEGER;
-        AddressWidth : INTEGER );
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        ce0 : IN STD_LOGIC;
-        q0 : OUT STD_LOGIC_VECTOR (7 downto 0) );
-    end component;
-
-
-    component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B2_ROM_1P_LUTRAM_1R IS
+    component eclair_LUT_B1_ROM_1P_LUTRAM_1R IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -434,7 +338,7 @@ architecture behav of eclair is
     end component;
 
 
-    component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B1_ROM_1P_LUTRAM_1R IS
+    component eclair_LUT_B2_ROM_1P_LUTRAM_1R IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -448,7 +352,7 @@ architecture behav of eclair is
     end component;
 
 
-    component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B0_ROM_1P_LUTRAM_1R IS
+    component eclair_LUT_B3_ROM_1P_LUTRAM_1R IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -464,24 +368,7 @@ architecture behav of eclair is
 
 
 begin
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1);
-
-    LUT_B3_U : component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B3_ROM_1P_LUTRAM_1R
+    LUT_B0_U : component eclair_LUT_B0_ROM_1P_LUTRAM_1R
     generic map (
         DataWidth => 8,
         AddressRange => 256,
@@ -489,314 +376,216 @@ begin
     port map (
         clk => ap_clk,
         reset => ap_rst,
-        address0 => grp_forward_layer_2_1_s_fu_137_LUT_B3_address0,
-        ce0 => LUT_B3_ce0,
-        q0 => LUT_B3_q0);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q1);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q1);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q1);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q1);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q1);
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_U : component eclair_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0bkb
-    generic map (
-        DataWidth => 16,
-        AddressRange => 2,
-        AddressWidth => 1)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0,
-        ce0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0,
-        q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0,
-        address1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1,
-        ce1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1,
-        we1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1,
-        d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_d1,
-        q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1);
-
-    LUT_B2_U : component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B2_ROM_1P_LUTRAM_1R
-    generic map (
-        DataWidth => 10,
-        AddressRange => 256,
-        AddressWidth => 8)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => grp_forward_layer_2_1_s_fu_137_LUT_B2_address0,
-        ce0 => LUT_B2_ce0,
-        q0 => LUT_B2_q0);
-
-    LUT_B1_U : component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B1_ROM_1P_LUTRAM_1R
-    generic map (
-        DataWidth => 10,
-        AddressRange => 256,
-        AddressWidth => 8)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => grp_forward_layer_2_1_s_fu_137_LUT_B1_address0,
-        ce0 => LUT_B1_ce0,
-        q0 => LUT_B1_q0);
-
-    LUT_B0_U : component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_Pipeline_BWD_I_LUT_B0_ROM_1P_LUTRAM_1R
-    generic map (
-        DataWidth => 8,
-        AddressRange => 256,
-        AddressWidth => 8)
-    port map (
-        clk => ap_clk,
-        reset => ap_rst,
-        address0 => grp_forward_layer_2_1_s_fu_137_LUT_B0_address0,
+        address0 => LUT_B0_address0,
         ce0 => LUT_B0_ce0,
         q0 => LUT_B0_q0);
 
-    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99 : component eclair_backward_input_2_1_ap_fixed_16_6_4_0_0_s
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_U : component eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W
+    generic map (
+        DataWidth => 16,
+        AddressRange => 2,
+        AddressWidth => 1)
     port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst,
-        ap_start => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start,
-        ap_done => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done,
-        ap_idle => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_idle,
-        ap_ready => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_ready,
-        dL_dy_val => feedback,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_d1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_d1 => grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_d1);
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0,
+        ce0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0,
+        q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0,
+        address1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1,
+        ce1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1,
+        we1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1,
+        d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_d1,
+        q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1);
 
-    grp_forward_layer_2_1_s_fu_137 : component eclair_forward_layer_2_1_s
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_U : component eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W
+    generic map (
+        DataWidth => 16,
+        AddressRange => 2,
+        AddressWidth => 1)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0,
+        ce0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0,
+        q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0,
+        address1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1,
+        ce1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1,
+        we1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1,
+        d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_d1,
+        q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1);
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_U : component eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W
+    generic map (
+        DataWidth => 16,
+        AddressRange => 2,
+        AddressWidth => 1)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0,
+        ce0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0,
+        q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0,
+        address1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1,
+        ce1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1,
+        we1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1,
+        d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_d1,
+        q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1);
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_U : component eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W
+    generic map (
+        DataWidth => 16,
+        AddressRange => 2,
+        AddressWidth => 1)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0,
+        ce0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0,
+        q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0,
+        address1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1,
+        ce1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1,
+        we1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1,
+        d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_d1,
+        q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1);
+
+    LUT_B1_U : component eclair_LUT_B1_ROM_1P_LUTRAM_1R
+    generic map (
+        DataWidth => 10,
+        AddressRange => 256,
+        AddressWidth => 8)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => LUT_B1_address0,
+        ce0 => LUT_B1_ce0,
+        q0 => LUT_B1_q0);
+
+    LUT_B2_U : component eclair_LUT_B2_ROM_1P_LUTRAM_1R
+    generic map (
+        DataWidth => 10,
+        AddressRange => 256,
+        AddressWidth => 8)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => LUT_B2_address0,
+        ce0 => LUT_B2_ce0,
+        q0 => LUT_B2_q0);
+
+    LUT_B3_U : component eclair_LUT_B3_ROM_1P_LUTRAM_1R
+    generic map (
+        DataWidth => 8,
+        AddressRange => 256,
+        AddressWidth => 8)
+    port map (
+        clk => ap_clk,
+        reset => ap_rst,
+        address0 => LUT_B3_address0,
+        ce0 => LUT_B3_ce0,
+        q0 => LUT_B3_q0);
+
+    grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79 : component eclair_backward_input_1_1_ap_fixed_16_6_4_0_0_s
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_forward_layer_2_1_s_fu_137_ap_start,
-        ap_done => grp_forward_layer_2_1_s_fu_137_ap_done,
-        ap_idle => grp_forward_layer_2_1_s_fu_137_ap_idle,
-        ap_ready => grp_forward_layer_2_1_s_fu_137_ap_ready,
-        x_0_val => input_0,
-        x_1_val => input_1,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld,
-        LUT_B0_address0 => grp_forward_layer_2_1_s_fu_137_LUT_B0_address0,
-        LUT_B0_ce0 => grp_forward_layer_2_1_s_fu_137_LUT_B0_ce0,
+        ap_start => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_start,
+        ap_done => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_done,
+        ap_idle => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_idle,
+        ap_ready => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_ready,
+        dL_dy_val => feedback,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52,
+        LUT_B0_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_address0,
+        LUT_B0_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_ce0,
         LUT_B0_q0 => LUT_B0_q0,
-        LUT_B1_address0 => grp_forward_layer_2_1_s_fu_137_LUT_B1_address0,
-        LUT_B1_ce0 => grp_forward_layer_2_1_s_fu_137_LUT_B1_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_d1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_d1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_d1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_d1 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_d1,
+        LUT_B1_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_address0,
+        LUT_B1_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_ce0,
         LUT_B1_q0 => LUT_B1_q0,
-        LUT_B2_address0 => grp_forward_layer_2_1_s_fu_137_LUT_B2_address0,
-        LUT_B2_ce0 => grp_forward_layer_2_1_s_fu_137_LUT_B2_ce0,
+        LUT_B2_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_address0,
+        LUT_B2_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_ce0,
         LUT_B2_q0 => LUT_B2_q0,
-        LUT_B3_address0 => grp_forward_layer_2_1_s_fu_137_LUT_B3_address0,
-        LUT_B3_ce0 => grp_forward_layer_2_1_s_fu_137_LUT_B3_ce0,
+        LUT_B3_address0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_address0,
+        LUT_B3_ce0 => grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_ce0,
+        LUT_B3_q0 => LUT_B3_q0);
+
+    grp_forward_layer_1_1_s_fu_105 : component eclair_forward_layer_1_1_s
+    port map (
+        ap_clk => ap_clk,
+        ap_rst => ap_rst,
+        ap_start => grp_forward_layer_1_1_s_fu_105_ap_start,
+        ap_done => grp_forward_layer_1_1_s_fu_105_ap_done,
+        ap_idle => grp_forward_layer_1_1_s_fu_105_ap_idle,
+        ap_ready => grp_forward_layer_1_1_s_fu_105_ap_ready,
+        x_val => input_r,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld,
+        LUT_B0_address0 => grp_forward_layer_1_1_s_fu_105_LUT_B0_address0,
+        LUT_B0_ce0 => grp_forward_layer_1_1_s_fu_105_LUT_B0_ce0,
+        LUT_B0_q0 => LUT_B0_q0,
+        LUT_B1_address0 => grp_forward_layer_1_1_s_fu_105_LUT_B1_address0,
+        LUT_B1_ce0 => grp_forward_layer_1_1_s_fu_105_LUT_B1_ce0,
+        LUT_B1_q0 => LUT_B1_q0,
+        LUT_B2_address0 => grp_forward_layer_1_1_s_fu_105_LUT_B2_address0,
+        LUT_B2_ce0 => grp_forward_layer_1_1_s_fu_105_LUT_B2_ce0,
+        LUT_B2_q0 => LUT_B2_q0,
+        LUT_B3_address0 => grp_forward_layer_1_1_s_fu_105_LUT_B3_address0,
+        LUT_B3_ce0 => grp_forward_layer_1_1_s_fu_105_LUT_B3_ce0,
         LUT_B3_q0 => LUT_B3_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_q1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_q1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_q1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_q1,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1,
-        eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld => grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_q1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_q1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_q1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q0,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 => grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1,
-        p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1 => p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_q1,
-        ap_return => grp_forward_layer_2_1_s_fu_137_ap_return);
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 => grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1,
+        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1 => eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1,
+        ap_return => grp_forward_layer_1_1_s_fu_105_ap_return);
 
 
 
@@ -814,32 +603,16 @@ begin
     end process;
 
 
-    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg_assign_proc : process(ap_clk)
+    grp_forward_layer_1_1_s_fu_105_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg <= ap_const_logic_0;
+                grp_forward_layer_1_1_s_fu_105_ap_start_reg <= ap_const_logic_0;
             else
-                if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_ready = ap_const_logic_1)) then 
-                    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg <= ap_const_logic_0;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    grp_forward_layer_2_1_s_fu_137_ap_start_reg_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst = '1') then
-                grp_forward_layer_2_1_s_fu_137_ap_start_reg <= ap_const_logic_0;
-            else
-                if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-                    grp_forward_layer_2_1_s_fu_137_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_forward_layer_2_1_s_fu_137_ap_ready = ap_const_logic_1)) then 
-                    grp_forward_layer_2_1_s_fu_137_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
+                    grp_forward_layer_1_1_s_fu_105_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_forward_layer_1_1_s_fu_105_ap_ready = ap_const_logic_1)) then 
+                    grp_forward_layer_1_1_s_fu_105_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -848,98 +621,140 @@ begin
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0_ap_vld = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
-                eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0;
+            if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld = ap_const_logic_1))) then
+                eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53;
             end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1_ap_vld = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
-                eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0_ap_vld = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
-                eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1_ap_vld = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
-                eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1 <= grp_forward_layer_2_1_s_fu_137_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1;
+            if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld = ap_const_logic_1))) then
+                eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52;
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done, grp_forward_layer_2_1_s_fu_137_ap_done, ap_CS_fsm_state2, ap_CS_fsm_state4)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_forward_layer_1_1_s_fu_105_ap_done, ap_CS_fsm_state7)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
-                if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state2;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done = ap_const_logic_1))) then
-                    ap_NS_fsm <= ap_ST_fsm_state3;
-                else
-                    ap_NS_fsm <= ap_ST_fsm_state2;
-                end if;
+                ap_NS_fsm <= ap_ST_fsm_state3;
             when ap_ST_fsm_state3 => 
                 ap_NS_fsm <= ap_ST_fsm_state4;
             when ap_ST_fsm_state4 => 
-                if (((grp_forward_layer_2_1_s_fu_137_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
+                ap_NS_fsm <= ap_ST_fsm_state5;
+            when ap_ST_fsm_state5 => 
+                ap_NS_fsm <= ap_ST_fsm_state6;
+            when ap_ST_fsm_state6 => 
+                ap_NS_fsm <= ap_ST_fsm_state7;
+            when ap_ST_fsm_state7 => 
+                if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_forward_layer_1_1_s_fu_105_ap_done = ap_const_logic_1))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state4;
+                    ap_NS_fsm <= ap_ST_fsm_state7;
                 end if;
             when others =>  
-                ap_NS_fsm <= "XXXX";
+                ap_NS_fsm <= "XXXXXXX";
         end case;
     end process;
 
-    LUT_B0_ce0_assign_proc : process(grp_forward_layer_2_1_s_fu_137_LUT_B0_ce0, ap_CS_fsm_state4)
+    LUT_B0_address0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_address0, grp_forward_layer_1_1_s_fu_105_LUT_B0_address0, ap_CS_fsm_state2, ap_CS_fsm_state7)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            LUT_B0_ce0 <= grp_forward_layer_2_1_s_fu_137_LUT_B0_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B0_address0 <= grp_forward_layer_1_1_s_fu_105_LUT_B0_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B0_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_address0;
+        else 
+            LUT_B0_address0 <= "XXXXXXXX";
+        end if; 
+    end process;
+
+
+    LUT_B0_ce0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_ce0, grp_forward_layer_1_1_s_fu_105_LUT_B0_ce0, ap_CS_fsm_state2, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B0_ce0 <= grp_forward_layer_1_1_s_fu_105_LUT_B0_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B0_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B0_ce0;
         else 
             LUT_B0_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    LUT_B1_ce0_assign_proc : process(grp_forward_layer_2_1_s_fu_137_LUT_B1_ce0, ap_CS_fsm_state4)
+    LUT_B1_address0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_address0, grp_forward_layer_1_1_s_fu_105_LUT_B1_address0, ap_CS_fsm_state2, ap_CS_fsm_state7)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            LUT_B1_ce0 <= grp_forward_layer_2_1_s_fu_137_LUT_B1_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B1_address0 <= grp_forward_layer_1_1_s_fu_105_LUT_B1_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B1_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_address0;
+        else 
+            LUT_B1_address0 <= "XXXXXXXX";
+        end if; 
+    end process;
+
+
+    LUT_B1_ce0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_ce0, grp_forward_layer_1_1_s_fu_105_LUT_B1_ce0, ap_CS_fsm_state2, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B1_ce0 <= grp_forward_layer_1_1_s_fu_105_LUT_B1_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B1_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B1_ce0;
         else 
             LUT_B1_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    LUT_B2_ce0_assign_proc : process(grp_forward_layer_2_1_s_fu_137_LUT_B2_ce0, ap_CS_fsm_state4)
+    LUT_B2_address0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_address0, grp_forward_layer_1_1_s_fu_105_LUT_B2_address0, ap_CS_fsm_state2, ap_CS_fsm_state7)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            LUT_B2_ce0 <= grp_forward_layer_2_1_s_fu_137_LUT_B2_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B2_address0 <= grp_forward_layer_1_1_s_fu_105_LUT_B2_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B2_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_address0;
+        else 
+            LUT_B2_address0 <= "XXXXXXXX";
+        end if; 
+    end process;
+
+
+    LUT_B2_ce0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_ce0, grp_forward_layer_1_1_s_fu_105_LUT_B2_ce0, ap_CS_fsm_state2, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B2_ce0 <= grp_forward_layer_1_1_s_fu_105_LUT_B2_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B2_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B2_ce0;
         else 
             LUT_B2_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    LUT_B3_ce0_assign_proc : process(grp_forward_layer_2_1_s_fu_137_LUT_B3_ce0, ap_CS_fsm_state4)
+    LUT_B3_address0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_address0, grp_forward_layer_1_1_s_fu_105_LUT_B3_address0, ap_CS_fsm_state2, ap_CS_fsm_state7)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            LUT_B3_ce0 <= grp_forward_layer_2_1_s_fu_137_LUT_B3_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B3_address0 <= grp_forward_layer_1_1_s_fu_105_LUT_B3_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B3_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_address0;
+        else 
+            LUT_B3_address0 <= "XXXXXXXX";
+        end if; 
+    end process;
+
+
+    LUT_B3_ce0_assign_proc : process(ap_CS_fsm_state1, grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_ce0, grp_forward_layer_1_1_s_fu_105_LUT_B3_ce0, ap_CS_fsm_state2, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            LUT_B3_ce0 <= grp_forward_layer_1_1_s_fu_105_LUT_B3_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) or (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            LUT_B3_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_LUT_B3_ce0;
         else 
             LUT_B3_ce0 <= ap_const_logic_0;
         end if; 
@@ -949,6 +764,9 @@ begin
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
     ap_CS_fsm_state3 <= ap_CS_fsm(2);
     ap_CS_fsm_state4 <= ap_CS_fsm(3);
+    ap_CS_fsm_state5 <= ap_CS_fsm(4);
+    ap_CS_fsm_state6 <= ap_CS_fsm(5);
+    ap_CS_fsm_state7 <= ap_CS_fsm(6);
 
     ap_ST_fsm_state1_blk_assign_proc : process(ap_start)
     begin
@@ -959,31 +777,25 @@ begin
         end if; 
     end process;
 
-
-    ap_ST_fsm_state2_blk_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done)
-    begin
-        if ((grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state2_blk <= ap_const_logic_1;
-        else 
-            ap_ST_fsm_state2_blk <= ap_const_logic_0;
-        end if; 
-    end process;
-
+    ap_ST_fsm_state2_blk <= ap_const_logic_0;
     ap_ST_fsm_state3_blk <= ap_const_logic_0;
+    ap_ST_fsm_state4_blk <= ap_const_logic_0;
+    ap_ST_fsm_state5_blk <= ap_const_logic_0;
+    ap_ST_fsm_state6_blk <= ap_const_logic_0;
 
-    ap_ST_fsm_state4_blk_assign_proc : process(grp_forward_layer_2_1_s_fu_137_ap_done)
+    ap_ST_fsm_state7_blk_assign_proc : process(grp_forward_layer_1_1_s_fu_105_ap_done)
     begin
-        if ((grp_forward_layer_2_1_s_fu_137_ap_done = ap_const_logic_0)) then 
-            ap_ST_fsm_state4_blk <= ap_const_logic_1;
+        if ((grp_forward_layer_1_1_s_fu_105_ap_done = ap_const_logic_0)) then 
+            ap_ST_fsm_state7_blk <= ap_const_logic_1;
         else 
-            ap_ST_fsm_state4_blk <= ap_const_logic_0;
+            ap_ST_fsm_state7_blk <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    ap_done_assign_proc : process(grp_forward_layer_2_1_s_fu_137_ap_done, ap_CS_fsm_state4)
+    ap_done_assign_proc : process(grp_forward_layer_1_1_s_fu_105_ap_done, ap_CS_fsm_state7)
     begin
-        if (((grp_forward_layer_2_1_s_fu_137_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_forward_layer_1_1_s_fu_105_ap_done = ap_const_logic_1))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -993,7 +805,7 @@ begin
 
     ap_idle_assign_proc : process(ap_start, ap_CS_fsm_state1)
     begin
-        if (((ap_start = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_0))) then 
             ap_idle <= ap_const_logic_1;
         else 
             ap_idle <= ap_const_logic_0;
@@ -1001,489 +813,266 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(grp_forward_layer_2_1_s_fu_137_ap_done, ap_CS_fsm_state4)
+    ap_ready_assign_proc : process(grp_forward_layer_1_1_s_fu_105_ap_done, ap_CS_fsm_state7)
     begin
-        if (((grp_forward_layer_2_1_s_fu_137_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_forward_layer_1_1_s_fu_105_ap_done = ap_const_logic_1))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
         end if; 
     end process;
 
-    grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_ap_start_reg;
-    grp_forward_layer_2_1_s_fu_137_ap_start <= grp_forward_layer_2_1_s_fu_137_ap_start_reg;
-    output_r <= grp_forward_layer_2_1_s_fu_137_ap_return;
 
-    output_r_ap_vld_assign_proc : process(grp_forward_layer_2_1_s_fu_137_ap_done, ap_CS_fsm_state4)
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
     begin
-        if (((grp_forward_layer_2_1_s_fu_137_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 <= "X";
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0, ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state3) or (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1, grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 <= grp_forward_layer_1_1_s_fu_105_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1;
+        elsif (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1_assign_proc : process(grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3))) then 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 <= grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1;
+        else 
+            eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_start_assign_proc : process(ap_start, ap_CS_fsm_state1)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1))) then 
+            grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_start <= ap_const_logic_1;
+        else 
+            grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79_ap_start <= ap_const_logic_0;
+        end if; 
+    end process;
+
+    grp_forward_layer_1_1_s_fu_105_ap_start <= grp_forward_layer_1_1_s_fu_105_ap_start_reg;
+    output_r <= grp_forward_layer_1_1_s_fu_105_ap_return;
+
+    output_r_ap_vld_assign_proc : process(grp_forward_layer_1_1_s_fu_105_ap_done, ap_CS_fsm_state7)
+    begin
+        if (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_forward_layer_1_1_s_fu_105_ap_done = ap_const_logic_1))) then 
             output_r_ap_vld <= ap_const_logic_1;
         else 
             output_r_ap_vld <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address0 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_address1 <= "X";
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1, grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1, ap_CS_fsm_state2, ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 <= grp_forward_layer_2_1_s_fu_137_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1_assign_proc : process(grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1, ap_CS_fsm_state2)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 <= grp_backward_input_2_1_ap_fixed_16_6_4_0_0_s_fu_99_p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1;
-        else 
-            p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3_we1 <= ap_const_logic_0;
         end if; 
     end process;
 

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'eclair'
 ================================================================
-* Date:           Sun Nov  9 16:02:12 2025
+* Date:           Mon Nov 10 05:52:39 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -25,12 +25,12 @@
 
 + Latency: 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+---------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-    |   min   |   max   |    min   |    max   | min | max |   Type  |
-    +---------+---------+----------+----------+-----+-----+---------+
-    |       25|       25|  0.125 us|  0.125 us|   26|   26|       no|
-    +---------+---------+----------+----------+-----+-----+---------+
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       14|       14|  70.000 ns|  70.000 ns|   15|   15|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
@@ -65,7 +65,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 4
+* Number of FSM states : 7
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -73,47 +73,52 @@ IsGatedGlobalClock: 0
 1 --> 2 
 2 --> 3 
 3 --> 4 
-4 --> 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 3.42>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback"   --->   Operation 5 'read' 'feedback_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [2/2] (3.42ns)   --->   "%call_ln39 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i8 %LUT_B3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i10 %LUT_B2, i10 %LUT_B1, i8 %LUT_B0" [eclair.cpp:39]   --->   Operation 6 'call' 'call_ln39' <Predicate = true> <Delay = 3.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback"   --->   Operation 8 'read' 'feedback_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [5/5] (3.42ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 9 'call' 'call_ln39' <Predicate = true> <Delay = 3.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 2 <SV = 1> <Delay = 0.00>
-ST_2 : Operation 7 [1/2] (0.00ns)   --->   "%call_ln39 = call void @backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i8 %LUT_B3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i10 %LUT_B2, i10 %LUT_B1, i8 %LUT_B0" [eclair.cpp:39]   --->   Operation 7 'call' 'call_ln39' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 3.48>
+ST_2 : Operation 10 [4/5] (3.48ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 10 'call' 'call_ln39' <Predicate = true> <Delay = 3.48> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 3 <SV = 2> <Delay = 3.53>
-ST_3 : Operation 8 [1/1] (0.00ns)   --->   "%input_0_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_0"   --->   Operation 8 'read' 'input_0_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%input_1_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_1"   --->   Operation 9 'read' 'input_1_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 10 [2/2] (3.53ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0, i8 %LUT_B0, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" [eclair.cpp:42]   --->   Operation 10 'call' 'call_ret' <Predicate = true> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 3 <SV = 2> <Delay = 3.48>
+ST_3 : Operation 11 [3/5] (3.48ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 11 'call' 'call_ln39' <Predicate = true> <Delay = 3.48> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 4 <SV = 3> <Delay = 0.24>
-ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [eclair.cpp:5]   --->   Operation 11 'spectopmodule' 'spectopmodule_ln5' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_0"   --->   Operation 12 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_0, void @empty, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_1"   --->   Operation 14 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_1, void @empty, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0, i32 0"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r"   --->   Operation 16 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%specmemcore_ln17 = specmemcore void @_ssdm_op_SpecMemCore, i8 %LUT_B0, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:17]   --->   Operation 20 'specmemcore' 'specmemcore_ln17' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%specmemcore_ln19 = specmemcore void @_ssdm_op_SpecMemCore, i10 %LUT_B1, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:19]   --->   Operation 21 'specmemcore' 'specmemcore_ln19' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%specmemcore_ln21 = specmemcore void @_ssdm_op_SpecMemCore, i10 %LUT_B2, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:21]   --->   Operation 22 'specmemcore' 'specmemcore_ln21' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%specmemcore_ln23 = specmemcore void @_ssdm_op_SpecMemCore, i8 %LUT_B3, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:23]   --->   Operation 23 'specmemcore' 'specmemcore_ln23' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 24 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 25 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 26 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 27 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 28 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 29 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 30 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 31 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 32 [1/2] (0.24ns)   --->   "%call_ret = call i16 @forward_layer<2, 1>, i16 %input_0_read, i16 %input_1_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_0, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_0, i8 %LUT_B0, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_0_3, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_61_1, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_const_C_u_index_60_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_0, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_1, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_2, i16 %p_ZZ6eclairPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_E1P_1_3" [eclair.cpp:42]   --->   Operation 32 'call' 'call_ret' <Predicate = true> <Delay = 0.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%write_ln42 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret" [eclair.cpp:42]   --->   Operation 33 'write' 'write_ln42' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%ret_ln44 = ret" [eclair.cpp:44]   --->   Operation 34 'ret' 'ret_ln44' <Predicate = true> <Delay = 0.00>
+State 4 <SV = 3> <Delay = 3.48>
+ST_4 : Operation 12 [2/5] (3.48ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 12 'call' 'call_ln39' <Predicate = true> <Delay = 3.48> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 13 [1/5] (0.00ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 13 'call' 'call_ln39' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 3.53>
+ST_6 : Operation 14 [1/1] (0.00ns)   --->   "%input_r_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %input_r"   --->   Operation 14 'read' 'input_r_read' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 15 [2/2] (3.53ns)   --->   "%call_ret = call i16 @forward_layer<1, 1>, i16 %input_r_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P" [eclair.cpp:42]   --->   Operation 15 'call' 'call_ret' <Predicate = true> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 2.51>
+ST_7 : Operation 16 [1/1] (0.00ns)   --->   "%spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [eclair.cpp:5]   --->   Operation 16 'spectopmodule' 'spectopmodule_ln5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 17 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %input_r"   --->   Operation 17 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %input_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 19 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %output_r"   --->   Operation 19 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %output_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 21 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %feedback"   --->   Operation 21 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %feedback, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 23 [1/1] (0.00ns)   --->   "%specmemcore_ln17 = specmemcore void @_ssdm_op_SpecMemCore, i8 %LUT_B0, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:17]   --->   Operation 23 'specmemcore' 'specmemcore_ln17' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 24 [1/1] (0.00ns)   --->   "%specmemcore_ln19 = specmemcore void @_ssdm_op_SpecMemCore, i10 %LUT_B1, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:19]   --->   Operation 24 'specmemcore' 'specmemcore_ln19' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 25 [1/1] (0.00ns)   --->   "%specmemcore_ln21 = specmemcore void @_ssdm_op_SpecMemCore, i10 %LUT_B2, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:21]   --->   Operation 25 'specmemcore' 'specmemcore_ln21' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 26 [1/1] (0.00ns)   --->   "%specmemcore_ln23 = specmemcore void @_ssdm_op_SpecMemCore, i8 %LUT_B3, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:23]   --->   Operation 26 'specmemcore' 'specmemcore_ln23' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 27 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 27 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 28 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 28 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 29 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 29 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 30 [1/1] (0.00ns)   --->   "%specmemcore_ln27 = specmemcore void @_ssdm_op_SpecMemCore, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:27]   --->   Operation 30 'specmemcore' 'specmemcore_ln27' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 31 [1/2] (2.51ns)   --->   "%call_ret = call i16 @forward_layer<1, 1>, i16 %input_r_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P" [eclair.cpp:42]   --->   Operation 31 'call' 'call_ret' <Predicate = true> <Delay = 2.51> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_7 : Operation 32 [1/1] (0.00ns)   --->   "%write_ln42 = write void @_ssdm_op_Write.ap_auto.i16P0A, i16 %output_r, i16 %call_ret" [eclair.cpp:42]   --->   Operation 32 'write' 'write_ln42' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 33 [1/1] (0.00ns)   --->   "%ret_ln44 = ret" [eclair.cpp:44]   --->   Operation 33 'ret' 'ret_ln44' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -123,20 +128,32 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 
  <State 1>: 3.420ns
 The critical path consists of the following:
-	wire read operation ('feedback_read') on port 'feedback' [42]  (0.000 ns)
-	'call' operation 0 bit ('call_ln39', eclair.cpp:39) to 'backward_input<2, 1, ap_fixed<16, 6, 4, 0, 0> >' [43]  (3.420 ns)
+	wire read operation ('feedback_read') on port 'feedback' [29]  (0.000 ns)
+	'call' operation 0 bit ('call_ln39', eclair.cpp:39) to 'backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >' [30]  (3.420 ns)
 
- <State 2>: 0.000ns
+ <State 2>: 3.480ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln39', eclair.cpp:39) to 'backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >' [30]  (3.480 ns)
+
+ <State 3>: 3.480ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln39', eclair.cpp:39) to 'backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >' [30]  (3.480 ns)
+
+ <State 4>: 3.480ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln39', eclair.cpp:39) to 'backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >' [30]  (3.480 ns)
+
+ <State 5>: 0.000ns
 The critical path consists of the following:
 
- <State 3>: 3.535ns
+ <State 6>: 3.535ns
 The critical path consists of the following:
-	wire read operation ('input_0_read') on port 'input_0' [44]  (0.000 ns)
-	'call' operation 16 bit ('call_ret', eclair.cpp:42) to 'forward_layer<2, 1>' [46]  (3.535 ns)
+	wire read operation ('input_r_read') on port 'input_r' [31]  (0.000 ns)
+	'call' operation 16 bit ('call_ret', eclair.cpp:42) to 'forward_layer<1, 1>' [32]  (3.535 ns)
 
- <State 4>: 0.243ns
+ <State 7>: 2.510ns
 The critical path consists of the following:
-	'call' operation 16 bit ('call_ret', eclair.cpp:42) to 'forward_layer<2, 1>' [46]  (0.243 ns)
+	'call' operation 16 bit ('call_ret', eclair.cpp:42) to 'forward_layer<1, 1>' [32]  (2.510 ns)
 
 
 ============================================================
@@ -151,6 +168,9 @@ N/A
 	State 2
 	State 3
 	State 4
+	State 5
+	State 6
+	State 7
 
 
 ============================================================

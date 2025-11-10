@@ -5773,12 +5773,12 @@ struct LayerParams {
 
 
 struct Params {
-    LayerParams<2, 1> L0;
+    LayerParams<1, 1> L0;
 };
 
 
 struct Context {
-    LayerContext<2, 1> C0;
+    LayerContext<1, 1> C0;
 };
 # 3 "eclair.cpp" 2
 # 1 "./components.h" 1
@@ -34209,7 +34209,6 @@ inline void forward_layer(
 ){
 
 
-
     int k_arr[IN_DIM];
     int ui_arr[IN_DIM];
 #pragma HLS ARRAY_PARTITION variable=k_arr complete
@@ -34267,16 +34266,17 @@ inline void backward_input(
     const LayerContext<IN_DIM, OUT_DIM> &C,
     const up_grad_t dL_dy[OUT_DIM]
 ){
+#pragma HLS PIPELINE
+
+ BWD_O: for (int o = 0; o < OUT_DIM; o++) {
+#pragma HLS UNROLL
 
 
-    BWD_O: for (int o = 0; o < OUT_DIM; o++) {
-
-
-        weight_t dL_dy_o = dL_dy[o];
+ weight_t dL_dy_o = dL_dy[o];
         weight_t delta = LR * dL_dy_o;
 
         BWD_I: for (int i = 0; i < IN_DIM; i++){
-#pragma HLS PIPELINE
+#pragma HLS UNROLL
 
 
  int k = C.k[o][i];
@@ -34340,7 +34340,7 @@ inline void backward(
 }
 # 4 "eclair.cpp" 2
 
-__attribute__((sdx_kernel("eclair", 0))) void eclair(const input_t input[2], output_t output[1], const output_t feedback[1]){
+__attribute__((sdx_kernel("eclair", 0))) void eclair(const input_t input[1], output_t output[1], const output_t feedback[1]){
 #line 24 "/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware/build.tcl"
 #pragma HLSDIRECTIVE TOP name=eclair
 # 5 "eclair.cpp"
@@ -34378,9 +34378,9 @@ __attribute__((sdx_kernel("eclair", 0))) void eclair(const input_t input[2], out
 
 
 
- backward_input<2, 1, output_t>(P.L0, C.C0, feedback);
+ backward_input<1, 1, output_t>(P.L0, C.C0, feedback);
 
 
-    forward_layer<2, 1>(input, output, P.L0, C.C0);
+    forward_layer<1, 1>(input, output, P.L0, C.C0);
 
 }
