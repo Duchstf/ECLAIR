@@ -1,17 +1,16 @@
 """
-This file implements the ECLAIR algorithm.
+This file implements the MLP-ECLAIR algorithm.
 
 Copyright (c) 2025 Duc Hoang
 
 MIT License
 """
-
 import os, shutil
 import ctypes
 import tools
 import numpy as np
 
-class Eclair:
+class MLP:
     def __init__(self, config):
         self.config = config
 
@@ -25,15 +24,7 @@ class Eclair:
         self.input_precision = config['input_precision']
         self.output_precision = config['output_precision']
 
-        # Grid
-        self.grid_range = config['grid_range']
-        self.grid_size = config['grid_size']
-
-        #Spline
-        self.spline_order = config['spline_order']
-
         #Others
-        self.lut_resolution = config['lut_resolution']
         self.dim_defines = ['INPUT_DIM']
         self.dim_defines.extend([f'H{i}' for i in range(1, len(self.layer_sizes) - 1)])
         self.dim_defines.append('OUTPUT_DIM')
@@ -56,24 +47,10 @@ class Eclair:
         self.clock_period = config['clock_period']
 
         #HLS Implementation
-        self.params_type = config['params_type']
-        self.context_type = config['context_type']
-        self.params_impl = config['params_impl']
-        self.context_impl = config['context_impl']
 
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
-        print("Setting up ECLAIR framework ...")
+        print("Setting up MLP-ECLAIR framework ...")
         self._create_model()
-
-    #----------------------------HELPERS---------------------------------
-    def _format_cpp_array(self, arr):
-        """Helper to format a 1D numpy array into a C++ initializer list."""
-        if arr.ndim != 1:
-            raise ValueError(f"Array must be 1D for formatting, but got {arr.ndim} dims")
-        # Format as "{ weight_t(val1), weight_t(val2), ... }"
-        # Using scientific notation (e.g., .8e) ensures precision is kept
-        vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
-        return f"{{ {vals} }}"
     
     #----------------------------WRITERS---------------------------------
     def _create_model(self):
@@ -84,15 +61,15 @@ class Eclair:
 
         #Start from the templates
         self._write_defines_h()
-        self._write_parameters_h()
-        self._write_components_h()
-        self._write_eclair_cpp()
-        self._write_build_tcl()
+        # self._write_parameters_h()
+        # self._write_components_h()
+        # self._write_eclair_cpp()
+        # self._write_build_tcl()
 
     def _write_defines_h(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/defines.h")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/mlp/defines.h")
         outfile_path = f"{self.model_dir}/firmware/defines.h"
 
         # Model architecture
@@ -101,29 +78,13 @@ class Eclair:
         for i, v in enumerate(self.layer_sizes[1:-1], 1):
             arch.append(f"#define H{i} {v}\n")
         arch.append(f"#define OUTPUT_DIM {self.layer_sizes[-1]}\n")
-        arch.append(f"#define SPLINE_ORDER {self.spline_order}\n")
-        arch.append(f"#define NUM_BASIS {self.spline_order + 1}\n")
-        arch.append(f"#define GRID_SIZE {self.grid_size}\n")
-        arch.append(f"#define COEFF {self.grid_size + self.spline_order}\n")
         model_arch = "".join(arch)
-
-        #Lut Resolution
-        lut_res = f"#define LUT_RESOLUTION {self.lut_resolution}\n"
 
         #Quantization Parameters
         quant = [f"typedef {self.model_precision} weight_t;\n"]
         quant.append(f"typedef {self.input_precision} input_t;\n")
         quant.append(f"typedef {self.output_precision} output_t;\n")
-        quant = "".join(quant)
-
-        #Grid
-        h_step = (self.grid_range[1] - self.grid_range[0]) / self.grid_size
-        grid = (
-            f"static const weight_t GRID_MIN = weight_t({self.grid_range[0]});\n"
-            f"static const weight_t GRID_MAX = weight_t({self.grid_range[1]});\n"
-            f"static const weight_t H = weight_t({h_step});\n"
-            f"static const weight_t INV_H = weight_t({1/h_step});\n"
-        )
+        quant = "".join(quant)    
 
         #Learning Rate
         learning_rate = f"static const weight_t LR = weight_t({self.learning_rate});\n"
@@ -131,9 +92,7 @@ class Eclair:
         #Insertion map
         insertions = {
             "// MODEL ARCHITECTURE": model_arch,
-            "// LUT RESOLUTION": lut_res,
             "// QUANTIZATION": quant,
-            "// GRID": grid,
             "// LEARNING RATE": learning_rate
             }
 
