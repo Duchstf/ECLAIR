@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'forward_layer_1_1_s'
 ================================================================
-* Date:           Mon Nov 10 05:52:39 2025
+* Date:           Tue Nov 11 04:05:20 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -364,6 +364,7 @@ The critical path consists of the following:
 	'select' operation 6 bit ('ref_tmp_i_i_i_0', ./components.h:15->./components.h:47) [72]  (0.293 ns)
 	'select' operation 16 bit ('select_ln25', ./components.h:25->./components.h:47) [76]  (0.000 ns)
 	'sub' operation 17 bit ('sub_ln25', ./components.h:25->./components.h:47) [79]  (0.785 ns)
+	'xor' operation 1 bit ('xor_ln25', ./components.h:25->./components.h:47) [83]  (0.000 ns)
 	'and' operation 1 bit ('and_ln25', ./components.h:25->./components.h:47) [84]  (0.000 ns)
 	'select' operation 16 bit ('select_ln25_1', ./components.h:25->./components.h:47) [86]  (0.243 ns)
 	'sparsemux' operation 16 bit ('u', ./components.h:25->./components.h:47) [96]  (0.420 ns)

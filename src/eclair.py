@@ -91,7 +91,7 @@ class Eclair:
     def _write_defines_h(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/defines.h")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/defines.h")
         outfile_path = f"{self.model_dir}/firmware/defines.h"
 
         # Model architecture
@@ -142,7 +142,7 @@ class Eclair:
     def _write_parameters_h(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/parameters.h")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/parameters.h")
         outfile_path = f"{self.model_dir}/firmware/parameters.h"
 
         # --- Generate the BasisLUT struct definition ---
@@ -217,7 +217,7 @@ class Eclair:
     def _write_components_h(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/components.h")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/components.h")
         outfile_path = f"{self.model_dir}/firmware/components.h"
 
         # Write out the look up and addition explicitly
@@ -262,7 +262,7 @@ class Eclair:
     def _write_eclair_cpp(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair.cpp")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/eclair.cpp")
         outfile_path = f"{self.model_dir}/firmware/eclair.cpp"
 
         #Define the pragmas
@@ -345,8 +345,8 @@ class Eclair:
         tools.insert_to_file(template_path, outfile_path, insertions)
 
         #Also copy the bridge
-        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/bridge.cpp"), f"{self.model_dir}/firmware/bridge.cpp")
-        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/eclair.h"), f"{self.model_dir}/firmware/eclair.h")
+        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/eclair/bridge.cpp"), f"{self.model_dir}/firmware/bridge.cpp")
+        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/eclair/eclair.h"), f"{self.model_dir}/firmware/eclair.h")
 
     #----------------------------HLS API---------------------------------
     def compile(self):
@@ -428,7 +428,7 @@ class Eclair:
     def _write_build_tcl(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/build.tcl")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/build.tcl")
         outfile_path = f"{self.model_dir}/firmware/build.tcl"
 
         #Replace the variables with user defined
