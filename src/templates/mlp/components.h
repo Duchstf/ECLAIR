@@ -2,29 +2,20 @@
 #define COMPONENTS_H_
 
 #include <iostream>
-#include "parameters.h"
-#include "defines.h"
+#include "parameters.h" // Assuming weight_t and LR are defined here
+#include "defines.h"    // Assuming any other shared constants are here
 
-static inline void cell_index_and_local_u(weight_t x, int &k, weight_t &u){
+// --- Activation Function ---
+static inline weight_t relu(weight_t z) {
     #pragma HLS INLINE
-
-    // Find what cell the input x is in
-    weight_t t = (x - GRID_MIN) * INV_H;
-
-    // Clamping logic
-    if (t < weight_t(0)) {
-        k = 0;
-        u = weight_t(0);
-    }
-    else if (t >= (weight_t)GRID_SIZE) {
-        k = GRID_SIZE - 1;
-        u = weight_t(1);
-    }
-    else {
-        k = (int)t; 
-        u = t - (weight_t)k;
-    }
+    return (z > weight_t(0)) ? z : weight_t(0);
 }
+
+static inline weight_t relu_grad(weight_t z) {
+    #pragma HLS INLINE
+    return (z > weight_t(0)) ? weight_t(1) : weight_t(0);
+}
+
 
 template<int IN_DIM, int OUT_DIM>
 inline void forward_layer(
@@ -34,118 +25,131 @@ inline void forward_layer(
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
 
-    //Pre-compute k and u index
-    int  k_arr[IN_DIM];
-    int  ui_arr[IN_DIM];
-    #pragma HLS ARRAY_PARTITION variable=k_arr complete
-    #pragma HLS ARRAY_PARTITION variable=ui_arr complete
-
-    PRECOMP_I:
+    // Save input 'x' to context for use in backward pass (dL/dW)
+    COPY_X:
     for (int i = 0; i < IN_DIM; i++) {
         #pragma HLS UNROLL
-        weight_t u;
-        cell_index_and_local_u(x[i], k_arr[i], u);
-        ui_arr[i] = (int)(u * (weight_t)(LUT_RESOLUTION - 1) + weight_t(0.5));
+        C.x_copy[i] = x[i];
     }
 
     // Compute for each output node
-    ACCUM_O:
+    FWD_O:
     for (int o=0; o<OUT_DIM; o++){
         #pragma HLS PIPELINE
 
-        //Partial sums for each input dimension
-        weight_t partial_sums[IN_DIM];
-        #pragma HLS ARRAY_PARTITION variable=partial_sums complete dim=0
+        // 1. Affine Transform: z[o] = sum(W[o][i] * x[i]) + b[o]
+        weight_t z_o = L.b[o];
         
-        ACCUM_I:
+        FWD_I:
         for (int i=0; i<IN_DIM; i++){
             #pragma HLS UNROLL
-            const int k  = k_arr[i];
-            const int ui = ui_arr[i];
-            C.k[o][i]       = k;
-            C.u_index[o][i] = ui;
-
-            //spline-lookup
-            
-            //spline-accumulation
-
+            z_o += L.W[o][i] * x[i];
         }
 
-        weight_t o_sum = 0; 
-        REDUCTION_LOOP: for(int i=0; i < IN_DIM; i++){
-            #pragma HLS UNROLL
-            o_sum += partial_sums[i];
-        }
-
-        y[o] = o_sum;
+        // Save pre-activation 'z' to context for backward pass (f'(z))
+        C.z[o] = z_o;    
+        
+        // 2. Activation: y[o] = f(z[o])
+        y[o] = relu(z_o); 
     }
-
 }
 
+
+// --- MLP Backward Function (Input Layer) ---
+/**
+ * Performs the backward pass for the *first* layer (connected to input).
+ * This function only updates weights (W) and biases (b).
+ * It does *not* compute the downstream gradient dL/dx.
+ */
 template<int IN_DIM, int OUT_DIM, typename up_grad_t>
 inline void backward_input( //When the layer is connected to the input
     LayerParams<IN_DIM, OUT_DIM> &L,
-    const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context for this layer's input
-    const up_grad_t dL_dy[OUT_DIM] // Upstream gradie
+    const LayerContext<IN_DIM, OUT_DIM> &C, // Forward-pass context
+    const up_grad_t dL_dy[OUT_DIM] // Upstream gradient (dL/dy)
 ){
-    #pragma HLS PIPELINE
-
     BWD_O: for (int o = 0; o < OUT_DIM; o++) {
-        #pragma HLS UNROLL
+        #pragma HLS PIPELINE
 
-        // Get upstream grad for this output
-        weight_t dL_dy_o = dL_dy[o]; 
-        weight_t delta = LR * dL_dy_o;
+        weight_t z_o     = C.z[o];     // Get pre-activation z
+        weight_t dL_dy_o = dL_dy[o]; // Get upstream gradient
 
-        BWD_I: for (int i = 0; i < IN_DIM; i++){
+        // Gradient of loss w.r.t. pre-activation z
+        // dL/dz = dL/dy * f'(z)
+        weight_t dL_dz_o = dL_dy_o * relu_grad(z_o);
+
+        // Scaled delta for updates
+        weight_t delta = LR * dL_dz_o;
+
+        // Update bias: b = b - LR * dL/db
+        // dL/db = dL/dz * dz/db = dL/dz * 1
+        L.b[o] -= delta;
+
+        // Update weights: W = W - LR * dL/dW
+        // dL/dW[o][i] = dL/dz[o] * dz/dW[o][i] = dL/dz[o] * x[i]
+        BWD_I_UPD: for (int i = 0; i < IN_DIM; i++){
             #pragma HLS UNROLL
-
-            // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
-            int k = C.k[o][i];
-            int u_index = C.u_index[o][i];
-            
-            //weight-update
+            L.W[o][i] -= delta * C.x_copy[i];
         }
     }
-
 }
 
+
+// --- MLP Backward Function (Hidden/Output Layer) ---
+/**
+ * Performs the full backward pass for a hidden or output layer.
+ * This function:
+ * 1. Updates weights (W) and biases (b).
+ * 2. Computes the downstream gradient dL/dx to pass to the previous layer.
+ */
 template<int IN_DIM, int OUT_DIM, typename up_grad_t>
 inline void backward( //When the layer is connected to only the output
     LayerParams<IN_DIM, OUT_DIM> &L,
     const LayerContext<IN_DIM, OUT_DIM> &C,
-    weight_t dL_dx[IN_DIM], // Downstream gradient
-    const up_grad_t dL_dy[OUT_DIM] //Upstream gradient
+    weight_t dL_dx[IN_DIM], // Downstream gradient (dL/dx)
+    const up_grad_t dL_dy[OUT_DIM] //Upstream gradient (dL/dy)
 ){  
 
-    #pragma HLS PIPELINE
-
+    // Initialize downstream gradient to zero
     INIT_DX: for (int i = 0; i < IN_DIM; i++) {
         #pragma HLS UNROLL
         dL_dx[i] = 0;
     }
 
+    // Loop over all outputs (neurons) in this layer
     BWD_O: for (int o = 0; o < OUT_DIM; o++) {
-        #pragma HLS UNROLL
+        #pragma HLS PIPELINE 
 
-        // Get upstream grad for this output
+        weight_t z_o     = C.z[o];
         weight_t dL_dy_o = dL_dy[o];
-        weight_t delta = LR * dL_dy_o;
 
+        // Gradient term: dL/dz[o] = dL/dy[o] * f'(z[o])
+        weight_t dL_dz_o = dL_dy_o * relu_grad(z_o);
+        
+        // Update term: delta = LR * dL/dz[o]
+        weight_t delta = LR * dL_dz_o;
+
+        // --- Update bias ---
+        // dL/db[o] = dL/dz[o]
+        L.b[o] -= delta;
+
+        // Loop over all inputs to this layer
         BWD_I: for (int i = 0; i < IN_DIM; i++){
             #pragma HLS UNROLL
 
-            // Grads for Ws: dL/dWs = dL/dy * dy/dWs = dL/dy * B(x)
-            int k = C.k[o][i];
-            int u_index = C.u_index[o][i];
-            weight_t gx = 0; //for downstream calculcation
+            // Get the weight *before* the update for the dL/dx calculation
+            weight_t W_oi_old = L.W[o][i];
 
-            //calculate-downstream-grad
+            // --- Downstream gradient calculation ---
+            // dL/dx[i] = sum_over_o( dL/dz[o] * dz[o]/dx[i] )
+            // dz[o]/dx[i] = W[o][i]
+            // So, dL/dx[i] += dL_dz_o * W[o][i]
+            dL_dx[i] += dL_dz_o * W_oi_old;
 
-            dL_dx[i] += dL_dy_o * gx * INV_H;
-            
-            //weight-update
+            // --- Weight update ---
+            // dL/dW[o][i] = dL/dz[o] * dz[o]/dW[o][i] = dL/dz[o] * x[i]
+            L.W[o][i] -= delta * C.x_copy[i];
         }
     }
 }
+
 #endif

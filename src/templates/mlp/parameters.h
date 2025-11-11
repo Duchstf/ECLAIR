@@ -3,17 +3,17 @@
 
 #include "defines.h"
 
-//FORWARD-CONTEXT
-template<int IN_DIM, int OUT_DIM>
-struct LayerContext {
-    int k[OUT_DIM][IN_DIM];
-    int u_index[OUT_DIM][IN_DIM];
-};
-
-//LAYER 
+// Layer parameters
 template<int IN_DIM, int OUT_DIM>
 struct LayerParams {
-    weight_t Ws[OUT_DIM][IN_DIM][COEFF];
+    weight_t W[OUT_DIM][IN_DIM]; // Weight matrix
+    weight_t b[OUT_DIM];         // Bias vector
+};
+
+template<int IN_DIM, int OUT_DIM>
+struct LayerContext {
+    weight_t x_copy[IN_DIM]; // Input copy
+    weight_t z[OUT_DIM];      // Pre-activation
 };
 
 //MODEL
