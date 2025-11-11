@@ -61,7 +61,7 @@ class MLP:
 
         #Start from the templates
         self._write_defines_h()
-        # self._write_parameters_h()
+        self._write_parameters_h()
         # self._write_components_h()
         # self._write_eclair_cpp()
         # self._write_build_tcl()
@@ -102,54 +102,10 @@ class MLP:
     def _write_parameters_h(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/parameters.h")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/mlp/parameters.h")
         outfile_path = f"{self.model_dir}/firmware/parameters.h"
 
-        # --- Generate the BasisLUT struct definition ---
-        # (This defines the *type*)
-        basis_lut_members = []
-        for i in range(self.spline_order + 1):
-            basis_lut_members.append(f"    weight_t B{i}[LUT_RESOLUTION];")
-            basis_lut_members.append(f"    weight_t dB{i}[LUT_RESOLUTION];")
-        
-        basis_lut_struct = "struct BasisLUT {\n" + "\n".join(basis_lut_members) + "\n};\n"
-
-        # --- Generate the numerical values for the global LUT instance ---
-        # (This defines the actual *data*)
-        
-        # Call the function from tools.py to get the numerical data
-        basis_lut, derivative_lut = tools.generate_spline_luts(
-            self.spline_order,
-            self.lut_resolution,
-            self.grid_range,
-            self.grid_size
-        )
-        # The returned arrays have shape (lut_resolution, spline_order + 1)
-        
-        lut_initializers = []
-        for i in range(self.spline_order + 1):
-            # Get the i-th basis function array (column)
-            b_vals = self._format_cpp_array(basis_lut[:, i])
-            lut_initializers.append(f"    {b_vals},")
-
-            # Get the i-th derivative array (column)
-            db_vals = self._format_cpp_array(derivative_lut[:, i])
-            # Add a comma unless it's the very last element
-            if i < self.spline_order:
-                lut_initializers.append(f"    {db_vals},")
-            else:
-                lut_initializers.append(f"    {db_vals}")
-
-        # Create the C++ string for the global constant instance
-        # This instance will live in the header file as read-only data
-        lut_instance_str = "static const BasisLUT LUT = {\n"
-        lut_instance_str += "\n".join(lut_initializers)
-        lut_instance_str += "\n};"
-
-        # Combine the struct *definition* and the *instance*
-        basis_luts_all = basis_lut_struct + "\n" + lut_instance_str
-
-        # --- Generate the KANParams struct ---
+        # --- Generate the MLP Parameters struct ---
         # This struct should hold *trainable parameters* (coefficients), 
         # not the read-only LUTs.
         layer_params = []
