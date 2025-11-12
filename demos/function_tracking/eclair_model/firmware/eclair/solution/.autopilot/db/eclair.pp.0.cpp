@@ -5728,7 +5728,7 @@ static const weight_t H = weight_t(0.8);
 static const weight_t INV_H = weight_t(1.25);
 
 
-static const weight_t LR = weight_t(0.1);
+static const weight_t LR = weight_t(0.15);
 # 2 "eclair.cpp" 2
 # 1 "./parameters.h" 1
 
@@ -34207,9 +34207,13 @@ inline void forward_layer(
     const LayerParams<IN_DIM, OUT_DIM> &L,
     LayerContext<IN_DIM, OUT_DIM> &C
 ){
+#pragma HLS ARRAY_PARTITION variable=x complete
+#pragma HLS ARRAY_PARTITION variable=y complete
+#pragma HLS ARRAY_PARTITION variable=L complete
+#pragma HLS ARRAY_PARTITION variable=C complete
 
 
-    int k_arr[IN_DIM];
+ int k_arr[IN_DIM];
     int ui_arr[IN_DIM];
 #pragma HLS ARRAY_PARTITION variable=k_arr complete
 #pragma HLS ARRAY_PARTITION variable=ui_arr complete
@@ -34267,6 +34271,10 @@ inline void backward_input(
     const up_grad_t dL_dy[OUT_DIM]
 ){
 #pragma HLS PIPELINE
+
+#pragma HLS ARRAY_PARTITION variable=L complete
+#pragma HLS ARRAY_PARTITION variable=C complete
+#pragma HLS ARRAY_PARTITION variable=dL_dy complete
 
  BWD_O: for (int o = 0; o < OUT_DIM; o++) {
 #pragma HLS UNROLL

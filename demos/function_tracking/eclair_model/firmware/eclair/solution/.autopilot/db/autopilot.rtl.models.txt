@@ -1,3 +1,4 @@
+eclair_mul_16s_9ns_25_1_1
 eclair_mul_16s_8ns_24_1_1
 eclair_mul_10ns_16s_26_1_1
 eclair_sparsemux_9_2_16_1_1

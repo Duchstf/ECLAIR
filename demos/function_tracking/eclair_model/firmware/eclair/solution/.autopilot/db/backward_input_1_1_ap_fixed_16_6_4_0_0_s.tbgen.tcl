@@ -182,7 +182,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_16s_8ns_24_1_1_U1", "Parent" : "0"},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_16s_9ns_25_1_1_U1", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_16s_8ns_24_1_1_U2", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_10ns_16s_26_1_1_U3", "Parent" : "0"},
 	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U4", "Parent" : "0"},

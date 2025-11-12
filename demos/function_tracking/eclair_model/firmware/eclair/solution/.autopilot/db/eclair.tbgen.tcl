@@ -146,7 +146,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_16s_8ns_24_1_1_U1", "Parent" : "9"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_16s_9ns_25_1_1_U1", "Parent" : "9"},
 	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_16s_8ns_24_1_1_U2", "Parent" : "9"},
 	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_10ns_16s_26_1_1_U3", "Parent" : "9"},
 	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.sparsemux_9_2_16_1_1_U4", "Parent" : "9"},
@@ -181,16 +181,16 @@ set RtlHierarchyInfo {[
 			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_3_16_1_1_U28", "Parent" : "19"},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_7_2_3_1_1_U29", "Parent" : "19"},
-	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U30", "Parent" : "19"},
-	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U31", "Parent" : "19"},
-	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U32", "Parent" : "19"},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mul_16s_10ns_26_1_1_U33", "Parent" : "19"},
-	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U34", "Parent" : "19"},
-	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_8ns_26s_26_4_1_U35", "Parent" : "19"},
-	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_10ns_26s_27_4_1_U36", "Parent" : "19"},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_8ns_27s_27_4_1_U37", "Parent" : "19"}]}
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_3_16_1_1_U29", "Parent" : "19"},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_7_2_3_1_1_U30", "Parent" : "19"},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U31", "Parent" : "19"},
+	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U32", "Parent" : "19"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U33", "Parent" : "19"},
+	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mul_16s_10ns_26_1_1_U34", "Parent" : "19"},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U35", "Parent" : "19"},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_8ns_26s_26_4_1_U36", "Parent" : "19"},
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_10ns_26s_27_4_1_U37", "Parent" : "19"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_8ns_27s_27_4_1_U38", "Parent" : "19"}]}
 
 
 set ArgLastReadFirstWriteLatency {

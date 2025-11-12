@@ -298,7 +298,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -362,7 +362,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -425,7 +425,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -489,7 +489,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -554,7 +554,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -617,7 +617,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -682,7 +682,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -745,7 +745,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -809,7 +809,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -874,7 +874,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -940,7 +940,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1005,7 +1005,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1068,7 +1068,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1132,7 +1132,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1197,7 +1197,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1262,7 +1262,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1326,7 +1326,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1390,7 +1390,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1453,7 +1453,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1517,7 +1517,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1582,7 +1582,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1646,7 +1646,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1710,7 +1710,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1775,7 +1775,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1841,7 +1841,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1905,7 +1905,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -1971,7 +1971,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2035,7 +2035,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2099,7 +2099,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2164,7 +2164,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2228,7 +2228,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2292,7 +2292,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2357,7 +2357,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2421,7 +2421,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2485,7 +2485,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2549,7 +2549,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2613,7 +2613,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2677,7 +2677,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2741,7 +2741,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2805,7 +2805,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2869,7 +2869,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2933,7 +2933,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -2997,7 +2997,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3062,7 +3062,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3126,7 +3126,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3191,7 +3191,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3256,7 +3256,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3320,7 +3320,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3386,7 +3386,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3449,7 +3449,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3513,7 +3513,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3577,7 +3577,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3642,7 +3642,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3707,7 +3707,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3770,7 +3770,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3835,7 +3835,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3900,7 +3900,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -3965,7 +3965,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4028,7 +4028,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4091,7 +4091,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4155,7 +4155,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4220,7 +4220,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4283,7 +4283,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4348,7 +4348,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4412,7 +4412,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4476,7 +4476,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4540,7 +4540,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4605,7 +4605,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4669,7 +4669,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4733,7 +4733,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4798,7 +4798,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4869,7 +4869,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4932,7 +4932,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -4996,7 +4996,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -5060,7 +5060,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -5124,7 +5124,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -5190,7 +5190,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>47</second>
+										<second>51</second>
 									</item>
 								</second>
 							</item>
@@ -5240,7 +5240,7 @@
 						<name>tmp_14</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>46</lineNumber>
+						<lineNumber>50</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5256,7 +5256,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>46</second>
+										<second>50</second>
 									</item>
 								</second>
 							</item>
@@ -5295,10 +5295,10 @@
 					<Obj>
 						<type>0</type>
 						<id>98</id>
-						<name>zext_ln46</name>
+						<name>zext_ln50</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>46</lineNumber>
+						<lineNumber>50</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5314,7 +5314,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>46</second>
+										<second>50</second>
 									</item>
 								</second>
 							</item>
@@ -5351,10 +5351,10 @@
 					<Obj>
 						<type>0</type>
 						<id>99</id>
-						<name>sext_ln48</name>
+						<name>sext_ln52</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5370,7 +5370,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5410,7 +5410,7 @@
 						<name>tmp_15</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5426,7 +5426,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5465,10 +5465,10 @@
 					<Obj>
 						<type>0</type>
 						<id>101</id>
-						<name>sext_ln48_1</name>
+						<name>sext_ln52_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5484,7 +5484,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5521,10 +5521,10 @@
 					<Obj>
 						<type>0</type>
 						<id>102</id>
-						<name>sub_ln48</name>
+						<name>sub_ln52</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5540,7 +5540,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5578,10 +5578,10 @@
 					<Obj>
 						<type>0</type>
 						<id>103</id>
-						<name>add_ln48</name>
+						<name>add_ln52</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5597,7 +5597,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5638,7 +5638,7 @@
 						<name>tmp_14_cast1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5654,7 +5654,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5697,7 +5697,7 @@
 						<name>tmp_20</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5713,7 +5713,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5752,10 +5752,10 @@
 					<Obj>
 						<type>0</type>
 						<id>106</id>
-						<name>trunc_ln48</name>
+						<name>trunc_ln52</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5771,7 +5771,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5808,10 +5808,10 @@
 					<Obj>
 						<type>0</type>
 						<id>107</id>
-						<name>icmp_ln48</name>
+						<name>icmp_ln52</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5827,7 +5827,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5865,10 +5865,10 @@
 					<Obj>
 						<type>0</type>
 						<id>108</id>
-						<name>add_ln48_1</name>
+						<name>add_ln52_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5884,7 +5884,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5922,10 +5922,10 @@
 					<Obj>
 						<type>0</type>
 						<id>109</id>
-						<name>select_ln48</name>
+						<name>select_ln52</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5941,7 +5941,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -5983,7 +5983,7 @@
 						<name>ui</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>48</lineNumber>
+						<lineNumber>52</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -5999,7 +5999,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>48</second>
+										<second>52</second>
 									</item>
 								</second>
 							</item>
@@ -6038,10 +6038,10 @@
 					<Obj>
 						<type>0</type>
 						<id>111</id>
-						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_write_ln65</name>
+						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_write_ln69</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>65</lineNumber>
+						<lineNumber>69</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6057,7 +6057,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>65</second>
+										<second>69</second>
 									</item>
 								</second>
 							</item>
@@ -6095,10 +6095,10 @@
 					<Obj>
 						<type>0</type>
 						<id>112</id>
-						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_write_ln66</name>
+						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_write_ln70</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>66</lineNumber>
+						<lineNumber>70</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6114,7 +6114,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>66</second>
+										<second>70</second>
 									</item>
 								</second>
 							</item>
@@ -6152,10 +6152,10 @@
 					<Obj>
 						<type>0</type>
 						<id>113</id>
-						<name>zext_ln69</name>
+						<name>zext_ln73</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>69</lineNumber>
+						<lineNumber>73</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6171,7 +6171,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>69</second>
+										<second>73</second>
 									</item>
 								</second>
 							</item>
@@ -6211,7 +6211,7 @@
 						<name>LUT_B0_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>69</lineNumber>
+						<lineNumber>73</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6227,7 +6227,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>69</second>
+										<second>73</second>
 									</item>
 								</second>
 							</item>
@@ -6269,7 +6269,7 @@
 						<name>b0</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>69</lineNumber>
+						<lineNumber>73</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6285,7 +6285,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>69</second>
+										<second>73</second>
 									</item>
 								</second>
 							</item>
@@ -6325,7 +6325,7 @@
 						<name>LUT_B1_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>70</lineNumber>
+						<lineNumber>74</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6341,7 +6341,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>70</second>
+										<second>74</second>
 									</item>
 								</second>
 							</item>
@@ -6383,7 +6383,7 @@
 						<name>b1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>70</lineNumber>
+						<lineNumber>74</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6399,7 +6399,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>70</second>
+										<second>74</second>
 									</item>
 								</second>
 							</item>
@@ -6439,7 +6439,7 @@
 						<name>LUT_B2_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>71</lineNumber>
+						<lineNumber>75</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6455,7 +6455,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>71</second>
+										<second>75</second>
 									</item>
 								</second>
 							</item>
@@ -6497,7 +6497,7 @@
 						<name>b2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>71</lineNumber>
+						<lineNumber>75</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6513,7 +6513,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>71</second>
+										<second>75</second>
 									</item>
 								</second>
 							</item>
@@ -6553,7 +6553,7 @@
 						<name>LUT_B3_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>72</lineNumber>
+						<lineNumber>76</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6569,7 +6569,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>72</second>
+										<second>76</second>
 									</item>
 								</second>
 							</item>
@@ -6611,7 +6611,7 @@
 						<name>b3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>72</lineNumber>
+						<lineNumber>76</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6627,7 +6627,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>72</second>
+										<second>76</second>
 									</item>
 								</second>
 							</item>
@@ -6667,7 +6667,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6683,7 +6683,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -6725,7 +6725,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6741,7 +6741,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -6783,7 +6783,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6799,7 +6799,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -6841,7 +6841,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_addr</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6857,7 +6857,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -6896,10 +6896,10 @@
 					<Obj>
 						<type>0</type>
 						<id>126</id>
-						<name>zext_ln75_4</name>
+						<name>zext_ln79_4</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6915,7 +6915,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -6952,10 +6952,10 @@
 					<Obj>
 						<type>0</type>
 						<id>127</id>
-						<name>add_ln75</name>
+						<name>add_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -6971,7 +6971,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7012,7 +7012,7 @@
 						<name>tmp_21</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7028,7 +7028,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7067,10 +7067,10 @@
 					<Obj>
 						<type>0</type>
 						<id>129</id>
-						<name>zext_ln75</name>
+						<name>zext_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7086,7 +7086,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7126,7 +7126,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_addr_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7142,7 +7142,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7184,7 +7184,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_addr_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7200,7 +7200,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7242,7 +7242,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_addr_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7258,7 +7258,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7300,7 +7300,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_addr_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7316,7 +7316,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7355,10 +7355,10 @@
 					<Obj>
 						<type>0</type>
 						<id>134</id>
-						<name>zext_ln75_5</name>
+						<name>zext_ln79_5</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7374,7 +7374,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7411,10 +7411,10 @@
 					<Obj>
 						<type>0</type>
 						<id>135</id>
-						<name>add_ln75_1</name>
+						<name>add_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7430,7 +7430,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7471,7 +7471,7 @@
 						<name>tmp_22</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7487,7 +7487,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7526,10 +7526,10 @@
 					<Obj>
 						<type>0</type>
 						<id>137</id>
-						<name>zext_ln75_1</name>
+						<name>zext_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7545,7 +7545,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7585,7 +7585,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_addr_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7601,7 +7601,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7643,7 +7643,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_addr_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7659,7 +7659,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7701,7 +7701,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_addr_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7717,7 +7717,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7759,7 +7759,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_addr_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7775,7 +7775,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7814,10 +7814,10 @@
 					<Obj>
 						<type>0</type>
 						<id>142</id>
-						<name>zext_ln75_6</name>
+						<name>zext_ln79_6</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7833,7 +7833,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7870,10 +7870,10 @@
 					<Obj>
 						<type>0</type>
 						<id>143</id>
-						<name>add_ln75_2</name>
+						<name>add_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7889,7 +7889,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7930,7 +7930,7 @@
 						<name>tmp_23</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -7946,7 +7946,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -7985,10 +7985,10 @@
 					<Obj>
 						<type>0</type>
 						<id>145</id>
-						<name>zext_ln75_2</name>
+						<name>zext_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8004,7 +8004,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8044,7 +8044,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_addr_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8060,7 +8060,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8102,7 +8102,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_addr_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8118,7 +8118,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8160,7 +8160,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_addr_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8176,7 +8176,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8218,7 +8218,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_addr_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8234,7 +8234,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8276,7 +8276,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_load</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8292,7 +8292,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8332,7 +8332,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_load_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8348,7 +8348,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8388,7 +8388,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_load_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8404,7 +8404,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8444,7 +8444,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_load_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8460,7 +8460,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8500,7 +8500,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_load</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8516,7 +8516,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8556,7 +8556,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_load_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8572,7 +8572,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8612,7 +8612,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_load_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8628,7 +8628,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8668,7 +8668,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_load_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8684,7 +8684,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8724,7 +8724,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_load</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8740,7 +8740,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8780,7 +8780,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_load_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8796,7 +8796,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8836,7 +8836,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_load_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8852,7 +8852,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8892,7 +8892,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_load_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8908,7 +8908,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -8948,7 +8948,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_load</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -8964,7 +8964,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9004,7 +9004,7 @@
 						<name>tmp_16</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9020,7 +9020,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9067,10 +9067,10 @@
 					<Obj>
 						<type>0</type>
 						<id>164</id>
-						<name>sext_ln75</name>
+						<name>sext_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9086,7 +9086,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9123,10 +9123,10 @@
 					<Obj>
 						<type>0</type>
 						<id>165</id>
-						<name>mul_ln75</name>
+						<name>mul_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9142,7 +9142,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9180,10 +9180,10 @@
 					<Obj>
 						<type>0</type>
 						<id>166</id>
-						<name>sext_ln75_1</name>
+						<name>sext_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9199,7 +9199,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9239,7 +9239,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_load_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9255,7 +9255,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9295,7 +9295,7 @@
 						<name>tmp_17</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9311,7 +9311,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9358,10 +9358,10 @@
 					<Obj>
 						<type>0</type>
 						<id>169</id>
-						<name>sext_ln75_2</name>
+						<name>sext_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9377,7 +9377,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9414,10 +9414,10 @@
 					<Obj>
 						<type>0</type>
 						<id>170</id>
-						<name>mul_ln75_1</name>
+						<name>mul_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9433,7 +9433,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9471,10 +9471,10 @@
 					<Obj>
 						<type>0</type>
 						<id>171</id>
-						<name>add_ln75_3</name>
+						<name>add_ln79_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9490,7 +9490,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9528,10 +9528,10 @@
 					<Obj>
 						<type>0</type>
 						<id>172</id>
-						<name>sext_ln75_3</name>
+						<name>sext_ln79_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9547,7 +9547,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9587,7 +9587,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_load_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9603,7 +9603,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9643,7 +9643,7 @@
 						<name>tmp_18</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9659,7 +9659,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9706,10 +9706,10 @@
 					<Obj>
 						<type>0</type>
 						<id>175</id>
-						<name>sext_ln75_4</name>
+						<name>sext_ln79_4</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9725,7 +9725,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9762,10 +9762,10 @@
 					<Obj>
 						<type>0</type>
 						<id>176</id>
-						<name>mul_ln75_2</name>
+						<name>mul_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9781,7 +9781,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9819,10 +9819,10 @@
 					<Obj>
 						<type>0</type>
 						<id>177</id>
-						<name>sext_ln75_5</name>
+						<name>sext_ln79_5</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9838,7 +9838,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9875,10 +9875,10 @@
 					<Obj>
 						<type>0</type>
 						<id>178</id>
-						<name>add_ln75_4</name>
+						<name>add_ln79_4</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9894,7 +9894,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9935,7 +9935,7 @@
 						<name>eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_load_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -9951,7 +9951,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -9991,7 +9991,7 @@
 						<name>tmp_19</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10007,7 +10007,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10054,10 +10054,10 @@
 					<Obj>
 						<type>0</type>
 						<id>181</id>
-						<name>sext_ln75_6</name>
+						<name>sext_ln79_6</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10073,7 +10073,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10110,10 +10110,10 @@
 					<Obj>
 						<type>0</type>
 						<id>182</id>
-						<name>zext_ln75_7</name>
+						<name>zext_ln79_7</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10129,7 +10129,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10166,10 +10166,10 @@
 					<Obj>
 						<type>0</type>
 						<id>183</id>
-						<name>mul_ln75_3</name>
+						<name>mul_ln79_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10185,7 +10185,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10223,10 +10223,10 @@
 					<Obj>
 						<type>0</type>
 						<id>184</id>
-						<name>sext_ln75_7</name>
+						<name>sext_ln79_7</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10242,7 +10242,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10279,10 +10279,10 @@
 					<Obj>
 						<type>0</type>
 						<id>185</id>
-						<name>add_ln75_5</name>
+						<name>add_ln79_5</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10298,7 +10298,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10339,7 +10339,7 @@
 						<name>tmp_24</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10355,7 +10355,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10397,7 +10397,7 @@
 						<name>trunc_ln2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10413,7 +10413,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10456,7 +10456,7 @@
 						<name>tmp_25</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10472,7 +10472,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10511,10 +10511,10 @@
 					<Obj>
 						<type>0</type>
 						<id>189</id>
-						<name>trunc_ln75</name>
+						<name>trunc_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10530,7 +10530,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10567,10 +10567,10 @@
 					<Obj>
 						<type>0</type>
 						<id>190</id>
-						<name>icmp_ln75</name>
+						<name>icmp_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10586,7 +10586,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10627,7 +10627,7 @@
 						<name>tmp_26</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10643,7 +10643,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10685,7 +10685,7 @@
 						<name>tmp_27</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10701,7 +10701,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10740,10 +10740,10 @@
 					<Obj>
 						<type>0</type>
 						<id>193</id>
-						<name>or_ln75</name>
+						<name>or_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10759,7 +10759,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10797,10 +10797,10 @@
 					<Obj>
 						<type>0</type>
 						<id>194</id>
-						<name>and_ln75</name>
+						<name>and_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10816,7 +10816,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10854,10 +10854,10 @@
 					<Obj>
 						<type>0</type>
 						<id>195</id>
-						<name>zext_ln75_3</name>
+						<name>zext_ln79_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10873,7 +10873,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10910,10 +10910,10 @@
 					<Obj>
 						<type>0</type>
 						<id>196</id>
-						<name>add_ln75_6</name>
+						<name>add_ln79_6</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10929,7 +10929,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -10970,7 +10970,7 @@
 						<name>tmp_28</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -10986,7 +10986,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11025,10 +11025,10 @@
 					<Obj>
 						<type>0</type>
 						<id>198</id>
-						<name>xor_ln75</name>
+						<name>xor_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11044,7 +11044,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11082,10 +11082,10 @@
 					<Obj>
 						<type>0</type>
 						<id>199</id>
-						<name>or_ln75_3</name>
+						<name>or_ln79_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11101,7 +11101,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11139,10 +11139,10 @@
 					<Obj>
 						<type>0</type>
 						<id>200</id>
-						<name>xor_ln75_2</name>
+						<name>xor_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11158,7 +11158,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11196,10 +11196,10 @@
 					<Obj>
 						<type>0</type>
 						<id>201</id>
-						<name>xor_ln75_1</name>
+						<name>xor_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11215,7 +11215,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11253,10 +11253,10 @@
 					<Obj>
 						<type>0</type>
 						<id>202</id>
-						<name>xor_ln75_3</name>
+						<name>xor_ln79_3</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11272,7 +11272,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11310,10 +11310,10 @@
 					<Obj>
 						<type>0</type>
 						<id>203</id>
-						<name>or_ln75_1</name>
+						<name>or_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11329,7 +11329,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11367,10 +11367,10 @@
 					<Obj>
 						<type>0</type>
 						<id>204</id>
-						<name>and_ln75_1</name>
+						<name>and_ln79_1</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11386,7 +11386,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11424,10 +11424,10 @@
 					<Obj>
 						<type>0</type>
 						<id>205</id>
-						<name>or_ln75_4</name>
+						<name>or_ln79_4</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11443,7 +11443,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11481,10 +11481,10 @@
 					<Obj>
 						<type>0</type>
 						<id>206</id>
-						<name>xor_ln75_4</name>
+						<name>xor_ln79_4</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11500,7 +11500,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11538,10 +11538,10 @@
 					<Obj>
 						<type>0</type>
 						<id>207</id>
-						<name>and_ln75_2</name>
+						<name>and_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11557,7 +11557,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11595,10 +11595,10 @@
 					<Obj>
 						<type>0</type>
 						<id>208</id>
-						<name>select_ln75</name>
+						<name>select_ln79</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11614,7 +11614,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11653,10 +11653,10 @@
 					<Obj>
 						<type>0</type>
 						<id>209</id>
-						<name>or_ln75_2</name>
+						<name>or_ln79_2</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11672,7 +11672,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11713,7 +11713,7 @@
 						<name>o_sum</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>75</lineNumber>
+						<lineNumber>79</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11729,7 +11729,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>75</second>
+										<second>79</second>
 									</item>
 								</second>
 							</item>
@@ -11768,10 +11768,10 @@
 					<Obj>
 						<type>0</type>
 						<id>211</id>
-						<name>_ln87</name>
+						<name>_ln91</name>
 						<fileName>./components.h</fileName>
 						<fileDirectory>/data/dhoang/ECLAIR/demos/function_tracking/eclair_model/firmware</fileDirectory>
-						<lineNumber>87</lineNumber>
+						<lineNumber>91</lineNumber>
 						<contextFuncName>forward_layer&amp;lt;1, 1&amp;gt;</contextFuncName>
 						<contextNormFuncName>forward_layer_1_1_s</contextNormFuncName>
 						<inlineStackInfo>
@@ -11787,7 +11787,7 @@
 											<first>./components.h</first>
 											<second>forward_layer&amp;lt;1, 1&amp;gt;</second>
 										</first>
-										<second>87</second>
+										<second>91</second>
 									</item>
 								</second>
 							</item>

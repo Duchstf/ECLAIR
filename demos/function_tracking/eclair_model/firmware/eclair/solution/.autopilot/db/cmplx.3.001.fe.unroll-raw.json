@@ -4,15 +4,15 @@
     "calls": "1 2",
     "file": "eclair.cpp",
     "fileloc": 5,
-    "instructions": 13,
+    "instructions": 19,
     "name": "eclair",
-    "total_instructions": 1130
+    "total_instructions": 1136
   },
   "1": {
     "basicblocks": 235,
     "calls": "",
     "file": "components.h",
-    "fileloc": 90,
+    "fileloc": 94,
     "instructions": 568,
     "loads": {
       "G": 18,

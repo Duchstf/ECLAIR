@@ -44,7 +44,7 @@
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>./components.h:101</SourceLocation>
+<SourceLocation>./components.h:109</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -52,10 +52,10 @@
 <DSP>5</DSP>
 <AVAIL_DSP>12288</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>264</FF>
+<FF>266</FF>
 <AVAIL_FF>3456000</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>1161</LUT>
+<LUT>1162</LUT>
 <AVAIL_LUT>1728000</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -629,7 +629,7 @@
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>./components.h:8~./components.h:47</SourceLocation>
+<SourceLocation>./components.h:8~./components.h:51</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -1211,10 +1211,10 @@
 <DSP>9</DSP>
 <AVAIL_DSP>12288</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>512</FF>
+<FF>514</FF>
 <AVAIL_FF>3456000</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>2679</LUT>
+<LUT>2680</LUT>
 <AVAIL_LUT>1728000</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>

@@ -1,6 +1,7 @@
 set SynModuleInfo {
   {SRCNAME {backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >} MODELNAME backward_input_1_1_ap_fixed_16_6_4_0_0_s RTLNAME eclair_backward_input_1_1_ap_fixed_16_6_4_0_0_s
     SUBMODULES {
+      {MODELNAME eclair_mul_16s_9ns_25_1_1 RTLNAME eclair_mul_16s_9ns_25_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME eclair_mul_16s_8ns_24_1_1 RTLNAME eclair_mul_16s_8ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME eclair_mul_10ns_16s_26_1_1 RTLNAME eclair_mul_10ns_16s_26_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME eclair_sparsemux_9_2_16_1_1 RTLNAME eclair_sparsemux_9_2_16_1_1 BINDTYPE op TYPE sparsemux IMPL auto}

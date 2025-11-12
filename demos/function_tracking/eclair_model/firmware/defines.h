@@ -5,7 +5,6 @@
 
 // MODEL ARCHITECTURE
 #define INPUT_DIM 1
-#define H1 3
 #define OUTPUT_DIM 1
 #define SPLINE_ORDER 3
 #define NUM_BASIS 4

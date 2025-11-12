@@ -1,14 +1,65 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "6 2",
+    "calls": "3 7",
     "file": "eclair.cpp",
     "fileloc": 5,
     "instructions": 20,
     "name": "eclair",
-    "total_instructions": 9950
+    "total_instructions": 9957
   },
   "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "parameters.h",
+    "fileloc": 18,
+    "instructions": 2049,
+    "name": "__cxx_global_var_init.5",
+    "total_instructions": 1490945
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "8 4 5 1",
+    "file": "eclair.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 5,
+    "name": "",
+    "total_instructions": 1492713
+  },
+  "3": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 94,
+    "instructions": 141,
+    "loads": {
+      "L": 3
+    },
+    "name": "backward_input<1, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 3363
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "defines.h",
+    "fileloc": 26,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.3",
+    "total_instructions": 729
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "defines.h",
+    "fileloc": 29,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.4",
+    "total_instructions": 729
+  },
+  "6": {
     "basicblocks": 7,
     "calls": "",
     "file": "components.h",
@@ -23,12 +74,12 @@
     },
     "total_instructions": 2789
   },
-  "2": {
+  "7": {
     "basicblocks": 25,
-    "calls": "1",
+    "calls": "6",
     "file": "components.h",
     "fileloc": 30,
-    "instructions": 248,
+    "instructions": 252,
     "loads": {
       "G": 4,
       "L": 5
@@ -37,18 +88,9 @@
     "stores": {
       "L": 10
     },
-    "total_instructions": 6570
+    "total_instructions": 6574
   },
-  "3": {
-    "basicblocks": 1,
-    "calls": "",
-    "file": "defines.h",
-    "fileloc": 26,
-    "instructions": 2,
-    "name": "__cxx_global_var_init.3",
-    "total_instructions": 729
-  },
-  "4": {
+  "8": {
     "basicblocks": 1,
     "calls": "",
     "file": "defines.h",
@@ -56,47 +98,5 @@
     "instructions": 2,
     "name": "__cxx_global_var_init",
     "total_instructions": 305
-  },
-  "5": {
-    "basicblocks": 1,
-    "calls": "",
-    "file": "defines.h",
-    "fileloc": 29,
-    "instructions": 2,
-    "name": "__cxx_global_var_init.4",
-    "total_instructions": 729
-  },
-  "6": {
-    "basicblocks": 13,
-    "calls": "",
-    "file": "components.h",
-    "fileloc": 90,
-    "instructions": 138,
-    "loads": {
-      "L": 3
-    },
-    "name": "backward_input<1, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 3360
-  },
-  "7": {
-    "basicblocks": 1,
-    "calls": "4 3 5 8",
-    "file": "eclair.pp.0.cpp",
-    "fileloc": 0,
-    "instructions": 5,
-    "name": "",
-    "total_instructions": 1492713
-  },
-  "8": {
-    "basicblocks": 1,
-    "calls": "",
-    "file": "parameters.h",
-    "fileloc": 18,
-    "instructions": 2049,
-    "name": "__cxx_global_var_init.5",
-    "total_instructions": 1490945
   }
 }

@@ -2,9 +2,9 @@
     "1": {
         "name": "backward_input<1, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
         "file": "components.h",
-        "fileloc": "90",
-        "instructions": "392",
-        "total_instructions": "392",
+        "fileloc": "94",
+        "instructions": "391",
+        "total_instructions": "391",
         "calls": "",
         "basicblocks": "113",
         "loads": {
@@ -19,14 +19,14 @@
         "file": "eclair.cpp",
         "fileloc": "5",
         "instructions": "21",
-        "total_instructions": "613",
+        "total_instructions": "612",
         "calls": "1 2",
         "basicblocks": "1"
     },
     "2": {
         "name": "forward_layer<1, 1>",
         "file": ".\/components.h",
-        "fileloc": "46",
+        "fileloc": "50",
         "instructions": "200",
         "total_instructions": "200",
         "calls": "",

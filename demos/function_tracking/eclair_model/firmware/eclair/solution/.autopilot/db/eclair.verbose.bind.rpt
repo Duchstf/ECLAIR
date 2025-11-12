@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'eclair'
 ================================================================
-* Date:           Tue Nov 11 04:05:20 2025
+* Date:           Wed Nov 12 03:59:41 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -86,9 +86,9 @@ IsGatedGlobalClock: 0
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 3.42>
+State 1 <SV = 0> <Delay = 3.43>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%feedback_read = read i16 @_ssdm_op_Read.ap_auto.i16P0A, i16 %feedback"   --->   Operation 8 'read' 'feedback_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [5/5] (3.42ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 9 'call' 'call_ln39' <Predicate = true> <Delay = 3.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 9 [5/5] (3.43ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 9 'call' 'call_ln39' <Predicate = true> <Delay = 3.43> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 2 <SV = 1> <Delay = 3.48>
 ST_2 : Operation 10 [4/5] (3.48ns)   --->   "%call_ln39 = call void @backward_input<1, 1, ap_fixed<16, 6, 4, 0, 0> >, i16 %feedback_read, i3 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53, i8 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52, i8 %LUT_B0, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1, i16 %eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P, i10 %LUT_B1, i10 %LUT_B2, i8 %LUT_B3" [eclair.cpp:39]   --->   Operation 10 'call' 'call_ln39' <Predicate = true> <Delay = 3.48> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
@@ -667,7 +667,7 @@ ret_ln44          (ret          ) [ 00000000]
 |----------|----------------------------------------------------|---------|---------|---------|---------|
 | Operation|                   Functional Unit                  |   DSP   |  Delay  |    FF   |   LUT   |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
-|   call   | grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79 |    5    | 7.90057 |   294   |   1120  |
+|   call   | grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79 |    5    | 7.90057 |   296   |   1121  |
 |          |           grp_forward_layer_1_1_s_fu_105           |    4    | 7.59029 |   368   |   952   |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
 |   read   |              feedback_read_read_fu_60              |    0    |    0    |    0    |    0    |
@@ -675,7 +675,7 @@ ret_ln44          (ret          ) [ 00000000]
 |----------|----------------------------------------------------|---------|---------|---------|---------|
 |   write  |               write_ln42_write_fu_72               |    0    |    0    |    0    |    0    |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
-|   Total  |                                                    |    9    | 15.4909 |   662   |   2072  |
+|   Total  |                                                    |    9    | 15.4909 |   664   |   2073  |
 |----------|----------------------------------------------------|---------|---------|---------|---------|
 
 Memories:
@@ -718,10 +718,10 @@ Memories:
 +-----------+--------+--------+--------+--------+
 |           |   DSP  |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+--------+
-|  Function |    9   |   15   |   662  |  2072  |
+|  Function |    9   |   15   |   664  |  2073  |
 |   Memory  |    -   |    -   |   112  |   264  |
 |Multiplexer|    -   |    0   |    0   |    9   |
 |  Register |    -   |    -   |   16   |    -   |
 +-----------+--------+--------+--------+--------+
-|   Total   |    9   |   15   |   790  |  2345  |
+|   Total   |    9   |   15   |   792  |  2346  |
 +-----------+--------+--------+--------+--------+

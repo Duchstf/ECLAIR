@@ -37,15 +37,15 @@
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>./components.h:101</SourceLocation>
+<SourceLocation>./components.h:109</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <DSP>5</DSP>
-<FF>264</FF>
-<LUT>1161</LUT>
+<FF>266</FF>
+<LUT>1162</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
