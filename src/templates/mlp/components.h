@@ -5,17 +5,14 @@
 #include "parameters.h" // Assuming weight_t and LR are defined here
 #include "defines.h"    // Assuming any other shared constants are here
 
-// --- Activation Function ---
 static inline weight_t relu(weight_t z) {
     #pragma HLS INLINE
-    return (z > weight_t(0)) ? z : weight_t(0);
+    return (z > weight_t(0)) ? z : weight_t(0.01f)*z;
 }
-
 static inline weight_t relu_grad(weight_t z) {
     #pragma HLS INLINE
-    return (z > weight_t(0)) ? weight_t(1) : weight_t(0);
+    return (z > weight_t(0)) ? weight_t(1) : weight_t(0.01f);
 }
-
 
 template<int IN_DIM, int OUT_DIM>
 inline void forward_layer(

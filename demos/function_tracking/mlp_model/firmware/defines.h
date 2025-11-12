@@ -5,7 +5,7 @@
 
 // MODEL ARCHITECTURE
 #define INPUT_DIM 1
-#define H1 20
+#define H1 128
 #define OUTPUT_DIM 1
 
 // QUANTIZATION
@@ -14,6 +14,6 @@ typedef float input_t;
 typedef float output_t;
 
 // LEARNING RATE
-static const weight_t LR = weight_t(1);
+static const weight_t LR = weight_t(0.3);
 
 #endif

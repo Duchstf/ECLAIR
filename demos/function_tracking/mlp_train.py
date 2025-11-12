@@ -123,7 +123,7 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 #------------------------------- MODEL -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [1, 20, 1],
+    'layer_sizes': [1, 128, 1],
     # 'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     # 'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     # 'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
@@ -134,7 +134,7 @@ config = {
     
     #Others
     'model_name': 'mlp_model',
-    'learning_rate': 1,
+    'learning_rate': 0.3,
 
     #Hardware specification
     'fpga_part': 'xcvu13p-flga2577-2-e',
