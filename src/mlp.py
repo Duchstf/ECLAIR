@@ -62,9 +62,9 @@ class MLP:
         #Start from the templates
         self._write_defines_h()
         self._write_parameters_h()
-        # self._write_components_h()
-        # self._write_eclair_cpp()
-        # self._write_build_tcl()
+        self._write_components_h()
+        self._write_mlp_cpp()
+        self._write_build_tcl()
 
     def _write_defines_h(self):
 
@@ -122,7 +122,6 @@ class MLP:
 
         # ---Create the insertion map and write to the file---
         insertions = {
-            "//BASIS-LUTS": basis_luts_all, # Insert both struct and instance
             "//MODEL": model_params,
             "//CONTEXT": model_context
             }
@@ -132,74 +131,29 @@ class MLP:
 
     def _write_components_h(self):
 
-        # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/components.h")
+        # Just copy the file over for now
+        template_path = os.path.join(os.path.dirname(__file__), "templates/mlp/components.h")
         outfile_path = f"{self.model_dir}/firmware/components.h"
 
-        # Write out the look up and addition explicitly
-        basis_lookup = []
-        accumulation = ["            partial_sums[i] ="]
+        shutil.copy(template_path, outfile_path)
 
-        weight_update_input = []
-        downstream_grad = []
-       
-        for spline_i in range(0, self.spline_order + 1):
-
-            #Forward
-            basis_lookup.append(f"            weight_t b{spline_i} = LUT.B{spline_i}[ui];\n")
-
-            if spline_i != 0: accumulation.append(f" + L.Ws[o][i][k + {spline_i}] * b{spline_i}") 
-            else: accumulation.append(f" L.Ws[o][i][k] * b{spline_i}") 
-
-            #Backprop
-            weight_update_input.append(f"            L.Ws[o][i][k + {spline_i}] -= delta * LUT.B{spline_i}[u_index];\n")
-            downstream_grad.append(f"            gx += L.Ws[o][i][k + {spline_i}] * LUT.dB{spline_i}[u_index];\n")
-
-        #Join them all into strings
-        basis_lookup = "".join(basis_lookup)
-        accumulation = "".join(accumulation) + ";"
-        weight_update_input = "".join(weight_update_input)
-        downstream_grad = "".join(downstream_grad)
-
-        insertions = {
-            
-            #Forward
-            "//spline-lookup": basis_lookup,
-            "//spline-accumulation":accumulation,
-
-            #Backprop
-            "//weight-update": weight_update_input,
-            "//calculate-downstream-grad": downstream_grad,
-        }
-
-        # write to file
-        tools.insert_to_file(template_path, outfile_path, insertions)
-
-    def _write_eclair_cpp(self):
+    def _write_mlp_cpp(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/eclair.cpp")
-        outfile_path = f"{self.model_dir}/firmware/eclair.cpp"
+        template_path = os.path.join(os.path.dirname(__file__), "templates/mlp/mlp.cpp")
+        outfile_path = f"{self.model_dir}/firmware/mlp.cpp"
 
         #Define the pragmas
-        lut_pragmas = []
         param_pragmas = []
         context_pragmas = []
 
-        for spline_i in range(0, self.spline_order + 1):
-            lut_pragmas.append(f"    #pragma HLS BIND_STORAGE variable=LUT.B{spline_i} type=rom_1p impl=lutram\n")
-            lut_pragmas.append(f"    #pragma HLS BIND_STORAGE variable=LUT.dB{spline_i} type=rom_1p impl=lutram\n")
-
         for layer_i in range(self.num_layers):
-            param_pragmas.append(f"    #pragma HLS BIND_STORAGE variable=P.L{layer_i}.Ws type={self.params_type} impl={self.params_impl}\n")
-            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.Ws complete dim=1\n")
-            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.Ws complete dim=2\n")
-            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.Ws cyclic factor={self.spline_order + 1} dim=3\n")
+            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.W complete\n")
+            param_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=P.L{layer_i}.b complete\n")
 
-            context_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=C.C{layer_i}.k complete\n")
-            context_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=C.C{layer_i}.u_index complete\n")
+            context_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=C.C{layer_i}.x_copy complete\n")
+            context_pragmas.append(f"    #pragma HLS ARRAY_PARTITION variable=C.C{layer_i}.z complete\n")
 
-        lut_pragmas = "".join(lut_pragmas)
         param_pragmas = "".join(param_pragmas)
         context_pragmas = "".join(context_pragmas)
 
@@ -252,7 +206,6 @@ class MLP:
             "//backward-pass": backward_pass,
 
             #Pragmas
-            "//lut-pragmas": lut_pragmas,
             "//param-pragmas": param_pragmas,
             "//context-pragmas": context_pragmas
         }
@@ -261,8 +214,8 @@ class MLP:
         tools.insert_to_file(template_path, outfile_path, insertions)
 
         #Also copy the bridge
-        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/eclair/bridge.cpp"), f"{self.model_dir}/firmware/bridge.cpp")
-        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/eclair/eclair.h"), f"{self.model_dir}/firmware/eclair.h")
+        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/mlp/bridge.cpp"), f"{self.model_dir}/firmware/bridge.cpp")
+        shutil.copy(os.path.join(os.path.dirname(__file__), "templates/mlp/mlp.h"), f"{self.model_dir}/firmware/mlp.h")
 
     #----------------------------HLS API---------------------------------
     def compile(self):
@@ -279,7 +232,7 @@ class MLP:
         # --- COMPILED COMMAND ---
         compile_cmd = (
             f"g++ -shared -o {lib_path} -fPIC "
-            f"{self.model_dir}/firmware/eclair.cpp "           # <-- The HLS logic
+            f"{self.model_dir}/firmware/mlp.cpp "           # <-- The HLS logic
             f"{self.model_dir}/firmware/bridge.cpp "  # <-- The Python wrapper
             f"-I. -I {hls_include_path} -std=c++11"
         )
@@ -298,9 +251,9 @@ class MLP:
             raise
 
         try:
-            self.c_update_func = self.lib.eclair_update
+            self.c_update_func = self.lib.mlp_update
         except AttributeError:
-            print("Error: Could not find function 'eclair_update' in shared library.")
+            print("Error: Could not find function 'mlp_update' in shared library.")
             raise
 
         #Set the types

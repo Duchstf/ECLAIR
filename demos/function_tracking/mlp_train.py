@@ -124,13 +124,17 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 config = {
     #Model architecture
     'layer_sizes': [1, 20, 1],
-    'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    # 'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    # 'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    # 'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+
+    'model_precision': 'float',
+    'input_precision': 'float',
+    'output_precision': 'float',
     
     #Others
     'model_name': 'mlp_model',
-    'learning_rate': 0.15,
+    'learning_rate': 1,
 
     #Hardware specification
     'fpga_part': 'xcvu13p-flga2577-2-e',
@@ -171,6 +175,6 @@ save_static_four_plots(
     y_data=y_series,
     y_pred_data=y_pred_series,
     loss_data=mse_loss_series,
-    out_file="plots/ECLAIR.png",
+    out_file="plots/MLP.png",
     figsize=(10, 10) # Make figure taller for 4 plots
 )
