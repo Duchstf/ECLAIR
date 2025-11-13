@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'forward_layer_1_1_s'
 ================================================================
-* Date:           Wed Nov 12 03:59:42 2025
+* Date:           Thu Nov 13 06:03:25 2025
 
 * Version:        2024.1 (Build 5069499 on May 21 2024)
 * Project:        eclair
@@ -69,28 +69,28 @@
 
 + Detail: 
     * Instance: 
-    +--------------------------+----------------------+---------+----+---+----+-----+
-    |         Instance         |        Module        | BRAM_18K| DSP| FF| LUT| URAM|
-    +--------------------------+----------------------+---------+----+---+----+-----+
-    |mul_16s_10ns_26_1_1_U34   |mul_16s_10ns_26_1_1   |        0|   1|  0|   5|    0|
-    |sparsemux_7_2_3_1_1_U30   |sparsemux_7_2_3_1_1   |        0|   0|  0|   9|    0|
-    |sparsemux_9_2_16_1_1_U31  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U32  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U33  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U35  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_3_16_1_1_U29  |sparsemux_9_3_16_1_1  |        0|   0|  0|  14|    0|
-    +--------------------------+----------------------+---------+----+---+----+-----+
-    |Total                     |                      |        0|   1|  0| 108|    0|
-    +--------------------------+----------------------+---------+----+---+----+-----+
+    +-------------------------+----------------------+---------+----+---+----+-----+
+    |         Instance        |        Module        | BRAM_18K| DSP| FF| LUT| URAM|
+    +-------------------------+----------------------+---------+----+---+----+-----+
+    |mul_16s_10ns_26_1_1_U6   |mul_16s_10ns_26_1_1   |        0|   1|  0|   5|    0|
+    |sparsemux_7_2_3_1_1_U2   |sparsemux_7_2_3_1_1   |        0|   0|  0|   9|    0|
+    |sparsemux_9_2_16_1_1_U3  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U4  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U5  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U7  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_3_16_1_1_U1  |sparsemux_9_3_16_1_1  |        0|   0|  0|  14|    0|
+    +-------------------------+----------------------+---------+----+---+----+-----+
+    |Total                    |                      |        0|   1|  0| 108|    0|
+    +-------------------------+----------------------+---------+----+---+----+-----+
 
     * DSP: 
-    +------------------------------------+--------------------------------+--------------+
-    |              Instance              |             Module             |  Expression  |
-    +------------------------------------+--------------------------------+--------------+
-    |mac_muladd_16s_10ns_26s_27_4_1_U37  |mac_muladd_16s_10ns_26s_27_4_1  |  i0 + i1 * i2|
-    |mac_muladd_16s_8ns_26s_26_4_1_U36   |mac_muladd_16s_8ns_26s_26_4_1   |  i0 + i1 * i2|
-    |mac_muladd_16s_8ns_27s_27_4_1_U38   |mac_muladd_16s_8ns_27s_27_4_1   |  i0 + i1 * i2|
-    +------------------------------------+--------------------------------+--------------+
+    +-----------------------------------+--------------------------------+--------------+
+    |              Instance             |             Module             |  Expression  |
+    +-----------------------------------+--------------------------------+--------------+
+    |mac_muladd_16s_10ns_26s_27_4_1_U9  |mac_muladd_16s_10ns_26s_27_4_1  |  i0 + i1 * i2|
+    |mac_muladd_16s_8ns_26s_26_4_1_U8   |mac_muladd_16s_8ns_26s_26_4_1   |  i0 + i1 * i2|
+    |mac_muladd_16s_8ns_27s_27_4_1_U10  |mac_muladd_16s_8ns_27s_27_4_1   |  i0 + i1 * i2|
+    +-----------------------------------+--------------------------------+--------------+
 
     * Memory: 
     N/A
@@ -105,15 +105,15 @@
     |add_ln12_1_fu_414_p2       |         +|   0|  0|  36|          29|          29|
     |add_ln12_fu_384_p2         |         +|   0|  0|  24|          17|          12|
     |add_ln24_fu_697_p2         |         +|   0|  0|  13|           6|           1|
-    |add_ln52_1_fu_970_p2       |         +|   0|  0|  15|           8|           1|
-    |add_ln52_fu_936_p2         |         +|   0|  0|  32|          32|          20|
-    |add_ln79_1_fu_1037_p2      |         +|   0|  0|  10|           3|           2|
-    |add_ln79_2_fu_1058_p2      |         +|   0|  0|  10|           3|           2|
-    |add_ln79_6_fu_1265_p2      |         +|   0|  0|  23|          16|          16|
-    |add_ln79_fu_1016_p2        |         +|   0|  0|  10|           3|           1|
+    |add_ln48_1_fu_970_p2       |         +|   0|  0|  15|           8|           1|
+    |add_ln48_fu_936_p2         |         +|   0|  0|  32|          32|          20|
+    |add_ln75_1_fu_1037_p2      |         +|   0|  0|  10|           3|           2|
+    |add_ln75_2_fu_1058_p2      |         +|   0|  0|  10|           3|           2|
+    |add_ln75_6_fu_1265_p2      |         +|   0|  0|  23|          16|          16|
+    |add_ln75_fu_1016_p2        |         +|   0|  0|  10|           3|           1|
     |t_1_fu_488_p2              |         +|   0|  0|  23|          16|          16|
     |sub_ln25_fu_755_p2         |         -|   0|  0|  24|          17|          17|
-    |sub_ln52_fu_930_p2         |         -|   0|  0|  32|          32|          32|
+    |sub_ln48_fu_930_p2         |         -|   0|  0|  32|          32|          32|
     |and_ln12_1_fu_508_p2       |       and|   0|  0|   2|           1|           1|
     |and_ln12_2_fu_574_p2       |       and|   0|  0|   2|           1|           1|
     |and_ln12_3_fu_624_p2       |       and|   0|  0|   2|           1|           1|
@@ -124,9 +124,9 @@
     |and_ln19_fu_813_p2         |       and|   0|  0|   2|           1|           1|
     |and_ln25_1_fu_831_p2       |       and|   0|  0|   2|           1|           1|
     |and_ln25_fu_787_p2         |       and|   0|  0|   2|           1|           1|
-    |and_ln79_1_fu_1315_p2      |       and|   0|  0|   2|           1|           1|
-    |and_ln79_2_fu_1333_p2      |       and|   0|  0|   2|           1|           1|
-    |and_ln79_fu_1255_p2        |       and|   0|  0|   2|           1|           1|
+    |and_ln75_1_fu_1315_p2      |       and|   0|  0|   2|           1|           1|
+    |and_ln75_2_fu_1333_p2      |       and|   0|  0|   2|           1|           1|
+    |and_ln75_fu_1255_p2        |       and|   0|  0|   2|           1|           1|
     |empty_fu_634_p2            |       and|   0|  0|   2|           1|           1|
     |icmp_ln12_1_fu_532_p2      |      icmp|   0|  0|   9|           2|           2|
     |icmp_ln12_2_fu_548_p2      |      icmp|   0|  0|  10|           3|           2|
@@ -134,17 +134,17 @@
     |icmp_ln12_fu_450_p2        |      icmp|   0|  0|  16|           9|           1|
     |icmp_ln19_fu_671_p2        |      icmp|   0|  0|  23|          16|          13|
     |icmp_ln24_fu_691_p2        |      icmp|   0|  0|  17|          10|           1|
-    |icmp_ln52_fu_964_p2        |      icmp|   0|  0|  27|          20|           1|
-    |icmp_ln79_fu_1229_p2       |      icmp|   0|  0|  16|           9|           1|
+    |icmp_ln48_fu_964_p2        |      icmp|   0|  0|  27|          20|           1|
+    |icmp_ln75_fu_1229_p2       |      icmp|   0|  0|  16|           9|           1|
     |or_ln12_1_fu_594_p2        |        or|   0|  0|   2|           1|           1|
     |or_ln12_2_fu_651_p2        |        or|   0|  0|   2|           1|           1|
     |or_ln12_fu_472_p2          |        or|   0|  0|   2|           1|           1|
     |or_ln19_fu_819_p2          |        or|   0|  0|   2|           1|           1|
-    |or_ln79_1_fu_1309_p2       |        or|   0|  0|   2|           1|           1|
-    |or_ln79_2_fu_1347_p2       |        or|   0|  0|   2|           1|           1|
-    |or_ln79_3_fu_1285_p2       |        or|   0|  0|   2|           1|           1|
-    |or_ln79_4_fu_1321_p2       |        or|   0|  0|   2|           1|           1|
-    |or_ln79_fu_1249_p2         |        or|   0|  0|   2|           1|           1|
+    |or_ln75_1_fu_1309_p2       |        or|   0|  0|   2|           1|           1|
+    |or_ln75_2_fu_1347_p2       |        or|   0|  0|   2|           1|           1|
+    |or_ln75_3_fu_1285_p2       |        or|   0|  0|   2|           1|           1|
+    |or_ln75_4_fu_1321_p2       |        or|   0|  0|   2|           1|           1|
+    |or_ln75_fu_1249_p2         |        or|   0|  0|   2|           1|           1|
     |o_sum_fu_1353_p3           |    select|   0|  0|  16|           1|          16|
     |ref_tmp_i_i_i_0_fu_711_p3  |    select|   0|  0|   6|           1|           6|
     |select_ln12_1_fu_580_p3    |    select|   0|  0|   2|           1|           1|
@@ -152,8 +152,8 @@
     |select_ln12_fu_560_p3      |    select|   0|  0|   2|           1|           1|
     |select_ln24_fu_703_p3      |    select|   0|  0|   6|           1|           6|
     |select_ln25_fu_739_p3      |    select|   0|  0|  17|           1|          17|
-    |select_ln52_fu_976_p3      |    select|   0|  0|   8|           1|           8|
-    |select_ln79_fu_1339_p3     |    select|   0|  0|  17|           1|          15|
+    |select_ln48_fu_976_p3      |    select|   0|  0|   8|           1|           8|
+    |select_ln75_fu_1339_p3     |    select|   0|  0|  17|           1|          15|
     |t_2_fu_656_p3              |    select|   0|  0|  16|           1|          16|
     |u_fu_847_p6                |    select|   0|  0|  17|           1|          15|
     |ui_fu_984_p3               |    select|   0|  0|   8|           1|           8|
@@ -167,28 +167,28 @@
     |xor_ln19_fu_825_p2         |       xor|   0|  0|   2|           1|           2|
     |xor_ln25_1_fu_793_p2       |       xor|   0|  0|   2|           1|           1|
     |xor_ln25_fu_781_p2         |       xor|   0|  0|   2|           1|           2|
-    |xor_ln79_1_fu_1297_p2      |       xor|   0|  0|   2|           1|           2|
-    |xor_ln79_2_fu_1291_p2      |       xor|   0|  0|   2|           1|           1|
-    |xor_ln79_3_fu_1303_p2      |       xor|   0|  0|   2|           1|           2|
-    |xor_ln79_4_fu_1327_p2      |       xor|   0|  0|   2|           1|           2|
-    |xor_ln79_fu_1279_p2        |       xor|   0|  0|   2|           1|           2|
+    |xor_ln75_1_fu_1297_p2      |       xor|   0|  0|   2|           1|           2|
+    |xor_ln75_2_fu_1291_p2      |       xor|   0|  0|   2|           1|           1|
+    |xor_ln75_3_fu_1303_p2      |       xor|   0|  0|   2|           1|           2|
+    |xor_ln75_4_fu_1327_p2      |       xor|   0|  0|   2|           1|           2|
+    |xor_ln75_fu_1279_p2        |       xor|   0|  0|   2|           1|           2|
     +---------------------------+----------+----+---+----+------------+------------+
     |Total                      |          |   0|  0| 588|         306|         344|
     +---------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +-----------------------------------------------------------------------------+----+-----------+-----+-----------+
-    |                                     Name                                    | LUT| Input Size| Bits| Total Bits|
-    +-----------------------------------------------------------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                                                                    |  54|         10|    1|         10|
-    |ap_return                                                                    |   9|          2|   16|         32|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0_local  |  20|          4|    1|          4|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0_local  |  20|          4|    1|          4|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0_local  |  20|          4|    1|          4|
-    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0_local    |  20|          4|    1|          4|
-    +-----------------------------------------------------------------------------+----+-----------+-----+-----------+
-    |Total                                                                        | 143|         28|   21|         58|
-    +-----------------------------------------------------------------------------+----+-----------+-----+-----------+
+    +---------------------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |                                          Name                                         | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                                                              |  54|         10|    1|         10|
+    |ap_return                                                                              |   9|          2|   16|         32|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0_local  |  20|          4|    1|          4|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0_local  |  20|          4|    1|          4|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0_local  |  20|          4|    1|          4|
+    |eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0_local    |  20|          4|    1|          4|
+    +---------------------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                                                  | 143|         28|   21|         58|
+    +---------------------------------------------------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
     +----------------------+----+----+-----+-----------+
@@ -223,56 +223,56 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------------------------------------------------------------+-----+-----+------------+-----------------------------------------------------------------------+--------------+
-|                                   RTL Ports                                  | Dir | Bits|  Protocol  |                             Source Object                             |    C Type    |
-+------------------------------------------------------------------------------+-----+-----+------------+-----------------------------------------------------------------------+--------------+
-|ap_clk                                                                        |   in|    1|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|ap_rst                                                                        |   in|    1|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|ap_start                                                                      |   in|    1|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|ap_done                                                                       |  out|    1|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|ap_idle                                                                       |  out|    1|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|ap_ready                                                                      |  out|    1|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|ap_return                                                                     |  out|   16|  ap_ctrl_hs|                                                    forward_layer<1, 1>|  return value|
-|x_val                                                                         |   in|   16|     ap_none|                                                                  x_val|        scalar|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53               |  out|    3|      ap_vld|        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53|       pointer|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld        |  out|    1|      ap_vld|        eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53|       pointer|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52         |  out|    8|      ap_vld|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52|       pointer|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld  |  out|    1|      ap_vld|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52|       pointer|
-|LUT_B0_address0                                                               |  out|    8|   ap_memory|                                                                 LUT_B0|         array|
-|LUT_B0_ce0                                                                    |  out|    1|   ap_memory|                                                                 LUT_B0|         array|
-|LUT_B0_q0                                                                     |   in|    8|   ap_memory|                                                                 LUT_B0|         array|
-|LUT_B1_address0                                                               |  out|    8|   ap_memory|                                                                 LUT_B1|         array|
-|LUT_B1_ce0                                                                    |  out|    1|   ap_memory|                                                                 LUT_B1|         array|
-|LUT_B1_q0                                                                     |   in|   10|   ap_memory|                                                                 LUT_B1|         array|
-|LUT_B2_address0                                                               |  out|    8|   ap_memory|                                                                 LUT_B2|         array|
-|LUT_B2_ce0                                                                    |  out|    1|   ap_memory|                                                                 LUT_B2|         array|
-|LUT_B2_q0                                                                     |   in|   10|   ap_memory|                                                                 LUT_B2|         array|
-|LUT_B3_address0                                                               |  out|    8|   ap_memory|                                                                 LUT_B3|         array|
-|LUT_B3_ce0                                                                    |  out|    1|   ap_memory|                                                                 LUT_B3|         array|
-|LUT_B3_q0                                                                     |   in|    8|   ap_memory|                                                                 LUT_B3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0         |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0              |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0               |   in|   16|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1         |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1              |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1               |   in|   16|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0         |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0              |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0               |   in|   16|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1         |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1              |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1               |   in|   16|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0         |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0              |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0               |   in|   16|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1         |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1              |  out|    1|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1               |   in|   16|   ap_memory|           eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0           |  out|    1|   ap_memory|             eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0                |  out|    1|   ap_memory|             eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0                 |   in|   16|   ap_memory|             eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1           |  out|    1|   ap_memory|             eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1                |  out|    1|   ap_memory|             eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P|         array|
-|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1                 |   in|   16|   ap_memory|             eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P|         array|
-+------------------------------------------------------------------------------+-----+-----+------------+-----------------------------------------------------------------------+--------------+
++---------------------------------------------------------------------------------+-----+-----+------------+------------------------------------------------------------------------+--------------+
+|                                    RTL Ports                                    | Dir | Bits|  Protocol  |                              Source Object                             |    C Type    |
++---------------------------------------------------------------------------------+-----+-----+------------+------------------------------------------------------------------------+--------------+
+|ap_clk                                                                           |   in|    1|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|ap_rst                                                                           |   in|    1|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|ap_start                                                                         |   in|    1|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|ap_done                                                                          |  out|    1|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|ap_idle                                                                          |  out|    1|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|ap_ready                                                                         |  out|    1|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|ap_return                                                                        |  out|   16|  ap_ctrl_hs|                                                     forward_layer<1, 1>|  return value|
+|x_val                                                                            |   in|   16|     ap_none|                                                                   x_val|        scalar|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54                   |  out|    3|      ap_vld|          eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54|       pointer|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54_ap_vld            |  out|    1|      ap_vld|          eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54|       pointer|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53             |  out|    8|      ap_vld|    eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53|       pointer|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53_ap_vld      |  out|    1|      ap_vld|    eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53|       pointer|
+|LUT_B0_address0                                                                  |  out|    8|   ap_memory|                                                                  LUT_B0|         array|
+|LUT_B0_ce0                                                                       |  out|    1|   ap_memory|                                                                  LUT_B0|         array|
+|LUT_B0_q0                                                                        |   in|    8|   ap_memory|                                                                  LUT_B0|         array|
+|LUT_B1_address0                                                                  |  out|    8|   ap_memory|                                                                  LUT_B1|         array|
+|LUT_B1_ce0                                                                       |  out|    1|   ap_memory|                                                                  LUT_B1|         array|
+|LUT_B1_q0                                                                        |   in|   10|   ap_memory|                                                                  LUT_B1|         array|
+|LUT_B2_address0                                                                  |  out|    8|   ap_memory|                                                                  LUT_B2|         array|
+|LUT_B2_ce0                                                                       |  out|    1|   ap_memory|                                                                  LUT_B2|         array|
+|LUT_B2_q0                                                                        |   in|   10|   ap_memory|                                                                  LUT_B2|         array|
+|LUT_B3_address0                                                                  |  out|    8|   ap_memory|                                                                  LUT_B3|         array|
+|LUT_B3_ce0                                                                       |  out|    1|   ap_memory|                                                                  LUT_B3|         array|
+|LUT_B3_q0                                                                        |   in|    8|   ap_memory|                                                                  LUT_B3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0  |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce0       |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q0        |   in|   16|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address1  |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce1       |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q1        |   in|   16|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0  |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce0       |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q0        |   in|   16|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address1  |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce1       |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q1        |   in|   16|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0  |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce0       |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q0        |   in|   16|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address1  |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce1       |  out|    1|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q1        |   in|   16|   ap_memory|  eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0    |  out|    1|   ap_memory|    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce0         |  out|    1|   ap_memory|    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q0          |   in|   16|   ap_memory|    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address1    |  out|    1|   ap_memory|    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce1         |  out|    1|   ap_memory|    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P|         array|
+|eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q1          |   in|   16|   ap_memory|    eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P|         array|
++---------------------------------------------------------------------------------+-----+-----+------------+------------------------------------------------------------------------+--------------+
 

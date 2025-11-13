@@ -19,6 +19,7 @@ set C_modelArgList {
 	{ input_r int 16 regular {pointer 0}  }
 	{ output_r int 16 regular {pointer 1}  }
 	{ feedback int 16 regular {pointer 0}  }
+	{ zero_grad int 2 regular  }
 }
 set hasAXIMCache 0
 set hasAXIML2Cache 0
@@ -26,9 +27,10 @@ set AXIMCacheInstDict [dict create]
 set C_modelArgMapList {[ 
 	{ "Name" : "input_r", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "output_r", "interface" : "wire", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "feedback", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} ]}
+ 	{ "Name" : "feedback", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
+ 	{ "Name" : "zero_grad", "interface" : "wire", "bitwidth" : 2, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 10
+set portNum 11
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -40,6 +42,7 @@ set portList {
 	{ output_r sc_out sc_lv 16 signal 1 } 
 	{ output_r_ap_vld sc_out sc_logic 1 outvld 1 } 
 	{ feedback sc_in sc_lv 16 signal 2 } 
+	{ zero_grad sc_in sc_lv 2 signal 3 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -51,16 +54,17 @@ set NewPortList {[
  	{ "name": "input_r", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "input_r", "role": "default" }} , 
  	{ "name": "output_r", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "output_r", "role": "default" }} , 
  	{ "name": "output_r_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "output_r", "role": "ap_vld" }} , 
- 	{ "name": "feedback", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "feedback", "role": "default" }}  ]}
+ 	{ "name": "feedback", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "feedback", "role": "default" }} , 
+ 	{ "name": "zero_grad", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "zero_grad", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "19"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "20"],
 		"CDFG" : "eclair",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "14", "EstimateLatencyMax" : "14",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "5", "EstimateLatencyMax" : "11",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -72,90 +76,56 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_r", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "feedback", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "zero_grad", "Type" : "None", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
 			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "LUT_B0", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "LUT_B0", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "Type" : "Memory", "Direction" : "IO",
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "LUT_B0", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "LUT_B0", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Type" : "Memory", "Direction" : "IO",
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Type" : "Memory", "Direction" : "IO",
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Type" : "Memory", "Direction" : "IO",
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
 			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "LUT_B1", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "LUT_B1", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "LUT_B1", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "LUT_B1", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
 			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "LUT_B2", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "LUT_B2", "Inst_start_state" : "1", "Inst_end_state" : "5"}]},
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "LUT_B2", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "LUT_B2", "Inst_start_state" : "2", "Inst_end_state" : "3"}]},
 			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "19", "SubInstance" : "grp_forward_layer_1_1_s_fu_105", "Port" : "LUT_B3", "Inst_start_state" : "6", "Inst_end_state" : "7"},
-					{"ID" : "9", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Port" : "LUT_B3", "Inst_start_state" : "1", "Inst_end_state" : "5"}]}]},
+					{"ID" : "20", "SubInstance" : "grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Port" : "LUT_B3", "Inst_start_state" : "4", "Inst_end_state" : "8"},
+					{"ID" : "9", "SubInstance" : "grp_forward_layer_1_1_s_fu_91", "Port" : "LUT_B3", "Inst_start_state" : "2", "Inst_end_state" : "3"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B0_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_U", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_U", "Parent" : "0"},
 	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B1_U", "Parent" : "0"},
 	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B2_U", "Parent" : "0"},
 	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.LUT_B3_U", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79", "Parent" : "0", "Child" : ["10", "11", "12", "13", "14", "15", "16", "17", "18"],
-		"CDFG" : "backward_input_1_1_ap_fixed_16_6_4_0_0_s",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "4",
-		"VariableLatency" : "0", "ExactLatency" : "4", "EstimateLatencyMin" : "4", "EstimateLatencyMax" : "4",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "dL_dy_val", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "Type" : "None", "Direction" : "I"},
-			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_16s_9ns_25_1_1_U1", "Parent" : "9"},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_16s_8ns_24_1_1_U2", "Parent" : "9"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_10ns_16s_26_1_1_U3", "Parent" : "9"},
-	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.sparsemux_9_2_16_1_1_U4", "Parent" : "9"},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.sparsemux_9_2_16_1_1_U5", "Parent" : "9"},
-	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_10ns_16s_26_1_1_U6", "Parent" : "9"},
-	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.sparsemux_9_2_16_1_1_U7", "Parent" : "9"},
-	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.mul_8ns_16s_24_1_1_U8", "Parent" : "9"},
-	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79.sparsemux_9_2_16_1_1_U9", "Parent" : "9"},
-	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105", "Parent" : "0", "Child" : ["20", "21", "22", "23", "24", "25", "26", "27", "28", "29"],
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91", "Parent" : "0", "Child" : ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],
 		"CDFG" : "forward_layer_1_1_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -171,73 +141,109 @@ set RtlHierarchyInfo {[
 		"IsBlackBox" : "0",
 		"Port" : [
 			{"Name" : "x_val", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_3_16_1_1_U29", "Parent" : "19"},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_7_2_3_1_1_U30", "Parent" : "19"},
-	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U31", "Parent" : "19"},
-	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U32", "Parent" : "19"},
-	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U33", "Parent" : "19"},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mul_16s_10ns_26_1_1_U34", "Parent" : "19"},
-	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.sparsemux_9_2_16_1_1_U35", "Parent" : "19"},
-	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_8ns_26s_26_4_1_U36", "Parent" : "19"},
-	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_10ns_26s_27_4_1_U37", "Parent" : "19"},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_105.mac_muladd_16s_8ns_27s_27_4_1_U38", "Parent" : "19"}]}
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.sparsemux_9_3_16_1_1_U1", "Parent" : "9"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.sparsemux_7_2_3_1_1_U2", "Parent" : "9"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.sparsemux_9_2_16_1_1_U3", "Parent" : "9"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.sparsemux_9_2_16_1_1_U4", "Parent" : "9"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.sparsemux_9_2_16_1_1_U5", "Parent" : "9"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.mul_16s_10ns_26_1_1_U6", "Parent" : "9"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.sparsemux_9_2_16_1_1_U7", "Parent" : "9"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.mac_muladd_16s_8ns_26s_26_4_1_U8", "Parent" : "9"},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.mac_muladd_16s_10ns_26s_27_4_1_U9", "Parent" : "9"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_forward_layer_1_1_s_fu_91.mac_muladd_16s_8ns_27s_27_4_1_U10", "Parent" : "9"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118", "Parent" : "0", "Child" : ["21", "22", "23", "24", "25", "26", "27", "28", "29"],
+		"CDFG" : "backward_input_1_1_ap_fixed_16_6_4_0_0_s",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "4",
+		"VariableLatency" : "0", "ExactLatency" : "4", "EstimateLatencyMin" : "4", "EstimateLatencyMax" : "4",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "dL_dy_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "Type" : "None", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "Type" : "None", "Direction" : "I"},
+			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.mul_16s_9ns_25_1_1_U32", "Parent" : "20"},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.mul_16s_8ns_24_1_1_U33", "Parent" : "20"},
+	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.mul_10ns_16s_26_1_1_U34", "Parent" : "20"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.sparsemux_9_2_16_1_1_U35", "Parent" : "20"},
+	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.sparsemux_9_2_16_1_1_U36", "Parent" : "20"},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.mul_10ns_16s_26_1_1_U37", "Parent" : "20"},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.sparsemux_9_2_16_1_1_U38", "Parent" : "20"},
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.mul_8ns_16s_24_1_1_U39", "Parent" : "20"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118.sparsemux_9_2_16_1_1_U40", "Parent" : "20"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	eclair {
-		input_r {Type I LastRead 5 FirstWrite -1}
-		output_r {Type O LastRead -1 FirstWrite 6}
-		feedback {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 {Type IO LastRead -1 FirstWrite -1}
+		input_r {Type I LastRead 1 FirstWrite -1}
+		output_r {Type O LastRead -1 FirstWrite 2}
+		feedback {Type I LastRead 1 FirstWrite -1}
+		zero_grad {Type I LastRead 0 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 {Type IO LastRead -1 FirstWrite -1}
 		LUT_B0 {Type I LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 {Type IO LastRead -1 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 {Type IO LastRead -1 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P {Type IO LastRead -1 FirstWrite -1}
 		LUT_B1 {Type I LastRead -1 FirstWrite -1}
 		LUT_B2 {Type I LastRead -1 FirstWrite -1}
 		LUT_B3 {Type I LastRead -1 FirstWrite -1}}
-	backward_input_1_1_ap_fixed_16_6_4_0_0_s {
-		dL_dy_val {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 {Type I LastRead 0 FirstWrite -1}
-		LUT_B0 {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 {Type IO LastRead 2 FirstWrite 2}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 {Type IO LastRead 2 FirstWrite 2}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 {Type IO LastRead 2 FirstWrite 2}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P {Type IO LastRead 2 FirstWrite 2}
-		LUT_B1 {Type I LastRead 0 FirstWrite -1}
-		LUT_B2 {Type I LastRead 0 FirstWrite -1}
-		LUT_B3 {Type I LastRead 0 FirstWrite -1}}
 	forward_layer_1_1_s {
 		x_val {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 {Type O LastRead -1 FirstWrite 2}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 {Type O LastRead -1 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 {Type O LastRead -1 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 {Type O LastRead -1 FirstWrite 2}
 		LUT_B0 {Type I LastRead 2 FirstWrite -1}
 		LUT_B1 {Type I LastRead 2 FirstWrite -1}
 		LUT_B2 {Type I LastRead 2 FirstWrite -1}
 		LUT_B3 {Type I LastRead 2 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 {Type I LastRead 5 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 {Type I LastRead 5 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 {Type I LastRead 5 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P {Type I LastRead 5 FirstWrite -1}}}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P {Type I LastRead 5 FirstWrite -1}}
+	backward_input_1_1_ap_fixed_16_6_4_0_0_s {
+		dL_dy_val {Type I LastRead 0 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 {Type I LastRead 0 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 {Type I LastRead 0 FirstWrite -1}
+		LUT_B0 {Type I LastRead 0 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 {Type IO LastRead 2 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 {Type IO LastRead 2 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 {Type IO LastRead 2 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P {Type IO LastRead 2 FirstWrite 2}
+		LUT_B1 {Type I LastRead 0 FirstWrite -1}
+		LUT_B2 {Type I LastRead 0 FirstWrite -1}
+		LUT_B3 {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "14", "Max" : "14"}
-	, {"Name" : "Interval", "Min" : "15", "Max" : "15"}
+	{"Name" : "Latency", "Min" : "5", "Max" : "11"}
+	, {"Name" : "Interval", "Min" : "6", "Max" : "12"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -247,6 +253,7 @@ set Spec2ImplPortList {
 	input_r { ap_none {  { input_r in_data 0 16 } } }
 	output_r { ap_vld {  { output_r out_data 1 16 }  { output_r_ap_vld out_vld 1 1 } } }
 	feedback { ap_none {  { feedback in_data 0 16 } } }
+	zero_grad { ap_none {  { zero_grad in_data 0 2 } } }
 }
 
 set maxi_interface_dict [dict create]

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'eclair'" level="0">
-<item name = "Date">Wed Nov 12 03:59:41 2025
+<item name = "Date">Thu Nov 13 06:03:25 2025
 </item>
 <item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
 <item name = "Project">eclair</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">14, 14, 70.000 ns, 70.000 ns, 15, 15, no</column>
+<column name="">5, 11, 25.000 ns, 55.000 ns, 6, 12, no</column>
 </table>
 </item>
 <item name = "Detail">

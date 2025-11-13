@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'eclair'" level="0">
-<item name = "Date">Wed Nov 12 03:59:42 2025
+<item name = "Date">Thu Nov 13 06:03:25 2025
 </item>
 <item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
 <item name = "Project">eclair</item>
@@ -24,15 +24,15 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">14, 14, 70.000 ns, 70.000 ns, 15, 15, no</column>
+<column name="">5, 11, 25.000 ns, 55.000 ns, 6, 12, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79">backward_input_1_1_ap_fixed_16_6_4_0_0_s, 4, 4, 20.000 ns, 20.000 ns, 4, 4, yes</column>
-<column name="grp_forward_layer_1_1_s_fu_105">forward_layer_1_1_s, 8, 8, 40.000 ns, 40.000 ns, 8, 8, no</column>
+<column name="grp_forward_layer_1_1_s_fu_91">forward_layer_1_1_s, 8, 8, 40.000 ns, 40.000 ns, 8, 8, no</column>
+<column name="grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118">backward_input_1_1_ap_fixed_16_6_4_0_0_s, 4, 4, 20.000 ns, 20.000 ns, 4, 4, yes</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -49,12 +49,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 9, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, 9, 383, 2001, -</column>
 <column name="Memory">-, -, 112, 264, -</column>
-<column name="Multiplexer">-, -, 0, 415, -</column>
-<column name="Register">-, -, 19, -, -</column>
+<column name="Multiplexer">-, -, 0, 421, -</column>
+<column name="Register">-, -, 22, -, -</column>
 <specialColumn name="Available SLR">1344, 3072, 864000, 432000, 320</specialColumn>
 <specialColumn name="Utilization SLR (%)">0, ~0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">5376, 12288, 3456000, 1728000, 1280</specialColumn>
@@ -65,8 +65,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_79">backward_input_1_1_ap_fixed_16_6_4_0_0_s, 0, 5, 266, 1162, 0</column>
-<column name="grp_forward_layer_1_1_s_fu_105">forward_layer_1_1_s, 0, 4, 117, 839, 0</column>
+<column name="grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118">backward_input_1_1_ap_fixed_16_6_4_0_0_s, 0, 5, 266, 1162, 0</column>
+<column name="grp_forward_layer_1_1_s_fu_91">forward_layer_1_1_s, 0, 4, 117, 839, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -79,10 +79,10 @@
 <column name="LUT_B1_U">LUT_B1_ROM_1P_LUTRAM_1R, 0, 16, 65, 0, 256, 10, 1, 2560</column>
 <column name="LUT_B2_U">LUT_B2_ROM_1P_LUTRAM_1R, 0, 16, 65, 0, 256, 10, 1, 2560</column>
 <column name="LUT_B3_U">LUT_B3_ROM_1P_LUTRAM_1R, 0, 8, 33, 0, 256, 8, 1, 2048</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W, 0, 16, 17, 0, 2, 16, 1, 32</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W, 0, 16, 17, 0, 2, 16, 1, 32</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W, 0, 16, 17, 0, 2, 16, 1, 32</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W, 0, 16, 17, 0, 2, 16, 1, 32</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb, 0, 16, 17, 0, 2, 16, 1, 32</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb, 0, 16, 17, 0, 2, 16, 1, 32</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb, 0, 16, 17, 0, 2, 16, 1, 32</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_U">eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb, 0, 16, 17, 0, 2, 16, 1, 32</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -91,6 +91,7 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="icmp_ln41_fu_144_p2">icmp, 0, 0, 9, 2, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -103,35 +104,37 @@
 <column name="LUT_B2_ce0">14, 3, 1, 3</column>
 <column name="LUT_B3_address0">14, 3, 8, 24</column>
 <column name="LUT_B3_ce0">14, 3, 1, 3</column>
-<column name="ap_NS_fsm">43, 8, 1, 8</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1">9, 2, 1, 2</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1">9, 2, 1, 2</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1">9, 2, 1, 2</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1">14, 3, 1, 3</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">49, 9, 1, 9</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_we1">9, 2, 1, 2</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_we1">9, 2, 1, 2</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_we1">9, 2, 1, 2</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce0">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce1">14, 3, 1, 3</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_we1">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">7, 0, 7, 0</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53">3, 0, 3, 0</column>
-<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52">8, 0, 8, 0</column>
-<column name="grp_forward_layer_1_1_s_fu_105_ap_start_reg">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">8, 0, 8, 0</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54">3, 0, 3, 0</column>
+<column name="eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53">8, 0, 8, 0</column>
+<column name="grp_backward_input_1_1_ap_fixed_16_6_4_0_0_s_fu_118_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_forward_layer_1_1_s_fu_91_ap_start_reg">1, 0, 1, 0</column>
+<column name="icmp_ln41_reg_150">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -151,6 +154,7 @@
 <column name="output_r">out, 16, ap_vld, output_r, pointer</column>
 <column name="output_r_ap_vld">out, 1, ap_vld, output_r, pointer</column>
 <column name="feedback">in, 16, ap_none, feedback, pointer</column>
+<column name="zero_grad">in, 2, ap_none, zero_grad, scalar</column>
 </table>
 </item>
 </section>

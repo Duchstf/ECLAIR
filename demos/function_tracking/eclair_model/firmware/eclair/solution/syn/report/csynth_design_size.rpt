@@ -6,39 +6,39 @@
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
 | Phase         | Step                        | Instructions | Description                                                                            |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
-| Compile/Link  |                             | 9,957        | After all functions are compiled and linked into a single design                       |
+| Compile/Link  |                             | 9,983        | After all functions are compiled and linked into a single design                       |
 |               |                             |              |                                                                                        |
 | Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
-|               | (1) unroll                  | 1,136        | user unroll pragmas are applied                                                        |
-|               | (2) simplification          |   607        | simplification of applied user unroll pragmas                                          |
-|               | (3) inline                  |   596        | user inline pragmas are applied                                                        |
-|               | (4) simplification          |   575        | simplification of applied user inline pragmas                                          |
+|               | (1) unroll                  | 1,135        | user unroll pragmas are applied                                                        |
+|               | (2) simplification          |   606        | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  |   595        | user inline pragmas are applied                                                        |
+|               | (4) simplification          |   574        | simplification of applied user inline pragmas                                          |
 |               |                             |              |                                                                                        |
 | Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
-|               | (1) array partition         |   858        | user array partition pragmas are applied                                               |
-|               | (2) simplification          |   774        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
-|               | (3) aggregate/disaggregate  |   774        | user struct aggregate/disaggregate pragmas are applied                                 |
-|               | (4) array reshape           |   764        | apply array reshape pragmas                                                            |
-|               | (5) access patterns         |   764        | array access pattern optmizations                                                      |
+|               | (1) array partition         |   863        | user array partition pragmas are applied                                               |
+|               | (2) simplification          |   779        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  |   779        | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           |   769        | apply array reshape pragmas                                                            |
+|               | (5) access patterns         |   769        | array access pattern optmizations                                                      |
 |               |                             |              |                                                                                        |
 | Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
-|               | (1) loop simplification     |   764        | loop and instruction simplification                                                    |
-|               | (2) parallelization         |   764        | loops are unrolled or pipelined to meet performance targets                            |
-|               | (3) array partition         |   764        | arrays are partitioned to meet performance targets                                     |
-|               | (4) simplification          |   764        | simplification of design after performance transformations                             |
+|               | (1) loop simplification     |   769        | loop and instruction simplification                                                    |
+|               | (2) parallelization         |   769        | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         |   769        | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          |   769        | simplification of design after performance transformations                             |
 |               |                             |              |                                                                                        |
 | HW Transforms |                             |              | After hardware transfomations                                                          |
-|               | (1) lowering                |   770        | initial conversion to HW specific instructions                                         |
-|               | (2) optimizations           |   772        | high level synthesis optimizations                                                     |
+|               | (1) lowering                |   776        | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           |   778        | high level synthesis optimizations                                                     |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
 
 * Instructions per Function for each Compilation Phase
 +------------------------------------+-----------------+--------------+---------------+--------------+-------------+---------------+
 | Function                           | Location        | Compile/Link | Unroll/Inline | Array/Struct | Performance | HW Transforms |
 +------------------------------------+-----------------+--------------+---------------+--------------+-------------+---------------+
-| + eclair                           | eclair.cpp:5    | 9,957        | 575           | 764          | 764         | 772           |
-|    backward_input<1, 1, ap_fixe... | components.h:94 | 3,363        | 310           | 483          | 482         | 483           |
-|  + forward_layer<1, 1>             | components.h:30 | 6,574        | 246           | 262          | 261         | 261           |
+| + eclair                           | eclair.cpp:5    | 9,983        | 574           | 769          | 769         | 778           |
+|    backward_input<1, 1, ap_fixe... | components.h:90 | 3,360        | 310           | 483          | 482         | 483           |
+|  + forward_layer<1, 1>             | components.h:30 | 6,570        | 246           | 262          | 261         | 261           |
 |     cell_index_and_local_u         | components.h:8  | 2,789        |               |              |             |               |
 +------------------------------------+-----------------+--------------+---------------+--------------+-------------+---------------+
 

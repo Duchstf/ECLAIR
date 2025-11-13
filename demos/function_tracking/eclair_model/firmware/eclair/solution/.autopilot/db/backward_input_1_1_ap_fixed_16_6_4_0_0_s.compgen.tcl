@@ -18,29 +18,9 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 }
 
 
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler eclair_sparsemux_9_2_16_1_1 BINDTYPE {op} TYPE {sparsemux} IMPL {auto}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler eclair_sparsemux_9_2_16_1_1 BINDTYPE {op} TYPE {sparsemux} IMPL {auto}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler eclair_sparsemux_9_2_16_1_1 BINDTYPE {op} TYPE {sparsemux} IMPL {auto}
-}
-
-
 set name eclair_mul_8ns_16s_24_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler eclair_sparsemux_9_2_16_1_1 BINDTYPE {op} TYPE {sparsemux} IMPL {auto}
 }
 
 
@@ -55,7 +35,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 21 \
+    id 48 \
     name LUT_B0 \
     reset_level 1 \
     sync_rst true \
@@ -74,17 +54,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 22 \
-    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 \
+    id 49 \
+    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 \
     reset_level 1 \
     sync_rst true \
     dir IO \
-    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 \
+    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 \
     op interface \
-    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_d1 { O 16 vector } } \
+    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_d1 { O 16 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3'"
 }
 }
 
@@ -93,17 +73,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 23 \
-    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 \
+    id 50 \
+    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 \
     reset_level 1 \
     sync_rst true \
     dir IO \
-    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 \
+    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 \
     op interface \
-    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_d1 { O 16 vector } } \
+    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_d1 { O 16 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2'"
 }
 }
 
@@ -112,17 +92,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 24 \
-    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 \
+    id 51 \
+    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 \
     reset_level 1 \
     sync_rst true \
     dir IO \
-    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 \
+    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 \
     op interface \
-    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_d1 { O 16 vector } } \
+    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_d1 { O 16 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1'"
 }
 }
 
@@ -131,17 +111,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 25 \
-    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P \
+    id 52 \
+    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P \
     reset_level 1 \
     sync_rst true \
     dir IO \
-    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P \
+    corename eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P \
     op interface \
-    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_d1 { O 16 vector } } \
+    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce0 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q0 { I 16 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address1 { O 1 vector } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_we1 { O 1 bit } eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_d1 { O 16 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P'"
 }
 }
 
@@ -150,7 +130,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 26 \
+    id 53 \
     name LUT_B1 \
     reset_level 1 \
     sync_rst true \
@@ -169,7 +149,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 27 \
+    id 54 \
     name LUT_B2 \
     reset_level 1 \
     sync_rst true \
@@ -188,7 +168,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 28 \
+    id 55 \
     name LUT_B3 \
     reset_level 1 \
     sync_rst true \
@@ -206,7 +186,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 18 \
+    id 45 \
     name dL_dy_val \
     type other \
     dir I \
@@ -221,30 +201,30 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 19 \
-    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 \
+    id 46 \
+    name eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 \
+    corename dc_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 \
     op interface \
-    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 { I 3 vector } } \
+    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 { I 3 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 20 \
-    name eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 \
+    id 47 \
+    name eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 \
+    corename dc_eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 \
     op interface \
-    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 { I 8 vector } } \
+    ports { eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 { I 8 vector } } \
 } "
 }
 

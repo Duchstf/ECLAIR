@@ -6,9 +6,12 @@ target triple = "fpga64-xilinx-none"
 %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>" = type { %"struct.ap_fixed_base<16, 6, true, AP_RND_CONV, AP_SAT, 0>" }
 %"struct.ap_fixed_base<16, 6, true, AP_RND_CONV, AP_SAT, 0>" = type { %"struct.ssdm_int<16, true>" }
 %"struct.ssdm_int<16, true>" = type { i16 }
+%"struct.ap_uint<2>" = type { %"struct.ap_int_base<2, false>" }
+%"struct.ap_int_base<2, false>" = type { %"struct.ssdm_int<2, false>" }
+%"struct.ssdm_int<2, false>" = type { i2 }
 
 ; Function Attrs: noinline willreturn
-define void @apatb_eclair_ir(%"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly "fpga.decayed.dim.hint"="1" "partition" %input, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="1" "partition" %output, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly "fpga.decayed.dim.hint"="1" "partition" %feedback) local_unnamed_addr #0 {
+define void @apatb_eclair_ir(%"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly "fpga.decayed.dim.hint"="1" "partition" %input, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="1" "partition" %output, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly "fpga.decayed.dim.hint"="1" "partition" %feedback, %"struct.ap_uint<2>"* nocapture readonly %zero_grad) local_unnamed_addr #0 {
 entry:
   %input_copy4 = alloca i16, align 512
   %output_copy5 = alloca i16, align 512
@@ -17,7 +20,7 @@ entry:
   %1 = bitcast %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %output to [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]*
   %2 = bitcast %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %feedback to [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]*
   call void @copy_in([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %0, i16* nonnull align 512 %input_copy4, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %1, i16* nonnull align 512 %output_copy5, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %2, i16* nonnull align 512 %feedback_copy6)
-  call void @apatb_eclair_hw(i16* %input_copy4, i16* %output_copy5, i16* %feedback_copy6)
+  call void @apatb_eclair_hw(i16* %input_copy4, i16* %output_copy5, i16* %feedback_copy6, %"struct.ap_uint<2>"* %zero_grad)
   call void @copy_back([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %0, i16* %input_copy4, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %1, i16* %output_copy5, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %2, i16* %feedback_copy6)
   ret void
 }
@@ -55,7 +58,7 @@ ret:                                              ; preds = %copy.split, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.39"(i16* nocapture "orig.arg.no"="0" "unpacked"="0.0" %dst, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* readonly "orig.arg.no"="1" "unpacked"="1" %src, i64 "orig.arg.no"="2" "unpacked"="2" %num) #1 {
+define void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.40"(i16* nocapture "orig.arg.no"="0" "unpacked"="0.0" %dst, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* readonly "orig.arg.no"="1" "unpacked"="1" %src, i64 "orig.arg.no"="2" "unpacked"="2" %num) #1 {
 entry:
   %0 = icmp eq [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %src, null
   br i1 %0, label %ret, label %copy
@@ -90,7 +93,7 @@ entry:
   br i1 %0, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.39"(i16* %dst, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %src, i64 1)
+  call void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.40"(i16* %dst, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %src, i64 1)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -107,7 +110,7 @@ entry:
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.32"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* "orig.arg.no"="0" "unpacked"="0" %dst, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0" %src, i64 "orig.arg.no"="2" "unpacked"="2" %num) #1 {
+define void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.33"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* "orig.arg.no"="0" "unpacked"="0" %dst, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0" %src, i64 "orig.arg.no"="2" "unpacked"="2" %num) #1 {
 entry:
   %0 = icmp eq [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %dst, null
   br i1 %0, label %ret, label %copy
@@ -136,13 +139,13 @@ ret:                                              ; preds = %copy.split, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.29"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0" %dst, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0" %src) #2 {
+define internal void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.30"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0" %dst, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0" %src) #2 {
 entry:
   %0 = icmp eq [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %dst, null
   br i1 %0, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.32"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %dst, i16* %src, i64 1)
+  call void @"arraycpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.33"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* nonnull %dst, i16* %src, i64 1)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -152,36 +155,36 @@ ret:                                              ; preds = %copy, %entry
 ; Function Attrs: argmemonly noinline norecurse willreturn
 define internal void @copy_out([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0", i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0", [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="2" "unpacked"="2", i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0", [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="4" "unpacked"="4", i16* noalias nocapture readonly align 512 "orig.arg.no"="5" "unpacked"="5.0") #4 {
 entry:
-  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.29"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %0, i16* align 512 %1)
-  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.29"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %2, i16* align 512 %3)
-  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.29"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4, i16* align 512 %5)
+  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.30"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %0, i16* align 512 %1)
+  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.30"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %2, i16* align 512 %3)
+  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.30"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4, i16* align 512 %5)
   ret void
 }
 
-declare void @apatb_eclair_hw(i16*, i16*, i16*)
+declare void @apatb_eclair_hw(i16*, i16*, i16*, %"struct.ap_uint<2>"*)
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
 define internal void @copy_back([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0", i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0", [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="2" "unpacked"="2", i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0", [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* noalias "orig.arg.no"="4" "unpacked"="4", i16* noalias nocapture readonly align 512 "orig.arg.no"="5" "unpacked"="5.0") #4 {
 entry:
-  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.29"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %2, i16* align 512 %3)
+  call void @"onebyonecpy_hls.p0a1struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>.30"([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %2, i16* align 512 %3)
   ret void
 }
 
-define void @eclair_hw_stub_wrapper(i16*, i16*, i16*) #5 {
+define void @eclair_hw_stub_wrapper(i16*, i16*, i16*, %"struct.ap_uint<2>"*) #5 {
 entry:
-  %3 = alloca [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]
   %4 = alloca [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]
   %5 = alloca [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]
-  call void @copy_out([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %3, i16* %0, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4, i16* %1, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %5, i16* %2)
-  %6 = bitcast [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %3 to %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"*
+  %6 = alloca [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]
+  call void @copy_out([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4, i16* %0, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %5, i16* %1, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %6, i16* %2)
   %7 = bitcast [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4 to %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"*
   %8 = bitcast [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %5 to %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"*
-  call void @eclair_hw_stub(%"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %6, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %7, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %8)
-  call void @copy_in([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %3, i16* %0, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4, i16* %1, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %5, i16* %2)
+  %9 = bitcast [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %6 to %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"*
+  call void @eclair_hw_stub(%"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %7, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %8, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* %9, %"struct.ap_uint<2>"* %3)
+  call void @copy_in([1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %4, i16* %0, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %5, i16* %1, [1 x %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"]* %6, i16* %2)
   ret void
 }
 
-declare void @eclair_hw_stub(%"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly)
+declare void @eclair_hw_stub(%"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull, %"struct.ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0>"* noalias nocapture nonnull readonly, %"struct.ap_uint<2>"* nocapture readonly)
 
 attributes #0 = { noinline willreturn "fpga.wrapper.func"="wrapper" }
 attributes #1 = { argmemonly noinline norecurse willreturn "fpga.wrapper.func"="arraycpy_hls" }

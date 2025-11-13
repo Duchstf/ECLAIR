@@ -8,7 +8,7 @@ library ieee;
 use ieee.std_logic_1164.all; 
 use ieee.std_logic_unsigned.all;
 
-entity eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W is 
+entity eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb is 
     generic(
         MEM_TYPE        : string    := "distributed"; 
         DataWidth       : integer   := 16; 
@@ -29,7 +29,7 @@ entity eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2
     ); 
 end entity; 
 
-architecture rtl of eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W is 
+architecture rtl of eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb is 
 
 signal address0_tmp : std_logic_vector(AddressWidth-1 downto 0);
 signal address1_tmp : std_logic_vector(AddressWidth-1 downto 0);

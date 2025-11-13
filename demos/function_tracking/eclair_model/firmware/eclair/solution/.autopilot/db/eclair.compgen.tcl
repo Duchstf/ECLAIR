@@ -6,7 +6,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W BINDTYPE {storage} TYPE {ram_2p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb BINDTYPE {storage} TYPE {ram_2p} IMPL {lutram} LATENCY 2 ALLOW_PRAGMA 1
 }
 
 
@@ -75,6 +75,21 @@ eval "cg_default_interface_gen_dc { \
     corename dc_feedback \
     op interface \
     ports { feedback { I 16 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 64 \
+    name zero_grad \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_zero_grad \
+    op interface \
+    ports { zero_grad { I 2 vector } } \
 } "
 }
 

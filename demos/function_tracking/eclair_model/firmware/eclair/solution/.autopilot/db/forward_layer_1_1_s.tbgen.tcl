@@ -19,38 +19,38 @@ dict set ap_memory_interface_dict LUT_B0 { MEM_WIDTH 8 MEM_SIZE 256 MASTER_TYPE 
 dict set ap_memory_interface_dict LUT_B1 { MEM_WIDTH 10 MEM_SIZE 512 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
 dict set ap_memory_interface_dict LUT_B2 { MEM_WIDTH 10 MEM_SIZE 512 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
 dict set ap_memory_interface_dict LUT_B3 { MEM_WIDTH 8 MEM_SIZE 256 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
-dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
-dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
-dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
-dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
+dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
+dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
+dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
+dict set ap_memory_interface_dict eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P { MEM_WIDTH 16 MEM_SIZE 4 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 1 }
 set C_modelArgList {
 	{ x_val int 16 regular  }
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 int 3 regular {pointer 1} {global 1}  }
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 int 8 regular {pointer 1} {global 1}  }
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 int 3 regular {pointer 1} {global 1}  }
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 int 8 regular {pointer 1} {global 1}  }
 	{ LUT_B0 int 8 regular {array 256 { 1 } 1 1 } {global 0}  }
 	{ LUT_B1 int 10 regular {array 256 { 1 } 1 1 } {global 0}  }
 	{ LUT_B2 int 10 regular {array 256 { 1 } 1 1 } {global 0}  }
 	{ LUT_B3 int 8 regular {array 256 { 1 } 1 1 } {global 0}  }
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P int 16 regular {array 2 { 1 1 } 1 1 } {global 0}  }
 }
 set hasAXIMCache 0
 set hasAXIML2Cache 0
 set AXIMCacheInstDict [dict create]
 set C_modelArgMapList {[ 
 	{ "Name" : "x_val", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
- 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "interface" : "wire", "bitwidth" : 3, "direction" : "WRITEONLY", "extern" : 0} , 
- 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "interface" : "wire", "bitwidth" : 8, "direction" : "WRITEONLY", "extern" : 0} , 
+ 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "interface" : "wire", "bitwidth" : 3, "direction" : "WRITEONLY", "extern" : 0} , 
+ 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "interface" : "wire", "bitwidth" : 8, "direction" : "WRITEONLY", "extern" : 0} , 
  	{ "Name" : "LUT_B0", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "LUT_B1", "interface" : "memory", "bitwidth" : 10, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "LUT_B2", "interface" : "memory", "bitwidth" : 10, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "LUT_B3", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY", "extern" : 0} , 
- 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
- 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
- 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
- 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
+ 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
+ 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
+ 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
+ 	{ "Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "interface" : "memory", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 16} ]}
 # RTL Port declarations: 
 set portNum 48
@@ -62,10 +62,10 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ x_val sc_in sc_lv 16 signal 0 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 sc_out sc_lv 3 signal 1 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld sc_out sc_logic 1 outvld 1 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 sc_out sc_lv 8 signal 2 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld sc_out sc_logic 1 outvld 2 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 sc_out sc_lv 3 signal 1 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54_ap_vld sc_out sc_logic 1 outvld 1 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 sc_out sc_lv 8 signal 2 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53_ap_vld sc_out sc_logic 1 outvld 2 } 
 	{ LUT_B0_address0 sc_out sc_lv 8 signal 3 } 
 	{ LUT_B0_ce0 sc_out sc_logic 1 signal 3 } 
 	{ LUT_B0_q0 sc_in sc_lv 8 signal 3 } 
@@ -78,30 +78,30 @@ set portList {
 	{ LUT_B3_address0 sc_out sc_lv 8 signal 6 } 
 	{ LUT_B3_ce0 sc_out sc_logic 1 signal 6 } 
 	{ LUT_B3_q0 sc_in sc_lv 8 signal 6 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 sc_out sc_lv 1 signal 7 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 sc_out sc_logic 1 signal 7 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 sc_in sc_lv 16 signal 7 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 sc_out sc_lv 1 signal 7 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 sc_out sc_logic 1 signal 7 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1 sc_in sc_lv 16 signal 7 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 sc_out sc_lv 1 signal 8 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 sc_out sc_logic 1 signal 8 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 sc_in sc_lv 16 signal 8 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 sc_out sc_lv 1 signal 8 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 sc_out sc_logic 1 signal 8 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1 sc_in sc_lv 16 signal 8 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 sc_out sc_lv 1 signal 9 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 sc_out sc_logic 1 signal 9 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 sc_in sc_lv 16 signal 9 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 sc_out sc_lv 1 signal 9 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 sc_out sc_logic 1 signal 9 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1 sc_in sc_lv 16 signal 9 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 sc_out sc_lv 1 signal 10 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 sc_out sc_logic 1 signal 10 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 sc_in sc_lv 16 signal 10 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 sc_out sc_lv 1 signal 10 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 sc_out sc_logic 1 signal 10 } 
-	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1 sc_in sc_lv 16 signal 10 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0 sc_out sc_lv 1 signal 7 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce0 sc_out sc_logic 1 signal 7 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q0 sc_in sc_lv 16 signal 7 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address1 sc_out sc_lv 1 signal 7 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce1 sc_out sc_logic 1 signal 7 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q1 sc_in sc_lv 16 signal 7 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0 sc_out sc_lv 1 signal 8 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce0 sc_out sc_logic 1 signal 8 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q0 sc_in sc_lv 16 signal 8 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address1 sc_out sc_lv 1 signal 8 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce1 sc_out sc_logic 1 signal 8 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q1 sc_in sc_lv 16 signal 8 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0 sc_out sc_lv 1 signal 9 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce0 sc_out sc_logic 1 signal 9 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q0 sc_in sc_lv 16 signal 9 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address1 sc_out sc_lv 1 signal 9 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce1 sc_out sc_logic 1 signal 9 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q1 sc_in sc_lv 16 signal 9 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0 sc_out sc_lv 1 signal 10 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce0 sc_out sc_logic 1 signal 10 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q0 sc_in sc_lv 16 signal 10 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address1 sc_out sc_lv 1 signal 10 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce1 sc_out sc_logic 1 signal 10 } 
+	{ eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q1 sc_in sc_lv 16 signal 10 } 
 	{ ap_return sc_out sc_lv 16 signal -1 } 
 }
 set NewPortList {[ 
@@ -112,10 +112,10 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "x_val", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "x_val", "role": "default" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "role": "default" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "role": "ap_vld" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "role": "default" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "role": "ap_vld" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "role": "default" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "role": "ap_vld" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "role": "default" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "role": "ap_vld" }} , 
  	{ "name": "LUT_B0_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "LUT_B0", "role": "address0" }} , 
  	{ "name": "LUT_B0_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "LUT_B0", "role": "ce0" }} , 
  	{ "name": "LUT_B0_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "LUT_B0", "role": "q0" }} , 
@@ -128,30 +128,30 @@ set NewPortList {[
  	{ "name": "LUT_B3_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "LUT_B3", "role": "address0" }} , 
  	{ "name": "LUT_B3_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "LUT_B3", "role": "ce0" }} , 
  	{ "name": "LUT_B3_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "LUT_B3", "role": "q0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "role": "address0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "role": "ce0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "role": "q0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "role": "address1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "role": "ce1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "role": "q1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "role": "address0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "role": "ce0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "role": "q0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "role": "address1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "role": "ce1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "role": "q1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "role": "address0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "role": "ce0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "role": "q0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "role": "address1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "role": "ce1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "role": "q1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "role": "address0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "role": "ce0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "role": "q0" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "role": "address1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "role": "ce1" }} , 
- 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "role": "q1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "role": "address0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "role": "ce0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "role": "q0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "role": "address1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "role": "ce1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "role": "q1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "role": "address0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "role": "ce0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "role": "q0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "role": "address1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "role": "ce1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "role": "q1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "role": "address0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "role": "ce0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "role": "q0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "role": "address1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "role": "ce1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "role": "q1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "role": "address0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "role": "ce0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "role": "q0" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "role": "address1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "role": "ce1" }} , 
+ 	{ "name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "role": "q1" }} , 
  	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
@@ -171,41 +171,41 @@ set RtlHierarchyInfo {[
 		"IsBlackBox" : "0",
 		"Port" : [
 			{"Name" : "x_val", "Type" : "None", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "LUT_B0", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B2", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "LUT_B3", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_3_16_1_1_U29", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_7_2_3_1_1_U30", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U31", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U32", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U33", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_16s_10ns_26_1_1_U34", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U35", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_16s_8ns_26s_26_4_1_U36", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_16s_10ns_26s_27_4_1_U37", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_16s_8ns_27s_27_4_1_U38", "Parent" : "0"}]}
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_3_16_1_1_U1", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_7_2_3_1_1_U2", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U3", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U4", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U5", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mul_16s_10ns_26_1_1_U6", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sparsemux_9_2_16_1_1_U7", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_16s_8ns_26s_26_4_1_U8", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_16s_10ns_26s_27_4_1_U9", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mac_muladd_16s_8ns_27s_27_4_1_U10", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	forward_layer_1_1_s {
 		x_val {Type I LastRead 0 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 {Type O LastRead -1 FirstWrite 2}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 {Type O LastRead -1 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 {Type O LastRead -1 FirstWrite 2}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 {Type O LastRead -1 FirstWrite 2}
 		LUT_B0 {Type I LastRead 2 FirstWrite -1}
 		LUT_B1 {Type I LastRead 2 FirstWrite -1}
 		LUT_B2 {Type I LastRead 2 FirstWrite -1}
 		LUT_B3 {Type I LastRead 2 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 {Type I LastRead 5 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 {Type I LastRead 5 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 {Type I LastRead 5 FirstWrite -1}
-		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P {Type I LastRead 5 FirstWrite -1}}}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 {Type I LastRead 5 FirstWrite -1}
+		eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P {Type I LastRead 5 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -219,14 +219,14 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	x_val { ap_none {  { x_val in_data 0 16 } } }
-	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 { ap_vld {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53 out_data 1 3 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_k_53_ap_vld out_vld 1 1 } } }
-	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 { ap_vld {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52 out_data 1 8 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_C_u_index_52_ap_vld out_vld 1 1 } } }
+	eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 { ap_vld {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54 out_data 1 3 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_k_54_ap_vld out_vld 1 1 } } }
+	eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 { ap_vld {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53 out_data 1 8 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_const_ap_uint_2_C_u_index_53_ap_vld out_vld 1 1 } } }
 	LUT_B0 { ap_memory {  { LUT_B0_address0 mem_address 1 8 }  { LUT_B0_ce0 mem_ce 1 1 }  { LUT_B0_q0 mem_dout 0 8 } } }
 	LUT_B1 { ap_memory {  { LUT_B1_address0 mem_address 1 8 }  { LUT_B1_ce0 mem_ce 1 1 }  { LUT_B1_q0 mem_dout 0 10 } } }
 	LUT_B2 { ap_memory {  { LUT_B2_address0 mem_address 1 8 }  { LUT_B2_ce0 mem_ce 1 1 }  { LUT_B2_q0 mem_dout 0 10 } } }
 	LUT_B3 { ap_memory {  { LUT_B3_address0 mem_address 1 8 }  { LUT_B3_ce0 mem_ce 1 1 }  { LUT_B3_q0 mem_dout 0 8 } } }
-	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3 { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_q1 MemPortDOUT2 0 16 } } }
-	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2 { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_2_q1 MemPortDOUT2 0 16 } } }
-	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1 { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_1_q1 MemPortDOUT2 0 16 } } }
-	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_q1 MemPortDOUT2 0 16 } } }
+	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3 { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_q1 MemPortDOUT2 0 16 } } }
+	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2 { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_2_q1 MemPortDOUT2 0 16 } } }
+	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1 { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_1_q1 MemPortDOUT2 0 16 } } }
+	eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P { ap_memory {  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address0 mem_address 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce0 mem_ce 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q0 mem_dout 0 16 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_address1 MemPortADDR2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_ce1 MemPortCE2 1 1 }  { eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_q1 MemPortDOUT2 0 16 } } }
 }

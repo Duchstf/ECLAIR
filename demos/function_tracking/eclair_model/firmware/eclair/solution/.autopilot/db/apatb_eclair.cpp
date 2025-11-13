@@ -25,6 +25,8 @@ using namespace std;
 #define AUTOTB_TVOUT_output_r "../tv/cdatafile/c.eclair.autotvout_output_r.dat"
 #define AUTOTB_TVIN_feedback "../tv/cdatafile/c.eclair.autotvin_feedback.dat"
 #define AUTOTB_TVOUT_feedback "../tv/cdatafile/c.eclair.autotvout_feedback.dat"
+#define AUTOTB_TVIN_zero_grad "../tv/cdatafile/c.eclair.autotvin_zero_grad.dat"
+#define AUTOTB_TVOUT_zero_grad "../tv/cdatafile/c.eclair.autotvout_zero_grad.dat"
 
 
 // tvout file define:
@@ -1159,10 +1161,10 @@ namespace hls::sim
 
 
 extern "C"
-void eclair_hw_stub_wrapper(void*, void*, void*);
+void eclair_hw_stub_wrapper(void*, void*, void*, hls::sim::Byte<1>*);
 
 extern "C"
-void apatb_eclair_hw(void* __xlx_apatb_param_input_r, void* __xlx_apatb_param_output_r, void* __xlx_apatb_param_feedback)
+void apatb_eclair_hw(void* __xlx_apatb_param_input_r, void* __xlx_apatb_param_output_r, void* __xlx_apatb_param_feedback, hls::sim::Byte<1>* __xlx_apatb_param_zero_grad)
 {
   static hls::sim::Register port0 {
     .name = "input_r",
@@ -1198,6 +1200,17 @@ void apatb_eclair_hw(void* __xlx_apatb_param_input_r, void* __xlx_apatb_param_ou
   };
   port2.param = __xlx_apatb_param_feedback;
 
+  static hls::sim::Register port3 {
+    .name = "zero_grad",
+    .width = 2,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_zero_grad),
+#endif
+  };
+  port3.param = __xlx_apatb_param_zero_grad;
+
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
@@ -1208,11 +1221,13 @@ void apatb_eclair_hw(void* __xlx_apatb_param_input_r, void* __xlx_apatb_param_ou
     dump(port0, port0.iwriter, tcl.AESL_transaction);
     dump(port1, port1.iwriter, tcl.AESL_transaction);
     dump(port2, port2.iwriter, tcl.AESL_transaction);
+    dump(port3, port3.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
+    port3.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    eclair_hw_stub_wrapper(__xlx_apatb_param_input_r, __xlx_apatb_param_output_r, __xlx_apatb_param_feedback);
+    eclair_hw_stub_wrapper(__xlx_apatb_param_input_r, __xlx_apatb_param_output_r, __xlx_apatb_param_feedback, __xlx_apatb_param_zero_grad);
     CodeState = DUMP_OUTPUTS;
     dump(port1, port1.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;

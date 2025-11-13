@@ -1,15 +1,15 @@
 {
   "0": {
-    "basicblocks": 1,
+    "basicblocks": 4,
     "calls": "2 1",
     "file": "eclair.cpp",
     "fileloc": 5,
-    "instructions": 28,
+    "instructions": 34,
     "loads": {
       "T": 2
     },
     "name": "eclair",
-    "total_instructions": 772
+    "total_instructions": 778
   },
   "1": {
     "basicblocks": 13,
@@ -31,7 +31,7 @@
     "basicblocks": 123,
     "calls": "",
     "file": "components.h",
-    "fileloc": 94,
+    "fileloc": 90,
     "instructions": 483,
     "loads": {
       "G": 22

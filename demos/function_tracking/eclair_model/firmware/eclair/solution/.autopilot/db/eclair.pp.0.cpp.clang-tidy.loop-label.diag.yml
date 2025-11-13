@@ -48,21 +48,6 @@ Diagnostics:
         ReplacementText: 'VITIS_LOOP_1247_1: '
   - DiagnosticName:  clang-diagnostic-error
     Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
-    FileOffset:      17
-    FilePath:        eclair.cpp
-    Replacements:    
-  - DiagnosticName:  clang-diagnostic-error
-    Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
-    FileOffset:      18
-    FilePath:        eclair.cpp
-    Replacements:    
-  - DiagnosticName:  clang-diagnostic-error
-    Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
-    FileOffset:      19
-    FilePath:        eclair.cpp
-    Replacements:    
-  - DiagnosticName:  clang-diagnostic-error
-    Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
     FileOffset:      20
     FilePath:        eclair.cpp
     Replacements:    
@@ -87,8 +72,23 @@ Diagnostics:
     FilePath:        eclair.cpp
     Replacements:    
   - DiagnosticName:  clang-diagnostic-error
-    Message:         'Invalid Directive: for current device, ram_2p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      25
+    FilePath:        eclair.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      26
+    FilePath:        eclair.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, rom_1p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
     FileOffset:      27
+    FilePath:        eclair.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, ram_2p + lutram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      30
     FilePath:        eclair.cpp
     Replacements:    
 ...

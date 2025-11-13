@@ -4,7 +4,7 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // ==============================================================
 `timescale 1 ns / 1 ps
-module eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W (
+module eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb (
      
     address0, ce0,
     
@@ -37,7 +37,7 @@ input clk;
 (* ram_style = "distributed"  *)reg [DataWidth-1:0] ram[0:AddressRange-1];
 
 initial begin
-    $readmemh("./eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_P_3_RAM_2P_LUTRAM_1R1W.dat", ram);
+    $readmemh("./eclair_eclair_ap_fixed_const_ap_fixed_ap_fixed_16_6_4_0_0_const_ap_uint_2_P_3_RAM_2Pbkb.dat", ram);
 end 
 
  
