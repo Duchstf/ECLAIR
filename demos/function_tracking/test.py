@@ -1,14 +1,22 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import os  # Added for creating plot directory
+import torch
+import torch.nn as nn
+import torch.optim as optim
 from sklearn.datasets import make_moons
 from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
-sys.path.append('../../src')
-from eclair import Eclair
+# No longer needed:
+# sys.path.append('../../src')
+# from mlp import MLP
 
 NUM_SAMPLES = 1000
+# Ensure plot directory exists
+os.makedirs('plots', exist_ok=True)
+
 
 #------------------------------- DATA GENERATION -----------------------------
 def f1(x):
@@ -75,7 +83,7 @@ def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_f
     ax1.set_ylim(x_data.min() - xpad, x_data.max() + xpad)
     ax1.set_ylabel("x(t)")
     ax1.legend(loc="upper left")
-    title_text = ax1.set_title(f"Final State (t = {int(t_data[-1])})") # Title on the top plot
+    title_text = ax1.set_title(f"Final State (t = {int(t_data[-1])}) - PyTorch") # Title on the top plot
 
     # --- Plot 2: y vs t ---
     ax2.plot(t_data, y_data, lw=2, label="y(t) (True)", color="C1")
@@ -114,70 +122,93 @@ def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_f
 
     # Save the figure
     plt.savefig(out_file)
+    print(f"Saved plot to {out_file}")
     plt.close(fig)
     return out_file
 
 # ------------------------------- DATASET --------------------------
 t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 
-#------------------------------- MODEL -----------------------------
+#------------------------------- PYTORCH MODEL -----------------------------
+
+# --- PyTorch Model Definition ---
+class PyTorchMLP(nn.Module):
+    def __init__(self, layer_sizes):
+        super(PyTorchMLP, self).__init__()
+        # Simple MLP: linear -> relu -> linear
+        self.layers = nn.Sequential(
+            nn.Linear(layer_sizes[0], layer_sizes[1]),
+            nn.ReLU(),
+            nn.Linear(layer_sizes[1], layer_sizes[2])
+        )
+    
+    def forward(self, x):
+        return self.layers(x)
+
+# --- Config and Model Setup ---
 config = {
-    #Model architecture
-    'layer_sizes': [1, 1],
-    'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    
-    #Grid
-    'grid_range': [-2, 2],
-    'grid_size': 5,
-
-    #Spline
-    'spline_order': 3,
-    
-    #Others
-    'lut_resolution': 256, #How many entries for storing bases values in LUTs
-    'model_name': 'eclair_model',
-    'learning_rate': 0.15,
-
-    #Hardware specification
-    'fpga_part': 'xcvu13p-flga2577-2-e',
-    'clock_period': '5', #in nanoseconds
-
-    #HLS Implementation
-    'params_type': 'ram_2p',
-    'params_impl': 'lutram',
-    'context_type': 'ram_1p',
-    'context_impl': 'lutram',
-
+    'layer_sizes': [1, 128, 1],
+    'learning_rate': 0.01, # NOTE: 0.3 is very high for standard SGD. 
+                           # Using 0.01. You can also try Adam optimizer.
 }
 
-model = Eclair(config)
+# --- PyTorch Model Setup ---
+pytorch_model = PyTorchMLP(config['layer_sizes'])
+learning_rate = config['learning_rate']
+optimizer = optim.SGD(pytorch_model.parameters(), lr=learning_rate)
+criterion = nn.MSELoss()
 
-"""
-model.compile()
+print("Using PyTorch MLP Model:")
+print(pytorch_model)
 
-#------------------------------- FEEDBACK LOOP -----------------------------
-feedback_stream = [0] #Initial feedback is 0
+#------------------------------- STANDARD PYTORCH LOOP -----------------------------
+# We no longer need the custom 'feedback_stream' as that was
+# specific to your MLP's update logic. We use a standard
+# online learning loop.
 
 y_pred_series = []
 mse_loss_series = []
 
+print("\nStarting PyTorch online learning loop...")
+
 for i in range(len(t_series)):
 
     t, x, y = t_series[i], x_series[i], y_series[i]
-    pred = model.update([x], feedback_stream[-1])
-    y_pred_series.append(pred)
+    
+    # Convert data to tensors
+    # Input x needs to be [batch_size, num_features] -> [1, 1]
+    x_tensor = torch.tensor([[x]], dtype=torch.float32)
+    # Target y needs to be [batch_size, num_features] -> [1, 1]
+    y_tensor = torch.tensor([[y]], dtype=torch.float32)
 
-    mse_loss = np.mean((y - pred)**2)
-    mse_loss_series.append(mse_loss)
+    # --- Standard PyTorch Training Step ---
+    
+    # 1. Zero gradients
+    optimizer.zero_grad()
+    
+    # 2. Forward pass
+    pred_tensor = pytorch_model(x_tensor)
+    
+    # 3. Calculate loss
+    loss = criterion(pred_tensor, y_tensor)
+    
+    # 4. Backward pass (compute gradients)
+    loss.backward()
+    
+    # 5. Update weights
+    optimizer.step()
+    
+    # --- Store results ---
+    y_pred_series.append(pred_tensor.item()) # .item() gets scalar from tensor
+    mse_loss_series.append(loss.item())
 
-    feedback = pred - y
-    feedback_stream.append(feedback)
 
-    if (i + 1) % 10 == 0:
-        print(f"Step {i+1}/{NUM_SAMPLES}, Current MSE Loss: {mse_loss:.6f}")
+    if (i + 1) % 100 == 0:
+        print(f"Step {i+1}/{NUM_SAMPLES}, Current MSE Loss: {loss.item():.6f}")
 
+print("...Loop finished.")
+
+#------------------------------- PLOTTING -----------------------------
 y_pred_series = np.array(y_pred_series)
 mse_loss_series = np.array(mse_loss_series)
 
@@ -187,7 +218,6 @@ save_static_four_plots(
     y_data=y_series,
     y_pred_data=y_pred_series,
     loss_data=mse_loss_series,
-    out_file="plots/ECLAIR.png",
+    out_file="plots/PyTorch_MLP.png", # Changed output file name
     figsize=(10, 10) # Make figure taller for 4 plots
 )
-"""

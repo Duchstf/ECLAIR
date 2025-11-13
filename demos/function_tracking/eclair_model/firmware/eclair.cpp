@@ -2,7 +2,10 @@
 #include "parameters.h"
 #include "components.h"
 
-void eclair(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const output_t feedback[OUTPUT_DIM]){
+void eclair(const input_t input[INPUT_DIM],
+            output_t output[OUTPUT_DIM],
+            const output_t feedback[OUTPUT_DIM],
+            const ap_uint<2> zero_grad ){
 
     //Static variables update across eclair function calls
     static Params P;
@@ -34,11 +37,14 @@ void eclair(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const o
     #pragma HLS ARRAY_PARTITION variable=C.C0.u_index complete
     
     //variable-definitions
-
+    
+    if (zero_grad == 0){
     //backward-pass
     backward_input<INPUT_DIM, OUTPUT_DIM, output_t>(P.L0, C.C0, feedback);
-
+    }
+    else{
     //forward-pass
     forward_layer<INPUT_DIM, OUTPUT_DIM>(input, output, P.L0, C.C0);
+    }
 
 }

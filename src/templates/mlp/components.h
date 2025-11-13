@@ -51,6 +51,39 @@ inline void forward_layer(
     }
 }
 
+template<int IN_DIM, int OUT_DIM>
+inline void forward_output_layer(
+    const weight_t x[IN_DIM], 
+    weight_t y[OUT_DIM], 
+    const LayerParams<IN_DIM, OUT_DIM> &L,
+    LayerContext<IN_DIM, OUT_DIM> &C
+){
+
+    // Save input 'x' to context for use in backward pass (dL/dW)
+    COPY_X:
+    for (int i = 0; i < IN_DIM; i++) {
+        #pragma HLS UNROLL
+        C.x_copy[i] = x[i];
+    }
+
+    // Compute for each output node
+    FWD_O:
+    for (int o=0; o<OUT_DIM; o++){
+        #pragma HLS PIPELINE
+
+        // 1. Affine Transform: z[o] = sum(W[o][i] * x[i]) + b[o]
+        weight_t z_o = L.b[o];
+        
+        FWD_I:
+        for (int i=0; i<IN_DIM; i++){
+            #pragma HLS UNROLL
+            z_o += L.W[o][i] * x[i];
+        }
+
+        y[o] = z_o; //No activation function
+    }
+}
+
 
 // --- MLP Backward Function (Input Layer) ---
 /**
@@ -99,7 +132,7 @@ inline void backward_input( //When the layer is connected to the input
  * 2. Computes the downstream gradient dL/dx to pass to the previous layer.
  */
 template<int IN_DIM, int OUT_DIM, typename up_grad_t>
-inline void backward( //When the layer is connected to only the output
+inline void backward(
     LayerParams<IN_DIM, OUT_DIM> &L,
     const LayerContext<IN_DIM, OUT_DIM> &C,
     weight_t dL_dx[IN_DIM], // Downstream gradient (dL/dx)
@@ -149,4 +182,57 @@ inline void backward( //When the layer is connected to only the output
     }
 }
 
+
+/**
+ * Performs the full backward pass for a LINEAR output layer.
+ * This function:
+ * 1. Updates weights (W) and biases (b).
+ * 2. Computes the downstream gradient dL/dx to pass to the previous layer.
+ */
+ template<int IN_DIM, int OUT_DIM, typename up_grad_t>
+ inline void backward_output(
+     LayerParams<IN_DIM, OUT_DIM> &L,
+     const LayerContext<IN_DIM, OUT_DIM> &C, // Only used for C.x_copy
+     weight_t dL_dx[IN_DIM],                 // Downstream gradient (dL/dx)
+     const up_grad_t dL_dy[OUT_DIM]         // Upstream gradient (dL/dy)
+ ){  
+ 
+     // Initialize downstream gradient to zero
+     INIT_DX: for (int i = 0; i < IN_DIM; i++) {
+         #pragma HLS UNROLL
+         dL_dx[i] = 0;
+     }
+ 
+     // Loop over all outputs (neurons) in this layer
+     BWD_O: for (int o = 0; o < OUT_DIM; o++) {
+         #pragma HLS PIPELINE 
+ 
+         weight_t dL_dz_o = dL_dy[o];
+         
+         // Update term: delta = LR * dL/dz[o]
+         weight_t delta = LR * dL_dz_o;
+ 
+         // --- Update bias ---
+         // dL/db[o] = dL/dz[o]
+         L.b[o] -= delta;
+ 
+         // Loop over all inputs to this layer
+         BWD_I: for (int i = 0; i < IN_DIM; i++){
+             #pragma HLS UNROLL
+ 
+             // Get the weight *before* the update for the dL/dx calculation
+             weight_t W_oi_old = L.W[o][i];
+ 
+             // --- Downstream gradient calculation ---
+             // dL/dx[i] = sum_over_o( dL/dz[o] * dz[o]/dx[i] )
+             // dz[o]/dx[i] = W[o][i]
+             // So, dL/dx[i] += dL_dz_o * W[oi]
+             dL_dx[i] += dL_dz_o * W_oi_old;
+ 
+             // --- Weight update ---
+             // dL/dW[o][i] = dL/dz[o] * dz[o]/dW[o][i] = dL/dz[o] * x[i]
+             L.W[o][i] -= delta * C.x_copy[i];
+         }
+     }
+ }
 #endif

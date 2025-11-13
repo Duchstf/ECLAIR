@@ -169,7 +169,10 @@ class MLP:
             output_var = self.layer_vars_forward[layer_i + 1]
 
             if output_var != 'output': variable_definitions.append(f"    weight_t {output_var}[{out_dim}];\n") 
-            forward_pass.append(f"    forward_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i}, C.C{layer_i});\n")
+            if layer_i == self.num_layers - 1:
+                forward_pass.append(f"    forward_output_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i}, C.C{layer_i});\n")
+            else:
+                forward_pass.append(f"    forward_layer<{in_dim}, {out_dim}>({input_var}, {output_var}, P.L{layer_i}, C.C{layer_i});\n")
 
         forward_pass = "".join(forward_pass)
 
@@ -191,7 +194,7 @@ class MLP:
 
                 #Define the backward function calls
                 if (layer_i != 0) & ((layer_i == self.num_layers-1)) : #Ouput layer
-                    backward_pass.append(f"    backward<{in_dim}, {out_dim}, output_t>(P.L{layer_i}, C.C{layer_i}, dL_dx_{self.num_layers-2}, feedback);\n")
+                    backward_pass.append(f"    backward_output<{in_dim}, {out_dim}, output_t>(P.L{layer_i}, C.C{layer_i}, dL_dx_{self.num_layers-2}, feedback);\n")
                 elif layer_i == 0: #Input layer
                     backward_pass.append(f"    backward_input<{in_dim}, {out_dim}, weight_t>(P.L{layer_i}, C.C{layer_i},  dL_dx_0);\n")
                 else: #Hideen layer
