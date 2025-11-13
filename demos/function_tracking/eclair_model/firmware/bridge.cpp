@@ -10,22 +10,20 @@
 #include "parameters.h"
 #include "eclair.h"        
 
-// --- Define the global model state ---
-Params P;
-Context C;
-
 // --- Create static buffers for casting ---
 // These hold the data in the HLS-specific types
 static input_t hls_input[INPUT_DIM];
 static output_t hls_output[OUTPUT_DIM];
 static output_t hls_feedback[OUTPUT_DIM];
+static ap_uint<2> hls_zero_grad;
 
 // ---  C-style wrapper for Python ctypes ---
 extern "C" {
-    void eclair_update(
+    void bridge(
         const float* in,     
         float* out,    
-        const float* feedback
+        const float* feedback,
+        const uint zero_grad
     ) {
         
         // --- Cast and copy input data ---
@@ -38,8 +36,11 @@ extern "C" {
             hls_feedback[o] = output_t(feedback ? feedback[o] : 0.0f);
         }
 
+        //Cast and copy zero grad mode
+        hls_zero_grad =  ap_uint<2>(zero_grad);
+
         // --- Call the HLS function ---
-        eclair(hls_input, hls_output, hls_feedback);
+        eclair(hls_input, hls_output, hls_feedback, hls_zero_grad);
         
         // --- Cast and copy output data back ---
         for (int i = 0; i < OUTPUT_DIM; ++i) {

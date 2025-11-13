@@ -153,27 +153,28 @@ config = {
 }
 
 model = Eclair(config)
-
-"""
 model.compile()
 
 #------------------------------- FEEDBACK LOOP -----------------------------
-feedback_stream = [0] #Initial feedback is 0
-
 y_pred_series = []
 mse_loss_series = []
 
 for i in range(len(t_series)):
-
     t, x, y = t_series[i], x_series[i], y_series[i]
-    pred = model.update([x], feedback_stream[-1])
+
+    #Do the inference
+    pred = model.call([x], 0, 1)
     y_pred_series.append(pred)
 
+    #Compute the loss
     mse_loss = np.mean((y - pred)**2)
     mse_loss_series.append(mse_loss)
 
-    feedback = pred - y
-    feedback_stream.append(feedback)
+    #Calculate the feedback
+    feedback = 2*(pred - y)
+
+    #Update the model
+    model.call([x], feedback, 0)
 
     if (i + 1) % 10 == 0:
         print(f"Step {i+1}/{NUM_SAMPLES}, Current MSE Loss: {mse_loss:.6f}")
@@ -190,4 +191,3 @@ save_static_four_plots(
     out_file="plots/ECLAIR.png",
     figsize=(10, 10) # Make figure taller for 4 plots
 )
-"""

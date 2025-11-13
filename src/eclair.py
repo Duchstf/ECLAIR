@@ -47,7 +47,7 @@ class Eclair:
 
         #HLS API
         self.lib = None
-        self.c_update_func = None
+        self.c_bridge_func = None
         self.input_dim = self.layer_sizes[0]
         self.output_dim = self.layer_sizes[-1]
 
@@ -383,25 +383,26 @@ class Eclair:
             raise
 
         try:
-            self.c_update_func = self.lib.eclair_update
+            self.c_bridge_func = self.lib.bridge
         except AttributeError:
-            print("Error: Could not find function 'eclair_update' in shared library.")
+            print("Error: Could not find function 'bridge' in shared library.")
             raise
 
         #Set the types
         input_ptr_type = ctypes.POINTER(ctypes.c_float)
         output_ptr_type = ctypes.POINTER(ctypes.c_float)
         feedback_ptr_type = ctypes.POINTER(ctypes.c_float)
+        zero_grad_type = ctypes.c_uint
 
-        self.c_update_func.argtypes = [input_ptr_type, output_ptr_type, feedback_ptr_type]
-        self.c_update_func.restype = None
+        self.c_bridge_func.argtypes = [input_ptr_type, output_ptr_type, feedback_ptr_type, zero_grad_type]
+        self.c_bridge_func.restype = None
 
         print("Compilation successful. Interface is ready.")
 
-    def update(self, input_data, feedback):
+    def call(self, input_data, feedback, zero_grad):
         """Updates the model with a new input and feedback."""
 
-        if self.c_update_func is None: raise RuntimeError("Model is not compiled. Call .compile() first.")
+        if self.c_bridge_func is None: raise RuntimeError("Model is not compiled. Call .compile() first.")
         if not isinstance(input_data, np.ndarray): input_data = np.array(input_data)
         if not isinstance(feedback, np.ndarray): feedback = np.array(feedback)
         input_data_flat = input_data.flatten()
@@ -420,7 +421,9 @@ class Eclair:
         pred_data = np.zeros(self.output_dim, dtype=np.float32)
         pred_ptr = pred_data.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
 
-        self.c_update_func(x_ptr, pred_ptr, feedback_ptr)
+        is_zero_grad = ctypes.c_uint(int(zero_grad))
+
+        self.c_bridge_func(x_ptr, pred_ptr, feedback_ptr, is_zero_grad)
 
         if self.output_dim == 1: return pred_data[0]
         return pred_data
