@@ -1,223 +1,210 @@
 import sys
+import os
 import numpy as np
+import gymnasium as gym
+import random
 import matplotlib.pyplot as plt
-import os  # Added for creating plot directory
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.datasets import make_moons
-from matplotlib.animation import FuncAnimation, PillowWriter
-from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 
-# No longer needed:
-# sys.path.append('../../src')
-# from mlp import MLP
+# Rough “typical max” values (tuned for stability, not physics-precision)
+STATE_SCALE = np.array([
+    1.5,   # x (cart position)
+    3.0,   # x_dot (cart velocity)
+    0.21,  # theta (pole angle, radians)
+    3.12   # theta_dot (pole angular velocity)
+], dtype=np.float32)
 
-NUM_SAMPLES = 1000
-# Ensure plot directory exists
-os.makedirs('plots', exist_ok=True)
+def normalize_state(state):
+    s = np.array(state, dtype=np.float32) / STATE_SCALE
+    # Optional: clip to [-1, 1] to avoid rare huge values
+    return np.clip(s, -1.0, 1.0)
 
+def softmax(x):
+    """Numerically stable softmax"""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum()
 
-#------------------------------- DATA GENERATION -----------------------------
-def f1(x):
-    """
-    First regime: some smooth nonlinear function of x only.
-    """
-    return np.sin(x) + 0.3 * x**2
+# Add your source path
+sys.path.append('../../src')
+from eclair import Eclair
 
-def f2(x):
-    """
-    Second regime: a completely different function of x only.
-    """
-    return -np.cos(2 * x) + 0.1 * x**3 + 1.0
+# ------------------------------- CONFIGURATION -----------------------------
+ENV_NAME = "CartPole-v1"
+# Original config was 10000 batches * 512 steps
+TOTAL_STEPS = 10000 * 512
+# Log at the same frequency as the original (every 20 batches)
+LOG_INTERVAL_STEPS = 20 * 512
+GAMMA = 0.99            # Discount factor
+LEARNING_RATE = 0.001   # Learning rate for the model
+CRITIC_LOSS_COEF = 0.5  # Weight for the critic's value loss
 
+# CartPole-v1 is considered "solved" at an average reward of 475 over 100 episodes
+SOLVED_SCORE = 475.0
 
-def build_time_series(n, seed=0, low=-2.0, high=2.0, t_switch=None):
-    """
-    Generates time, x, and y data.
-    y is piecewise in *time index* but depends only on x:
-
-        if t < t_switch: y = f1(x)
-        else:            y = f2(x)
-
-    Returns t_orig, x, y, where t_orig is in [0, n-1].
-    """
-    rng = np.random.default_rng(seed)
-    
-    # 1. Generate original t in [0, n-1]
-    t_orig = np.arange(n, dtype=float)
-
-    # If no switch specified, default to middle of the series
-    if t_switch is None:
-        t_switch = n // 2
-
-    # 2. Generate x in [low, high]
-    x = rng.uniform(low, high, size=n)
-
-    # 3. Compute y using x only, with a regime change at t_switch
-    y1 = f1(x)
-    y2 = f2(x)
-
-    mask = t_orig < t_switch   # early vs late times
-    y = np.where(mask, y1, y2)
-
-    return t_orig, x, y
-
-
-def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_file, 
-                         figsize=(10, 10)):
-    """
-    Saves a 4-plot stacked static image of the final state:
-    1. x vs t
-    2. y vs t
-    3. y_pred vs t (and y vs t)
-    4. loss vs t
-    """
-    # Create 4 subplots, stacked vertically, sharing the x-axis
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=figsize, sharex=True)
-    
-    # --- Plot 1: x vs t ---
-    ax1.plot(t_data, x_data, lw=2, label="x(t)", color="C0")
-    ax1.plot([t_data[-1]], [x_data[-1]], "o", ms=4, color="C0") # Final dot
-    xpad = 0.05 * (x_data.max() - x_data.min() + 1e-9)
-    ax1.set_ylim(x_data.min() - xpad, x_data.max() + xpad)
-    ax1.set_ylabel("x(t)")
-    ax1.legend(loc="upper left")
-    title_text = ax1.set_title(f"Final State (t = {int(t_data[-1])}) - PyTorch") # Title on the top plot
-
-    # --- Plot 2: y vs t ---
-    ax2.plot(t_data, y_data, lw=2, label="y(t) (True)", color="C1")
-    ax2.plot([t_data[-1]], [y_data[-1]], "o", ms=4, color="C1") # Final dot
-    ypad = 0.05 * (y_data.max() - y_data.min() + 1e-9)
-    ax2.set_ylim(y_data.min() - ypad, y_data.max() + ypad)
-    ax2.set_ylabel("y(t) True")
-    ax2.legend(loc="upper left")
-
-    # --- Plot 3: y_pred vs t (and y vs t) ---
-    all_y_comp = np.concatenate([y_data, y_pred_data])
-    y_comp_pad = 0.05 * (all_y_comp.max() - all_y_comp.min() + 1e-9)
-    ax3.set_ylim(y_data.min() - ypad, y_data.max() + ypad)
-    
-    ax3.plot(t_data, y_data, lw=2, label="y(t) (True)", color="C1", linestyle="--", alpha=0.7)
-    ax3.plot([t_data[-1]], [y_data[-1]], "o", ms=4, color="C1", alpha=0.7) # Final dot
-    ax3.plot(t_data, y_pred_data, lw=2, label="y(t) (Pred)", color="C2")
-    ax3.plot([t_data[-1]], [y_pred_data[-1]], "o", ms=4, color="C2") # Final dot
-    ax3.set_ylabel("Prediction")
-    ax3.legend(loc="upper left")
-
-    # --- Plot 4: loss vs t ---
-    ax4.plot(t_data, loss_data, lw=2, label="MSE Loss", color="C3")
-    ax4.plot([t_data[-1]], [loss_data[-1]], "o", ms=4, color="C3") # Final dot
-    lpad = 0.05 * (loss_data.max() - loss_data.min() + 1e-9)
-    # Set bottom y-limit to 0 or just below min
-    ax4.set_ylim(min(0, loss_data.min()) - lpad, loss_data.max() + lpad)
-    ax4.set_ylabel("MSE Loss")
-    ax4.legend(loc="upper left")
-
-    # --- Common settings ---
-    ax4.set_xlabel("time t") # Label only on the bottom plot
-    ax1.set_xlim(t_data.min(), t_data.max()) # Set common x-limits
-    
-    plt.tight_layout() # Adjust layout
-
-    # Save the figure
-    plt.savefig(out_file)
-    print(f"Saved plot to {out_file}")
-    plt.close(fig)
-    return out_file
-
-# ------------------------------- DATASET --------------------------
-t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
-
-#------------------------------- PYTORCH MODEL -----------------------------
-
-# --- PyTorch Model Definition ---
-class PyTorchMLP(nn.Module):
-    def __init__(self, layer_sizes):
-        super(PyTorchMLP, self).__init__()
-        # Simple MLP: linear -> relu -> linear
-        self.layers = nn.Sequential(
-            nn.Linear(layer_sizes[0], layer_sizes[1]),
-            nn.ReLU(),
-            nn.Linear(layer_sizes[1], layer_sizes[2])
-        )
-    
-    def forward(self, x):
-        return self.layers(x)
-
-# --- Config and Model Setup ---
+# ------------------------------- MODEL SETUP -------------------------------
+# A2C requires an Actor (policy) and a Critic (value)
+# We use a single model with 3 outputs:
+#   - Output 0: Actor logit for Action 0
+#   - Output 1: Actor logit for Action 1
+#   - Output 2: Critic value V(s)
 config = {
-    'layer_sizes': [1, 128, 1],
-    'learning_rate': 0.01, # NOTE: 0.3 is very high for standard SGD. 
-                           # Using 0.01. You can also try Adam optimizer.
+    'layer_sizes': [4, 3],  # 4 inputs, 3 outputs (2 actor, 1 critic)
+
+    # 'model_precision': 'float',
+    # 'input_precision': 'float',
+    # 'output_precision': 'float',
+
+    'model_precision': 'ap_fixed<32, 10, AP_RND_CONV, AP_SAT>',
+    'input_precision': 'ap_fixed<32, 10, AP_RND_CONV, AP_SAT>',
+    'output_precision': 'ap_fixed<32, 10, AP_RND_CONV, AP_SAT>',
+
+    'grid_range': [-1, 1],
+    'grid_size': 5,
+    'spline_order': 3,
+    'lut_resolution': 256,
+    'model_name': 'eclair_cartpole_a2c',
+    'learning_rate': LEARNING_RATE,
+
+    'fpga_part': 'xcvu13p-flga2577-2-e',
+    'clock_period': '5',
+    'params_type': 'ram_2p',
+    'params_impl': 'lutram',
+    'context_type': 'ram_1p',
+    'context_impl': 'lutram',
 }
 
-# --- PyTorch Model Setup ---
-pytorch_model = PyTorchMLP(config['layer_sizes'])
-learning_rate = config['learning_rate']
-optimizer = optim.SGD(pytorch_model.parameters(), lr=learning_rate)
-criterion = nn.MSELoss()
+model = Eclair(config)
+model.compile()
 
-print("Using PyTorch MLP Model:")
-print(pytorch_model)
+# ------------------------------- TRAINING LOOP -----------------------------
+env = gym.make(ENV_NAME)
+scores = [] # Stores all completed episode scores
 
-#------------------------------- STANDARD PYTORCH LOOP -----------------------------
-# We no longer need the custom 'feedback_stream' as that was
-# specific to your MLP's update logic. We use a standard
-# online learning loop.
+print(f"Starting online A2C training on {ENV_NAME} for {TOTAL_STEPS} steps...")
 
-y_pred_series = []
-mse_loss_series = []
+# Initialize environment
+state, _ = env.reset()
+state = normalize_state(state)
+current_episode_reward = 0
 
-print("\nStarting PyTorch online learning loop...")
-
-for i in range(len(t_series)):
-
-    t, x, y = t_series[i], x_series[i], y_series[i]
+for step in range(TOTAL_STEPS):
+    state_list = list(state)
     
-    # Convert data to tensors
-    # Input x needs to be [batch_size, num_features] -> [1, 1]
-    x_tensor = torch.tensor([[x]], dtype=torch.float32)
-    # Target y needs to be [batch_size, num_features] -> [1, 1]
-    y_tensor = torch.tensor([[y]], dtype=torch.float32)
-
-    # --- Standard PyTorch Training Step ---
+    # --- 1. Get Action and Value V(s_t) ---
+    # Get actor logits and critic value from model (flag=1 for inference)
+    outputs = model.call(state_list, [0, 0, 0], 1)
+    actor_logits = np.array(outputs[0:2])
+    value = outputs[2] # This is V(s_t)
     
-    # 1. Zero gradients
-    optimizer.zero_grad()
+    # Get action probabilities from logits
+    probs = softmax(actor_logits)
     
-    # 2. Forward pass
-    pred_tensor = pytorch_model(x_tensor)
+    # Sample action from the policy distribution
+    action = np.random.choice([0, 1], p=probs)
+
+    # --- 2. Take Step in Environment ---
+    next_state, reward, done, truncated, _ = env.step(action)
+    next_state_norm = normalize_state(next_state)
+    finished = done or truncated
+    current_episode_reward += reward
+
+    # --- 3. Compute 1-Step Targets ---
     
-    # 3. Calculate loss
-    loss = criterion(pred_tensor, y_tensor)
+    # Get V(s_{t+1}) for bootstrapping
+    if finished:
+        next_value = 0.0 # V(s_terminal) = 0
+    else:
+        # Get V(s_{t+1})
+        outputs_next = model.call(list(next_state_norm), [0, 0, 0], 1)
+        next_value = outputs_next[2] # This is V(s_{t+1})
     
-    # 4. Backward pass (compute gradients)
-    loss.backward()
+    # 1-step return (TD target for Critic)
+    # G_t = r_t + gamma * V(s_{t+1})
+    G_t = reward + GAMMA * next_value
     
-    # 5. Update weights
-    optimizer.step()
+    # 1-step advantage (TD error for Actor)
+    # A_t = G_t - V(s_t) = (r_t + gamma * V(s_{t+1})) - V(s_t)
+    A_t = G_t - value
+
+    # --- 4. Calculate Gradients and Update ---
     
-    # --- Store results ---
-    y_pred_series.append(pred_tensor.item()) # .item() gets scalar from tensor
-    mse_loss_series.append(loss.item())
+    # a) Critic Loss Gradient
+    # Loss = CRITIC_LOSS_COEF * (Value - G_t)^2
+    # Gradient (w.r.t value) = CRITIC_LOSS_COEF * 2.0 * (Value - G_t)
+    grad_critic = CRITIC_LOSS_COEF * 2.0 * (value - G_t)
 
+    # b) Actor Loss Gradient
+    # Loss = -log(prob[action]) * A_t
+    # Gradient (w.r.t logits) = A_t * (probs - y)
+    y = np.array([1.0 if i == action else 0.0 for i in range(2)])
+    grad_actor = A_t * (probs - y)
+    
+    # Combine gradients into the feedback vector
+    # [grad_logit_0, grad_logit_1, grad_value]
+    feedback_vector = [grad_actor[0], grad_actor[1], grad_critic]
 
-    if (i + 1) % 100 == 0:
-        print(f"Step {i+1}/{NUM_SAMPLES}, Current MSE Loss: {loss.item():.6f}")
+    # Apply the update (flag=0)
+    model.call(state_list,  [0, 0, 0], 1)
+    model.call(state_list, feedback_vector, 0)
 
-print("...Loop finished.")
+    # --- 5. Handle Episode End and State Transition ---
+    if finished:
+        # Store completed episode score
+        scores.append(current_episode_reward)
+        # Reset environment
+        state, _ = env.reset()
+        state = normalize_state(state)
+        current_episode_reward = 0
+    else:
+        # Move to next state
+        state = next_state_norm
 
-#------------------------------- PLOTTING -----------------------------
-y_pred_series = np.array(y_pred_series)
-mse_loss_series = np.array(mse_loss_series)
+    # --- 6. Logging ---
+    if (step + 1) % LOG_INTERVAL_STEPS == 0:
+        avg_score_100 = np.mean(scores[-100:]) if len(scores) > 0 else 0.0
+        
+        print(
+            f"Step {step+1}/{TOTAL_STEPS} | "
+            f"Avg (last 100 eps): {avg_score_100:.1f}"
+        )
 
-save_static_four_plots(
-    t_data=t_series,
-    x_data=x_series,
-    y_data=y_series,
-    y_pred_data=y_pred_series,
-    loss_data=mse_loss_series,
-    out_file="plots/PyTorch_MLP.png", # Changed output file name
-    figsize=(10, 10) # Make figure taller for 4 plots
-)
+print("Training finished.")
+env.close()
+
+# ------------------------------- PLOTTING -----------------------------------
+os.makedirs("plots", exist_ok=True)
+
+# The 'scores' list now contains rewards from all *completed* episodes
+episodes = np.arange(1, len(scores) + 1)
+
+# 100-episode moving average
+window = 100
+if len(scores) > window:
+    moving_avg = np.convolve(scores, np.ones(window)/window, mode='valid')
+else:
+    moving_avg = [] # Not enough data for moving avg
+
+fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
+
+# Raw per-episode reward
+ax.plot(episodes, scores, linewidth=0.6, alpha=0.5, label="Episode reward")
+
+# Moving average
+if len(moving_avg) > 0:
+    ax.plot(episodes[window-1:], moving_avg, linewidth=1.2, label="100-episode average")
+
+# Solved threshold
+ax.axhline(SOLVED_SCORE, c='red', linestyle="--", linewidth=1.0, label=f"Solved ({int(SOLVED_SCORE)})")
+
+ax.set_xlabel("Episode")
+ax.set_ylabel("Reward")
+ax.set_title("CartPole-v1 A2C Training Performance (Online)")
+ax.grid(True, linewidth=0.3, alpha=0.7)
+ax.legend(frameon=False)
+fig.tight_layout()
+
+fig.savefig("plots/reward_vs_episode_a2c_online.pdf", bbox_inches="tight")
+fig.savefig("plots/reward_vs_episode_a2c_online.png", bbox_inches="tight")
+
+plt.close(fig)
+
+print("Plot saved to plots/reward_vs_episode_a2c_online.png")
