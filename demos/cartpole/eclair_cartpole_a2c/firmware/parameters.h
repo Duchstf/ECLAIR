@@ -52,22 +52,22 @@ struct Context {
 static Params P = {
     { {
 {
-{ weight_t(7.69685889e-01), weight_t(5.21814200e-01), weight_t(4.47324763e-01), weight_t(5.60528611e-01), weight_t(5.86304639e-01), weight_t(-3.58071019e-01), weight_t(1.37070940e-01), weight_t(3.26915716e-01) },
-{ weight_t(2.76681226e-01), weight_t(5.03317051e-01), weight_t(-1.81176395e-01), weight_t(-5.33008052e-01), weight_t(6.70388753e-01), weight_t(-6.81106276e-01), weight_t(-3.39404327e-01), weight_t(-9.72457642e-01) },
-{ weight_t(5.62731747e-01), weight_t(-8.30182461e-01), weight_t(-3.95036714e-01), weight_t(-1.74967445e-01), weight_t(1.87460074e-01), weight_t(4.58879289e-01), weight_t(9.93824178e-01), weight_t(-8.32528336e-02) },
-{ weight_t(2.88152420e-02), weight_t(6.01000585e-01), weight_t(6.18588442e-01), weight_t(-5.56040723e-01), weight_t(1.33568735e-01), weight_t(-6.03071046e-01), weight_t(6.16414962e-01), weight_t(-3.27179592e-01) }
+{ weight_t(4.38839153e-01), weight_t(2.93974479e-01), weight_t(3.97321722e-01), weight_t(2.47819038e-01), weight_t(-4.46581006e-01), weight_t(-4.23178009e-01), weight_t(9.44501164e-01), weight_t(1.94914398e-02) },
+{ weight_t(-4.65098639e-02), weight_t(3.80155499e-01), weight_t(9.12593134e-01), weight_t(4.91753690e-01), weight_t(8.44950478e-01), weight_t(3.41284213e-01), weight_t(-9.86888432e-01), weight_t(9.58229526e-01) },
+{ weight_t(-4.84328014e-01), weight_t(-7.10982808e-01), weight_t(-8.01249060e-01), weight_t(4.10726558e-01), weight_t(-8.54259531e-01), weight_t(7.47979883e-02), weight_t(-7.29290461e-01), weight_t(6.72180272e-01) },
+{ weight_t(-7.89179860e-01), weight_t(-8.80291186e-01), weight_t(9.04693089e-01), weight_t(9.06853276e-01), weight_t(3.79874078e-01), weight_t(9.79828359e-01), weight_t(1.92017451e-01), weight_t(-4.09831223e-01) }
 },
 {
-{ weight_t(1.81312143e-01), weight_t(-8.21568906e-01), weight_t(1.41608552e-01), weight_t(4.86899469e-01), weight_t(1.71258395e-01), weight_t(8.58830153e-01), weight_t(7.49446690e-01), weight_t(-9.98430405e-01) },
-{ weight_t(-4.11416235e-01), weight_t(8.69054521e-01), weight_t(-9.53203220e-01), weight_t(5.80397874e-01), weight_t(8.91174292e-02), weight_t(6.80380655e-01), weight_t(-9.16839950e-01), weight_t(-7.91913516e-01) },
-{ weight_t(-8.47528692e-01), weight_t(7.53355978e-01), weight_t(-5.73055062e-01), weight_t(-6.63603088e-02), weight_t(9.64278337e-01), weight_t(-6.06325885e-01), weight_t(-3.28011127e-02), weight_t(-1.41455492e-01) },
-{ weight_t(3.81172876e-01), weight_t(-3.63542715e-01), weight_t(3.85076783e-01), weight_t(-5.82159321e-01), weight_t(-3.71787884e-01), weight_t(-9.63506853e-01), weight_t(3.10048530e-01), weight_t(-6.43434948e-01) }
+{ weight_t(-9.24243593e-01), weight_t(3.10690897e-01), weight_t(1.24448003e-01), weight_t(-6.20545247e-01), weight_t(-3.32220903e-01), weight_t(-3.52174376e-01), weight_t(7.54277738e-01), weight_t(3.80423026e-01) },
+{ weight_t(-7.91204975e-01), weight_t(-7.87314528e-01), weight_t(7.97584946e-01), weight_t(2.02975673e-01), weight_t(8.59056420e-01), weight_t(4.68032619e-01), weight_t(-1.23926337e-01), weight_t(-8.69577710e-02) },
+{ weight_t(4.07117581e-01), weight_t(-4.43412549e-01), weight_t(-2.32931052e-02), weight_t(7.21386625e-02), weight_t(-2.58570739e-01), weight_t(4.40357737e-01), weight_t(9.85558551e-01), weight_t(3.66503047e-02) },
+{ weight_t(-7.39776715e-02), weight_t(-2.44771255e-01), weight_t(-1.56340533e-01), weight_t(-9.35905873e-01), weight_t(-8.06087816e-01), weight_t(1.26848135e-01), weight_t(-8.99091696e-01), weight_t(6.61485703e-01) }
 },
 {
-{ weight_t(1.75130997e-01), weight_t(-9.97094712e-01), weight_t(7.78852300e-01), weight_t(2.67736559e-01), weight_t(4.03816704e-01), weight_t(-1.66105183e-02), weight_t(1.92145420e-01), weight_t(-7.00125085e-01) },
-{ weight_t(-2.46938635e-01), weight_t(9.42565393e-01), weight_t(-5.10112380e-01), weight_t(2.24497080e-01), weight_t(-8.45319075e-01), weight_t(1.33803351e-01), weight_t(-3.77952118e-02), weight_t(3.07166527e-01) },
-{ weight_t(7.00183170e-03), weight_t(4.62376784e-01), weight_t(-7.51791591e-01), weight_t(6.68098284e-01), weight_t(-2.73117364e-01), weight_t(-4.40147957e-01), weight_t(-3.64422671e-01), weight_t(-3.47775582e-01) },
-{ weight_t(-2.59350605e-01), weight_t(1.55584418e-01), weight_t(2.12989352e-01), weight_t(8.76864275e-01), weight_t(9.33610859e-01), weight_t(3.65962188e-01), weight_t(3.13368127e-01), weight_t(8.91295251e-01) }
+{ weight_t(6.05175661e-01), weight_t(3.16672761e-01), weight_t(-7.85298514e-01), weight_t(-6.32014655e-01), weight_t(2.21383820e-01), weight_t(-9.61964607e-02), weight_t(5.84386822e-01), weight_t(-5.50436728e-01) },
+{ weight_t(-8.83298619e-01), weight_t(-3.72879301e-01), weight_t(-3.29057457e-01), weight_t(-6.25045362e-03), weight_t(7.65928741e-01), weight_t(-9.51516512e-02), weight_t(7.63894853e-01), weight_t(-9.04650661e-01) },
+{ weight_t(-9.97456398e-01), weight_t(-4.88141502e-01), weight_t(-3.63153020e-01), weight_t(2.19656949e-01), weight_t(3.01051447e-02), weight_t(3.56487081e-01), weight_t(-9.28445168e-01), weight_t(6.76037529e-02) },
+{ weight_t(-6.53911092e-01), weight_t(-2.60190311e-01), weight_t(8.58313210e-01), weight_t(-7.48501642e-01), weight_t(-2.60131734e-01), weight_t(8.70934346e-01), weight_t(-1.69786016e-01), weight_t(4.79296288e-02) }
 }
 } }
 };

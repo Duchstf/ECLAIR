@@ -47,9 +47,13 @@ SOLVED_SCORE = 475.0
 config = {
     'layer_sizes': [4, 3],  # 4 inputs, 3 outputs (2 actor, 1 critic)
 
-    'model_precision': 'float',
-    'input_precision': 'float',
-    'output_precision': 'float',
+    # 'model_precision': 'float',
+    # 'input_precision': 'float',
+    # 'output_precision': 'float',
+
+    'model_precision': 'ap_fixed<32, 10, AP_RND_CONV, AP_SAT>',
+    'input_precision': 'ap_fixed<32, 10, AP_RND_CONV, AP_SAT>',
+    'output_precision': 'ap_fixed<32, 10, AP_RND_CONV, AP_SAT>',
 
     'grid_range': [-1, 1],
     'grid_size': 5,
