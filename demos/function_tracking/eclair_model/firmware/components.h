@@ -154,7 +154,7 @@ inline void backward( //When the layer is connected to only the output
             gx += L.Ws[o][i][k + 2] * LUT.dB2[u_index];
             gx += L.Ws[o][i][k + 3] * LUT.dB3[u_index];
 
-            dL_dx[i] += dL_dy_o * gx * INV_H;
+            dL_dx[i] += dL_dy_o * gx;
             
             //weight-update
             L.Ws[o][i][k + 0] -= delta * LUT.B0[u_index];

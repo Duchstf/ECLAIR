@@ -24,10 +24,10 @@ from eclair import Eclair
 # ------------------------------- CONFIGURATION -----------------------------
 ENV_NAME = "CartPole-v1"
 NUM_EPISODES = 10000
-MAX_STEPS = 200  # CartPole v1 max steps is usually 500, keeping it 200 for speed
+MAX_STEPS = 500  # CartPole v1 max steps is usually 500, keeping it 200 for speed
 GAMMA = 0.99     # Discount factor
 EPSILON = 0.9  # Exploration rate
-EPSILON_MIN = 0.01
+EPSILON_MIN = 0
 EPSILON_DECAY = 0.995
 
 # ------------------------------- MODEL SETUP -------------------------------
@@ -47,11 +47,11 @@ config = {
     # Grid covers the active range of CartPole 
     # (x limit is 2.4, theta limit is ~0.2, but velocities can be higher)
     'grid_range': [-1, 1], 
-    'grid_size': 5,
+    'grid_size': 30,
     'spline_order': 3,
     'lut_resolution': 256,
     'model_name': 'eclair_cartpole',
-    'learning_rate': 0.01, # Slightly lower LR often helps RL stability
+    'learning_rate': 0.02, # Slightly lower LR often helps RL stability
     
     'fpga_part': 'xcvu13p-flga2577-2-e',
     'clock_period': '5',
@@ -86,13 +86,14 @@ for e in range(NUM_EPISODES):
         else: action = np.argmax(q_values)
             
         next_state, reward, done, truncated, _ = env.step(action)
+        next_state = normalize_state(next_state)
         next_state = list(next_state)
         
         finished = done or truncated
 
         if finished: target = reward
         else:
-            next_q_values = model.call(normalize_state(next_state), [0,0], 1)
+            next_q_values = model.call(next_state, [0,0], 1)
             target = reward + GAMMA * np.max(next_q_values)
         
         current_q = q_values[action]

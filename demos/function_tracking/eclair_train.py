@@ -123,7 +123,7 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 #------------------------------- MODEL -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [1, 1],
+    'layer_sizes': [1,1],
     'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
     'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',

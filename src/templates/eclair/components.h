@@ -142,7 +142,7 @@ inline void backward( //When the layer is connected to only the output
 
             //calculate-downstream-grad
 
-            dL_dx[i] += dL_dy_o * gx * INV_H;
+            dL_dx[i] += dL_dy_o * gx;
             
             //weight-update
         }

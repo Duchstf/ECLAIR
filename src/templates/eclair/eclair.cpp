@@ -7,8 +7,6 @@ void eclair(const input_t input[INPUT_DIM],
             const output_t feedback[OUTPUT_DIM],
             const ap_uint<2> zero_grad ){
 
-    //Static variables update across eclair function calls
-    static Params P;
     static Context C;
 
     //I/O

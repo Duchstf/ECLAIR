@@ -22,4 +22,6 @@ struct LayerParams {
 
 //CONTEXT
 
+//PARAM-INIT
+
 #endif

@@ -48,4 +48,13 @@ struct Context {
     LayerContext<INPUT_DIM, OUTPUT_DIM> C0;
 };
 
+//PARAM-INIT
+static Params P = {
+    { {
+{
+{ weight_t(1.24208976e-02), weight_t(-2.26818043e-01), weight_t(-7.73620329e-01), weight_t(-5.20425834e-02), weight_t(7.89506672e-01), weight_t(-9.56100854e-01), weight_t(3.06690667e-01), weight_t(-8.67188509e-01) }
+}
+} }
+};
+
 #endif

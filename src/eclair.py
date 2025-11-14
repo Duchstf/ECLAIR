@@ -67,13 +67,14 @@ class Eclair:
 
     #----------------------------HELPERS---------------------------------
     def _format_cpp_array(self, arr):
-        """Helper to format a 1D numpy array into a C++ initializer list."""
-        if arr.ndim != 1:
-            raise ValueError(f"Array must be 1D for formatting, but got {arr.ndim} dims")
-        # Format as "{ weight_t(val1), weight_t(val2), ... }"
-        # Using scientific notation (e.g., .8e) ensures precision is kept
-        vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
-        return f"{{ {vals} }}"
+        """Format an n-D numpy array into nested C++ initializer lists."""
+        if arr.ndim == 1:
+            vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
+            return f"{{ {vals} }}"
+        else:
+            inner = ",\n".join([self._format_cpp_array(sub) for sub in arr])
+            return "{\n" + inner + "\n}"
+
     
     #----------------------------WRITERS---------------------------------
     def _create_model(self):
@@ -204,11 +205,31 @@ class Eclair:
         model_params = "struct Params {\n" + "\n".join(layer_params) + "\n};\n"
         model_context = "struct Context {\n" + "\n".join(layer_context) + "\n};\n"
 
+        layer_init_blocks = []
+                
+        for i in range(self.num_layers):
+            in_dim = self.layer_sizes[i]
+            out_dim = self.layer_sizes[i+1]
+
+            W = np.random.uniform(-1, 1, size=(out_dim, in_dim, self.spline_order + self.grid_size))
+
+            W_cpp = self._format_cpp_array(W)
+
+            # Wrap the array in braces to match the struct member initialization
+            # Assuming LayerParams has a single member 'weights'
+            layer_init_blocks.append(f"    {{ {W_cpp} }}")
+
+        # Create the static const instance of Params
+        # We join the layer blocks with commas
+        params_instance_str = "static Params P = {\n" 
+        params_instance_str += ",\n".join(layer_init_blocks) 
+        params_instance_str += "\n};\n"
 
         # ---Create the insertion map and write to the file---
         insertions = {
             "//BASIS-LUTS": basis_luts_all, # Insert both struct and instance
             "//MODEL": model_params,
+            "//PARAM-INIT": params_instance_str,
             "//CONTEXT": model_context
             }
 
