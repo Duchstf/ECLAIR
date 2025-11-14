@@ -1,0 +1,59 @@
+{
+  "0": {
+    "basicblocks": 4,
+    "calls": "1 2",
+    "file": "eclair.cpp",
+    "fileloc": 5,
+    "instructions": 18,
+    "name": "eclair",
+    "total_instructions": 988
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 90,
+    "instructions": 310,
+    "loads": {
+      "G": 80,
+      "L": 2
+    },
+    "name": "backward_input<4, 2, float>",
+    "stores": {
+      "G": 32
+    },
+    "total_instructions": 310
+  },
+  "2": {
+    "basicblocks": 23,
+    "calls": "3 3 3 3 3 3 3 3",
+    "file": "components.h",
+    "fileloc": 30,
+    "instructions": 260,
+    "loads": {
+      "G": 32,
+      "L": 4
+    },
+    "name": "forward_layer<4, 2>",
+    "stores": {
+      "G": 8,
+      "L": 17
+    },
+    "total_instructions": 660
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "lib_floatconversion.cpp",
+    "fileloc": 51,
+    "instructions": 50,
+    "loads": {
+      "L": 4
+    },
+    "name": "__hls_fptosi_float_i32",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 50
+  }
+}

@@ -1,0 +1,201 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cell_index_and_local_u" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:40:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=k_arr complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:41:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=ui_arr complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:45:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:54:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=partial_sums complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:62:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:80:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:95:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:98:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:105:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:129:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:132:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:137:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:144:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/dhoang/ECLAIR/demos/cartpole/eclair_cartpole/firmware/build.tcl:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=eclair" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:13:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=input complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=output complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:15:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=feedback complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:18:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.B0 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:19:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.dB0 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:20:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.B1 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.dB1 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.B2 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:23:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.dB2 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.B3 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:25:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=LUT.dB3 type=rom_1p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:28:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=P.L0.Ws type=ram_2p impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:29:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=P.L0.Ws complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:30:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=P.L0.Ws complete dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:31:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=P.L0.Ws cyclic factor=4 dim=3" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:34:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=C.C0.k complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="eclair.cpp:35:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="eclair" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=C.C0.u_index complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./components.h:47:9" msg_body="Inlining function 'cell_index_and_local_u(float, int&amp;, float&amp;)' into 'void forward_layer&lt;4, 2&gt;(float const*, float*, LayerParams&lt;4, 2&gt; const&amp;, LayerContext&lt;4, 2&gt;&amp;)'">
+        <args Callee="cell_index_and_local_u(float, int&amp;, float&amp;)" Callee-DebugLoc="File ./components.h Line 8 Column 0" Caller="void forward_layer&lt;4, 2&gt;(float const*, float*, LayerParams&lt;4, 2&gt; const&amp;, LayerContext&lt;4, 2&gt;&amp;)" Caller-DebugLoc="File ./components.h Line 35 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="eclair.cpp:35:9" msg_body="Adding 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C' into disaggregation list because there's array-partition pragma applied on the struct field">
+        <args Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="eclair.cpp:34:9" msg_body="Adding 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C' into disaggregation list because there's array-partition pragma applied on the struct field">
+        <args Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="eclair.cpp:31:9" msg_body="Adding 'P' into disaggregation list because there's array-partition pragma applied on the struct field">
+        <args Name="P"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="eclair.cpp:30:9" msg_body="Adding 'P' into disaggregation list because there's array-partition pragma applied on the struct field">
+        <args Name="P"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-377" msg_severity="INFO" msg_loc="eclair.cpp:29:9" msg_body="Adding 'P' into disaggregation list because there's array-partition pragma applied on the struct field">
+        <args Name="P"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="eclair.cpp:10:0" msg_body="Disaggregating variable 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C'">
+        <args Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="./parameters.h:52:0" msg_body="Disaggregating variable 'P'">
+        <args Name="P"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:61:9" msg_body="Loop 'ACCUM_I' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="ACCUM_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:79:25" msg_body="Loop 'REDUCTION_LOOP' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="REDUCTION_LOOP"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:97:9" msg_body="Loop 'BWD_O' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="BWD_O"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:104:16" msg_body="Loop 'BWD_I' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="BWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:35:0" msg_body="Unrolling loop 'ACCUM_I' (./components.h:61:9) in function 'forward_layer&lt;4, 2&gt;' completely with a factor of 4">
+        <args Factor="4" LoopLoc="./components.h:61:9" LoopName="ACCUM_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:35:0" msg_body="Unrolling loop 'REDUCTION_LOOP' (./components.h:79:25) in function 'forward_layer&lt;4, 2&gt;' completely with a factor of 4">
+        <args Factor="4" LoopLoc="./components.h:79:25" LoopName="REDUCTION_LOOP"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:35:0" msg_body="Unrolling loop 'PRECOMP_I' (./components.h:44:5) in function 'forward_layer&lt;4, 2&gt;' completely with a factor of 4">
+        <args Factor="4" LoopLoc="./components.h:44:5" LoopName="PRECOMP_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:94:0" msg_body="Unrolling loop 'BWD_O' (./components.h:97:9) in function 'backward_input&lt;4, 2, float&gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="./components.h:97:9" LoopName="BWD_O"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:94:0" msg_body="Unrolling loop 'BWD_I' (./components.h:104:16) in function 'backward_input&lt;4, 2, float&gt;' completely with a factor of 4">
+        <args Factor="4" LoopLoc="./components.h:104:16" LoopName="BWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::fp_struct(float)' into 'int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)'">
+        <args Callee="fp_struct&lt;float&gt;::fp_struct(float)" Callee-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 283 Column 0" Caller="int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)" Caller-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::mantissa() const' into 'int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)'">
+        <args Callee="fp_struct&lt;float&gt;::mantissa() const" Callee-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 340 Column 0" Caller="int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)" Caller-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::expv() const' into 'int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)'">
+        <args Callee="fp_struct&lt;float&gt;::expv() const" Callee-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 316 Column 0" Caller="int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)" Caller-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:12:0" msg_body="Inlining function 'fp_struct&lt;float&gt;::__signbit() const' into 'int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)'">
+        <args Callee="fp_struct&lt;float&gt;::__signbit() const" Callee-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/src/hls/utils/x_hls_utils.h Line 349 Column 0" Caller="int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)" Caller-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 12 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:116:0" msg_body="Inlining function 'int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)' into 'int generic_cast_IEEE754&lt;int, float&gt;(float, bool)'">
+        <args Callee="int generic_cast_IEEE754&lt;int, (ap_q_mode)6, float&gt;(float, bool, hls::enable_if&lt;std::numeric_limits&lt;int&gt;::is_signed, bool&gt;::type)" Callee-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 12 Column 0" Caller="int generic_cast_IEEE754&lt;int, float&gt;(float, bool)" Caller-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 116 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/src/lib_floatconversion.cpp:51:0" msg_body="Inlining function 'int generic_cast_IEEE754&lt;int, float&gt;(float, bool)' into '__hls_fptosi_float_i32'">
+        <args Callee="int generic_cast_IEEE754&lt;int, float&gt;(float, bool)" Callee-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h Line 116 Column 0" Caller="__hls_fptosi_float_i32" Caller-DebugLoc="File /wrk/ci/prod/2024.1/hls_product/continuous/545/2024.1/src/shared/hls/clib/hlsmath/src/lib_floatconversion.cpp Line 51 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:10:0" msg_body="Applying array_partition to '_ZZ6eclairPKfPfS0_7ap_uintILi2EEE1C.u_index': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ6eclairPKfPfS0_7ap_uintILi2EEE1C.u_index"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:10:0" msg_body="Applying array_partition to '_ZZ6eclairPKfPfS0_7ap_uintILi2EEE1C.k': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ6eclairPKfPfS0_7ap_uintILi2EEE1C.k"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="./parameters.h:52:0" msg_body="Applying array_partition to '_ZL1P': Complete partitioning on dimension 1. Complete partitioning on dimension 2. Cyclic partitioning with factor 4 on dimension 3.">
+        <args Dim="islist 1 2 3" Factor="4" Mode="islist Complete Complete Cyclic" UOName="_ZL1P"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:8:0" msg_body="Applying array_partition to 'input': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="input"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:8:0" msg_body="Applying array_partition to 'output': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="output"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="eclair.cpp:8:0" msg_body="Applying array_partition to 'feedback': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="feedback"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="./components.h:54:9" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.k_0)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.k_0)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="./components.h:54:9" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.k_1)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.k_1)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="./components.h:54:9" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.u_index_0)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.u_index_0)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="./components.h:54:9" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.u_index_1)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="eclair(float const*, float*, float const*, ap_uint&lt;2&gt;)::C (.u_index_1)" PragmaType="array_partition"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

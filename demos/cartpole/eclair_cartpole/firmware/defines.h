@@ -8,8 +8,8 @@
 #define OUTPUT_DIM 2
 #define SPLINE_ORDER 3
 #define NUM_BASIS 4
-#define GRID_SIZE 30
-#define COEFF 33
+#define GRID_SIZE 5
+#define COEFF 8
 
 // LUT RESOLUTION
 #define LUT_RESOLUTION 256
@@ -22,8 +22,8 @@ typedef float output_t;
 // GRID
 static const weight_t GRID_MIN = weight_t(-1);
 static const weight_t GRID_MAX = weight_t(1);
-static const weight_t H = weight_t(0.06666666666666667);
-static const weight_t INV_H = weight_t(15.0);
+static const weight_t H = weight_t(0.4);
+static const weight_t INV_H = weight_t(2.5);
 
 // LEARNING RATE
 static const weight_t LR = weight_t(0.02);

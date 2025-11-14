@@ -1,0 +1,399 @@
+
+
+================================================================
+== Vitis HLS Report for 'eclair'
+================================================================
+* Date:           Fri Nov 14 06:16:34 2025
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        eclair
+* Solution:       solution (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu13p-flga2577-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  3.627 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       25|      164|  0.125 us|  0.820 us|   26|  165|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 27
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 3 
+2 --> 27 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.41>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%spectopmodule_ln5 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [eclair.cpp:5]   --->   Operation 28 'spectopmodule' 'spectopmodule_ln5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %input_0"   --->   Operation 29 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %input_1"   --->   Operation 31 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 32 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %input_2"   --->   Operation 33 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_2, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %input_3"   --->   Operation 35 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %input_3, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %output_0"   --->   Operation 37 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %output_1"   --->   Operation 39 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %output_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %feedback_0"   --->   Operation 41 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %feedback_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 42 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %feedback_1"   --->   Operation 43 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %feedback_1, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i2 %zero_grad"   --->   Operation 45 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i2 %zero_grad, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 46 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%zero_grad_read = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %zero_grad" [eclair.cpp:8]   --->   Operation 47 'read' 'zero_grad_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%specmemcore_ln18 = specmemcore void @_ssdm_op_SpecMemCore, i32 %LUT_B0, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:18]   --->   Operation 48 'specmemcore' 'specmemcore_ln18' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%specmemcore_ln20 = specmemcore void @_ssdm_op_SpecMemCore, i32 %LUT_B1, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:20]   --->   Operation 49 'specmemcore' 'specmemcore_ln20' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%specmemcore_ln22 = specmemcore void @_ssdm_op_SpecMemCore, i32 %LUT_B2, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:22]   --->   Operation 50 'specmemcore' 'specmemcore_ln22' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%specmemcore_ln24 = specmemcore void @_ssdm_op_SpecMemCore, i32 %LUT_B3, i64 666, i64 34, i64 18446744073709551615" [eclair.cpp:24]   --->   Operation 51 'specmemcore' 'specmemcore_ln24' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_3_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 52 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_3_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 53 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_3_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 54 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_3_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 55 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_2_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 56 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_2_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 57 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_2_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 58 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_2_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 59 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_1_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 60 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_1_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 61 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_1_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 62 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_1_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 63 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_0_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 64 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_0_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 65 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_0_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 66 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_1_0_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 67 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_3_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 68 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_3_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 69 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_3_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 70 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_3_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 71 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_2_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 72 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_2_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 73 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_2_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 74 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_2_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 75 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_1_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 76 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_1_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 77 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 78 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_1_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 78 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 79 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_1_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 79 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_0_3, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 80 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_0_2, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 81 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 82 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_0_1, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 82 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 83 [1/1] (0.00ns)   --->   "%specmemcore_ln28 = specmemcore void @_ssdm_op_SpecMemCore, i32 %p_ZL1P_0_0_0, i64 666, i64 23, i64 18446744073709551615" [eclair.cpp:28]   --->   Operation 83 'specmemcore' 'specmemcore_ln28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 84 [1/1] (0.43ns)   --->   "%icmp_ln39 = icmp_eq  i2 %zero_grad_read, i2 0" [eclair.cpp:39]   --->   Operation 84 'icmp' 'icmp_ln39' <Predicate = true> <Delay = 0.43> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.43> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 85 [1/1] (0.00ns)   --->   "%br_ln39 = br i1 %icmp_ln39, void %if.else, void %if.then" [eclair.cpp:39]   --->   Operation 85 'br' 'br_ln39' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%input_0_read = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %input_0"   --->   Operation 86 'read' 'input_0_read' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 87 [1/1] (0.00ns)   --->   "%empty_14 = bitcast i32 %input_0_read"   --->   Operation 87 'bitcast' 'empty_14' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 88 [1/1] (0.00ns)   --->   "%input_1_read = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %input_1"   --->   Operation 88 'read' 'input_1_read' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%empty_15 = bitcast i32 %input_1_read"   --->   Operation 89 'bitcast' 'empty_15' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%input_2_read = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %input_2"   --->   Operation 90 'read' 'input_2_read' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%empty_16 = bitcast i32 %input_2_read"   --->   Operation 91 'bitcast' 'empty_16' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%input_3_read = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %input_3"   --->   Operation 92 'read' 'input_3_read' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.00ns)   --->   "%empty_17 = bitcast i32 %input_3_read"   --->   Operation 93 'bitcast' 'empty_17' <Predicate = (!icmp_ln39)> <Delay = 0.00>
+ST_1 : Operation 94 [2/2] (2.97ns)   --->   "%call_ln45 = call void @forward_layer<4, 2>, i32 %empty_14, i32 %empty_15, i32 %empty_16, i32 %empty_17, i32 %output_0, i32 %output_1, i32 %LUT_B0, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3" [eclair.cpp:45]   --->   Operation 94 'call' 'call_ln45' <Predicate = (!icmp_ln39)> <Delay = 2.97> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 95 [1/2] (0.00ns)   --->   "%call_ln45 = call void @forward_layer<4, 2>, i32 %empty_14, i32 %empty_15, i32 %empty_16, i32 %empty_17, i32 %output_0, i32 %output_1, i32 %LUT_B0, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3" [eclair.cpp:45]   --->   Operation 95 'call' 'call_ln45' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%br_ln0 = br void %if.end"   --->   Operation 96 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 1> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 0.00>
+
+State 7 <SV = 5> <Delay = 0.00>
+
+State 8 <SV = 6> <Delay = 0.00>
+
+State 9 <SV = 7> <Delay = 0.00>
+
+State 10 <SV = 8> <Delay = 2.32>
+ST_10 : Operation 97 [1/1] (0.00ns)   --->   "%feedback_0_read = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %feedback_0"   --->   Operation 97 'read' 'feedback_0_read' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 98 [1/1] (0.00ns)   --->   "%empty = bitcast i32 %feedback_0_read"   --->   Operation 98 'bitcast' 'empty' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 99 [1/1] (0.00ns)   --->   "%feedback_1_read = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %feedback_1"   --->   Operation 99 'read' 'feedback_1_read' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 100 [1/1] (0.00ns)   --->   "%empty_13 = bitcast i32 %feedback_1_read"   --->   Operation 100 'bitcast' 'empty_13' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 101 [18/18] (2.32ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 101 'call' 'call_ln41' <Predicate = true> <Delay = 2.32> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 9> <Delay = 3.27>
+ST_11 : Operation 102 [17/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 102 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 10> <Delay = 3.27>
+ST_12 : Operation 103 [16/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 103 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 11> <Delay = 3.27>
+ST_13 : Operation 104 [15/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 104 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 14 <SV = 12> <Delay = 3.27>
+ST_14 : Operation 105 [14/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 105 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 13> <Delay = 3.27>
+ST_15 : Operation 106 [13/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 106 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 16 <SV = 14> <Delay = 3.27>
+ST_16 : Operation 107 [12/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 107 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 17 <SV = 15> <Delay = 3.27>
+ST_17 : Operation 108 [11/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 108 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 18 <SV = 16> <Delay = 3.27>
+ST_18 : Operation 109 [10/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 109 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 19 <SV = 17> <Delay = 3.27>
+ST_19 : Operation 110 [9/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 110 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 20 <SV = 18> <Delay = 3.27>
+ST_20 : Operation 111 [8/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 111 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 21 <SV = 19> <Delay = 3.27>
+ST_21 : Operation 112 [7/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 112 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 22 <SV = 20> <Delay = 3.27>
+ST_22 : Operation 113 [6/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 113 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 23 <SV = 21> <Delay = 3.27>
+ST_23 : Operation 114 [5/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 114 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 24 <SV = 22> <Delay = 3.27>
+ST_24 : Operation 115 [4/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 115 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 25 <SV = 23> <Delay = 3.27>
+ST_25 : Operation 116 [3/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 116 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 26 <SV = 24> <Delay = 3.27>
+ST_26 : Operation 117 [2/18] (3.27ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 117 'call' 'call_ln41' <Predicate = true> <Delay = 3.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 27 <SV = 25> <Delay = 0.00>
+ST_27 : Operation 118 [1/18] (0.00ns)   --->   "%call_ln41 = call void @backward_input<4, 2, float>, i32 %empty, i32 %empty_13, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_0, i32 %LUT_B0, i32 %p_ZL1P_0_0_0, i32 %p_ZL1P_0_0_1, i32 %p_ZL1P_0_0_2, i32 %p_ZL1P_0_0_3, i32 %LUT_B1, i32 %LUT_B2, i32 %LUT_B3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_0_3, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_0, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_1, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_2, i3 %eclair_float_const_float_float_const_ap_uint_2_C_k_1_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_0_3, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_0, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_1, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_2, i8 %eclair_float_const_float_float_const_ap_uint_2_C_u_index_1_3, i32 %p_ZL1P_0_1_0, i32 %p_ZL1P_0_1_1, i32 %p_ZL1P_0_1_2, i32 %p_ZL1P_0_1_3, i32 %p_ZL1P_0_2_0, i32 %p_ZL1P_0_2_1, i32 %p_ZL1P_0_2_2, i32 %p_ZL1P_0_2_3, i32 %p_ZL1P_0_3_0, i32 %p_ZL1P_0_3_1, i32 %p_ZL1P_0_3_2, i32 %p_ZL1P_0_3_3, i32 %p_ZL1P_1_0_0, i32 %p_ZL1P_1_0_1, i32 %p_ZL1P_1_0_2, i32 %p_ZL1P_1_0_3, i32 %p_ZL1P_1_1_0, i32 %p_ZL1P_1_1_1, i32 %p_ZL1P_1_1_2, i32 %p_ZL1P_1_1_3, i32 %p_ZL1P_1_2_0, i32 %p_ZL1P_1_2_1, i32 %p_ZL1P_1_2_2, i32 %p_ZL1P_1_2_3, i32 %p_ZL1P_1_3_0, i32 %p_ZL1P_1_3_1, i32 %p_ZL1P_1_3_2, i32 %p_ZL1P_1_3_3" [eclair.cpp:41]   --->   Operation 118 'call' 'call_ln41' <Predicate = (icmp_ln39)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_27 : Operation 119 [1/1] (0.00ns)   --->   "%br_ln42 = br void %if.end" [eclair.cpp:42]   --->   Operation 119 'br' 'br_ln42' <Predicate = (icmp_ln39)> <Delay = 0.00>
+ST_27 : Operation 120 [1/1] (0.00ns)   --->   "%ret_ln48 = ret" [eclair.cpp:48]   --->   Operation 120 'ret' 'ret_ln48' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5.000ns, clock uncertainty: 1.350ns.
+
+ <State 1>: 3.412ns
+The critical path consists of the following:
+	wire read operation ('zero_grad_read', eclair.cpp:8) on port 'zero_grad' (eclair.cpp:8) [81]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln39', eclair.cpp:39) [118]  (0.436 ns)
+	'call' operation 0 bit ('call_ln45', eclair.cpp:45) to 'forward_layer<4, 2>' [129]  (2.976 ns)
+
+ <State 2>: 0.000ns
+The critical path consists of the following:
+
+ <State 3>: 0.000ns
+The critical path consists of the following:
+
+ <State 4>: 0.000ns
+The critical path consists of the following:
+
+ <State 5>: 0.000ns
+The critical path consists of the following:
+
+ <State 6>: 0.000ns
+The critical path consists of the following:
+
+ <State 7>: 0.000ns
+The critical path consists of the following:
+
+ <State 8>: 0.000ns
+The critical path consists of the following:
+
+ <State 9>: 0.000ns
+The critical path consists of the following:
+
+ <State 10>: 2.322ns
+The critical path consists of the following:
+	wire read operation ('feedback_0_read') on port 'feedback_0' [132]  (0.000 ns)
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (2.322 ns)
+
+ <State 11>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 12>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 13>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 14>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 15>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 16>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 17>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 18>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 19>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 20>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 21>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 22>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 23>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 24>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 25>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 26>: 3.270ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln41', eclair.cpp:41) to 'backward_input<4, 2, float>' [136]  (3.270 ns)
+
+ <State 27>: 0.000ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

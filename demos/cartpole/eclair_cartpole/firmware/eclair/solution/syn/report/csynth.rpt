@@ -1,0 +1,353 @@
+
+
+================================================================
+== Synthesis Summary Report of 'eclair'
+================================================================
++ General Information: 
+    * Date:           Fri Nov 14 06:16:35 2025
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        eclair
+    * Solution:       solution (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu13p-flga2577-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------+------+------+---------+---------+----------+---------+------+----------+------+----------+-------------+------------+-----+
+    |                 Modules                | Issue|      | Latency | Latency | Iteration|         | Trip |          |      |          |             |            |     |
+    |                 & Loops                | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined| BRAM |    DSP   |      FF     |     LUT    | URAM|
+    +----------------------------------------+------+------+---------+---------+----------+---------+------+----------+------+----------+-------------+------------+-----+
+    |+ eclair                                |     -|  0.02|      164|  820.000|         -|      165|     -|        no|     -|  80 (~0%)|  13564 (~0%)|  18668 (1%)|    -|
+    | + forward_layer_4_2_s                  |     -|  0.02|      162|  810.000|         -|      162|     -|        no|     -|         -|   3323 (~0%)|  4295 (~0%)|    -|
+    |  + p_hls_fptosi_float_i32              |     -|  0.25|        0|    0.000|         -|        0|     -|        no|     -|         -|            -|   627 (~0%)|    -|
+    |  + forward_layer_4_2_Pipeline_ACCUM_O  |     -|  0.28|       41|  205.000|         -|       41|     -|        no|     -|         -|   1201 (~0%)|   651 (~0%)|    -|
+    |   o ACCUM_O                            |     -|  3.65|       39|  195.000|        39|        1|     2|       yes|     -|         -|            -|           -|    -|
+    | + backward_input_4_2_float_s           |    II|  0.38|       17|   85.000|         -|        8|     -|       yes|     -|         -|   3275 (~0%)|  4125 (~0%)|    -|
+    +----------------------------------------+------+------+---------+---------+----------+---------+------+----------+------+----------+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* Other Ports
++------------+---------+-----------+----------+
+| Port       | Mode    | Direction | Bitwidth |
++------------+---------+-----------+----------+
+| feedback_0 | ap_none | in        | 32       |
+| feedback_1 | ap_none | in        | 32       |
+| input_0    | ap_none | in        | 32       |
+| input_1    | ap_none | in        | 32       |
+| input_2    | ap_none | in        | 32       |
+| input_3    | ap_none | in        | 32       |
+| output_0   | ap_vld  | out       | 32       |
+| output_1   | ap_vld  | out       | 32       |
+| zero_grad  | ap_none | in        | 2        |
++------------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+-------------------+
+| Argument  | Direction | Datatype          |
++-----------+-----------+-------------------+
+| input     | in        | float const *     |
+| output    | out       | float*            |
+| feedback  | in        | float const *     |
+| zero_grad | in        | ap_uint<2> const  |
++-----------+-----------+-------------------+
+
+* SW-to-HW Mapping
++-----------+-----------------+---------+
+| Argument  | HW Interface    | HW Type |
++-----------+-----------------+---------+
+| input     | input_0         | port    |
+| input     | input_1         | port    |
+| input     | input_2         | port    |
+| input     | input_3         | port    |
+| output    | output_0        | port    |
+| output    | output_0_ap_vld | port    |
+| output    | output_1        | port    |
+| output    | output_1_ap_vld | port    |
+| feedback  | feedback_0      | port    |
+| feedback  | feedback_1      | port    |
+| zero_grad | zero_grad       | port    |
++-----------+-----------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------------------+-----+--------+----------------+-----------+-----------+---------+
+| Name                                      | DSP | Pragma | Variable       | Op        | Impl      | Latency |
++-------------------------------------------+-----+--------+----------------+-----------+-----------+---------+
+| + eclair                                  | 80  |        |                |           |           |         |
+|   faddfsub_32ns_32ns_32_5_full_dsp_1_U356 |     |        | icmp_ln39      | seteq     | auto      | 0       |
+|  + forward_layer_4_2_s                    | 0   |        |                |           |           |         |
+|    icmp_ln15_fu_1986_p2                   |     |        | icmp_ln15      | setne     | auto      | 0       |
+|    icmp_ln15_1_fu_1992_p2                 |     |        | icmp_ln15_1    | seteq     | auto      | 0       |
+|    or_ln15_fu_1998_p2                     |     |        | or_ln15        | or        | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_36         | fcmp      | auto      | 1       |
+|    and_ln15_fu_2004_p2                    |     |        | and_ln15       | and       | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_37         | fcmp      | auto      | 1       |
+|    and_ln19_fu_2010_p2                    |     |        | and_ln19       | and       | auto      | 0       |
+|    sitofp_32ns_32_3_no_dsp_1_U110         |     |        | conv4_i        | sitofp    | auto      | 2       |
+|    icmp_ln15_2_fu_2057_p2                 |     |        | icmp_ln15_2    | setne     | auto      | 0       |
+|    icmp_ln15_3_fu_2063_p2                 |     |        | icmp_ln15_3    | seteq     | auto      | 0       |
+|    or_ln15_1_fu_2069_p2                   |     |        | or_ln15_1      | or        | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_39         | fcmp      | auto      | 1       |
+|    and_ln15_1_fu_2075_p2                  |     |        | and_ln15_1     | and       | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_40         | fcmp      | auto      | 1       |
+|    and_ln19_1_fu_2081_p2                  |     |        | and_ln19_1     | and       | auto      | 0       |
+|    sitofp_32ns_32_3_no_dsp_1_U110         |     |        | conv4_i_1      | sitofp    | auto      | 2       |
+|    icmp_ln15_4_fu_2128_p2                 |     |        | icmp_ln15_4    | setne     | auto      | 0       |
+|    icmp_ln15_5_fu_2134_p2                 |     |        | icmp_ln15_5    | seteq     | auto      | 0       |
+|    or_ln15_2_fu_2140_p2                   |     |        | or_ln15_2      | or        | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_42         | fcmp      | auto      | 1       |
+|    and_ln15_2_fu_2146_p2                  |     |        | and_ln15_2     | and       | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_43         | fcmp      | auto      | 1       |
+|    and_ln19_2_fu_2152_p2                  |     |        | and_ln19_2     | and       | auto      | 0       |
+|    sitofp_32ns_32_3_no_dsp_1_U110         |     |        | conv4_i_2      | sitofp    | auto      | 2       |
+|    icmp_ln15_6_fu_2199_p2                 |     |        | icmp_ln15_6    | setne     | auto      | 0       |
+|    icmp_ln15_7_fu_2205_p2                 |     |        | icmp_ln15_7    | seteq     | auto      | 0       |
+|    or_ln15_3_fu_2211_p2                   |     |        | or_ln15_3      | or        | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_45         | fcmp      | auto      | 1       |
+|    and_ln15_3_fu_2217_p2                  |     |        | and_ln15_3     | and       | auto      | 0       |
+|    fcmp_32ns_32ns_1_2_no_dsp_1_U111       |     |        | tmp_46         | fcmp      | auto      | 1       |
+|    and_ln19_3_fu_2223_p2                  |     |        | and_ln19_3     | and       | auto      | 0       |
+|    sitofp_32ns_32_3_no_dsp_1_U110         |     |        | conv4_i_3      | sitofp    | auto      | 2       |
+|    add47_fu_2264_p2                       |     |        | add47          | add       | fabric    | 0       |
+|    add57_fu_2518_p2                       |     |        | add57          | add       | fabric    | 0       |
+|    add67_fu_2544_p2                       |     |        | add67          | add       | fabric    | 0       |
+|    add47_1_fu_2298_p2                     |     |        | add47_1        | add       | fabric    | 0       |
+|    add57_1_fu_2570_p2                     |     |        | add57_1        | add       | fabric    | 0       |
+|    add67_1_fu_2596_p2                     |     |        | add67_1        | add       | fabric    | 0       |
+|    add47_2_fu_2324_p2                     |     |        | add47_2        | add       | fabric    | 0       |
+|    add57_2_fu_2630_p2                     |     |        | add57_2        | add       | fabric    | 0       |
+|    add67_2_fu_2656_p2                     |     |        | add67_2        | add       | fabric    | 0       |
+|    add47_3_fu_2350_p2                     |     |        | add47_3        | add       | fabric    | 0       |
+|    add57_3_fu_2682_p2                     |     |        | add57_3        | add       | fabric    | 0       |
+|    add67_3_fu_2708_p2                     |     |        | add67_3        | add       | fabric    | 0       |
+|    sparsemux_9_2_32_1_1_U112              |     |        | tmp_8          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U113              |     |        | tmp_9          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U118              |     |        | tmp_s          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U119              |     |        | tmp_1          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U128              |     |        | tmp_3          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U129              |     |        | tmp_5          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U130              |     |        | tmp_7          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U131              |     |        | tmp_10         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U114              |     |        | tmp_11         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U115              |     |        | tmp_12         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U120              |     |        | tmp_13         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U121              |     |        | tmp_14         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U132              |     |        | tmp_15         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U133              |     |        | tmp_16         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U134              |     |        | tmp_17         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U135              |     |        | tmp_18         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U116              |     |        | tmp_19         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U117              |     |        | tmp_20         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U122              |     |        | tmp_21         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U123              |     |        | tmp_22         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U136              |     |        | tmp_23         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U137              |     |        | tmp_24         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U138              |     |        | tmp_25         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U139              |     |        | tmp_26         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U124              |     |        | tmp_27         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U125              |     |        | tmp_28         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U126              |     |        | tmp_29         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U127              |     |        | tmp_30         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U140              |     |        | tmp_31         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U141              |     |        | tmp_32         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U142              |     |        | tmp_33         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U143              |     |        | tmp_34         | sparsemux | auto      | 0       |
+|   + p_hls_fptosi_float_i32                | 0   |        |                |           |           |         |
+|     add_ln317_fu_86_p2                    |     |        | add_ln317      | add       | fabric    | 0       |
+|     sub_ln18_fu_100_p2                    |     |        | sub_ln18       | sub       | fabric    | 0       |
+|     select_ln18_fu_110_p3                 |     |        | select_ln18    | select    | auto_sel  | 0       |
+|     lshr_ln18_fu_126_p2                   |     |        | lshr_ln18      | lshr      | auto_pipe | 0       |
+|     shl_ln18_fu_132_p2                    |     |        | shl_ln18       | shl       | auto_pipe | 0       |
+|     val_fu_158_p3                         |     |        | val            | select    | auto_sel  | 0       |
+|     result_1_fu_166_p2                    |     |        | result_1       | sub       | fabric    | 0       |
+|     ap_return                             |     |        | result_2       | select    | auto_sel  | 0       |
+|   + forward_layer_4_2_Pipeline_ACCUM_O    | 0   |        |                |           |           |         |
+|     icmp_ln53_fu_675_p2                   |     |        | icmp_ln53      | seteq     | auto      | 0       |
+|     add_ln53_fu_681_p2                    |     |        | add_ln53       | add       | fabric    | 0       |
+|     icmp_ln65_fu_687_p2                   |     |        | icmp_ln65      | seteq     | auto      | 0       |
+|     icmp_ln75_fu_693_p2                   |     |        | icmp_ln75      | seteq     | auto      | 0       |
+|     select_ln75_fu_699_p3                 |     |        | select_ln75    | select    | auto_sel  | 0       |
+|     select_ln75_1_fu_708_p3               |     |        | select_ln75_1  | select    | auto_sel  | 0       |
+|     select_ln75_2_fu_818_p3               |     |        | select_ln75_2  | select    | auto_sel  | 0       |
+|     select_ln75_3_fu_836_p3               |     |        | select_ln75_3  | select    | auto_sel  | 0       |
+|     select_ln75_4_fu_824_p3               |     |        | select_ln75_4  | select    | auto_sel  | 0       |
+|     select_ln75_5_fu_830_p3               |     |        | select_ln75_5  | select    | auto_sel  | 0       |
+|     select_ln75_6_fu_842_p3               |     |        | select_ln75_6  | select    | auto_sel  | 0       |
+|     select_ln75_7_fu_860_p3               |     |        | select_ln75_7  | select    | auto_sel  | 0       |
+|     select_ln75_8_fu_848_p3               |     |        | select_ln75_8  | select    | auto_sel  | 0       |
+|     select_ln75_9_fu_854_p3               |     |        | select_ln75_9  | select    | auto_sel  | 0       |
+|     select_ln75_10_fu_866_p3              |     |        | select_ln75_10 | select    | auto_sel  | 0       |
+|     select_ln75_11_fu_884_p3              |     |        | select_ln75_11 | select    | auto_sel  | 0       |
+|     select_ln75_12_fu_872_p3              |     |        | select_ln75_12 | select    | auto_sel  | 0       |
+|     select_ln75_13_fu_878_p3              |     |        | select_ln75_13 | select    | auto_sel  | 0       |
+|     select_ln75_14_fu_890_p3              |     |        | select_ln75_14 | select    | auto_sel  | 0       |
+|     select_ln75_15_fu_896_p3              |     |        | select_ln75_15 | select    | auto_sel  | 0       |
+|  + backward_input_4_2_float_s             | 0   |        |                |           |           |         |
+|    sparsemux_9_2_32_1_1_U270              |     |        | tmp            | sparsemux | auto      | 0       |
+|    add_ln113_fu_2191_p2                   |     |        | add_ln113      | add       | fabric    | 0       |
+|    add_ln114_fu_2212_p2                   |     |        | add_ln114      | add       | fabric    | 0       |
+|    add_ln115_fu_2233_p2                   |     |        | add_ln115      | add       | fabric    | 0       |
+|    add_ln113_1_fu_2261_p2                 |     |        | add_ln113_1    | add       | fabric    | 0       |
+|    add_ln114_1_fu_2282_p2                 |     |        | add_ln114_1    | add       | fabric    | 0       |
+|    add_ln115_1_fu_2295_p2                 |     |        | add_ln115_1    | add       | fabric    | 0       |
+|    add_ln113_2_fu_2315_p2                 |     |        | add_ln113_2    | add       | fabric    | 0       |
+|    add_ln114_2_fu_2336_p2                 |     |        | add_ln114_2    | add       | fabric    | 0       |
+|    add_ln115_2_fu_2349_p2                 |     |        | add_ln115_2    | add       | fabric    | 0       |
+|    add_ln113_3_fu_2369_p2                 |     |        | add_ln113_3    | add       | fabric    | 0       |
+|    add_ln114_3_fu_2390_p2                 |     |        | add_ln114_3    | add       | fabric    | 0       |
+|    add_ln115_3_fu_2403_p2                 |     |        | add_ln115_3    | add       | fabric    | 0       |
+|    add_ln113_4_fu_2698_p2                 |     |        | add_ln113_4    | add       | fabric    | 0       |
+|    add_ln114_4_fu_2719_p2                 |     |        | add_ln114_4    | add       | fabric    | 0       |
+|    add_ln115_4_fu_2732_p2                 |     |        | add_ln115_4    | add       | fabric    | 0       |
+|    add_ln113_5_fu_2448_p2                 |     |        | add_ln113_5    | add       | fabric    | 0       |
+|    add_ln114_5_fu_2462_p2                 |     |        | add_ln114_5    | add       | fabric    | 0       |
+|    add_ln115_5_fu_2484_p2                 |     |        | add_ln115_5    | add       | fabric    | 0       |
+|    add_ln113_6_fu_2522_p2                 |     |        | add_ln113_6    | add       | fabric    | 0       |
+|    add_ln114_6_fu_2536_p2                 |     |        | add_ln114_6    | add       | fabric    | 0       |
+|    add_ln115_6_fu_2558_p2                 |     |        | add_ln115_6    | add       | fabric    | 0       |
+|    add_ln113_7_fu_2596_p2                 |     |        | add_ln113_7    | add       | fabric    | 0       |
+|    add_ln114_7_fu_2610_p2                 |     |        | add_ln114_7    | add       | fabric    | 0       |
+|    add_ln115_7_fu_2632_p2                 |     |        | add_ln115_7    | add       | fabric    | 0       |
+|    sparsemux_9_2_32_1_1_U271              |     |        | tmp_s          | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U272              |     |        | tmp_35         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U273              |     |        | tmp_36         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U274              |     |        | tmp_37         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U275              |     |        | tmp_38         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U286              |     |        | tmp_39         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U287              |     |        | tmp_40         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U276              |     |        | tmp_41         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U277              |     |        | tmp_42         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U290              |     |        | tmp_43         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U291              |     |        | tmp_44         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U278              |     |        | tmp_45         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U279              |     |        | tmp_46         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U294              |     |        | tmp_47         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U295              |     |        | tmp_48         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U288              |     |        | tmp_49         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U289              |     |        | tmp_50         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U298              |     |        | tmp_51         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U299              |     |        | tmp_52         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U292              |     |        | tmp_53         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U293              |     |        | tmp_54         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U280              |     |        | tmp_55         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U281              |     |        | tmp_56         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U296              |     |        | tmp_57         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U297              |     |        | tmp_58         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U282              |     |        | tmp_59         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U283              |     |        | tmp_60         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U300              |     |        | tmp_61         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U301              |     |        | tmp_62         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U284              |     |        | tmp_63         | sparsemux | auto      | 0       |
+|    sparsemux_9_2_32_1_1_U285              |     |        | tmp_64         | sparsemux | auto      | 0       |
++-------------------------------------------+-----+--------+----------------+-----------+-----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++------------------+--------+------+------+------+--------+--------------+--------+---------+------------------+
+| Name             | Usage  | Type | BRAM | URAM | Pragma | Variable     | Impl   | Latency | Bitwidth, Depth, |
+|                  |        |      |      |      |        |              |        |         | Banks            |
++------------------+--------+------+------+------+--------+--------------+--------+---------+------------------+
+| + eclair         |        |      | 0    | 0    |        |              |        |         |                  |
+|   LUT_B0_U       | rom_1p |      |      |      | pragma | LUT_B0       | lutram | 1       | 32, 256, 1       |
+|   p_ZL1P_0_0_0_U | ram_2p |      |      |      | pragma | p_ZL1P_0_0_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_0_1_U | ram_2p |      |      |      | pragma | p_ZL1P_0_0_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_0_2_U | ram_2p |      |      |      | pragma | p_ZL1P_0_0_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_0_3_U | ram_2p |      |      |      | pragma | p_ZL1P_0_0_3 | lutram | 1       | 32, 2, 1         |
+|   LUT_B1_U       | rom_1p |      |      |      | pragma | LUT_B1       | lutram | 1       | 32, 256, 1       |
+|   LUT_B2_U       | rom_1p |      |      |      | pragma | LUT_B2       | lutram | 1       | 32, 256, 1       |
+|   LUT_B3_U       | rom_1p |      |      |      | pragma | LUT_B3       | lutram | 1       | 32, 256, 1       |
+|   p_ZL1P_0_1_0_U | ram_2p |      |      |      | pragma | p_ZL1P_0_1_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_1_1_U | ram_2p |      |      |      | pragma | p_ZL1P_0_1_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_1_2_U | ram_2p |      |      |      | pragma | p_ZL1P_0_1_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_1_3_U | ram_2p |      |      |      | pragma | p_ZL1P_0_1_3 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_2_0_U | ram_2p |      |      |      | pragma | p_ZL1P_0_2_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_2_1_U | ram_2p |      |      |      | pragma | p_ZL1P_0_2_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_2_2_U | ram_2p |      |      |      | pragma | p_ZL1P_0_2_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_2_3_U | ram_2p |      |      |      | pragma | p_ZL1P_0_2_3 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_3_0_U | ram_2p |      |      |      | pragma | p_ZL1P_0_3_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_3_1_U | ram_2p |      |      |      | pragma | p_ZL1P_0_3_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_3_2_U | ram_2p |      |      |      | pragma | p_ZL1P_0_3_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_0_3_3_U | ram_2p |      |      |      | pragma | p_ZL1P_0_3_3 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_0_0_U | ram_2p |      |      |      | pragma | p_ZL1P_1_0_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_0_1_U | ram_2p |      |      |      | pragma | p_ZL1P_1_0_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_0_2_U | ram_2p |      |      |      | pragma | p_ZL1P_1_0_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_0_3_U | ram_2p |      |      |      | pragma | p_ZL1P_1_0_3 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_1_0_U | ram_2p |      |      |      | pragma | p_ZL1P_1_1_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_1_1_U | ram_2p |      |      |      | pragma | p_ZL1P_1_1_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_1_2_U | ram_2p |      |      |      | pragma | p_ZL1P_1_1_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_1_3_U | ram_2p |      |      |      | pragma | p_ZL1P_1_1_3 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_2_0_U | ram_2p |      |      |      | pragma | p_ZL1P_1_2_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_2_1_U | ram_2p |      |      |      | pragma | p_ZL1P_1_2_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_2_2_U | ram_2p |      |      |      | pragma | p_ZL1P_1_2_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_2_3_U | ram_2p |      |      |      | pragma | p_ZL1P_1_2_3 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_3_0_U | ram_2p |      |      |      | pragma | p_ZL1P_1_3_0 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_3_1_U | ram_2p |      |      |      | pragma | p_ZL1P_1_3_1 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_3_2_U | ram_2p |      |      |      | pragma | p_ZL1P_1_3_2 | lutram | 1       | 32, 2, 1         |
+|   p_ZL1P_1_3_3_U | ram_2p |      |      |      | pragma | p_ZL1P_1_3_3 | lutram | 1       | 32, 2, 1         |
++------------------+--------+------+------+------+--------+--------------+--------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+------------------------------------------+--------------------------------------------------+
+| Type            | Options                                  | Location                                         |
++-----------------+------------------------------------------+--------------------------------------------------+
+| inline          |                                          | ./components.h:9 in cell_index_and_local_u       |
+| array_partition | variable=k_arr complete                  | ./components.h:40 in forward_layer, k_arr        |
+| array_partition | variable=ui_arr complete                 | ./components.h:41 in forward_layer, ui_arr       |
+| unroll          |                                          | ./components.h:45 in forward_layer               |
+| pipeline        |                                          | ./components.h:54 in forward_layer               |
+| array_partition | variable=partial_sums complete dim=0     | ./components.h:58 in forward_layer, partial_sums |
+| unroll          |                                          | ./components.h:62 in forward_layer               |
+| unroll          |                                          | ./components.h:80 in forward_layer               |
+| pipeline        |                                          | ./components.h:95 in backward_input              |
+| unroll          |                                          | ./components.h:98 in backward_input              |
+| unroll          |                                          | ./components.h:105 in backward_input             |
+| pipeline        |                                          | ./components.h:129 in backward                   |
+| unroll          |                                          | ./components.h:132 in backward                   |
+| unroll          |                                          | ./components.h:137 in backward                   |
+| unroll          |                                          | ./components.h:144 in backward                   |
+| array_partition | variable=input complete dim=0            | eclair.cpp:13 in eclair, input                   |
+| array_partition | variable=output complete dim=0           | eclair.cpp:14 in eclair, output                  |
+| array_partition | variable=feedback complete dim=0         | eclair.cpp:15 in eclair, feedback                |
+| bind_storage    | variable=LUT.B0 type=rom_1p impl=lutram  | eclair.cpp:18 in eclair, LUT.B0                  |
+| bind_storage    | variable=LUT.dB0 type=rom_1p impl=lutram | eclair.cpp:19 in eclair, LUT.dB0                 |
+| bind_storage    | variable=LUT.B1 type=rom_1p impl=lutram  | eclair.cpp:20 in eclair, LUT.B1                  |
+| bind_storage    | variable=LUT.dB1 type=rom_1p impl=lutram | eclair.cpp:21 in eclair, LUT.dB1                 |
+| bind_storage    | variable=LUT.B2 type=rom_1p impl=lutram  | eclair.cpp:22 in eclair, LUT.B2                  |
+| bind_storage    | variable=LUT.dB2 type=rom_1p impl=lutram | eclair.cpp:23 in eclair, LUT.dB2                 |
+| bind_storage    | variable=LUT.B3 type=rom_1p impl=lutram  | eclair.cpp:24 in eclair, LUT.B3                  |
+| bind_storage    | variable=LUT.dB3 type=rom_1p impl=lutram | eclair.cpp:25 in eclair, LUT.dB3                 |
+| bind_storage    | variable=P.L0.Ws type=ram_2p impl=lutram | eclair.cpp:28 in eclair, P.L0.Ws                 |
+| array_partition | variable=P.L0.Ws complete dim=1          | eclair.cpp:29 in eclair, P.L0.Ws                 |
+| array_partition | variable=P.L0.Ws complete dim=2          | eclair.cpp:30 in eclair, P.L0.Ws                 |
+| array_partition | variable=P.L0.Ws cyclic factor=4 dim=3   | eclair.cpp:31 in eclair, P.L0.Ws                 |
+| array_partition | variable=C.C0.k complete                 | eclair.cpp:34 in eclair, C.C0.k                  |
+| array_partition | variable=C.C0.u_index complete           | eclair.cpp:35 in eclair, C.C0.u_index            |
++-----------------+------------------------------------------+--------------------------------------------------+
+
+
