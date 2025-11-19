@@ -3,46 +3,60 @@ import matplotlib.pyplot as plt
 
 #------------------------------- DATA GENERATION -----------------------------
 def f1(x):
-    """
-    First regime: some smooth nonlinear function of x only.
-    """
     return np.sin(x) + 0.3 * x**2
 
 def f2(x):
-    """
-    Second regime: a completely different function of x only.
-    """
     return -np.cos(2 * x) + 0.1 * x**3 + 1.0
 
+def f3(x):
+    return np.exp(-0.5 * (x - 1)**2) + 0.05 * x**3
 
-def build_time_series(n, seed=0, low=-2.0, high=2.0, t_switch=None):
+def build_time_series(n, seed=0, low=-2.0, high=2.0):
     """
     Generates time, x, and y data.
-    y is piecewise in *time index* but depends only on x:
+    y is piecewise in *time index* and switches between f1, f2, and f3
+    at points n/3 and 2n/3.
 
-        if t < t_switch: y = f1(x)
-        else:            y = f2(x)
+    Regime 1 (t < n/3):       y = f1(x)
+    Regime 2 (n/3 <= t < 2n/3): y = f2(x)
+    Regime 3 (t >= 2n/3):     y = f3(x)
 
-    Returns t_orig, x, y, where t_orig is in [0, n-1].
+    Args:
+        n (int): The total number of data points.
+        seed (int): Random seed for reproducibility.
+        low (float): Lower bound for random x values.
+        high (float): Upper bound for random x values.
+
+    Returns:
+        tuple: (t_orig, x, y), where t_orig is in [0, n-1].
     """
     rng = np.random.default_rng(seed)
-    
-    # 1. Generate original t in [0, n-1]
+
+    # Generate original t in [0, n-1]
     t_orig = np.arange(n, dtype=float)
 
-    # If no switch specified, default to middle of the series
-    if t_switch is None:
-        t_switch = n // 2
+    # Calculate the split indices for the three regimes (n/3 and 2n/3)
+    n1 = n // 3
+    n2 = 2 * n // 3
 
-    # 2. Generate x in [low, high]
+    # Generate x in [low, high]
     x = rng.uniform(low, high, size=n)
 
-    # 3. Compute y using x only, with a regime change at t_switch
-    y1 = f1(x)
-    y2 = f2(x)
+    # Compute y based on the three regimes
+    # Initialize y with zeros
+    y = np.zeros(n)
 
-    mask = t_orig < t_switch   # early vs late times
-    y = np.where(mask, y1, y2)
+    # Regime 1: t < n1 (uses f1)
+    mask1 = t_orig < n1
+    y[mask1] = f1(x[mask1])
+
+    # Regime 2: n1 <= t < n2 (uses f2)
+    mask2 = (t_orig >= n1) & (t_orig < n2)
+    y[mask2] = f2(x[mask2])
+
+    # Regime 3: t >= n2 (uses f3)
+    mask3 = t_orig >= n2
+    y[mask3] = f3(x[mask3])
 
     return t_orig, x, y
 

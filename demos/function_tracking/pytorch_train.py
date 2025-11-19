@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 from common import build_time_series, save_static_four_plots
 
-NUM_SAMPLES = 1000
+NUM_SAMPLES = 1500
 
 # Ensure plot directory exists
 os.makedirs('plots', exist_ok=True)
