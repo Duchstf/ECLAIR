@@ -7,11 +7,12 @@
 
 static inline weight_t relu(weight_t z) {
     #pragma HLS INLINE
-    return (z > weight_t(0)) ? z : weight_t(0.01f)*z;
+    return (z > weight_t(0)) ? z : weight_t(0);
 }
+
 static inline weight_t relu_grad(weight_t z) {
     #pragma HLS INLINE
-    return (z > weight_t(0)) ? weight_t(1) : weight_t(0.01f);
+    return (z > weight_t(0)) ? weight_t(1) : weight_t(0);
 }
 
 template<int IN_DIM, int OUT_DIM>

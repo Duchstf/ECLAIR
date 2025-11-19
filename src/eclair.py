@@ -64,17 +64,6 @@ class Eclair:
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
         print("Setting up ECLAIR framework ...")
         self._create_model()
-
-    #----------------------------HELPERS---------------------------------
-    def _format_cpp_array(self, arr):
-        """Format an n-D numpy array into nested C++ initializer lists."""
-        if arr.ndim == 1:
-            vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
-            return f"{{ {vals} }}"
-        else:
-            inner = ",\n".join([self._format_cpp_array(sub) for sub in arr])
-            return "{\n" + inner + "\n}"
-
     
     #----------------------------WRITERS---------------------------------
     def _create_model(self):
@@ -171,11 +160,11 @@ class Eclair:
         lut_initializers = []
         for i in range(self.spline_order + 1):
             # Get the i-th basis function array (column)
-            b_vals = self._format_cpp_array(basis_lut[:, i])
+            b_vals = tools.format_cpp_array(basis_lut[:, i])
             lut_initializers.append(f"    {b_vals},")
 
             # Get the i-th derivative array (column)
-            db_vals = self._format_cpp_array(derivative_lut[:, i])
+            db_vals = tools.format_cpp_array(derivative_lut[:, i])
             # Add a comma unless it's the very last element
             if i < self.spline_order:
                 lut_initializers.append(f"    {db_vals},")
@@ -213,7 +202,7 @@ class Eclair:
 
             W = np.random.uniform(-1, 1, size=(out_dim, in_dim, self.spline_order + self.grid_size))
 
-            W_cpp = self._format_cpp_array(W)
+            W_cpp = tools.format_cpp_array(W)
 
             # Wrap the array in braces to match the struct member initialization
             # Assuming LayerParams has a single member 'weights'

@@ -2,10 +2,12 @@
 #include "parameters.h"
 #include "components.h"
 
-void mlp(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const output_t feedback[OUTPUT_DIM]){
+void mlp(const input_t input[INPUT_DIM],
+    output_t output[OUTPUT_DIM],
+    const output_t feedback[OUTPUT_DIM],
+    const ap_uint<2> zero_grad){
 
     //Static variables update across mlp function calls
-    static Params P;
     static Context C;
 
     //I/O
@@ -16,13 +18,15 @@ void mlp(const input_t input[INPUT_DIM], output_t output[OUTPUT_DIM], const outp
     //variable-definitions
     weight_t layer1_out[H1];
     weight_t dL_dx_0[H1];
-
-    //backward-pass
+    
+    if (zero_grad == 0){
+        //backward-pass
     backward_output<H1, OUTPUT_DIM, output_t>(P.L1, C.C1, dL_dx_0, feedback);
     backward_input<INPUT_DIM, H1, weight_t>(P.L0, C.C0,  dL_dx_0);
-
-    //forward-pass
+    }
+    else{
+        //forward-pass
     forward_layer<INPUT_DIM, H1>(input, layer1_out, P.L0, C.C0);
     forward_output_layer<H1, OUTPUT_DIM>(layer1_out, output, P.L1, C.C1);
-
+    }
 }

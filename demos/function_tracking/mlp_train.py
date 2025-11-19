@@ -5,7 +5,7 @@ sys.path.append('../../src')
 from mlp import MLP
 from common import build_time_series, save_static_four_plots
 
-NUM_SAMPLES = 1000
+NUM_SAMPLES = 1500
 
 # ------------------------------- DATASET --------------------------
 t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
@@ -36,22 +36,24 @@ model = MLP(config)
 model.compile()
 
 #------------------------------- FEEDBACK LOOP -----------------------------
-feedback_stream = [0] #Initial feedback is 0
-
 y_pred_series = []
 mse_loss_series = []
 
 for i in range(len(t_series)):
 
     t, x, y = t_series[i], x_series[i], y_series[i]
-    pred = model.update([x], feedback_stream[-1])
+    pred = model.call([x], 0, 1)
     y_pred_series.append(pred)
 
+    #Compute the loss
     mse_loss = np.mean((y - pred)**2)
     mse_loss_series.append(mse_loss)
 
+    #Calculate the feedback
     feedback = 2*(pred - y)
-    feedback_stream.append(feedback)
+
+    #Update the model
+    model.call([x], feedback, 0)
 
     if (i + 1) % 10 == 0:
         print(f"Step {i+1}/{NUM_SAMPLES}, Current MSE Loss: {mse_loss:.6f}")

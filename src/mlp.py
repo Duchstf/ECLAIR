@@ -119,11 +119,31 @@ class MLP:
         model_params = "struct Params {\n" + "\n".join(layer_params) + "\n};\n"
         model_context = "struct Context {\n" + "\n".join(layer_context) + "\n};\n"
 
+        layer_init_blocks = []
+        
+        for i in range(self.num_layers):
+            in_dim = self.layer_sizes[i]
+            out_dim = self.layer_sizes[i+1]
+
+            #Use kaiming initialization
+            std = np.sqrt(1 / in_dim)
+            W = np.random.normal(-std, std, size=(out_dim, in_dim))
+            b = np.random.normal(-std, std, size=out_dim)
+
+            W_cpp = tools.format_cpp_array(W)
+            b_cpp = tools.format_cpp_array(b)
+
+            layer_init_blocks.append(f"    {{ {W_cpp}, {b_cpp} }}")
+
+        params_instance_str = "static Params P = {\n" 
+        params_instance_str += ",\n".join(layer_init_blocks) 
+        params_instance_str += "\n};\n"
 
         # ---Create the insertion map and write to the file---
         insertions = {
             "//MODEL": model_params,
-            "//CONTEXT": model_context
+            "//CONTEXT": model_context,
+            "//PARAM-INIT": params_instance_str
             }
 
         # write to file
@@ -263,13 +283,14 @@ class MLP:
         input_ptr_type = ctypes.POINTER(ctypes.c_float)
         output_ptr_type = ctypes.POINTER(ctypes.c_float)
         feedback_ptr_type = ctypes.POINTER(ctypes.c_float)
+        zero_grad_type = ctypes.c_uint
 
-        self.c_update_func.argtypes = [input_ptr_type, output_ptr_type, feedback_ptr_type]
+        self.c_update_func.argtypes = [input_ptr_type, output_ptr_type, feedback_ptr_type, zero_grad_type]
         self.c_update_func.restype = None
 
         print("Compilation successful. Interface is ready.")
 
-    def update(self, input_data, feedback):
+    def call(self, input_data, feedback, zero_grad):
         """Updates the model with a new input and feedback."""
 
         if self.c_update_func is None: raise RuntimeError("Model is not compiled. Call .compile() first.")
@@ -291,7 +312,9 @@ class MLP:
         pred_data = np.zeros(self.output_dim, dtype=np.float32)
         pred_ptr = pred_data.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
 
-        self.c_update_func(x_ptr, pred_ptr, feedback_ptr)
+        is_zero_grad = ctypes.c_uint(int(zero_grad))
+
+        self.c_update_func(x_ptr, pred_ptr, feedback_ptr, is_zero_grad)
 
         if self.output_dim == 1: return pred_data[0]
         return pred_data

@@ -64,3 +64,12 @@ def generate_spline_luts(spline_order, lut_resolution, grid_range, grid_size):
     derivative_lut = derivatives[:, :k + 1]
 
     return basis_lut, derivative_lut
+
+def format_cpp_array(arr):
+    """Format an n-D numpy array into nested C++ initializer lists."""
+    if arr.ndim == 1:
+        vals = ", ".join([f"weight_t({x:.8e})" for x in arr])
+        return f"{{ {vals} }}"
+    else:
+        inner = ",\n".join([format_cpp_array(sub) for sub in arr])
+        return "{\n" + inner + "\n}"
