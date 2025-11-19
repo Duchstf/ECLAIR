@@ -106,7 +106,7 @@ def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_f
     ax4.plot([t_data[-1]], [loss_data[-1]], "o", ms=4, color="C3") # Final dot
     lpad = 0.05 * (loss_data.max() - loss_data.min() + 1e-9)
     # Set bottom y-limit to 0 or just below min
-    ax4.set_ylim(min(0, loss_data.min()) - lpad, loss_data.max() + lpad)
+    ax4.set_ylim(min(0, loss_data.min()) - lpad, 5)
     ax4.set_ylabel("MSE Loss")
     ax4.legend(loc="upper left")
 

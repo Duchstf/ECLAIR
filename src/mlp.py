@@ -127,8 +127,8 @@ class MLP:
 
             #Use kaiming initialization
             std = np.sqrt(1 / in_dim)
-            W = np.random.normal(-std, std, size=(out_dim, in_dim))
-            b = np.random.normal(-std, std, size=out_dim)
+            W = np.random.uniform(-std, std, size=(out_dim, in_dim))
+            b = np.random.uniform(-std, std, size=out_dim)
 
             W_cpp = tools.format_cpp_array(W)
             b_cpp = tools.format_cpp_array(b)

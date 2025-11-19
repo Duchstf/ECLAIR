@@ -24,7 +24,7 @@ config = {
     
     #Others
     'model_name': 'mlp_model',
-    'learning_rate': 0.1,
+    'learning_rate': 0.01,
 
     #Hardware specification
     'fpga_part': 'xcvu13p-flga2577-2-e',
@@ -46,7 +46,7 @@ for i in range(len(t_series)):
     y_pred_series.append(pred)
 
     #Compute the loss
-    mse_loss = np.mean((y - pred)**2)
+    mse_loss = np.mean((pred - y)**2)
     mse_loss_series.append(mse_loss)
 
     #Calculate the feedback

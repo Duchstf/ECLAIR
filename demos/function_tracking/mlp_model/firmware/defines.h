@@ -14,6 +14,6 @@ typedef float input_t;
 typedef float output_t;
 
 // LEARNING RATE
-static const weight_t LR = weight_t(0.1);
+static const weight_t LR = weight_t(0.01);
 
 #endif
