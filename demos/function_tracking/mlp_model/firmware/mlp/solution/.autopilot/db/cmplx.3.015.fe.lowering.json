@@ -1,0 +1,69 @@
+{
+  "0": {
+    "basicblocks": 8,
+    "calls": "2 1 3",
+    "file": "mlp.cpp",
+    "fileloc": 5,
+    "instructions": 86,
+    "loads": {
+      "G": 2,
+      "T": 2
+    },
+    "name": "mlp",
+    "stores": {
+      "G": 2,
+      "L": 1
+    },
+    "total_instructions": 22823
+  },
+  "1": {
+    "basicblocks": 25,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 96,
+    "instructions": 199,
+    "loads": {
+      "G": 4,
+      "L": 1
+    },
+    "name": "backward_input<1, 128, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "G": 8
+    },
+    "total_instructions": 199
+  },
+  "2": {
+    "basicblocks": 2571,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 194,
+    "instructions": 15623,
+    "loads": {
+      "G": 257,
+      "L": 78
+    },
+    "name": "backward_output<128, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "G": 516,
+      "L": 640
+    },
+    "total_instructions": 15623
+  },
+  "3": {
+    "basicblocks": 257,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 56,
+    "instructions": 6915,
+    "loads": {
+      "G": 129,
+      "L": 128
+    },
+    "name": "forward_output_layer<128, 1>",
+    "stores": {
+      "G": 128,
+      "L": 1
+    },
+    "total_instructions": 6915
+  }
+}

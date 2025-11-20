@@ -52,7 +52,7 @@ struct Context {
 static Params P = {
     { {
 {
-{ weight_t(3.45665607e-01), weight_t(9.25061342e-01), weight_t(2.62609854e-01), weight_t(-3.43666161e-01), weight_t(-9.77805157e-01), weight_t(8.52135613e-01), weight_t(-9.37779159e-01), weight_t(2.12651782e-01) }
+{ weight_t(2.99676876e-01), weight_t(8.56992282e-01), weight_t(6.65062285e-01), weight_t(9.98386316e-02), weight_t(4.80301464e-01), weight_t(-1.48001512e-01), weight_t(-5.70629686e-01), weight_t(7.28327780e-01) }
 }
 } }
 };

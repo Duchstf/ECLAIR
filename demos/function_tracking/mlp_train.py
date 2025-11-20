@@ -13,14 +13,14 @@ t_series, x_series, y_series = build_time_series(NUM_SAMPLES)
 #------------------------------- MODEL -----------------------------
 config = {
     #Model architecture
-    'layer_sizes': [1, 128, 1],
-    # 'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    # 'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
-    # 'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'layer_sizes': [1, 2, 1],
+    'model_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'input_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
+    'output_precision': 'ap_fixed<16, 6, AP_RND_CONV, AP_SAT>',
 
-    'model_precision': 'float',
-    'input_precision': 'float',
-    'output_precision': 'float',
+    # 'model_precision': 'float',
+    # 'input_precision': 'float',
+    # 'output_precision': 'float',
     
     #Others
     'model_name': 'mlp_model',

@@ -40,6 +40,9 @@ class Eclair:
 
         self.learning_rate = config['learning_rate']
 
+        #Number of trainable parameters
+        self.num_trainable_params = self._calculate_num_trainable_params()
+
         #Keep track of the inputs and outputs of the layers
         self.layer_vars_forward = ['input']
         self.layer_vars_forward.extend([f'layer{i}_out' for i in range(1,  len(self.layer_sizes) - 1)])
@@ -63,8 +66,14 @@ class Eclair:
 
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
         print("Setting up ECLAIR framework ...")
+        print(f"Number of trainable parameters: {self.num_trainable_params}")
         self._create_model()
-    
+
+    #----------------------------HELPERS---------------------------------
+    def _calculate_num_trainable_params(self):
+        """Calculates the number of trainable parameters in the model."""
+        return sum(self.layer_sizes[i] * self.layer_sizes[i+1] * (self.spline_order + self.grid_size) for i in range(self.num_layers))
+
     #----------------------------WRITERS---------------------------------
     def _create_model(self):
 
@@ -200,8 +209,10 @@ class Eclair:
             in_dim = self.layer_sizes[i]
             out_dim = self.layer_sizes[i+1]
 
-            W = np.random.uniform(-1, 1, size=(out_dim, in_dim, self.spline_order + self.grid_size))
+            #Use kaiming initialization
+            std = np.sqrt(1 / in_dim)
 
+            W = np.random.uniform(-std, std, size=(out_dim, in_dim, self.spline_order + self.grid_size))
             W_cpp = tools.format_cpp_array(W)
 
             # Wrap the array in braces to match the struct member initialization

@@ -1,0 +1,138 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="relu" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="relu_grad" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:29:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:36:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:43:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:66:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_output_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:73:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_output_layer" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:80:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="forward_output_layer" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:102:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:121:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_input" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:145:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:151:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:168:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:203:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_output" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:209:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_output" ARG_PragmaIsValid="1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="./components.h:222:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="backward_output" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/dhoang/ECLAIR/demos/function_tracking/mlp_model/firmware/build.tcl:24:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="mlp" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=mlp" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mlp.cpp:14:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mlp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=input complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mlp.cpp:15:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mlp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=output complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="mlp.cpp:16:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="mlp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=feedback complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./components.h:109:38" msg_body="Inlining function 'relu_grad(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;)' into 'void backward_input&lt;1, 128, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;(LayerParams&lt;1, 128&gt;&amp;, LayerContext&lt;1, 128&gt; const&amp;, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)'">
+        <args Callee="relu_grad(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;)" Callee-DebugLoc="File ./components.h Line 13 Column 0" Caller="void backward_input&lt;1, 128, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;(LayerParams&lt;1, 128&gt;&amp;, LayerContext&lt;1, 128&gt; const&amp;, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*)" Caller-DebugLoc="File ./components.h Line 100 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="./components.h:51:16" msg_body="Inlining function 'relu(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;)' into 'void forward_layer&lt;1, 128&gt;(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, LayerParams&lt;1, 128&gt; const&amp;, LayerContext&lt;1, 128&gt;&amp;)'">
+        <args Callee="relu(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;)" Callee-DebugLoc="File ./components.h Line 8 Column 0" Caller="void forward_layer&lt;1, 128&gt;(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, LayerParams&lt;1, 128&gt; const&amp;, LayerContext&lt;1, 128&gt;&amp;)" Caller-DebugLoc="File ./components.h Line 24 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:79:9" msg_body="Loop 'FWD_I' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="FWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:42:9" msg_body="Loop 'FWD_I' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="FWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:120:20" msg_body="Loop 'BWD_I_UPD' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="BWD_I_UPD"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="./components.h:221:17" msg_body="Loop 'BWD_I' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="BWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:61:0" msg_body="Unrolling loop 'FWD_I' (./components.h:79:9) in function 'forward_output_layer&lt;128, 1&gt;' completely with a factor of 128">
+        <args Factor="128" LoopLoc="./components.h:79:9" LoopName="FWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:61:0" msg_body="Unrolling loop 'COPY_X' (./components.h:65:5) in function 'forward_output_layer&lt;128, 1&gt;' completely with a factor of 128">
+        <args Factor="128" LoopLoc="./components.h:65:5" LoopName="COPY_X"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:24:0" msg_body="Unrolling loop 'FWD_I' (./components.h:42:9) in function 'forward_layer&lt;1, 128&gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="./components.h:42:9" LoopName="FWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:24:0" msg_body="Unrolling loop 'COPY_X' (./components.h:28:5) in function 'forward_layer&lt;1, 128&gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="./components.h:28:5" LoopName="COPY_X"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:100:0" msg_body="Unrolling loop 'BWD_I_UPD' (./components.h:120:20) in function 'backward_input&lt;1, 128, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="./components.h:120:20" LoopName="BWD_I_UPD"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:199:0" msg_body="Unrolling loop 'BWD_I' (./components.h:221:17) in function 'backward_output&lt;128, 1, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;' completely with a factor of 128">
+        <args Factor="128" LoopLoc="./components.h:221:17" LoopName="BWD_I"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="./components.h:199:0" msg_body="Unrolling loop 'INIT_DX' (./components.h:202:15) in function 'backward_output&lt;128, 1, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; &gt;' completely with a factor of 128">
+        <args Factor="128" LoopLoc="./components.h:202:15" LoopName="INIT_DX"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="mlp.cpp:8:0" msg_body="Inlining function 'void forward_layer&lt;1, 128&gt;(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, LayerParams&lt;1, 128&gt; const&amp;, LayerContext&lt;1, 128&gt;&amp;)' into 'mlp(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_uint&lt;2&gt;)'">
+        <args Callee="void forward_layer&lt;1, 128&gt;(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, LayerParams&lt;1, 128&gt; const&amp;, LayerContext&lt;1, 128&gt;&amp;)" Callee-DebugLoc="File ./components.h Line 24 Column 0" Caller="mlp(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_uint&lt;2&gt;)" Caller-DebugLoc="File mlp.cpp Line 8 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mlp.cpp:8:0" msg_body="Applying array_partition to 'input': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="input"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mlp.cpp:8:0" msg_body="Applying array_partition to 'output': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="output"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mlp.cpp:8:0" msg_body="Applying array_partition to 'feedback': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="feedback"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="./parameters.h:32:0" msg_body="Automatically partitioning small array '_ZL1P.L1.b' completely based on array size.">
+        <args Value="_ZL1P.L1.b"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-421" msg_severity="INFO" msg_loc="mlp.cpp:11:0" msg_body="Automatically partitioning small array '_ZZ3mlpPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_7ap_uintILi2EEE1C.C0.x_copy' completely based on array size.">
+        <args Value="_ZZ3mlpPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_7ap_uintILi2EEE1C.C0.x_copy"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="./parameters.h:32:0" msg_body="array_partition dim=1 type=complete  variable=_ZL1P.L1.b 1 mlp ./parameters.h:32:0 P (.L1.b)">
+        <args PragmaFunction="mlp" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZL1P.L1.b" PragmaType="array_partition" VarName="P (.L1.b)" varLoc="./parameters.h:32:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="./parameters.h:32:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'P (.L1.b)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="P (.L1.b)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="mlp.cpp:11:0" msg_body="array_partition dim=1 type=complete  variable=_ZZ3mlpPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_7ap_uintILi2EEE1C.C0.x_copy 1 mlp mlp.cpp:11:0 mlp(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_uint&lt;2&gt;)::C (.C0.x_copy)">
+        <args PragmaFunction="mlp" PragmaIsAuto="1" PragmaOptions="dim=1 type=complete  variable=_ZZ3mlpPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_7ap_uintILi2EEE1C.C0.x_copy" PragmaType="array_partition" VarName="mlp(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_uint&lt;2&gt;)::C (.C0.x_copy)" varLoc="mlp.cpp:11:0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="mlp.cpp:11:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'mlp(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_uint&lt;2&gt;)::C (.C0.x_copy)' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="mlp(ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt;*, ap_fixed&lt;16, 6, (ap_q_mode)4, (ap_o_mode)0, 0&gt; const*, ap_uint&lt;2&gt;)::C (.C0.x_copy)" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="mlp.cpp:11:0" msg_body="Applying array_partition to '_ZZ3mlpPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_7ap_uintILi2EEE1C.C0.x_copy': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ3mlpPK8ap_fixedILi16ELi6EL9ap_q_mode4EL9ap_o_mode0ELi0EEPS2_S4_7ap_uintILi2EEE1C.C0.x_copy"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="./parameters.h:32:0" msg_body="Applying array_partition to '_ZL1P.L1.b': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZL1P.L1.b"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

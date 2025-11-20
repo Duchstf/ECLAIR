@@ -1,15 +1,15 @@
 # Usage:
 #   vitis_hls build.tcl
 
-#If Eclair directory exists remove it
-if {[file exists "eclair"]} {
-    file delete -force "eclair"
+#If MLP directory exists remove it
+if {[file exists "mlp"]} {
+    file delete -force "mlp"
 }
 
-open_project -reset eclair
+open_project -reset mlp
 
-set_top eclair
-add_files eclair.cpp
+set_top mlp
+add_files mlp.cpp
 
 #Reset solution
 open_solution -reset "solution"

@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'mlp'" level="0">
+<item name = "Date">Wed Nov 19 15:49:41 2025
+</item>
+<item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
+<item name = "Project">mlp</item>
+<item name = "Solution">solution (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu13p-flga2577-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 3.599 ns, 1.35 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">265, 1418, 1.325 us, 7.090 us, 266, 1419, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_mlp_Pipeline_FWD_O_fu_89">mlp_Pipeline_FWD_O, 131, 131, 0.655 us, 0.655 us, 129, 129, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+<column name="grp_forward_output_layer_128_1_s_fu_103">forward_output_layer_128_1_s, 130, 130, 0.650 us, 0.650 us, 130, 130, no</column>
+<column name="grp_backward_output_128_1_ap_fixed_16_6_4_0_0_s_fu_115">backward_output_128_1_ap_fixed_16_6_4_0_0_s, 1152, 1152, 5.760 us, 5.760 us, 1152, 1152, no</column>
+<column name="grp_backward_input_1_128_ap_fixed_16_6_4_0_0_s_fu_128">backward_input_1_128_ap_fixed_16_6_4_0_0_s, 262, 262, 1.310 us, 1.310 us, 262, 262, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

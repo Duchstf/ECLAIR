@@ -46,12 +46,20 @@ class MLP:
         self.fpga_part = config['fpga_part']
         self.clock_period = config['clock_period']
 
-        #HLS Implementation
+        #Count the number of parameters
+        self.num_trainable_params = self._calculate_num_trainable_params()
 
         #Create the model using HLS backend and compile it to a CPU-loadable shared library
         print("Setting up MLP-ECLAIR framework ...")
+        print(f"Number of trainable parameters: {self.num_trainable_params}")
         self._create_model()
     
+    #----------------------------HELPERS---------------------------------
+    def _calculate_num_trainable_params(self):
+        """Calculates the number of trainable parameters in the model."""
+        #Weights and biases
+        return sum(self.layer_sizes[i] * self.layer_sizes[i+1] + self.layer_sizes[i+1] for i in range(self.num_layers))
+
     #----------------------------WRITERS---------------------------------
     def _create_model(self):
 
@@ -323,7 +331,7 @@ class MLP:
     def _write_build_tcl(self):
 
         # Path to template
-        template_path = os.path.join(os.path.dirname(__file__), "templates/eclair/build.tcl")
+        template_path = os.path.join(os.path.dirname(__file__), "templates/mlp/build.tcl")
         outfile_path = f"{self.model_dir}/firmware/build.tcl"
 
         #Replace the variables with user defined

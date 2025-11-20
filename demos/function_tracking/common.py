@@ -79,7 +79,6 @@ def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_f
     ax1.set_ylim(x_data.min() - xpad, x_data.max() + xpad)
     ax1.set_ylabel("x(t)")
     ax1.legend(loc="upper left")
-    title_text = ax1.set_title(f"Final State (t = {int(t_data[-1])})") # Title on the top plot
 
     # --- Plot 2: y vs t ---
     ax2.plot(t_data, y_data, lw=2, label="y(t) (True)", color="C1")
@@ -111,7 +110,7 @@ def save_static_four_plots(t_data, x_data, y_data, y_pred_data, loss_data, out_f
     ax4.legend(loc="upper left")
 
     # --- Common settings ---
-    ax4.set_xlabel("time t") # Label only on the bottom plot
+    ax4.set_xlabel("Time step [A.U.]") # Label only on the bottom plot
     ax1.set_xlim(t_data.min(), t_data.max()) # Set common x-limits
     
     plt.tight_layout() # Adjust layout

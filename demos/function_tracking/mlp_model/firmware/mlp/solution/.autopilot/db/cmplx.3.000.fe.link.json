@@ -1,0 +1,125 @@
+{
+  "0": {
+    "basicblocks": 4,
+    "calls": "9 4 1 8",
+    "file": "mlp.cpp",
+    "fileloc": 5,
+    "instructions": 29,
+    "name": "mlp",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 7774
+  },
+  "1": {
+    "basicblocks": 19,
+    "calls": "6",
+    "file": "components.h",
+    "fileloc": 19,
+    "instructions": 81,
+    "loads": {
+      "L": 5
+    },
+    "name": "forward_layer<1, 128>",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 1396
+  },
+  "2": {
+    "basicblocks": 4,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 13,
+    "instructions": 15,
+    "name": "relu_grad",
+    "total_instructions": 934
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "parameters.h",
+    "fileloc": 32,
+    "instructions": 386,
+    "name": "__cxx_global_var_init.1",
+    "total_instructions": 280281
+  },
+  "4": {
+    "basicblocks": 13,
+    "calls": "2",
+    "file": "components.h",
+    "fileloc": 96,
+    "instructions": 94,
+    "loads": {
+      "L": 2
+    },
+    "name": "backward_input<1, 128, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 2997
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "defines.h",
+    "fileloc": 17,
+    "instructions": 2,
+    "name": "__cxx_global_var_init",
+    "total_instructions": 729
+  },
+  "6": {
+    "basicblocks": 4,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 8,
+    "instructions": 16,
+    "loads": {
+      "L": 1
+    },
+    "name": "relu",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 632
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "5 3",
+    "file": "mlp.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 3,
+    "name": "",
+    "total_instructions": 281013
+  },
+  "8": {
+    "basicblocks": 19,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 56,
+    "instructions": 67,
+    "loads": {
+      "L": 3
+    },
+    "name": "forward_output_layer<128, 1>",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 750
+  },
+  "9": {
+    "basicblocks": 19,
+    "calls": "",
+    "file": "components.h",
+    "fileloc": 194,
+    "instructions": 111,
+    "loads": {
+      "L": 3
+    },
+    "name": "backward_output<128, 1, ap_fixed<16, 6, AP_RND_CONV, AP_SAT, 0> >",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 2576
+  }
+}

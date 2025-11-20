@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "mlp",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "mlp"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/home/dhoang/ECLAIR/demos/function_tracking/mlp_model/firmware/build.tcl",
+    "sourceLine": 24,
+    "success": true
+  }
+]
